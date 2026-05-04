@@ -59,30 +59,30 @@ export const ProjectListSection = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="py-20 md:py-32 bg-[#F6F9F8] overflow-hidden w-full">
-      <div className="flex flex-col gap-16 md:gap-32 w-full">
+    <section ref={containerRef} className="py-16 md:py-24 bg-[#F6F9F8] overflow-hidden w-full">
+      <div className="flex flex-col gap-12 md:gap-20 w-full">
           {listItems.map((item, index) => (
             <div 
               key={index}
               ref={el => { rowsRef.current[index] = el; }}
-              className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-0 w-full"
+              className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0 w-full"
             >
               {/* Text Content */}
-              <div className="w-full md:w-4/12 pl-6 md:pl-[max(3rem,calc((100vw-1400px)/2))] pr-6 md:pr-12 lg:pr-24 flex flex-col justify-center">
-                <h2 className="font-inter font-bold text-3xl md:text-[36px] leading-[1.2] tracking-[-1px] text-black mb-4 whitespace-pre-line">
+              <div className="w-full md:w-4/12 pl-4 md:pl-[max(2rem,calc((100vw-1152px)/2))] pr-4 md:pr-10 lg:pr-16 flex flex-col justify-center py-4 md:py-0">
+                <h2 className="font-inter font-bold text-xl md:text-2xl lg:text-[26px] leading-[1.2] tracking-[-0.5px] text-black mb-2 whitespace-pre-line">
                   {item.title}
                 </h2>
-                <p className="font-inter text-base md:text-[18px] leading-[1.5] tracking-[-0.3px] text-black/80 font-normal whitespace-pre-line">
+                <p className="font-inter text-xs md:text-sm lg:text-[14px] leading-[1.5] tracking-[-0.2px] text-black/75 font-normal whitespace-pre-line">
                   {item.description}
                 </p>
               </div>
 
               {/* Image Content */}
-              <div className="w-full md:w-8/12 flex justify-end pl-0 md:pl-10">
+              <div className="w-full md:w-8/12 flex justify-end pl-0 md:pl-8">
                 <img 
                   src={item.image} 
                   alt={item.title.replace(/\n/g, ' ')}
-                  className="w-full h-auto object-cover rounded-l-2xl md:rounded-l-[40px] shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
+                  className="w-full h-auto object-cover rounded-l-2xl md:rounded-l-[32px] shadow-[0_16px_48px_rgba(0,0,0,0.12)]"
                   loading="lazy"
                 />
               </div>

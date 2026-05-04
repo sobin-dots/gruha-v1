@@ -40,81 +40,62 @@ export const BlogSection = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Horizontal Scroll
-      if (sectionRef.current && scrollContainerRef.current) {
-        const container = scrollContainerRef.current;
-        
-        const getScrollAmount = () => {
-          const containerWidth = container.scrollWidth;
-          return -(containerWidth - window.innerWidth);
-        };
+    // Only apply GSAP horizontal scroll on md+ screens (768px+)
+    const mm = gsap.matchMedia();
+    mm.add("(min-width: 768px)", () => {
+      const ctx = gsap.context(() => {
+        if (sectionRef.current && scrollContainerRef.current) {
+          const container = scrollContainerRef.current;
+          
+          const getScrollAmount = () => {
+            const containerWidth = container.scrollWidth;
+            return -(containerWidth - window.innerWidth);
+          };
 
-        const tween = gsap.to(container, {
-          x: getScrollAmount,
-          ease: "none"
-        });
+          const tween = gsap.to(container, {
+            x: getScrollAmount,
+            ease: "none"
+          });
 
-        ScrollTrigger.create({
-          trigger: sectionRef.current,
-          start: "top top",
-          end: () => `+=${getScrollAmount() * -1}`,
-          pin: true,
-          animation: tween,
-          scrub: true, // changed from 1 to true to remove floating parallax feel
-          invalidateOnRefresh: true
-        });
-      }
-    }, wrapperRef);
+          ScrollTrigger.create({
+            trigger: sectionRef.current,
+            start: "top top",
+            end: () => `+=${getScrollAmount() * -1}`,
+            pin: true,
+            animation: tween,
+            scrub: true,
+            invalidateOnRefresh: true
+          });
+        }
+      }, wrapperRef);
+      return () => ctx.revert();
+    });
 
-    return () => ctx.revert();
+    return () => mm.revert();
   }, []);
 
   return (
     <div ref={wrapperRef} className="w-full relative block">
-      <section ref={sectionRef} className="py-16 bg-white overflow-hidden min-h-screen flex flex-col justify-center">
-
-      {/* Horizontal Scroll Container */}
-      <div className="w-full relative">
-        <div 
-          ref={scrollContainerRef}
-          className="flex flex-nowrap gap-8 md:gap-12 pb-12 pt-4 px-6 md:px-12 w-max"
-          style={{
-            // Use padding left to align with container on large screens
-            paddingLeft: 'max(1.5rem, calc((100vw - 1400px) / 2 + 3rem))',
-            paddingRight: 'max(1.5rem, calc((100vw - 1400px) / 2 + 3rem))',
-            scrollbarWidth: 'none', /* Firefox */
-            msOverflowStyle: 'none',  /* IE and Edge */
-          }}
-        >
+      {/* Mobile: vertical card list */}
+      <div className="md:hidden py-12 px-4 bg-white">
+        <div className="flex flex-col gap-6">
           {blogCards.map((card, index) => (
-            <div 
-              key={index} 
-              className="flex-shrink-0 snap-start bg-[#F8F7F3] rounded-3xl overflow-hidden flex flex-col shadow-xl select-none"
-              style={{
-                // Calculate width to show exactly 2.25 cards in the viewport width
-                // Adjusting for gaps (gap-12 = 48px)
-                width: 'calc((100vw - 96px) / 2.25)',
-                minWidth: '320px', // Fallback for very small screens
-                maxWidth: '600px', // Prevent being ridiculously large on ultrawides
-              }}
+            <div
+              key={index}
+              className="w-full bg-[#F8F7F3] rounded-2xl overflow-hidden flex flex-col shadow-md"
             >
-              {/* Card Image - Fixed Aspect Ratio for even height */}
-              <div className="w-full bg-[#111] border-b border-gray-200 aspect-[1.15] md:aspect-[4/3] relative pointer-events-none">
-                <img 
-                  src={card.image} 
-                  alt={card.title} 
-                  className="absolute inset-0 w-full h-full object-cover rounded-t-3xl"
-                  draggable={false}
+              <div className="w-full aspect-[4/3] relative bg-[#111]">
+                <img
+                  src={card.image}
+                  alt={card.title}
+                  className="absolute inset-0 w-full h-full object-cover rounded-t-2xl"
                 />
               </div>
-              
-              {/* Card Content */}
-              <div className="p-8 md:p-10 flex flex-col flex-grow bg-[#FAF7F2]">
-                <h3 className="font-inter text-3xl md:text-[34px] font-bold text-black mb-5 leading-[1.15] tracking-tight">
+              <div className="p-5 bg-[#FAF7F2]">
+                <h3 className="font-inter text-lg font-bold text-black mb-2 leading-tight tracking-tight">
                   {card.title}
                 </h3>
-                <p className="font-inter text-[17px] md:text-[20px] text-gray-800 leading-[1.5] font-normal tracking-[-0.01em]">
+                <p className="font-inter text-sm text-gray-700 leading-[1.5] font-normal">
                   {card.description}
                 </p>
               </div>
@@ -123,13 +104,57 @@ export const BlogSection = () => {
         </div>
       </div>
 
-      {/* Inject styles for hiding scrollbar in WebKit */}
+      {/* Desktop: GSAP horizontal scroll */}
+      <section ref={sectionRef} className="hidden md:flex py-16 bg-white overflow-hidden min-h-screen flex-col justify-center">
+        <div className="w-full relative">
+          <div 
+            ref={scrollContainerRef}
+            className="flex flex-nowrap gap-8 md:gap-12 pb-12 pt-4 px-6 md:px-12 w-max"
+            style={{
+              paddingLeft: 'max(1.5rem, calc((100vw - 1152px) / 2 + 3rem))',
+              paddingRight: 'max(1.5rem, calc((100vw - 1152px) / 2 + 3rem))',
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+            }}
+          >
+            {blogCards.map((card, index) => (
+              <div 
+                key={index} 
+                className="flex-shrink-0 snap-start bg-[#F8F7F3] rounded-3xl overflow-hidden flex flex-col shadow-xl select-none"
+                style={{
+                  width: 'calc((100vw - 96px) / 2.25)',
+                  minWidth: '320px',
+                  maxWidth: '600px',
+                }}
+              >
+                <div className="w-full bg-[#111] border-b border-gray-200 aspect-[4/3] relative pointer-events-none">
+                  <img 
+                    src={card.image} 
+                    alt={card.title} 
+                    className="absolute inset-0 w-full h-full object-cover rounded-t-3xl"
+                    draggable={false}
+                  />
+                </div>
+                
+                <div className="p-8 md:p-10 flex flex-col flex-grow bg-[#FAF7F2]">
+                  <h3 className="font-inter text-2xl md:text-[28px] font-bold text-black mb-4 leading-[1.15] tracking-tight">
+                    {card.title}
+                  </h3>
+                  <p className="font-inter text-[15px] md:text-[17px] text-gray-700 leading-[1.5] font-normal tracking-[-0.01em]">
+                    {card.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <style dangerouslySetInnerHTML={{__html: `
         .hide-scrollbar::-webkit-scrollbar {
           display: none;
         }
       `}} />
-    </section>
     </div>
   );
 };

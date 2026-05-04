@@ -69,31 +69,31 @@ export const AppFeaturesSection = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="py-24 md:py-32 bg-[#F9F0E5] overflow-hidden">
-      <div className="container mx-auto px-6 md:px-12 max-w-[1400px]">
-        <div className="flex flex-col gap-24 md:gap-40">
+    <section ref={containerRef} className="py-12 md:py-16 lg:py-24 bg-[#F9F0E5] overflow-hidden">
+      <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+        <div className="flex flex-col gap-12 md:gap-16 lg:gap-28">
           {features.map((feature, index) => (
             <div 
               key={index}
               ref={el => { rowsRef.current[index] = el; }}
-              className={`flex flex-col ${feature.imageFirst ? 'md:flex-row-reverse' : 'md:flex-row'} items-center justify-between gap-16 md:gap-32`}
+              className={`flex flex-col ${feature.imageFirst ? 'md:flex-row-reverse' : 'md:flex-row'} items-center justify-between gap-6 md:gap-10 lg:gap-16`}
             >
               {/* Text Content */}
               <div className="w-full md:w-5/12 flex flex-col justify-center">
-                <h2 className="font-inter font-bold text-3xl md:text-[36px] leading-[1.2] tracking-[-1px] text-black mb-4 whitespace-pre-line">
+                <h2 className="font-inter font-bold text-2xl md:text-[28px] leading-[1.2] tracking-[-0.5px] text-black mb-3 whitespace-pre-line">
                   {feature.title}
                 </h2>
-                <p className="font-inter text-base md:text-[18px] leading-[1.6] tracking-[-0.3px] text-black/80 font-normal">
+                <p className="font-inter text-sm md:text-[15px] leading-[1.6] tracking-[-0.2px] text-black/70 font-normal">
                   {feature.description}
                 </p>
               </div>
 
-              {/* Image Content */}
-              <div className="w-full md:w-1/2 flex justify-center">
+              {/* Image Content - always shows first on mobile */}
+              <div className="w-full md:w-1/2 flex justify-center order-first md:order-none">
                 <img 
                   src={feature.image} 
                   alt={feature.title.replace(/\n/g, ' ')}
-                  className="w-full max-w-[540px] h-auto object-contain rounded-2xl shadow-2xl drop-shadow-2xl"
+                  className="w-full max-w-[360px] md:max-w-[480px] h-auto object-contain rounded-xl shadow-xl"
                   loading="lazy"
                 />
               </div>

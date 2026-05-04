@@ -72,9 +72,9 @@ export const ProjectTowerSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 md:py-32 bg-[#FFF] overflow-hidden">
-      <div className="container mx-auto px-6 md:px-12 max-w-[1400px]">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-20">
+    <section ref={sectionRef} className="py-12 md:py-16 lg:py-24 bg-[#FFF] overflow-hidden">
+      <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
           
           {/* Left Video/Character */}
           <div className="w-full md:w-5/12 flex justify-center md:justify-start">
@@ -84,48 +84,48 @@ export const ProjectTowerSection = () => {
               loop 
               muted 
               playsInline
-              className="w-full max-w-[450px] h-auto object-contain"
+              className="w-full max-w-[280px] md:max-w-[380px] h-auto object-contain"
             />
           </div>
 
           {/* Right Content */}
-          <div className="w-full md:w-7/12 flex flex-col items-start pt-10 md:pt-0">
+          <div className="w-full md:w-7/12 flex flex-col items-start pt-0 md:pt-6">
             <div ref={textRef} className="w-full">
-              <h2 className="font-fraunces font-semibold text-[48px] md:text-[64px] leading-none text-black mb-4">
+              <h2 className="font-fraunces font-semibold text-[28px] md:text-[36px] lg:text-[44px] leading-none text-black mb-1">
                 04
               </h2>
               
-              <h2 className="font-fraunces font-semibold text-[52px] md:text-[76px] leading-[1.05] tracking-[-2px] text-black mb-8">
+              <h2 className="font-fraunces font-semibold text-[24px] md:text-[38px] lg:text-[52px] leading-[1.05] tracking-[-1px] md:tracking-[-1.5px] text-black mb-4 md:mb-5">
                 Project <span className="font-normal italic">&</span> Tower<br />
                 Intelligence
               </h2>
               
-              <div className="w-24 h-1 bg-[#FE6235] mb-12"></div>
+              <div className="w-10 md:w-16 h-0.5 bg-[#FE6235] mb-5 md:mb-8"></div>
               
-              <p className="font-inter text-3xl md:text-[38px] text-gray-800 font-light leading-[1.2] tracking-[-0.5px] mb-16">
+              <p className="font-inter text-base md:text-xl lg:text-[28px] text-gray-700 font-light leading-[1.2] tracking-[-0.5px] mb-6 md:mb-10">
                 Big decisions need the full<br className="hidden md:block" /> picture.
               </p>
             </div>
 
             {/* Feature Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6 w-full">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 w-full">
               {features.map((feature, index) => (
                 <div 
                   key={index} 
                   ref={el => { featuresRef.current[index] = el; }}
                   className="flex flex-col items-start"
                 >
-                  <div className="mb-5 h-12 flex items-end">
+                  <div className="mb-3 h-9 flex items-end">
                     <img 
                       src={feature.icon} 
                       alt={feature.title} 
-                      className="w-10 h-auto object-contain"
+                      className="w-8 h-auto object-contain"
                     />
                   </div>
-                  <h3 className="font-inter text-[15px] font-semibold text-black mb-2 leading-tight">
+                  <h3 className="font-inter text-[13px] font-semibold text-black mb-1 leading-tight">
                     {feature.title}
                   </h3>
-                  <p className="font-inter text-[13px] text-gray-500 leading-[1.4]">
+                  <p className="font-inter text-[12px] text-gray-500 leading-[1.4]">
                     {feature.description}
                   </p>
                 </div>

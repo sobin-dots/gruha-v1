@@ -69,41 +69,39 @@ export const LocationCardsSection = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="pb-24 md:pb-40 bg-[#F5F5F5] overflow-hidden">
-      <div className="container mx-auto px-6 md:px-12 max-w-[1400px]">
-        <div className="flex flex-col gap-20 md:gap-32">
+    <section ref={containerRef} className="pb-12 md:pb-16 lg:pb-24 bg-[#F5F5F5] overflow-hidden">
+      <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+        <div className="flex flex-col gap-12 md:gap-16 lg:gap-24">
           {cards.map((card, index) => {
-            // Even index (0, 2, 4) -> Image Left
-            // Odd index (1, 3) -> Text Left
             const isImageLeft = index % 2 === 0;
 
             return (
               <div 
                 key={index}
                 ref={el => { rowsRef.current[index] = el; }}
-                className={`flex flex-col ${isImageLeft ? 'md:flex-row' : 'md:flex-row-reverse'} items-center justify-between gap-12 md:gap-20`}
+                className={`flex flex-col ${isImageLeft ? 'md:flex-row' : 'md:flex-row-reverse'} items-center justify-between gap-6 md:gap-10 lg:gap-16`}
               >
                 {/* Image Content */}
                 <div className="w-full md:w-7/12 flex justify-center">
                   <img 
                     src={card.image} 
                     alt={card.title}
-                    className="w-full h-auto object-cover rounded-[24px] shadow-2xl drop-shadow-lg"
+                    className="w-full h-auto object-cover rounded-2xl md:rounded-[18px] shadow-lg md:shadow-xl"
                     loading="lazy"
                   />
                 </div>
 
                 {/* Text Content */}
                 <div className="w-full md:w-5/12 flex flex-col justify-center">
-                  <span className="font-inter text-[28px] text-gray-300 font-semibold leading-none tracking-tight">
+                  <span className="font-inter text-[20px] text-gray-300 font-semibold leading-none tracking-tight">
                     {card.id}
                   </span>
-                  <div className="w-10 h-[3px] bg-[#48C4A9] mt-3 mb-6"></div>
+                  <div className="w-8 h-[2px] bg-[#48C4A9] mt-2 mb-4"></div>
                   
-                  <h2 className="font-inter font-bold text-3xl md:text-[38px] leading-[1.1] tracking-[-1px] text-black mb-6 whitespace-pre-line">
+                  <h2 className="font-inter font-bold text-2xl md:text-[28px] leading-[1.1] tracking-[-0.5px] text-black mb-4 whitespace-pre-line">
                     {card.title}
                   </h2>
-                  <p className="font-inter text-[17px] md:text-[19px] leading-[1.5] tracking-[-0.3px] text-gray-700 font-normal">
+                  <p className="font-inter text-sm md:text-[15px] leading-[1.5] tracking-[-0.2px] text-gray-700 font-normal">
                     {card.description}
                   </p>
                 </div>

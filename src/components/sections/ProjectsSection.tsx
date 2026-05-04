@@ -71,9 +71,9 @@ export const ProjectsSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-[#F9F9F9] overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-16 lg:gap-24">
+    <section ref={sectionRef} className="py-12 md:py-16 bg-[#F9F9F9] overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 md:px-8">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 lg:gap-16">
           
           {/* Left Image */}
           <div className="w-full md:w-5/12 flex justify-center items-end">
@@ -81,7 +81,7 @@ export const ProjectsSection = () => {
               ref={imageRef}
               src="/assets/02-projects/character-men.png" 
               alt="Kabir - Projects Curator" 
-              className="w-full max-w-[450px] h-auto object-contain"
+              className="w-full max-w-[280px] md:max-w-[380px] h-auto object-contain"
             />
           </div>
           
@@ -89,17 +89,17 @@ export const ProjectsSection = () => {
           <div ref={contentRef} className="w-full md:w-6/12 flex flex-col justify-center">
             
             {/* Header */}
-            <div className="mb-12">
-              <h2 className="font-fraunces text-5xl md:text-[64px] text-black leading-[1.1] mb-2 tracking-tight">
+            <div className="mb-6 md:mb-8">
+              <h2 className="font-fraunces text-3xl md:text-4xl lg:text-[44px] text-black leading-[1.1] mb-1 tracking-tight">
                 02
               </h2>
-              <h2 className="font-fraunces text-5xl md:text-[64px] text-black leading-[1.1] mb-6 tracking-tight">
+              <h2 className="font-fraunces text-3xl md:text-4xl lg:text-[44px] text-black leading-[1.1] mb-3 tracking-tight">
                 Projects
               </h2>
               
-              <div className="w-16 h-1 bg-[#FE6235] mb-10 rounded-full"></div>
+              <div className="w-10 h-0.5 bg-[#FE6235] mb-4 rounded-full"></div>
               
-              <p className="font-inter text-2xl md:text-3xl text-gray-800 leading-[1.4] font-normal">
+              <p className="font-inter text-base md:text-lg lg:text-xl text-gray-700 leading-[1.4] font-normal">
                 Bengaluru is building 2,000+.<br className="hidden md:block" />
                 Kabir shows you only yours.
               </p>
@@ -110,10 +110,10 @@ export const ProjectsSection = () => {
               {features.map((feature, index) => (
                 <div 
                   key={index} 
-                  className={`flex items-start py-8 ${index !== features.length - 1 ? 'border-b border-gray-200' : ''}`}
+                  className={`flex items-start py-5 ${index !== features.length - 1 ? 'border-b border-gray-200' : ''}`}
                 >
                   {/* Icon */}
-                  <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center mr-6 md:mr-8 pt-1">
+                  <div className="w-9 h-9 flex-shrink-0 flex items-center justify-center mr-5 md:mr-6 pt-0.5">
                     <img 
                       src={feature.icon} 
                       alt="" 
@@ -123,10 +123,10 @@ export const ProjectsSection = () => {
                   
                   {/* Text */}
                   <div className="flex flex-col">
-                    <h3 className="font-inter text-xl md:text-[22px] font-bold text-black mb-2 tracking-tight">
+                    <h3 className="font-inter text-base md:text-[18px] font-bold text-black mb-1 tracking-tight">
                       {feature.title}
                     </h3>
-                    <p className="font-inter text-[15px] md:text-base text-gray-800 leading-relaxed font-medium whitespace-pre-line">
+                    <p className="font-inter text-[13px] md:text-sm text-gray-700 leading-relaxed font-medium whitespace-pre-line">
                       {feature.description}
                     </p>
                   </div>

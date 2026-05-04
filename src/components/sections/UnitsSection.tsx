@@ -84,7 +84,7 @@ export const UnitsSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-[#E5D7C6] overflow-hidden min-h-[800px] flex items-center">
+    <section ref={sectionRef} className="relative w-full bg-[#E5D7C6] overflow-hidden min-h-[700px] flex items-center">
       
       {/* Background Image Layer */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
@@ -95,46 +95,46 @@ export const UnitsSection = () => {
         />
       </div>
 
-      <div className="container mx-auto px-6 md:px-12 max-w-[1400px] relative z-10 py-24 md:py-32">
-        <div className="max-w-2xl">
+      <div className="container mx-auto px-4 md:px-8 max-w-6xl relative z-10 py-12 md:py-16 lg:py-24">
+        <div className="max-w-full md:max-w-xl">
           
           {/* Left Content */}
           <div ref={textRef}>
-            <div className="mb-12">
-               <h2 className="font-fraunces text-5xl md:text-[64px] text-black leading-[1.1] mb-2 tracking-tight">
+            <div className="mb-8">
+               <h2 className="font-fraunces text-4xl md:text-[44px] text-black leading-[1.1] mb-1 tracking-tight">
                 03
               </h2>
-              <h2 className="font-fraunces text-5xl md:text-[64px] text-black leading-[1.1] mb-6 tracking-tight">
-                 Home   &amp; Units
+              <h2 className="font-fraunces text-4xl md:text-[44px] text-black leading-[1.1] mb-4 tracking-tight">
+                 Home &amp; Units
               </h2>
               
               
-              <div className="w-16 h-1 bg-[#FE6235] mb-10 rounded-full"></div>
+              <div className="w-12 h-0.5 bg-[#FE6235] mb-6 rounded-full"></div>
               
-              <div className="mt-12">
-                <p className="font-inter text-[32px] md:text-[48px] font-light text-black leading-[1.1] tracking-tight mb-2">
+              <div className="mt-6 md:mt-8">
+                <p className="font-inter text-[18px] md:text-[22px] lg:text-[32px] font-light text-black leading-[1.1] tracking-tight mb-2">
                   Every space tells a story. <br/>
                   Find yours.
                 </p>
               </div>
             </div>
 
-            <div className="mt-16">
-              <h3 className="font-inter text-md md:text-xl font-bold text-black uppercase  mb-10 opacity-90">
+            <div className="mt-10">
+              <h3 className="font-inter text-sm md:text-base font-bold text-black uppercase mb-6 opacity-90">
                 Unit Highlights
               </h3>
               
-              <div ref={highlightsRef} className="space-y-8">
+              <div ref={highlightsRef} className="space-y-5">
                 {highlights.map((item, index) => (
-                  <div key={index} className="flex items-center gap-6">
-                    <div className="w-6 h-6 flex-shrink-0 flex items-center justify-center bg-transparent">
+                  <div key={index} className="flex items-center gap-5">
+                    <div className="w-5 h-5 flex-shrink-0 flex items-center justify-center bg-transparent">
                       <img src={item.icon} alt="" className="w-full h-full object-contain" />
                     </div>
                     <div>
-                      <h4 className="font-inter text-lg md:text-[22px] font-regular text-black leading-tight mb-1 tracking-tight">
+                      <h4 className="font-inter text-base md:text-[18px] font-regular text-black leading-tight mb-0.5 tracking-tight">
                         {item.title}
                       </h4>
-                      <p className="font-inter text-sm md:text-[17px] text-gray-800 font-medium opacity-80 leading-relaxed">
+                      <p className="font-inter text-xs md:text-sm text-gray-700 font-medium opacity-80 leading-relaxed">
                         {item.description}
                       </p>
                     </div>

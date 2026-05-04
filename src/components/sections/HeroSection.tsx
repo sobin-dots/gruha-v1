@@ -77,25 +77,25 @@ export const HeroSection = () => {
   ];
 
   const bottomCards = [
-    { src: "/assets/hero-cards/Property details (1).png", alt: "Privacy Score" },
-    { src: "/assets/hero-cards/Property details (1) (1).png", alt: "Master Plan Intelligence" },
-    { src: "/assets/hero-cards/Property details (1) (2).png", alt: "Sunlight & Orientation" },
-    { src: "/assets/hero-cards/Property details (1) (3).png", alt: "Floor Plan Space Analysis" },
-    { src: "/assets/hero-cards/Property details (1) (4).png", alt: "Location & Traffic Intelligence" },
-    { src: "/assets/hero-cards/Property details (1) (5).png", alt: "Smart Property Services" },
+    { src: "/assets/hero-cards/1.png", alt: "Privacy Score" },
+    { src: "/assets/hero-cards/2.png", alt: "Master Plan Intelligence" },
+    { src: "/assets/hero-cards/3.png", alt: "Sunlight & Orientation" },
+    { src: "/assets/hero-cards/4.png", alt: "Floor Plan Space Analysis" },
+    { src: "/assets/hero-cards/5.png", alt: "Location & Traffic Intelligence" },
+    { src: "/assets/hero-cards/6.png", alt: "Smart Property Services" },
   ];
 
   const bottomRowCards = [
-    { src: "/assets/hero-cards/About 2 (1).png", alt: "About" },
-    { src: "/assets/hero-cards/Price plan 3 (1).png", alt: "Price Plan" },
-    { src: "/assets/hero-cards/Property (1).png", alt: "Property" },
-    { src: "/assets/hero-cards/Property (1) - Copy.png", alt: "Property Details" },
-    { src: "/assets/hero-cards/hm2.png", alt: "Home Match" },
-    { src: "/assets/hero-cards/hm2 - Copy.png", alt: "Home Match Details" },
+    { src: "/assets/hero-cards/7.png", alt: "About" },
+    { src: "/assets/hero-cards/8.png", alt: "Price Plan" },
+    { src: "/assets/hero-cards/9.png", alt: "Property" },
+    { src: "/assets/hero-cards/10.png", alt: "Property Details" },
+    { src: "/assets/hero-cards/1.png", alt: "Home Match" },
+    { src: "/assets/hero-cards/2.png", alt: "Home Match Details" },
   ];
 
   return (
-    <section ref={containerRef} className="relative min-h-screen pt-32  overflow-hidden bg-black flex flex-col justify-between">
+    <section ref={containerRef} className="relative min-h-screen pt-24 overflow-hidden bg-black flex flex-col justify-between">
       {/* Background Image */}
       <div className="hero-bg absolute inset-0 z-0">
         <Image 
@@ -109,37 +109,37 @@ export const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/80 pointer-events-none"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full flex-grow flex flex-col items-center justify-center text-center mt-12 md:mt-0">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-6 w-full flex-grow flex flex-col items-center justify-center text-center mt-8 md:mt-0">
         <h1 
           ref={headlineRef} 
-          className="font-fraunces text-white max-w-5xl mb-6 font-normal text-center"
-          style={{ fontSize: '60px', lineHeight: '61px', letterSpacing: '-1.5px', verticalAlign: 'middle' }}
+          className="font-fraunces text-white max-w-4xl mb-4 font-normal text-center"
+          style={{ fontSize: 'clamp(28px, 6vw, 46px)', lineHeight: '1.1', letterSpacing: '-1px' }}
         >
           {renderHeadline()}
         </h1>
         
         <p 
           ref={subheadlineRef}
-          className="font-inter text-lg md:text-2xl text-gray-200 max-w-3xl mb-10 font-light"
+          className="font-inter text-sm md:text-base text-gray-300 max-w-xl mb-6 font-light px-2"
         >
-          Property search is a painful task. We are here to show,<br className="hidden md:block"/> that it does not have to be painful.
+          Property search is a painful task. We are here to show that it does not have to be painful.
         </p>
 
         <button 
           ref={btnRef}
-          className="bg-[#D8A76B] text-black hover:bg-[#D8A76B]/90 font-inter font-medium px-8 py-3.5 rounded-lg text-base transition-all duration-300 mb-16 inline-flex items-center gap-2"
+          className="bg-[#D8A76B] text-black hover:bg-[#D8A76B]/90 font-inter font-medium px-6 py-3 rounded-lg text-sm transition-all duration-300 mb-8 inline-flex items-center gap-2"
         >
-          Join Waitlist <span className="text-xl leading-none">↗</span>
+          Join Waitlist <span className="text-base leading-none">↗</span>
         </button>
 
-        {/* Feature Highlights */}
-        <div ref={featuresRef} className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 mt-8">
+        {/* Feature Highlights — 2-col grid on mobile, row on desktop */}
+        <div ref={featuresRef} className="grid grid-cols-2 md:flex md:flex-row md:items-center justify-center gap-4 md:gap-12 mt-2 w-full max-w-sm md:max-w-none">
           {featureHighlights.map((feature, idx) => (
-            <div key={idx} className="flex items-center gap-4 text-left">
-              <div className="w-12 h-12 rounded-full border border-gray-600/50 bg-black/20 backdrop-blur-sm flex items-center justify-center text-white shrink-0">
+            <div key={idx} className="flex items-center gap-2 md:gap-3 text-left">
+              <div className="w-8 h-8 md:w-9 md:h-9 rounded-full border border-gray-600/50 bg-black/20 backdrop-blur-sm flex items-center justify-center text-white shrink-0">
                 {feature.icon}
               </div>
-              <p className="text-sm md:text-base text-gray-200 font-inter whitespace-pre-line leading-snug">
+              <p className="text-[11px] md:text-sm text-gray-300 font-inter whitespace-pre-line leading-snug">
                 {feature.text}
               </p>
             </div>
@@ -148,13 +148,13 @@ export const HeroSection = () => {
       </div>
 
       {/* Bottom Cards Carousel/Grid */}
-      <div ref={cardsRef} className="relative z-10 w-full mt-16 pb-0 overflow-hidden">
+      <div ref={cardsRef} className="relative z-10 w-full mt-10 pb-0 overflow-hidden">
         {/* First Row (Right to Left) */}
-        <div className="flex pb-2 md:pb-4 w-full">
+        <div className="flex pb-2 md:pb-3 w-full">
           <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
             {[...bottomCards, ...bottomCards, ...bottomCards, ...bottomCards].map((card, idx) => (
-              <div key={`row1-${idx}`} className="flex-none pr-4 md:pr-6">
-                <div className="feature-card relative shrink-0 w-[280px] md:w-[320px] aspect-[16/10] rounded-xl overflow-hidden border border-gray-800 bg-black/40 group cursor-pointer">
+              <div key={`row1-${idx}`} className="flex-none pr-3 md:pr-4">
+                <div className="feature-card relative shrink-0 w-[200px] md:w-[280px] aspect-[13/9] rounded-xl overflow-hidden border border-gray-800 bg-black/40 group cursor-pointer">
                   <Image 
                     src={card.src}
                     alt={card.alt}
@@ -168,11 +168,11 @@ export const HeroSection = () => {
         </div>
         
         {/* Second Row (Left to Right) */}
-        <div className="flex pb-0 w-full mt-2 md:mt-4">
+        <div className="flex pb-0 w-full mt-2 md:mt-3">
           <div className="flex w-max animate-marquee-reverse hover:[animation-play-state:paused]">
             {[...bottomRowCards, ...bottomRowCards, ...bottomRowCards, ...bottomRowCards].map((card, idx) => (
-              <div key={`row2-${idx}`} className="flex-none pr-4 md:pr-6">
-                <div className="feature-card relative shrink-0 w-[280px] md:w-[320px] aspect-[16/10] rounded-xl overflow-hidden border border-gray-800 bg-black/40 group cursor-pointer">
+              <div key={`row2-${idx}`} className="flex-none pr-3 md:pr-4">
+                <div className="feature-card relative shrink-0 w-[200px] md:w-[280px] lg:w-[320px] aspect-[16/10] rounded-xl overflow-hidden border border-gray-800 bg-black/40 group cursor-pointer">
                   <Image 
                     src={card.src}
                     alt={card.alt}
@@ -186,7 +186,7 @@ export const HeroSection = () => {
         </div>
 
         {/* Gradient black shade to hide 2nd row */}
-        <div className="absolute bottom-0 left-0 right-0 h-[200px] md:h-[240px] bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none z-20"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-[160px] md:h-[240px] bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none z-20"></div>
       </div>
       
       <style dangerouslySetInnerHTML={{__html: `

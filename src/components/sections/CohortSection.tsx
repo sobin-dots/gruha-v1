@@ -54,31 +54,31 @@ export const CohortSection = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="bg-[#1A222E] pt-24 pb-0 overflow-hidden relative">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-        <div className="flex flex-col md:flex-row items-center justify-between">
+    <section ref={containerRef} className="bg-[#1A222E] pt-12 md:pt-16 pb-0 overflow-hidden relative">
+      <div className="max-w-6xl mx-auto px-4 md:px-8">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-between">
           
           {/* Left Content */}
-          <div ref={contentRef} className="md:w-1/2 flex flex-col z-10 pb-24">
-            <p className="text-[#3BAE8B] font-inter font-medium text-sm md:text-base tracking-widest uppercase mb-8">
+          <div ref={contentRef} className="w-full md:w-1/2 flex flex-col z-10 pb-10 md:pb-16 pt-6 md:pt-0">
+            <p className="text-[#3BAE8B] font-inter font-medium text-xs md:text-sm tracking-widest uppercase mb-4 md:mb-5">
               Cohort 01 . Bengaluru . Open
             </p>
             
-            <h2 className="font-fraunces text-5xl md:text-[64px] text-white leading-[1.1] mb-8">
+            <h2 className="font-fraunces text-3xl md:text-4xl lg:text-[48px] text-white leading-[1.1] mb-4 md:mb-5">
               Eight Specialists.<br />
               One Journal.<br />
               Cohort 01.
             </h2>
             
-            <p className="font-inter text-xl md:text-2xl text-gray-300 leading-relaxed max-w-xl mb-12 font-light">
+            <p className="font-inter text-sm md:text-base lg:text-lg text-gray-300 leading-relaxed max-w-xl mb-6 md:mb-8 font-light">
               We&apos;re rolling out Bengaluru one cohort at a time — so every Journal
               gets the full team&apos;s attention.
             </p>
             
             <div>
-              <button className="bg-[#EE7456] hover:bg-[#E06548] text-white font-inter font-medium text-lg px-8 py-4 rounded-xl flex items-center gap-3 transition-colors duration-300 group shadow-lg shadow-[#EE7456]/20">
+              <button className="bg-[#EE7456] hover:bg-[#E06548] text-white font-inter font-medium text-sm px-5 py-2.5 rounded-xl flex items-center gap-2 transition-colors duration-300 group shadow-lg shadow-[#EE7456]/20">
                 Join Cohort 01
-                <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
           </div>

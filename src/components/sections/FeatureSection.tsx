@@ -50,25 +50,25 @@ export const FeatureSection = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="py-24 bg-[#efedf0] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col items-center">
+    <section ref={containerRef} className="py-16 bg-[#efedf0] overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 flex flex-col items-center">
         <h2 
           ref={titleRef}
-          className="font-fraunces text-4xl md:text-7xl text-black font-normal text-center mb-10 pb-10"
+          className="font-fraunces text-3xl md:text-5xl text-black font-normal text-center mb-6 pb-4"
         >
           How we built Gruha.ai ?
         </h2>
         
         <p 
           ref={textRef}
-          className="font-inter text-xl md:text-4xl text-gray-800 font-normal text-center max-w-7xl mb-12 md:mb-16 leading-relaxed"
-          style={{ letterSpacing: '-0.3px' }}
+          className="font-inter text-base md:text-2xl text-gray-700 font-normal text-center max-w-3xl mb-10 leading-relaxed"
+          style={{ letterSpacing: '-0.2px' }}
         >
           Built from the ground up with AI at its core. Our focus is bringing you
           <br className="hidden md:block" /> closer to your dream home and experiences.
         </p>
         
-        <div className="w-full max-w-5xl flex justify-center">
+        <div className="w-full max-w-4xl flex justify-center">
           <video 
             ref={videoRef}
             src="/assets/white%204_001.mp4" 

@@ -23,7 +23,7 @@ export const Header = () => {
         scrolled ? 'bg-black shadow-md py-4 border-b border-white/10' : 'bg-transparent py-6'
       }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="max-w-6xl mx-auto flex items-center justify-between">
         <Link href="/" className="relative z-10 flex items-center gap-2">
           {/* Logo container. Using unoptimized since it's an export build */}
           <div className="relative h-8 w-32 md:h-10 md:w-40">
@@ -48,11 +48,14 @@ export const Header = () => {
           <Link href="#how-it-works" className="hover:text-primary transition-colors">How it works</Link>
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
+          {/* Mobile CTA - small, always visible */}
+          <Button variant="primary" size="sm" className="md:hidden bg-[#D8A76B] text-black hover:bg-[#D8A76B]/90 rounded-lg border-none shadow-none text-xs px-4 py-2">
+            Join ↗
+          </Button>
           <Button variant="primary" size="sm" className="hidden md:inline-flex bg-[#D8A76B] text-black hover:bg-[#D8A76B]/90 rounded-lg border-none shadow-none text-sm px-6">
             Join Waitlist  ↗
           </Button>
-          {/* Mobile menu toggle could go here */}
         </div>
       </div>
     </header>

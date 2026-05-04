@@ -84,52 +84,52 @@ export const LocationIntelligenceSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 md:py-32 bg-[#F5F5F5] overflow-hidden">
-      <div className="container mx-auto px-6 md:px-12 max-w-[1400px]">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-20">
+    <section ref={sectionRef} className="py-12 md:py-16 lg:py-24 bg-[#F5F5F5] overflow-hidden">
+      <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-16">
           
           {/* Left Content */}
-          <div ref={contentRef} className="w-full md:w-6/12 flex flex-col items-start pt-10 md:pt-0">
-            <h2 className="font-fraunces font-semibold text-[48px] md:text-[56px] leading-none text-black mb-4">
+          <div ref={contentRef} className="w-full md:w-6/12 flex flex-col items-start pt-6 md:pt-0">
+            <h2 className="font-fraunces font-semibold text-[36px] md:text-[44px] leading-none text-black mb-2">
               05
             </h2>
             
-            <h2 className="font-fraunces font-semibold text-[52px] md:text-[58px] leading-[1.05] tracking-[-2px] text-black mb-8">
+            <h2 className="font-fraunces font-semibold text-[38px] md:text-[44px] leading-[1.05] tracking-[-1.5px] text-black mb-5">
               Location Intelligence
             </h2>
             
-            <div className="w-24 h-1 bg-[#FE6235] mb-10"></div>
+            <div className="w-16 h-0.5 bg-[#FE6235] mb-6"></div>
             
-            <h3 className="font-inter text-2xl md:text-[34px] text-gray-800 font-light leading-[1.3] tracking-[-0.5px] mb-6">
+            <h3 className="font-inter text-lg md:text-xl text-gray-700 font-light leading-[1.3] tracking-[-0.3px] mb-4">
               Know the neighbourhood.<br />
               Live with confidence.
             </h3>
 
-            <p className="font-inter text-[17px] md:text-[18px] text-gray-700 leading-[1.6] max-w-[500px] mb-12">
+            <p className="font-inter text-sm md:text-[15px] text-gray-600 leading-[1.6] max-w-[500px] mb-8">
               We analyze everything around your home - from daily convenience to future growth - so you can make a smarter choice.
             </p>
 
             {/* Divider */}
-            <div className="w-full h-[1px] bg-gray-300 mb-8 max-w-[650px]"></div>
+            <div className="w-full h-[1px] bg-gray-300 mb-6 max-w-[550px]"></div>
 
             {/* Feature Row */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-0 w-full max-w-[650px]">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-0 w-full max-w-[550px]">
               {features.map((feature, index) => (
                 <React.Fragment key={index}>
                   <div 
                     ref={el => { featuresRef.current[index] = el; }}
-                    className="flex flex-row items-center gap-4 flex-1"
+                    className="flex flex-row items-center gap-3 flex-1"
                   >
                     <img 
                       src={feature.icon} 
                       alt={feature.title} 
-                      className="w-10 h-10 object-contain"
+                      className="w-8 h-8 object-contain"
                     />
                     <div className="flex flex-col">
-                      <span className="font-inter font-bold text-[18px] text-black leading-tight">
+                      <span className="font-inter font-bold text-[15px] text-black leading-tight">
                         {feature.title}
                       </span>
-                      <span className="font-inter text-[15px] text-gray-500 leading-tight">
+                      <span className="font-inter text-[13px] text-gray-500 leading-tight">
                         {feature.subtitle}
                       </span>
                     </div>
@@ -137,7 +137,7 @@ export const LocationIntelligenceSection = () => {
                   
                   {/* Vertical Divider (hide on last item and mobile) */}
                   {index < features.length - 1 && (
-                    <div className="hidden sm:block w-[1px] h-12 bg-gray-300 mx-6"></div>
+                    <div className="hidden sm:block w-[1px] h-10 bg-gray-300 mx-4"></div>
                   )}
                 </React.Fragment>
               ))}
@@ -150,7 +150,7 @@ export const LocationIntelligenceSection = () => {
               ref={imageRef}
               src="/assets/05-location-inteligence/right-image.png" 
               alt="Location Intelligence Character"
-              className="w-full max-w-[450px] lg:max-w-[500px] h-auto object-contain"
+              className="w-full max-w-[260px] md:max-w-[380px] lg:max-w-[420px] h-auto object-contain"
             />
           </div>
           

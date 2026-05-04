@@ -6,27 +6,23 @@ import { ArrowRight } from 'lucide-react';
 export const CtaSection = () => {
   return (
     <section className="relative w-full bg-[#121622] overflow-hidden">
-      {/* Background Cityscape Image anchored to bottom right */}
-      <div 
-        className="absolute bottom-0 right-0 w-full md:w-[90%] lg:w-[80%] h-[80%] md:h-full z-0 pointer-events-none"
-        style={{
-          backgroundImage: 'url("/assets/cta-bg.png")',
-          backgroundSize: 'contain',
-          backgroundPosition: 'right bottom',
-          backgroundRepeat: 'no-repeat'
-        }}
+      {/* Background Cityscape Image — anchored flush to bottom-right */}
+      <img
+        src="/assets/cta-bg.png"
+        alt=""
+        className="absolute bottom-0 right-0 w-full md:w-[90%] lg:w-[75%] h-auto object-contain object-right-bottom pointer-events-none z-0 select-none"
       />
       
-      <div className="container mx-auto px-6 md:px-12 max-w-[1400px] relative z-10 pt-24 pb-32 md:py-40">
-        <div className="flex flex-col items-start max-w-4xl">
-          <h2 className="font-inter text-4xl md:text-[52px] lg:text-[56px] font-bold text-white mb-10 tracking-tight leading-[1.15]">
+      <div className="container mx-auto px-6 md:px-8 max-w-6xl relative z-10 pt-16 pb-20 md:py-32">
+        <div className="flex flex-col items-start max-w-3xl">
+          <h2 className="font-inter text-3xl md:text-[40px] lg:text-[44px] font-bold text-white mb-7 tracking-tight leading-[1.15]">
             Be the first to experience<br className="hidden md:block" />
             the <span className="text-[#8B5CF6]">future of real estate</span> decisions.
           </h2>
           
-          <button className="bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-inter font-semibold text-[18px] px-8 py-4 rounded-xl flex items-center justify-center gap-3 transition-colors duration-300">
+          <button className="bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-inter font-semibold text-sm px-6 py-3 rounded-xl flex items-center justify-center gap-2 transition-colors duration-300">
             Join the Waitlist
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-4 h-4" />
           </button>
         </div>
       </div>
