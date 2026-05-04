@@ -50,7 +50,7 @@ export const FeatureSection = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="py-16 bg-[#FFF] overflow-hidden">
+    <section ref={containerRef} className="py-16 bg-[#FFF] md:bg-[#eeecee] overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 flex flex-col items-center">
         <h2 
           ref={titleRef}
@@ -69,12 +69,18 @@ export const FeatureSection = () => {
         </p>
         
         <div className="w-full max-w-4xl flex justify-center">
-          <img 
-            src="/assets/hero-bg.jpeg"
+          {/* Desktop: autoplay video */}
+          <video
+            ref={videoRef}
+            src="/assets/white%204_001.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
             className="w-full h-auto object-contain hidden sm:block"
-            alt="How we built Gruha.ai ?"
           />
-          <img 
+          {/* Mobile: static image */}
+          <img
             src="/assets/hero-mobile-bg.jpeg"
             className="w-full h-auto object-contain sm:hidden"
             alt="How we built Gruha.ai ?"
