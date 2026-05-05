@@ -97,9 +97,9 @@ export default function RootLayout({
       <body className="flex flex-col font-inter bg-white text-dark">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-VDNW8C2RNE"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
