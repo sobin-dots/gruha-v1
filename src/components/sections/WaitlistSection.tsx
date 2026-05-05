@@ -19,7 +19,7 @@ export const WaitlistSection = () => {
         }}
       />
       
-      <div className="max-w-6xl mx-auto px-6 md:px-8 py-16 md:py-24 relative z-10">
+      <div className="max-w-6xl mx-auto px-6 md:px-8 pt-16 pb-28 md:py-24 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
           
           {/* Text Content */}

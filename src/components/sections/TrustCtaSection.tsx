@@ -7,7 +7,7 @@ import { useWaitlist } from '@/contexts/WaitlistContext';
 export const TrustCtaSection = () => {
   const { openModal } = useWaitlist();
   return (
-    <section className="relative w-full bg-[#1A1B1A] overflow-hidden py-12 md:py-16">
+    <section className="relative w-full bg-[#1A1B1A] overflow-hidden pt-12 pb-24 md:py-16">
       {/* Background Pattern */}
       <div 
         className="absolute inset-0 z-0 opacity-60 pointer-events-none"

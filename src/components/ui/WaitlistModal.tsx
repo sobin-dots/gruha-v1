@@ -9,6 +9,7 @@ interface FormData {
   lastName: string;
   phone: string;
   email: string;
+  message?: string;
 }
 
 interface FormErrors {
@@ -16,6 +17,7 @@ interface FormErrors {
   lastName?: string;
   phone?: string;
   email?: string;
+  message?: string;
 }
 
 export const WaitlistModal = () => {
@@ -23,7 +25,7 @@ export const WaitlistModal = () => {
   const overlayRef = useRef<HTMLDivElement>(null);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [form, setForm] = useState<FormData>({ firstName: '', lastName: '', phone: '', email: '' });
+  const [form, setForm] = useState<FormData>({ firstName: '', lastName: '', phone: '', email: '', message: '' });
   const [errors, setErrors] = useState<FormErrors>({});
 
   /* Lock body scroll when open */
@@ -33,7 +35,7 @@ export const WaitlistModal = () => {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setSubmitted(false);
       setErrors({});
-      setForm({ firstName: '', lastName: '', phone: '', email: '' });
+      setForm({ firstName: '', lastName: '', phone: '', email: '', message: '' });
     } else {
       document.body.style.overflow = '';
     }
@@ -61,12 +63,32 @@ export const WaitlistModal = () => {
     e.preventDefault();
     if (!validate()) return;
     setLoading(true);
-    await new Promise(r => setTimeout(r, 1200));
-    setLoading(false);
-    setSubmitted(true);
+
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        const data = await response.json();
+        console.error('Submission failed:', data.error);
+        alert('Failed to join the waitlist. Please try again.');
+      }
+    } catch (err) {
+      console.error('Error submitting form:', err);
+      alert('An error occurred. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleChange = (field: keyof FormData) => (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (field: keyof FormData) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm(prev => ({ ...prev, [field]: e.target.value }));
     if (errors[field]) setErrors(prev => ({ ...prev, [field]: undefined }));
   };
@@ -159,6 +181,19 @@ export const WaitlistModal = () => {
                 error={errors.email} onChange={handleChange('email')}
                 placeholder="riya@example.com" autoComplete="email"
               />
+
+              <div className="flex flex-col gap-1">
+                <label htmlFor="message" className="font-inter text-[0.6875rem] font-bold text-[#6B6B6B] tracking-[0.1em] uppercase">
+                  Message (Optional)
+                </label>
+                <textarea
+                  id="message"
+                  value={form.message}
+                  onChange={handleChange('message')}
+                  placeholder="Tell us what you're looking for..."
+                  className="font-inter text-sm text-[#1C1C1E] bg-[#F9F5F0] border border-[#E8DDD0] rounded-xl px-4 py-3 outline-none transition-all focus:border-[#FE6235] focus:ring-2 focus:ring-[#FE6235]/10 placeholder:text-[#C4B8A8] min-h-[80px] resize-none"
+                />
+              </div>
 
               {/* CTA — brand orange matching WaitlistSection */}
               <button

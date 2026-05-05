@@ -16,7 +16,7 @@ export const CtaSection = () => {
         className="absolute bottom-0 right-0 w-[65%] md:w-[58%] h-auto object-contain object-right-bottom pointer-events-none select-none z-0"
       />
       
-      <div className="container mx-auto px-6 md:px-8 max-w-6xl relative z-10 pt-16 pb-20 md:py-32">
+      <div className="container mx-auto px-6 md:px-8 max-w-6xl relative z-10 pt-16 pb-32 md:py-32">
         <div className="flex flex-col items-start max-w-3xl">
           <h2 className="font-inter text-3xl md:text-[2.5rem] lg:text-[2.75rem] font-bold text-white mb-7 tracking-tight leading-[1.15]">
             Be the first to experience<br className="hidden md:block" />

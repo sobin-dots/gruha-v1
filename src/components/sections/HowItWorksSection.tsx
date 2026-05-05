@@ -4,7 +4,7 @@ import React from 'react';
 
 export const HowItWorksSection = () => {
   return (
-    <section className="w-full bg-[#F9F8F4] py-16 md:py-24 md:pb-0 flex flex-col items-center text-center px-6">
+    <section className="w-full bg-[#F9F8F4] pt-16 pb-28 md:py-24 md:pb-0 flex flex-col items-center text-center px-6">
       <h2 className="font-fraunces text-3xl md:text-4xl lg:text-5xl font-normal text-[#1A202C] leading-tight mb-5 tracking-tight">
         How Gruha.ai Works?
       </h2>

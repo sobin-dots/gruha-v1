@@ -131,7 +131,7 @@ export const HeroSection = () => {
         <button 
           ref={btnRef}
           onClick={openModal}
-          className="bg-[#D8A76B] text-black hover:bg-[#D8A76B]/90 font-inter font-medium px-6 py-3 rounded-lg text-sm transition-all duration-300 mb-8 inline-flex items-center gap-2"
+          className="bg-[#fc7c54] text-black hover:bg-[#fc7c54]/90 font-inter font-medium px-6 py-3 rounded-lg text-sm transition-all duration-300 mb-8 inline-flex items-center gap-2"
         >
           Join Waitlist <span className="text-base leading-none">↗</span>
         </button>

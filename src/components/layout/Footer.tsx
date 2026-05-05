@@ -23,7 +23,7 @@ export const Footer = () => {
             <p className="text-[#A1A1AA] font-inter text-[0.9375rem] leading-[1.7] mb-10 max-w-[300px]">
              
             </p>
-            <button onClick={openModal} className="bg-[#D2A574] hover:bg-[#B58D61] text-[#111] font-inter font-medium text-[0.9375rem] px-6 py-3.5 rounded-lg flex items-center gap-2 transition-all duration-300">
+            <button onClick={openModal} className="bg-[#fc7c54] hover:bg-[#fc7c54]/90 text-[#111] font-inter font-medium text-[0.9375rem] px-6 py-3.5 rounded-lg flex items-center gap-2 transition-all duration-300">
               Join Waitlist
               <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
             </button>
