@@ -48,7 +48,7 @@ export const StackingCard: React.FC<StackingCardProps> = ({
         <img 
           src={card.image} 
           alt={card.title} 
-          className="w-full h-[25vh] md:h-auto object-cover md:object-contain"
+          className="w-full h-[35vh] md:h-auto object-cover md:object-contain"
         />
       </div>
     </div>

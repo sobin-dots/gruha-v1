@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { AppProviders } from "@/components/ui/AppProviders";
+import Script from "next/script";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -52,6 +53,19 @@ export default function RootLayout({
       className={`${fraunces.variable} ${inter.variable} ${spaceGrotesk.variable} antialiased`}
     >
       <body className="flex flex-col font-inter bg-white text-dark">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-VDNW8C2RNE"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-VDNW8C2RNE');
+          `}
+        </Script>
         <AppProviders>{children}</AppProviders>
       </body>
     </html>
