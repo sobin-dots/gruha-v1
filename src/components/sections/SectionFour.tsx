@@ -1,65 +1,64 @@
 "use client";
 
-import React, { useRef, useEffect } from 'react';
+import  { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+
+
+
 const features = [
   {
-    title: "Curated from 2,000+ projects",
-    description: "Every project in bengaluru",
-    icon: "/assets/02-projects/Vector.svg"
+    title: "Master Plan",
+    description: "Understand the entire layout at a glance.",
+    icon: "/assets/04-project-tower/Vector.svg"
   },
   {
-    title: "Trust, built in",
-    description: "RERA verified. OC status. Builder track record.\nNo surprises later.",
-    icon: "/assets/02-projects/Vector (1).svg"
+    title: "Amenities",
+    description: "See everything you'll love, inside & out.",
+    icon: "/assets/04-project-tower/Vector (2).svg"
   },
   {
-    title: "Filtered by your Journal",
-    description: "Kabir applies your dealbreakers, preferences\n& priorities.",
-    icon: "/assets/02-projects/Vector (2).svg"
+    title: "Construction updates",
+    description: "See everything you'll love, inside & out.",
+    icon: "/assets/04-project-tower/Vector (3).svg"
   }
 ];
 
 const cards = [
   {
-    id:"c-1",bg: "bg-[#EBF3EF]",
-
-    title: "2,000+ projects. One screen. The whole city.",
-    description: "Every active and upcoming project in Bengaluru, dropped on a real satellite map. Pan, zoom, and see what's actually being built around the localities you're shortlisting.",
-    image: "/assets/blog/Rectangle%2034626212.png"
+    title: "How efficiently is\nspace used?",
+    description: "Measure of usable, functional space\nacross the entire project.",
+    image: "/assets/list-after-project/list (1).png",
+    id:"pj-1",
+    bg:"bg-[#E3F7F2]",
   },
   {
-    id:"c-2",bg: "bg-[#FBEFEA]",
-    title: "Your Journal becomes your filter — automatically.",
-    description: "The requirements captured in your Home Search Journal apply to the map without you lifting a finger. Projects that fit light up; projects that don't fade out.",
-    image: "/assets/blog/Rectangle%2034626212%20(1).png"
+    title: "Construction\nProgress",
+    description: "Measure of usable, functional space\nacross the entire project.",
+    image: "/assets/list-after-project/list (3).png",
+    id:"pj-2",
+    bg:"bg-[#F7F7F7]",
   },
   {
-    id:"c-3",bg: "bg-[#F2F4F6]",
-    title: "Make the Map Work Your Way",
-    description: "Three control axes. Toggle map + panel or grid. Filter by stage, builder, RERA, possession, or availability—skip '2031' when you need December. Switch to satellite or 3D for context.",
-    image: "/assets/blog/Rectangle%2034626212%20(2).png"
+    title: "Movement &\nAccess",
+    description: "Understand real walking distances\nand daily movement inside the\nproject.",
+    image: "/assets/list-after-project/list (4).png",
+    id:"pj-3",
+    bg:"bg-[#E3F7F2]",
   },
   {
-    id:"c-4",bg: "bg-[#FCF8F3]",
-    title: "Side-by-Side Project Compare",
-    description: "Four projects, one screen—no spreadsheets. Pin any four and compare price, sun, privacy, commute, vaastu, greenery, and RERA. Differences are instantly clear.",
-    image: "/assets/blog/Rectangle%2034626212%20(3).png"
-  },
-  {
-    id:"c-5",
-    bg: "bg-[#F9F9F9]",
-    title: "New launches in your area? You'll hear first.",
-    description: "Save any map view as a watch. Get alerts for new listings, price drops, or when a flagged unit becomes available.",
-    image: "/assets/blog/Rectangle%2034626212%20(4).png"
+    title: "Sun & Shadow\nSimulation",
+    description: "See how sunlight and shadows move\nacross your project and affect your\nselected unit.",
+    image: "/assets/list-after-project/list (2).png",
+    id:"pj-4",
+    bg:"bg-[#F7F7F7]",
   }
 ];
 
-export const ProjectsSection = () => {
+export const SectionFour = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -116,7 +115,7 @@ export const ProjectsSection = () => {
             </svg>
           </div>
           <div className="px-5 py-2 bg-[#E2EBE5] text-[#2D6A4F] rounded-full text-sm font-inter font-semibold tracking-wide text-center shadow-sm">
-            Step 2 of your journey
+            Step 4 of your journey
           </div>
         </div>
       </div>
@@ -129,20 +128,21 @@ export const ProjectsSection = () => {
           {/* Left Column (Sticky on lg+) */}
           <div className="lg:w-5/12 lg:sticky lg:top-28 flex flex-col pt-8">
             <div className="mb-2 font-fraunces text-3xl md:text-4xl text-black">
-              02
+              04
             </div>
             <h2 className="font-fraunces text-3xl md:text-4xl lg:text-5xl text-black leading-[1.1] mb-4">
-              Projects
+             Project & Tower <br/>
+Intelligence
             </h2>
             <p className="font-inter text-base md:text-lg text-gray-700 leading-[1.4] mb-6">
-              Bengaluru is building 2,000+.<br className="hidden md:block" />
-                Kabir shows you only yours.
+              Big decisions need the full
+picture.
             </p>
             
             {/* Image: hidden on mobile, shown on lg+ */}
             <div className=" relative w-full h-[400px] md:h-[500px] mt-auto ">
               <img 
-                src="/assets/02-projects/character-men.png" 
+                src="/assets/drone.png" 
                 alt="Kabir - Projects Curator" 
                 className="w-full h-full object-contain object-left-bottom"
               />

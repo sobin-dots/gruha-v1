@@ -126,7 +126,7 @@ export const SpecialistsSection = () => {
               }}
             >
               {/* Image Container */}
-              <div className="relative w-full pt-3 md:pt-4 px-4 flex items-end justify-start sm:justify-center bg-white overflow-hidden">
+              <div className="relative w-full pt-3 md:pt-4 px-4 flex items-end justify-start sm:justify-center bg-white overflow-visible">
                 <img 
                   src={specialist.image}
                   alt={specialist.name}
@@ -139,7 +139,7 @@ export const SpecialistsSection = () => {
               </div>
 
               {/* Content Container */}
-              <div className="p-4 md:p-5 lg:p-6 flex flex-col flex-grow bg-white">
+              <div className="p-4 md:p-5 lg:p-6 flex flex-col flex-grow bg-transparent">
                 <h3 
                   className="font-fraunces text-xl md:text-2xl lg:text-[1.75rem] font-normal mb-0.5 leading-none"
                   style={{ color: specialist.color }}

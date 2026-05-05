@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Layers, ShieldCheck, Users } from 'lucide-react';
+import { Layers, ShieldCheck, Users, Zap, MapPin } from 'lucide-react';
 import { useWaitlist } from '@/contexts/WaitlistContext';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -75,7 +75,8 @@ export const HeroSection = () => {
   const featureHighlights = [
     { icon: <Layers size={20} strokeWidth={1.5} />, text: "Feature rich\nplatform" },
     { icon: <ShieldCheck size={20} strokeWidth={1.5} className="text-blue-400" />, text: "Privacy & Home buyer\nfirst" },
-    { icon: <Users size={20} strokeWidth={1.5} className="text-gray-300" />, text: "Agents (Human + AI)\nworking for you" }
+    { icon: <Users size={20} strokeWidth={1.5} className="text-gray-300" />, text: "Agents (Human + AI)\nworking for you" },
+    { icon: <Zap size={20} strokeWidth={1.5} className="text-orange-400" />, text: "Data driven\nevaluation" }
   ];
 
   const bottomCards = [
@@ -189,7 +190,7 @@ export const HeroSection = () => {
         </div>
 
         {/* Gradient black shade to hide 2nd row */}
-        <div className="absolute bottom-0 left-0 right-0 h-[160px] md:h-[240px] bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none z-20"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-[160px] md:h-[240px] bg-gradient-to-t from-black via-black/10 to-transparent pointer-events-none z-20"></div>
       </div>
       
       <style dangerouslySetInnerHTML={{__html: `

@@ -105,7 +105,7 @@ export const BlogSection = () => {
       </div>
 
       {/* Desktop: GSAP horizontal scroll */}
-      <section ref={sectionRef} className="hidden md:flex py-16 bg-white overflow-hidden min-h-screen flex-col justify-center">
+      <section ref={sectionRef} className="hidden md:flex py-16 xl:py-8 bg-white overflow-hidden min-h-screen xl:min-h-screen flex-col justify-center">
         <div className="w-full relative">
           <div 
             ref={scrollContainerRef}

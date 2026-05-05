@@ -1,65 +1,73 @@
 "use client";
 
-import React, { useRef, useEffect } from 'react';
+import  { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Coffee, ShoppingBag, Trees } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
+
+
+
 const features = [
   {
-    title: "Curated from 2,000+ projects",
-    description: "Every project in bengaluru",
-    icon: "/assets/02-projects/Vector.svg"
+    title: "Cafés & Dining",
+    description: "Great places to eat, relax & socialise.",
+    icon: <Coffee className="w-6 h-6 text-[#FE6235]" />
   },
   {
-    title: "Trust, built in",
-    description: "RERA verified. OC status. Builder track record.\nNo surprises later.",
-    icon: "/assets/02-projects/Vector (1).svg"
+    title: "Shopping & Essentials",
+    description: "Daily needs and retail options nearby.",
+    icon: <ShoppingBag className="w-6 h-6 text-[#4A90E2]" />
   },
   {
-    title: "Filtered by your Journal",
-    description: "Kabir applies your dealbreakers, preferences\n& priorities.",
-    icon: "/assets/02-projects/Vector (2).svg"
+    title: "Parks & Outdoors",
+    description: "Green spaces and open-air activities.",
+    icon: <Trees className="w-6 h-6 text-[#3BAE8B]" />
   }
 ];
+
 
 const cards = [
   {
-    id:"c-1",bg: "bg-[#EBF3EF]",
-
-    title: "2,000+ projects. One screen. The whole city.",
-    description: "Every active and upcoming project in Bengaluru, dropped on a real satellite map. Pan, zoom, and see what's actually being built around the localities you're shortlisting.",
-    image: "/assets/blog/Rectangle%2034626212.png"
+    id: "01",
+    title: "Real reach - not radius",
+    description: "Walk and drive zones that follow actual roads, not perfect circles. Dead ends, one-ways, and missing links included - so you see what's truly reachable in 5, 10, or 15 minutes.",
+    image: "/assets/05-location-inteligence/cards/Road-Following Walk & Drive Zones 1.png",
+    bg:"bg-[#E3F7F2]"
   },
   {
-    id:"c-2",bg: "bg-[#FBEFEA]",
-    title: "Your Journal becomes your filter — automatically.",
-    description: "The requirements captured in your Home Search Journal apply to the map without you lifting a finger. Projects that fit light up; projects that don't fade out.",
-    image: "/assets/blog/Rectangle%2034626212%20(1).png"
+    id: "02",
+    title: "Green cover, verified from space",
+    description: "A satellite-based vegetation map that reveals actual tree cover - not brochure promises. See where greenery truly exists, and where it doesn't.",
+    image: "/assets/05-location-inteligence/cards/Road-Following Walk & Drive Zones 1 (1).png",
+    bg:"bg-[#f8f7f3]"
   },
   {
-    id:"c-3",bg: "bg-[#F2F4F6]",
-    title: "Make the Map Work Your Way",
-    description: "Three control axes. Toggle map + panel or grid. Filter by stage, builder, RERA, possession, or availability—skip '2031' when you need December. Switch to satellite or 3D for context.",
-    image: "/assets/blog/Rectangle%2034626212%20(2).png"
+    id: "03",
+    title: "Flood risk - before it finds you",
+    description: "Elevation and water-index data combined into a clear flood risk map. Identify low-lying zones and historically waterlogged areas before you commit.",
+    image: "/assets/05-location-inteligence/cards/Road-Following Walk & Drive Zones 1 (2).png",
+    bg:"bg-[#f0f9f0]"
   },
   {
-    id:"c-4",bg: "bg-[#FCF8F3]",
-    title: "Side-by-Side Project Compare",
-    description: "Four projects, one screen—no spreadsheets. Pin any four and compare price, sun, privacy, commute, vaastu, greenery, and RERA. Differences are instantly clear.",
-    image: "/assets/blog/Rectangle%2034626212%20(3).png"
+    id: "04",
+    title: "Experience your commute — before you live it",
+    description: "Preview your actual daily route through real street-level views - traffic, signals, and all. No stitched maps, just what your mornings will look like.",
+    image: "/assets/05-location-inteligence/cards/Road-Following Walk & Drive Zones 1 (3).png",
+    bg:"bg-[#F9F9F9]"
   },
   {
-    id:"c-5",
-    bg: "bg-[#F9F9F9]",
-    title: "New launches in your area? You'll hear first.",
-    description: "Save any map view as a watch. Get alerts for new listings, price drops, or when a flagged unit becomes available.",
-    image: "/assets/blog/Rectangle%2034626212%20(4).png"
+    id: "05",
+    title: "Real commute times that actually hold up",
+    description: "Peak-hour travel times to the places that matter - airport, work hubs, stations - based on live traffic, not optimistic estimates.",
+    image: "/assets/05-location-inteligence/cards/Road-Following Walk & Drive Zones 1 (4).png",
+    bg:"bg-[#E3F7F2]"
   }
 ];
 
-export const ProjectsSection = () => {
+export const SectionSix = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -116,7 +124,7 @@ export const ProjectsSection = () => {
             </svg>
           </div>
           <div className="px-5 py-2 bg-[#E2EBE5] text-[#2D6A4F] rounded-full text-sm font-inter font-semibold tracking-wide text-center shadow-sm">
-            Step 2 of your journey
+            Step 6 of your journey
           </div>
         </div>
       </div>
@@ -129,22 +137,23 @@ export const ProjectsSection = () => {
           {/* Left Column (Sticky on lg+) */}
           <div className="lg:w-5/12 lg:sticky lg:top-28 flex flex-col pt-8">
             <div className="mb-2 font-fraunces text-3xl md:text-4xl text-black">
-              02
+              06
             </div>
             <h2 className="font-fraunces text-3xl md:text-4xl lg:text-5xl text-black leading-[1.1] mb-4">
-              Projects
+             Neighborhood <br/>
+& Vibe
             </h2>
             <p className="font-inter text-base md:text-lg text-gray-700 leading-[1.4] mb-6">
-              Bengaluru is building 2,000+.<br className="hidden md:block" />
-                Kabir shows you only yours.
+              Life happens outside your four walls. <br/>
+              See the heartbeat of your locality.
             </p>
             
             {/* Image: hidden on mobile, shown on lg+ */}
             <div className=" relative w-full h-[400px] md:h-[500px] mt-auto ">
               <img 
-                src="/assets/02-projects/character-men.png" 
+                src="/assets/section6.png" 
                 alt="Kabir - Projects Curator" 
-                className="w-full h-full object-contain object-left-bottom"
+                className="w-full h-full object-contain object-left-bottom "
               />
             </div>
           </div>
@@ -156,7 +165,7 @@ export const ProjectsSection = () => {
                 key={card.id}
                 className={`w-full rounded-[20px] md:rounded-[28px] overflow-hidden ${card.bg} flex flex-col sticky shadow-sm`}
                 style={{ 
-                  top: `calc(120px + ${index * 16}px)`,
+                  top: `calc(120px + ${index * 32}px)`,
                   zIndex: index + 1
                 }}
               >
@@ -171,7 +180,7 @@ export const ProjectsSection = () => {
                 </div>
                 
                 {/* Card Image */}
-                <div className="w-full mt-5 md:mt-8  flex justify-center">
+                <div className="w-full mt-5 md:mt-8  flex justify-center ">
                   <img 
                     src={card.image} 
                     alt={card.title} 
@@ -193,12 +202,16 @@ export const ProjectsSection = () => {
                   className={`flex items-start py-5 ${index !== features.length - 1 ? 'border-b border-gray-200 w-full md:w-1/3' : 'md:border-b md:border-gray-200'}`}
                 >
                   {/* Icon */}
-                  <div className="w-9 h-9 flex-shrink-0 flex items-center justify-center mr-5 md:mr-6 pt-0.5">
-                    <img 
-                      src={feature.icon} 
-                      alt="" 
-                      className="w-full h-auto object-contain"
-                    />
+                  <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center mr-5 md:mr-6 pt-0.5">
+                    {typeof feature.icon === 'string' ? (
+                      <img 
+                        src={feature.icon} 
+                        alt="" 
+                        className="w-full h-auto object-contain"
+                      />
+                    ) : (
+                      feature.icon
+                    )}
                   </div>
                   
                   {/* Text */}

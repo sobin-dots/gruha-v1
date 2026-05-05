@@ -1,65 +1,70 @@
 "use client";
 
-import React, { useRef, useEffect } from 'react';
+import  { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+
 const features = [
   {
-    title: "Curated from 2,000+ projects",
-    description: "Every project in bengaluru",
-    icon: "/assets/02-projects/Vector.svg"
+    icon: "/assets/home-units/icon (2).svg",
+    title: "Well ventilated",
+    description: "Rooms with natural light"
   },
   {
-    title: "Trust, built in",
-    description: "RERA verified. OC status. Builder track record.\nNo surprises later.",
-    icon: "/assets/02-projects/Vector (1).svg"
+    icon: "/assets/home-units/icon (3).svg",
+    title: "Efficient layouts",
+    description: "No wastage of space"
   },
   {
-    title: "Filtered by your Journal",
-    description: "Kabir applies your dealbreakers, preferences\n& priorities.",
-    icon: "/assets/02-projects/Vector (2).svg"
+    icon: "/assets/home-units/icon (1).svg",
+    title: "Private spaces",
+    description: "Balcony, utility & more"
   }
 ];
 
 const cards = [
   {
-    id:"c-1",bg: "bg-[#EBF3EF]",
-
-    title: "2,000+ projects. One screen. The whole city.",
-    description: "Every active and upcoming project in Bengaluru, dropped on a real satellite map. Pan, zoom, and see what's actually being built around the localities you're shortlisting.",
-    image: "/assets/blog/Rectangle%2034626212.png"
+    title: "Not all 1200 sq ft are\ncreated equal.",
+    description: "Your floor plan colour-coded into usable space, circulation, and dead space — with an efficiency score. See exactly what you're paying for, and what's eating into your carpet area.",
+    image: "/assets/features/ChatGPT Image May 2, 2026, 09_44_47 AM 1 (1).png",
+    bg:"bg-[#EBF3EF]",
+    id:"st1"
   },
   {
-    id:"c-2",bg: "bg-[#FBEFEA]",
-    title: "Your Journal becomes your filter — automatically.",
-    description: "The requirements captured in your Home Search Journal apply to the map without you lifting a finger. Projects that fit light up; projects that don't fade out.",
-    image: "/assets/blog/Rectangle%2034626212%20(1).png"
+    title: "Vaastu-aligned? We\ncheck every room — not\njust the main door.",
+    description: "Every unit evaluated against classical Vaastu principles — main door, kitchen, master bedroom, pooja room, toilets, and the Brahmasthan. You get a compliance score with specific passes and deviations.",
+    image: "/assets/features/ChatGPT Image May 2, 2026, 09_44_47 AM 1 (2).png",
+    imageFirst: true,
+    bg:"bg-[#EBF3FF]",
+    id:"st5"
   },
   {
-    id:"c-3",bg: "bg-[#F2F4F6]",
-    title: "Make the Map Work Your Way",
-    description: "Three control axes. Toggle map + panel or grid. Filter by stage, builder, RERA, possession, or availability—skip '2031' when you need December. Switch to satellite or 3D for context.",
-    image: "/assets/blog/Rectangle%2034626212%20(2).png"
+    title: "Pick your appliances. We'll\nshow you the kitchens\nthat actually fit them.",
+    description: "Tell Gruha what goes in your kitchen — OTG, built-in oven, dishwasher, tall fridge, coffee machine, chimney size — and every unit's kitchen is scored for counter space, ventilation, plug points, and storage.",
+    image: "/assets/features/ChatGPT Image May 2, 2026, 09_44_47 AM 1 (4).png",
+    bg:"bg-[#FBEFEA]",
+    id:"st2"
   },
   {
-    id:"c-4",bg: "bg-[#FCF8F3]",
-    title: "Side-by-Side Project Compare",
-    description: "Four projects, one screen—no spreadsheets. Pin any four and compare price, sun, privacy, commute, vaastu, greenery, and RERA. Differences are instantly clear.",
-    image: "/assets/blog/Rectangle%2034626212%20(3).png"
+    title: "Overlook & Privacy Check",
+    description: "Every nearby building — PGs, residential towers, offices, schools — measured against your unit's window lines. See which of your windows are overlooked, from what angle, and by what kind of building, before you commit to a flat where the curtains never come off.",
+    image: "/assets/features/ChatGPT Image May 2, 2026, 09_44_47 AM 1 (3).png",
+bg:"bg-[#F2F4F6]",
+id:"st3"
   },
   {
-    id:"c-5",
-    bg: "bg-[#F9F9F9]",
-    title: "New launches in your area? You'll hear first.",
-    description: "Save any map view as a watch. Get alerts for new listings, price drops, or when a flagged unit becomes available.",
-    image: "/assets/blog/Rectangle%2034626212%20(4).png"
+    title: "The NE flat and the SW flat\nare not the same. Now\nyou'll see why.",
+    description: "Direct sunlight calculated on your specific window facings, per season. Two units in the same tower can get very different sun — this is the number that tells you which is which.",
+    image: "/assets/features/ChatGPT Image May 2, 2026, 09_44_47 AM 1 (5).png",
+    bg:"bg-[#FCF8F3]",
+    id:"st4"
   }
-];
+];;
 
-export const ProjectsSection = () => {
+export const SectionThree = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -116,7 +121,7 @@ export const ProjectsSection = () => {
             </svg>
           </div>
           <div className="px-5 py-2 bg-[#E2EBE5] text-[#2D6A4F] rounded-full text-sm font-inter font-semibold tracking-wide text-center shadow-sm">
-            Step 2 of your journey
+            Step 3 of your journey
           </div>
         </div>
       </div>
@@ -129,20 +134,20 @@ export const ProjectsSection = () => {
           {/* Left Column (Sticky on lg+) */}
           <div className="lg:w-5/12 lg:sticky lg:top-28 flex flex-col pt-8">
             <div className="mb-2 font-fraunces text-3xl md:text-4xl text-black">
-              02
+              03
             </div>
             <h2 className="font-fraunces text-3xl md:text-4xl lg:text-5xl text-black leading-[1.1] mb-4">
-              Projects
+              Home &amp; Units
             </h2>
             <p className="font-inter text-base md:text-lg text-gray-700 leading-[1.4] mb-6">
-              Bengaluru is building 2,000+.<br className="hidden md:block" />
-                Kabir shows you only yours.
+              Every space tells a story. <br/>
+                  Find yours.
             </p>
             
             {/* Image: hidden on mobile, shown on lg+ */}
             <div className=" relative w-full h-[400px] md:h-[500px] mt-auto ">
               <img 
-                src="/assets/02-projects/character-men.png" 
+                src="/assets/section3.png" 
                 alt="Kabir - Projects Curator" 
                 className="w-full h-full object-contain object-left-bottom"
               />

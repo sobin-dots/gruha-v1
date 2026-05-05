@@ -54,12 +54,17 @@ export const CohortSection = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="bg-[#1A222E] pt-12 md:pt-16 pb-0 overflow-hidden relative">
+    <section ref={containerRef} className="bg-[#1A222E] pt-12 md:pt-16 pb-0 relative overflow-hidden">
+
+
+      
+
+
       <div className="max-w-6xl mx-auto px-4 md:px-8">
         <div className="flex flex-col-reverse md:flex-row items-center justify-between">
           
           {/* Left Content */}
-          <div ref={contentRef} className="w-full md:w-1/2 flex flex-col z-10 pb-10 md:pb-16 pt-6 md:pt-0">
+          <div ref={contentRef} className=" order-1 md:order-0 w-full md:w-1/2 flex flex-col z-10 pb-10 md:pb-16 pt-6 md:pt-0">
             <p className="text-[#3BAE8B] font-inter font-medium text-xs md:text-sm tracking-widest uppercase mb-4 md:mb-5">
               Cohort 01 . Bengaluru . Open
             </p>
@@ -84,7 +89,7 @@ export const CohortSection = () => {
           </div>
           
           {/* Right Image */}
-          <div className="md:w-1/2 flex justify-end items-end h-full pt-10 md:pt-0 self-end">
+          <div className="md:w-1/2 flex justify-end items-end h-full pt-10 md:pt-0 self-end order-0 md:order-1">
             <img 
               ref={imageRef}
               src="/assets/cohort-1/Frame%201597884646.png" 

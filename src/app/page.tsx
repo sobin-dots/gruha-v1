@@ -19,6 +19,10 @@ import { LocationCardsSection } from "@/components/sections/LocationCardsSection
 import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { TrustCtaSection } from "@/components/sections/TrustCtaSection";
 import { HowItWorksSection } from "@/components/sections/HowItWorksSection";
+import { SectionThree } from "@/components/sections/SectionThree";
+import { SectionFour } from "@/components/sections/SectionFour";
+import { SectionFive } from "@/components/sections/SectionFive";
+import { SectionSix } from "@/components/sections/SectionSix";
 export default function Home() {
   return (
     <>
@@ -31,18 +35,24 @@ export default function Home() {
         <HomeSearchJournalSection />
         <CohortSection />
         <ProjectsSection />
-        <BlogSection />
+       
+        {/* <BlogSection /> */}
         <WaitlistSection />
-        <UnitsSection />
-        <AppFeaturesSection />
+         <SectionThree />
+        {/* <UnitsSection />
+        <AppFeaturesSection /> */}
         <CtaSection />
-        <ProjectTowerSection />
-        <ProjectListSection />
+        <SectionFour />
+        {/* <ProjectTowerSection />
+        <ProjectListSection /> */}
         
         <TrustCtaSection />
-        <LocationIntelligenceSection />
-        <LocationCardsSection />
+        <SectionFive />
+         {/* <LocationIntelligenceSection />
+        <LocationCardsSection /> */}
+        
         <FinalCtaSection />
+        <SectionSix />
       </main>
       <Footer />
     </>

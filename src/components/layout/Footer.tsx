@@ -17,11 +17,11 @@ export const Footer = () => {
           <div className="lg:col-span-4 pr-0 lg:pr-12">
             <Link href="/" className="inline-block mb-6">
               <div className="text-[2rem] font-inter font-bold tracking-tight">
-                gruha<span className="text-gray-400 text-xl font-normal ml-[2px]">.ai</span>
+                <img src="/assets/logo.png" alt="logo" className='w-48 h-auto' />
               </div>
             </Link>
             <p className="text-[#A1A1AA] font-inter text-[0.9375rem] leading-[1.7] mb-10 max-w-[300px]">
-              Lorem ipsum dolor sit amet consectetur urna congue.
+             
             </p>
             <button onClick={openModal} className="bg-[#D2A574] hover:bg-[#B58D61] text-[#111] font-inter font-medium text-[0.9375rem] px-6 py-3.5 rounded-lg flex items-center gap-2 transition-all duration-300">
               Join Waitlist
@@ -31,17 +31,11 @@ export const Footer = () => {
 
           {/* Contact & Email Column */}
           <div className="lg:col-span-3 flex flex-col gap-10">
-            <div>
-              <h4 className="text-[#888] text-xs font-bold tracking-[0.1em] uppercase mb-6">Contact</h4>
-              <ul className="flex flex-col gap-3 text-[#E4E4E7] font-inter text-[0.9375rem]">
-                <li>(888) 456 7890</li>
-                <li>(888)1234-4567</li>
-              </ul>
-            </div>
+            
             <div>
               <h4 className="text-[#888] text-xs font-bold tracking-[0.1em] uppercase mb-6">Email</h4>
-              <Link href="mailto:info@example.com" className="text-[#E4E4E7] font-inter text-[0.9375rem] hover:text-white underline underline-offset-[5px] decoration-gray-500 hover:decoration-white transition-colors">
-                info@example.com
+              <Link href="mailto:hello@gruha.ai" className="text-[#E4E4E7] font-inter text-[0.9375rem] hover:text-white underline underline-offset-[5px] decoration-gray-500 hover:decoration-white transition-colors">
+                hello@gruha.ai
               </Link>
             </div>
           </div>
@@ -52,21 +46,13 @@ export const Footer = () => {
             <ul className="flex flex-col gap-4 text-[#E4E4E7] font-inter text-[0.9375rem]">
               <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
               <li><Link href="/about" className="hover:text-white transition-colors">About us</Link></li>
-              <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
-              <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
-              <li><Link href="/license" className="hover:text-white transition-colors">License</Link></li>
+              <li><Link href="/contact-us" className="hover:text-white transition-colors">Contact us</Link></li>
             </ul>
           </div>
 
           {/* Address & Social Column */}
           <div className="lg:col-span-3 flex flex-col gap-10">
-            <div>
-              <h4 className="text-[#888] text-xs font-bold tracking-[0.1em] uppercase mb-6">Address</h4>
-              <p className="text-[#E4E4E7] font-inter text-[0.9375rem] leading-[1.7] max-w-[250px]">
-                410 Sandtown,<br />
-                California 94001, USA
-              </p>
-            </div>
+           
             <div>
               <h4 className="text-[#888] text-xs font-bold tracking-[0.1em] uppercase mb-6">Social</h4>
               <div className="flex items-center gap-3">

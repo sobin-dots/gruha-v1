@@ -38,7 +38,7 @@ export const HomeSearchJournalSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section ref={sectionRef} className="pt-24 pb-16 bg-[#f8f7f3] relative ">
+    <section ref={sectionRef} className="pt-24 pb-24 bg-[#f8f7f3] relative ">
       
       {/* Step Indicator - Centered precisely on the section dividing line */}
       <div className=" left-0 w-full flex justify-center z-20 -translate-y-1/2">
@@ -72,7 +72,7 @@ export const HomeSearchJournalSection = () => {
             </p>
             
             {/* Image: hidden on mobile, shown on lg+ */}
-            <div className="hidden lg:block relative w-full h-[400px] md:h-[500px] mt-auto ">
+            <div className=" relative w-full h-[400px] md:h-[500px] mt-auto ">
               <img 
                 src="/assets/home-search-journal/left-side-main-character.png" 
                 alt="Riya holding journal" 
@@ -88,7 +88,7 @@ export const HomeSearchJournalSection = () => {
                 key={card.id}
                 className={`w-full rounded-[20px] md:rounded-[28px] overflow-hidden ${card.bg} flex flex-col sticky shadow-sm`}
                 style={{ 
-                  top: `calc(80px + ${index * 16}px)`,
+                  top: `calc(120px + ${index * 16}px)`,
                   zIndex: index + 1
                 }}
               >
