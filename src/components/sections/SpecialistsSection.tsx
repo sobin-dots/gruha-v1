@@ -126,11 +126,11 @@ export const SpecialistsSection = () => {
               }}
             >
               {/* Image Container */}
-              <div className="relative w-full pt-3 md:pt-4 px-4 flex items-end justify-start sm:justify-center bg-white overflow-visible">
+              <div className="relative flex justify-center   sm:justify-start w-full pt-3 md:pt-4 px-4  items-end  bg-white overflow-visible">
                 <img 
                   src={specialist.image}
                   alt={specialist.name}
-                  className="h-[220px] sm:h-[250px] md:h-[280px] w-auto max-w-full object-contain object-left sm:object-center transition-transform duration-500 group-hover:scale-105"
+                  className="h-[320px] sm:h-[250px] md:h-[280px] w-auto max-w-full object-contain object-left sm:object-center transition-transform duration-500 group-hover:scale-105"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
                     e.currentTarget.parentElement!.innerHTML = `<div class="h-[180px] w-full flex items-center justify-start sm:justify-center text-gray-400 font-inter text-sm bg-gray-50 rounded-xl">[Image: ${specialist.name}]</div>`;
