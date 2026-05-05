@@ -7,7 +7,11 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
 import { useWaitlist } from '@/contexts/WaitlistContext';
 
-export const Header = () => {
+interface HeaderProps {
+  forceSolid?: boolean;
+}
+
+export const Header: React.FC<HeaderProps> = ({ forceSolid = false }) => {
   const [scrolled, setScrolled] = useState(false);
   const { openModal } = useWaitlist();
 
@@ -22,7 +26,7 @@ export const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 md:px-12 ${
-        scrolled ? 'bg-black shadow-md py-4 border-b border-white/10' : 'bg-transparent py-6'
+        scrolled || forceSolid ? 'bg-black shadow-md py-4 border-b border-white/10' : 'bg-transparent py-6'
       }`}
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between">

@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function ContactPage() {
   return (
     <>
-      <Header />
+      <Header forceSolid />
       <main className="flex flex-col min-h-screen bg-[#FDFAF7]">
         {/* Contact Section */}
         <section className="flex-grow flex items-center justify-center py-16 md:py-24">
@@ -14,8 +14,8 @@ export default function ContactPage() {
             <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
               
               {/* Left Column: Image */}
-              <div className="w-full lg:w-1/2 order-2 lg:order-1">
-                <div className="relative aspect-[4/5] w-full max-w-lg mx-auto rounded-3xl overflow-hidden shadow-2xl transform lg:-rotate-2 hover:rotate-0 transition-transform duration-700">
+              <div className="w-full lg:w-5/12 order-2 lg:order-1">
+                <div className="relative aspect-[4/5] w-full mx-auto overflow-hidden">
                   <Image 
                     src="/68f3cbbafd79e9a1361946759b46617bfbfe0043.png"
                     alt="Contact Illustration"
@@ -23,13 +23,12 @@ export default function ContactPage() {
                     className="object-cover"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
                 </div>
               </div>
 
               {/* Right Column: Form */}
-              <div className="w-full lg:w-1/2 order-1 lg:order-2">
-                <div className="max-w-md mx-auto lg:mx-0">
+              <div className="w-full lg:w-7/12 order-1 lg:order-2">
+                <div className="w-full mx-auto lg:mx-0">
                   <span className="inline-block font-inter text-[0.7rem] font-bold tracking-[0.2em] uppercase text-[#FE6235] mb-4">
                     Contact Us
                   </span>
