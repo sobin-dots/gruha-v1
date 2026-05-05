@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
 import { useWaitlist } from '@/contexts/WaitlistContext';
 
@@ -31,7 +30,6 @@ export const Header: React.FC<HeaderProps> = ({ forceSolid = false }) => {
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         <Link href="/" className="relative z-10 flex items-center gap-2">
-          {/* Logo container. Using unoptimized since it's an export build */}
           <div className="relative h-8 w-32 md:h-10 md:w-40">
 
             <Image 

@@ -31,7 +31,7 @@ const cards = [
     id:"st1"
   },
   {
-    title: "Vaastu-aligned? Wecheck every room — notjust the main door.",
+    title: "Vaastu-aligned? Wecheck every room — not just the main door.",
     description: "Every unit evaluated against classical Vaastu principles — main door, kitchen, master bedroom, pooja room, toilets, and the Brahmasthan. You get a compliance score with specific passes and deviations.",
     image: "/assets/features/ChatGPT Image May 2, 2026, 09_44_47 AM 1 (3).png",
     bg:"bg-[#FB6660]",
