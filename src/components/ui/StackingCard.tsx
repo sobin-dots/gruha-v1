@@ -38,7 +38,7 @@ export const StackingCard: React.FC<StackingCardProps> = ({
         <h3 className={`font-inter font-bold text-2xl md:text-2xl lg:text-[1.875rem] leading-tight tracking-tight mb-4 whitespace-pre-line ${card.textColor || 'text-black'}`}>
           {card.title}
         </h3>
-        <p className={`font-inter text-base md:text-base lg:text-lg leading-relaxed max-w-[95%] font-medium ${card.textColor || 'text-gray-700'}`}>
+        <p className={`font-inter text-base md:text-base lg:text-lg leading-relaxed max-w-[95%] font-medium ${card.textColor || 'text-gray-900'}`}>
           {card.description}
         </p>
       </div>

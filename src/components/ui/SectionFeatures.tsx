@@ -17,7 +17,7 @@ export const SectionFeatures: React.FC<SectionFeaturesProps> = ({ features, clas
       {features.map((feature, index) => (
         <div 
           key={index} 
-          className={`flex items-start py-5 ${index !== features.length - 1 ? 'border-b border-gray-200 w-full md:w-1/3' : 'md:border-b md:border-gray-200'}`}
+          className={`flex items-start py-5 ${index !== features.length - 1 ? '  w-full md:w-1/3' : ''}`}
         >
           {/* Icon */}
           <div className="w-9 h-9 flex-shrink-0 flex items-center justify-center mr-5 md:mr-6 pt-0.5">
