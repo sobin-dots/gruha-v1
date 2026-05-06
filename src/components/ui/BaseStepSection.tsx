@@ -42,9 +42,8 @@ export const BaseStepSection: React.FC<BaseStepSectionProps> = ({
   badgeMarginTop = "-mt-19 md:-mt-23"
 }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLDivElement>(null); 
+  const imageRef = useRef<HTMLDivElement>(null); // This is the sidebar image container
   const featuresRef = useRef<HTMLDivElement>(null);
-  const cardsContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -76,41 +75,11 @@ export const BaseStepSection: React.FC<BaseStepSectionProps> = ({
             stagger: 0.15,
             ease: 'power3.out',
             scrollTrigger: {
-              trigger: featuresRef.current,
-              start: "top 80%",
+              trigger: sectionRef.current,
+              start: "top 70%",
             }
           }
         );
-      }
-
-      // Stacking Cards Logic
-      if (cardsContainerRef.current) {
-        const cards = Array.from(cardsContainerRef.current.children);
-        const lastCard = cards[cards.length - 1];
-        
-        const mm = gsap.matchMedia();
-        
-        mm.add({
-          isDesktop: "(min-width: 1024px)",
-          isMobile: "(max-width: 1023px)"
-        }, (context) => {
-          const { isDesktop } = context.conditions as { isDesktop: boolean };
-          const responsiveTopOffset = isDesktop ? topOffset : 80;
-          
-          cards.forEach((card, i) => {
-            ScrollTrigger.create({
-              trigger: card,
-              start: `top ${responsiveTopOffset + i * spacing}px`,
-              endTrigger: lastCard,
-              end: `top ${responsiveTopOffset + (cards.length - 1) * spacing}px`,
-              pin: true,
-              pinSpacing: false,
-              scrub: true,
-              invalidateOnRefresh: true,
-            });
-          });
-          return () => {};
-        });
       }
     }, sectionRef);
 
@@ -135,7 +104,7 @@ export const BaseStepSection: React.FC<BaseStepSectionProps> = ({
           </div>
 
           {/* Right Column (Scrolling Cards) */}
-          <div ref={cardsContainerRef} className="lg:w-6/12 flex flex-col gap-5 md:gap-8 pb-4">
+          <div className="lg:w-6/12 flex flex-col gap-5 md:gap-8 pb-12">
             {cards.map((card, index) => (
               <StackingCard 
                 key={card.id} 
