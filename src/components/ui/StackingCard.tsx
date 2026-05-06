@@ -21,19 +21,16 @@ export const StackingCard: React.FC<StackingCardProps> = ({
   card, 
   index, 
   topOffset = 120, 
-  spacing = 8 
+  spacing = 32 
 }) => {
   return (
     <div 
-      className={`w-full min-h-[50vh] md:min-h-0 rounded-[32px] md:rounded-[28px] overflow-hidden ${card.bg} flex flex-col pt-14 md:pt-0 sticky shadow-sm [--stack-top:80px] md:[--stack-top:120px]`}
+      className={`w-full min-h-[50vh] md:min-h-0 rounded-[32px] md:rounded-[28px] overflow-hidden ${card.bg} flex flex-col pt-8 md:pt-0 sticky shadow-sm [--stack-top:84px] md:[--stack-top:${topOffset}px]`}
       style={{ 
-        top: `calc(${topOffset}px + ${index * spacing}px)`,
+        top: `calc(var(--stack-top) + ${index * spacing}px)`,
         zIndex: index + 1
       } as React.CSSProperties}
     >
-      {/* Mobile Spacer to push content down */}
-      <div className="flex-1 md:hidden" />
-
       {/* Card Text Content */}
       <div className="px-7 md:p-8 lg:p-10 pb-0">
         <h3 className={`font-inter font-bold text-2xl md:text-2xl lg:text-[1.875rem] leading-tight tracking-tight mb-4 whitespace-pre-line ${card.textColor || 'text-black'}`}>

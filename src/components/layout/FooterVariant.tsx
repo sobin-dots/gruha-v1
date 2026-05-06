@@ -22,8 +22,8 @@ export const FooterVariant = () => {
           {/* Email Column */}
           <div className="flex flex-col gap-4">
             <h4 className="text-[#888] text-[0.7rem] font-bold tracking-[0.15em] uppercase">Email</h4>
-            <Link href="mailto:hello@gruha.ai" className="text-black font-inter font-semibold text-sm hover:opacity-70 transition-opacity">
-              hello@gruha.ai
+            <Link href="mailto:homebuyers@gruha.ai" className="text-black font-inter font-semibold text-sm hover:opacity-70 transition-opacity">
+              homebuyers@gruha.ai
             </Link>
           </div>
 
