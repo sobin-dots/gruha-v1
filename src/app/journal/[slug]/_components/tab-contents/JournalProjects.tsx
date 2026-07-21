@@ -111,7 +111,7 @@ export const JournalProjects: React.FC<JournalProjectsProps> = ({
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <section id="projects" className="w-full bg-white text-slate-900 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="w-full bg-white text-slate-900  px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl space-y-12">
 
         {/* Header content */}
@@ -136,9 +136,8 @@ export const JournalProjects: React.FC<JournalProjectsProps> = ({
             return (
               <div
                 key={index}
-                className={`h-[64px] flex flex-row items-center p-3 gap-4 border-b md:border-b-0 md:border-r border-[#F1F5F9] ${
-                  isLast ? "border-b-0 md:border-r-0" : ""
-                }`}
+                className={`h-[64px] flex flex-row items-center p-3 gap-4 border-b md:border-b-0 md:border-r border-[#F1F5F9] ${isLast ? "border-b-0 md:border-r-0" : ""
+                  }`}
               >
                 <div className="w-[18px] h-[18px] flex items-center justify-center text-[#FE5B39] flex-shrink-0">
                   <Icon className="w-[18px] h-[18px] stroke-[1.75]" />
@@ -158,7 +157,7 @@ export const JournalProjects: React.FC<JournalProjectsProps> = ({
 
         {/* Priorities & Conversation Card Row */}
         <div className="w-full flex flex-col lg:flex-row justify-between items-start gap-6 font-inter">
-          
+
           {/* Left Panel: What mattered most */}
           <div className="w-full lg:w-[719px] min-h-[417.84px] p-6 bg-white border border-[#F1F5F9] rounded-[24px] flex flex-col justify-start items-start gap-6 shadow-xs">
             <h3 className="text-[16px] font-semibold text-[#334155] leading-[19px]">
@@ -219,9 +218,8 @@ export const JournalProjects: React.FC<JournalProjectsProps> = ({
                 {chatMessages.map((msg, index) => (
                   <div
                     key={index}
-                    className={`flex items-start gap-2.5 w-full ${
-                      msg.isRiya ? "justify-end flex-row-reverse" : ""
-                    }`}
+                    className={`flex items-start gap-2.5 w-full ${msg.isRiya ? "justify-end flex-row-reverse" : ""
+                      }`}
                   >
                     <div className="relative w-[32px] h-[32px] shrink-0 bg-white rounded-full overflow-hidden border border-black/10">
                       <Image
@@ -236,11 +234,10 @@ export const JournalProjects: React.FC<JournalProjectsProps> = ({
                       />
                     </div>
                     <div
-                      className={`flex flex-col p-3 max-w-[320px] relative ${
-                        msg.isRiya
+                      className={`flex flex-col p-3 max-w-[320px] relative ${msg.isRiya
                           ? "bg-[#8B5CF6] text-white rounded-2xl rounded-tr-none"
                           : "bg-[#F2F2F7] text-[#2C2C2E] rounded-2xl rounded-tl-none"
-                      }`}
+                        }`}
                     >
                       <span className="text-[14px] font-semibold leading-[14px] mb-1">
                         {msg.sender}
@@ -320,7 +317,7 @@ export const JournalProjects: React.FC<JournalProjectsProps> = ({
 
         {/* Map & Explored Projects Row */}
         <div className="w-full flex flex-col lg:flex-row justify-start items-stretch gap-6 font-inter">
-          
+
           {/* Left panel: Where they searched */}
           <div className="w-full lg:w-[506px] h-[523.38px] p-6 bg-white border border-[#F1F5F9] rounded-[24px] flex flex-col justify-between items-center shadow-xs shrink-0">
             <div className="w-full flex flex-row justify-between items-center h-[19px] mb-4">

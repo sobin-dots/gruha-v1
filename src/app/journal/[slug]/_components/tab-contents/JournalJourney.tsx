@@ -123,7 +123,7 @@ export const JournalJourney: React.FC<JournalJourneyProps> = ({
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <section id="journey" className="w-full bg-white text-slate-900 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+    <section id="journey" className="w-full bg-white text-slate-900   px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-[1177px] space-y-12">
 
         {/* Header Section */}
@@ -379,20 +379,18 @@ export const JournalJourney: React.FC<JournalJourneyProps> = ({
 
                       {/* Icon Circle Box */}
                       <div
-                        className={`flex items-center justify-center w-[56px] h-[56px] rounded-full transition-all duration-300 ${
-                          step.active
-                            ? 'bg-[#FF7E57] text-white shadow-xs'
-                            : 'bg-[#F8FAFC] border border-[#F1F5F9] text-[#64748B]'
-                        }`}
+                        className={`flex items-center justify-center w-[56px] h-[56px] rounded-full transition-all duration-300 ${step.active
+                          ? 'bg-[#FF7E57] text-white shadow-xs'
+                          : 'bg-[#F8FAFC] border border-[#F1F5F9] text-[#64748B]'
+                          }`}
                       >
                         <IconComponent className="w-[26px] h-[26px]" />
                       </div>
 
                       {/* Label */}
                       <span
-                        className={`text-[14px] leading-[17px] font-semibold text-center whitespace-nowrap font-inter ${
-                          step.active ? 'text-[#475569]' : 'text-[#475569]'
-                        }`}
+                        className={`text-[14px] leading-[17px] font-semibold text-center whitespace-nowrap font-inter ${step.active ? 'text-[#475569]' : 'text-[#475569]'
+                          }`}
                       >
                         {step.label}
                       </span>
@@ -488,8 +486,8 @@ export const JournalJourney: React.FC<JournalJourneyProps> = ({
                     </div>
                     <div
                       className={`flex flex-col p-3 text-[14px] leading-[20px] max-w-[335px] relative ${msg.isRiya
-                          ? "bg-[#8B5CF6] text-white rounded-l-[12px] rounded-br-[12px] rounded-tr-[12px]"
-                          : "bg-[#F2F2F7] text-[#2C2C2E] rounded-r-[12px] rounded-bl-[12px]"
+                        ? "bg-[#8B5CF6] text-white rounded-l-[12px] rounded-br-[12px] rounded-tr-[12px]"
+                        : "bg-[#F2F2F7] text-[#2C2C2E] rounded-r-[12px] rounded-bl-[12px]"
                         }`}
                     >
                       <span className="font-semibold text-[14px] leading-[13px] mb-1 font-inter">

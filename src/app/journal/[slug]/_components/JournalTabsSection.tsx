@@ -2,9 +2,9 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { 
-  CheckCircle2, ChevronRight, Compass, ShieldAlert, Sparkles, UserCheck, Briefcase, Coins, Heart, Hourglass, 
-  FileText, Search, Users, Calendar, IndianRupee, CalendarDays, BadgeCheck, CircleDollarSign, UserPlus, 
+import {
+  CheckCircle2, ChevronRight, Compass, ShieldAlert, Sparkles, UserCheck, Briefcase, Coins, Heart, Hourglass,
+  FileText, Search, Users, Calendar, IndianRupee, CalendarDays, BadgeCheck, CircleDollarSign, UserPlus,
   FileSearch, LayoutList, Clock3, Clock4, Banknote, Car, Frown, TrendingUp,
   Lightbulb, Feather, ArrowLeftRight, MessageSquare, CalendarPlus,
   LayoutGrid, FileCheck2, FileCheck, MapPin, Link2, Lock, GraduationCap, ShieldCheck, MoreHorizontal, Building2,
@@ -219,33 +219,21 @@ export const JournalTabsSection: React.FC = () => {
     return <JournalStartHere {...startHereData} />;
   };
 
-  const containerRef = useRef<HTMLDivElement>(null);
   const isScrollingRef = useRef(false);
-  const isHoveredRef = useRef(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleScroll = () => {
-    if (isScrollingRef.current) {
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
-      scrollTimeoutRef.current = setTimeout(() => {
-        isScrollingRef.current = false;
-      }, 150);
-      return;
-    }
-
-    const container = containerRef.current;
-    if (!container) return;
+    if (isScrollingRef.current) return;
 
     const sectionIds: TabId[] = ["profile", "journey", "search", "projects", "learnings", "start-here"];
+    const offset = 140; // sticky header detection threshold
 
     for (let i = sectionIds.length - 1; i >= 0; i--) {
       const id = sectionIds[i];
       const el = document.getElementById(`section-${id}`);
       if (el) {
-        const top = el.offsetTop - 50; // detection offset threshold
-        if (container.scrollTop >= top) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= offset) {
           setActiveTab(id);
           break;
         }
@@ -254,35 +242,10 @@ export const JournalTabsSection: React.FC = () => {
   };
 
   useEffect(() => {
-    const handleGlobalWheel = (e: WheelEvent) => {
-      const container = containerRef.current;
-      if (!container) return;
-
-      // If hovered inside the folder card, let browser handle native scrolling naturally
-      if (isHoveredRef.current) return;
-
-      const isScrollAtBottom = window.scrollY >= document.documentElement.scrollHeight - window.innerHeight - 5;
-      const isContainerAtTop = container.scrollTop <= 0;
-      const isContainerAtBottom = container.scrollTop + container.clientHeight >= container.scrollHeight - 5;
-
-      if (e.deltaY > 0) {
-        // Scrolling Down
-        if (isScrollAtBottom && !isContainerAtBottom) {
-          e.preventDefault();
-          container.scrollTop += e.deltaY;
-        }
-      } else if (e.deltaY < 0) {
-        // Scrolling Up
-        if (!isContainerAtTop) {
-          e.preventDefault();
-          container.scrollTop += e.deltaY;
-        }
-      }
-    };
-
-    window.addEventListener("wheel", handleGlobalWheel, { passive: false });
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // initial state setting
     return () => {
-      window.removeEventListener("wheel", handleGlobalWheel);
+      window.removeEventListener("scroll", handleScroll);
       if (scrollTimeoutRef.current) {
         clearTimeout(scrollTimeoutRef.current);
       }
@@ -290,16 +253,18 @@ export const JournalTabsSection: React.FC = () => {
   }, []);
 
   const handleTabClick = (id: TabId) => {
-    const container = containerRef.current;
     const el = document.getElementById(`section-${id}`);
-    if (container && el) {
+    if (el) {
       isScrollingRef.current = true;
       setActiveTab(id);
 
-      const targetTop = el.offsetTop - 10;
+      const offset = 90; // sticky tabs header offset
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = el.getBoundingClientRect().top;
+      const offsetPosition = elementRect - bodyRect - offset;
 
-      container.scrollTo({
-        top: targetTop,
+      window.scrollTo({
+        top: offsetPosition,
         behavior: "smooth",
       });
 
@@ -314,110 +279,105 @@ export const JournalTabsSection: React.FC = () => {
 
   return (
     <section
-      className="relative w-full max-w-7xl mx-auto px-4 py-16 md:py-20 select-none h-[85vh] flex flex-col"
+      className="relative w-full max-w-7xl mx-auto px-4 py-8 select-none"
       aria-label="Interactive folder sections"
     >
-      {/* ── Folder Tabs Header ── */}
-      <div className="w-full max-w-full mx-auto relative flex items-end h-[76px] px-2 sm:px-4 overflow-hidden z-10 -mb-[1px] shrink-0">
-        <nav className="flex items-end w-full">
-          {tabs.map((tab, index) => {
-            const isActive = activeTab === tab.id;
+      {/* ── Folder Tabs Header (Sticky Container) ── */}
+      <div className="sticky top-0 z-30 bg-[#FDFAF7] pt-4 pb-1 w-full">
+        <div className="w-full max-w-full mx-auto relative flex items-end h-[76px] px-2 sm:px-4 overflow-hidden -mb-[1px] shrink-0">
+          <nav className="flex items-end w-full">
+            {tabs.map((tab, index) => {
+              const isActive = activeTab === tab.id;
 
-            return (
-              <button
-                key={tab.id}
-                onClick={() => handleTabClick(tab.id)}
-                className="relative flex-1 min-w-0 focus:outline-none transition-all duration-300 ease-out cursor-pointer"
-                style={{
-                  height: isActive ? "71px" : "56px",
-                  marginLeft: index === 0 ? "0px" : "-8px",
-                  zIndex: isActive ? 30 : 20 - index,
-                }}
-              >
-                {/* Top Badge Slot (Avatar & Tag Badge) */}
-                {!isActive && (tab.avatar || tab.badgeCount) && (
-                  <div className="absolute top-[-14px] left-1/2 -translate-x-1/2 z-40 flex items-center justify-center pointer-events-none transition-opacity duration-200">
-                    {tab.avatar && (
-                      <div className="relative w-[23.8px] h-[23.8px] rounded-full overflow-hidden border border-black/10 flex-shrink-0 bg-white">
-                        <Image
-                          src={tab.avatar}
-                          alt={tab.label}
-                          fill
-                          sizes="24px"
-                          className="object-cover object-[50%_15%] scale-[2.3] origin-top"
-                        />
-                      </div>
-                    )}
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => handleTabClick(tab.id)}
+                  className="relative flex-1 min-w-0 focus:outline-none transition-all duration-300 ease-out cursor-pointer"
+                  style={{
+                    height: isActive ? "71px" : "56px",
+                    marginLeft: index === 0 ? "0px" : "-8px",
+                    zIndex: isActive ? 30 : 20 - index,
+                  }}
+                >
+                  {/* Top Badge Slot (Avatar & Tag Badge) */}
+                  {!isActive && (tab.avatar || tab.badgeCount) && (
+                    <div className="absolute top-[-14px] left-1/2 -translate-x-1/2 z-40 flex items-center justify-center pointer-events-none transition-opacity duration-200">
+                      {tab.avatar && (
+                        <div className="relative w-[23.8px] h-[23.8px] rounded-full overflow-hidden border border-black/10 flex-shrink-0 bg-white">
+                          <Image
+                            src={tab.avatar}
+                            alt={tab.label}
+                            fill
+                            sizes="24px"
+                            className="object-cover object-[50%_15%] scale-[2.3] origin-top"
+                          />
+                        </div>
+                      )}
 
-                    {tab.badgeCount && (
-                      <div
-                        className={`flex items-center justify-center h-4 sm:h-5 bg-white rounded-full px-1.5 sm:px-2 text-[10px] sm:text-[11px] font-bold text-slate-800 shadow-xs border border-slate-100 ${
-                          tab.avatar ? "-ml-1.5" : ""
-                        }`}
-                      >
-                        {tab.badgeCount}
-                      </div>
-                    )}
+                      {tab.badgeCount && (
+                        <div
+                          className={`flex items-center justify-center h-4 sm:h-5 bg-white rounded-full px-1.5 sm:px-2 text-[10px] sm:text-[11px] font-bold text-slate-800 shadow-xs border border-slate-100 ${tab.avatar ? "-ml-1.5" : ""
+                            }`}
+                        >
+                          {tab.badgeCount}
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* SVG Folder Path Vector */}
+                  <div className="relative w-full h-full flex items-center justify-center">
+                    <svg
+                      className="absolute inset-0 w-full h-full pointer-events-none transition-all duration-300"
+                      preserveAspectRatio="none"
+                      viewBox="0 0 184 90"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M 0 90 V 52 C 0 44 4 40 10 40 H 12 C 18 40 22 36 22 28 V 12 C 22 4 28 0 36 0 H 158 C 166 0 170 6 171 14 C 172 22 174 28 178 33 C 180 36 184 40 184 48 V 90 Z"
+                        fill={isActive ? tab.bgColorHex : tab.inactiveBgHex}
+                      />
+                    </svg>
+
+                    {/* Tab Label */}
+                    <span
+                      className="relative z-20 font-inter text-[12px] sm:text-[14px] tracking-tight text-center truncate px-1 transition-all duration-300"
+                      style={{
+                        fontWeight: isActive ? 700 : 600,
+                        color: isActive ? "#020617" : "#475569",
+                        marginTop: isActive ? "-8px" : "10px",
+                      }}
+                    >
+                      {tab.label}
+                    </span>
                   </div>
-                )}
-
-                {/* SVG Folder Path Vector */}
-                <div className="relative w-full h-full flex items-center justify-center">
-                  <svg
-                    className="absolute inset-0 w-full h-full pointer-events-none transition-all duration-300"
-                    preserveAspectRatio="none"
-                    viewBox="0 0 184 90"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M 0 90 V 52 C 0 44 4 40 10 40 H 12 C 18 40 22 36 22 28 V 12 C 22 4 28 0 36 0 H 158 C 166 0 170 6 171 14 C 172 22 174 28 178 33 C 180 36 184 40 184 48 V 90 Z"
-                      fill={isActive ? tab.bgColorHex : tab.inactiveBgHex}
-                    />
-                  </svg>
-
-                  {/* Tab Label */}
-                  <span
-                    className="relative z-20 font-inter text-[12px] sm:text-[14px] tracking-tight text-center truncate px-1 transition-all duration-300"
-                    style={{
-                      fontWeight: isActive ? 700 : 600,
-                      color: isActive ? "#020617" : "#475569",
-                      marginTop: isActive ? "-8px" : "10px",
-                    }}
-                  >
-                    {tab.label}
-                  </span>
-                </div>
-              </button>
-            );
-          })}
-        </nav>
+                </button>
+              );
+            })}
+          </nav>
+        </div>
       </div>
 
-      {/* ── Folder Body (Scrollable Container) ── */}
-      <div
-        ref={containerRef}
-        onScroll={handleScroll}
-        onMouseEnter={() => { isHoveredRef.current = true; }}
-        onMouseLeave={() => { isHoveredRef.current = false; }}
-        className="w-full rounded-b-[2rem] rounded-tr-[2rem] p-6 md:p-10 border border-gray-200/80 shadow-xl bg-white relative z-0 flex-1 overflow-y-auto hide-scrollbar space-y-16"
-      >
-        <div id="section-profile" className="scroll-mt-4">
+      {/* ── Folder Body (Free Scrollable Inline Content) ── */}
+      <div className="w-full relative z-10 py-10 space-y-24 bg-white">
+        <div id="section-profile" className="scroll-mt-28">
           {renderProfileContent()}
         </div>
-        <div id="section-journey" className="scroll-mt-4 border-t border-gray-100/70 pt-12">
+        <div id="section-journey" className="scroll-mt-28 border-t border-slate-200/50 ">
           {renderJourneyContent()}
         </div>
-        <div id="section-search" className="scroll-mt-4 border-t border-gray-100/70 pt-12">
+        <div id="section-search" className="scroll-mt-28 border-t border-slate-200/50 ">
           {renderSearchContent()}
         </div>
-        <div id="section-projects" className="scroll-mt-4 border-t border-gray-100/70 pt-12">
+        <div id="section-projects" className="scroll-mt-28 border-t border-slate-200/50 ">
           {renderProjectsContent()}
         </div>
-        <div id="section-learnings" className="scroll-mt-4 border-t border-gray-100/70 pt-12">
+        <div id="section-learnings" className="scroll-mt-28 border-t border-slate-200/50 ">
           {renderLearningsContent()}
         </div>
-        <div id="section-start-here" className="scroll-mt-4 border-t border-gray-100/70 pt-12 pb-8">
+        <div id="section-start-here" className="scroll-mt-28 border-t border-slate-200/50 ">
           {renderStartHereContent()}
         </div>
       </div>

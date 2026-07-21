@@ -58,9 +58,9 @@ export const JournalSearch: React.FC<JournalSearchProps> = ({
   insightImage = "/journals/advisor.png",
 }) => {
   return (
-    <section id="search" className="w-full bg-white text-slate-900 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+    <section id="search" className="w-full bg-white text-slate-900  px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl space-y-12">
-        
+
         {/* Header Block */}
         <div className="w-full flex flex-col items-center pt-[24px] gap-[12px] text-center">
           <p className="text-[16px] leading-[19px] font-semibold tracking-[2px] uppercase text-[#64748B] font-inter">
@@ -106,7 +106,7 @@ export const JournalSearch: React.FC<JournalSearchProps> = ({
 
         {/* Explored Areas & Filters Panel */}
         <div className="w-full grid grid-cols-1 lg:grid-cols-[534px_1fr] gap-6">
-          
+
           {/* Left Panel: Areas Explored */}
           <div className="w-full border border-[#F1F5F9] rounded-[24px] p-4 sm:p-6 flex flex-col justify-between gap-8 bg-white shadow-xs">
             <div className="flex flex-col gap-6">
