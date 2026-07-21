@@ -57,7 +57,7 @@ export const JournalStartHere: React.FC<JournalStartHereProps> = ({
   ctaCharacterImage = "/journals/riya-full-character.png",
 }) => {
   return (
-    <section id="start-here" className="w-full bg-white text-slate-900 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+    <section id="start-here" className="w-full bg-white text-slate-900  px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl space-y-12">
 
         {/* Header Block */}

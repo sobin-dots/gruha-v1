@@ -106,7 +106,7 @@ export const JournalLearnings: React.FC<JournalLearningsProps> = ({
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <section id="learnings" className="w-full bg-white text-slate-900 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+    <section id="learnings" className="w-full bg-white text-slate-900    px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl space-y-12">
 
         {/* Header Block */}
@@ -131,9 +131,8 @@ export const JournalLearnings: React.FC<JournalLearningsProps> = ({
             return (
               <div
                 key={index}
-                className={`h-[64px] p-3 flex flex-row items-center gap-4 border-b md:border-b-0 md:border-r border-[#F1F5F9] ${
-                  isLast ? "border-b-0 md:border-r-0" : ""
-                }`}
+                className={`h-[64px] p-3 flex flex-row items-center gap-4 border-b md:border-b-0 md:border-r border-[#F1F5F9] ${isLast ? "border-b-0 md:border-r-0" : ""
+                  }`}
               >
                 <div className="w-[17.45px] h-[17.45px] flex items-center justify-center shrink-0 text-[#FE5B39]">
                   <Icon className="w-[17.45px] h-[17.45px] stroke-[1.5]" />
@@ -242,7 +241,7 @@ export const JournalLearnings: React.FC<JournalLearningsProps> = ({
 
         {/* What they would do differently & Audio bubble card */}
         <div className="w-full flex flex-col lg:flex-row items-center lg:items-start justify-center gap-[24px] font-inter">
-          
+
           {/* Left panel: what they'd do differently */}
           <div className="w-full lg:w-[773px] bg-white border border-[#F1F5F9] rounded-[24px] p-4 sm:p-[24px] flex flex-col items-center gap-[24px] shadow-xs">
             <div className="w-full flex flex-row items-center gap-[10px]">
@@ -308,9 +307,8 @@ export const JournalLearnings: React.FC<JournalLearningsProps> = ({
                 {chatMessages.map((msg, idx) => (
                   <div
                     key={idx}
-                    className={`flex items-start gap-[4px] w-full ${
-                      msg.isRiya ? "justify-end flex-row-reverse" : ""
-                    }`}
+                    className={`flex items-start gap-[4px] w-full ${msg.isRiya ? "justify-end flex-row-reverse" : ""
+                      }`}
                   >
                     <div className="relative w-[32px] h-[32px] bg-white rounded-full overflow-hidden border border-black/10 shrink-0">
                       <Image
@@ -325,11 +323,10 @@ export const JournalLearnings: React.FC<JournalLearningsProps> = ({
                       />
                     </div>
                     <div
-                      className={`flex flex-col justify-center items-start pl-2 pr-2 py-[4px] relative ${
-                        msg.isRiya
+                      className={`flex flex-col justify-center items-start pl-2 pr-2 py-[4px] relative ${msg.isRiya
                           ? "bg-[#744FFF] text-white rounded-[6px] rounded-tr-[0px] p-[8px] px-[12px] max-w-[280px]"
                           : "bg-transparent text-[#2C2C2E] pl-2 pr-2 py-[4px]"
-                      }`}
+                        }`}
                     >
                       {!msg.isRiya && (
                         <span className="text-[14px] font-semibold leading-[18px] text-[#2C2C2E] block">

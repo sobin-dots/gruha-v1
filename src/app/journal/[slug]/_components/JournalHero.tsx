@@ -34,7 +34,7 @@ export const JournalHeroSection: React.FC<JournalHeroProps> = ({
   updatedOn,
 }) => {
   return (
-    <section className="relative mx-auto w-full max-w-[1440px] px-4 py-8 sm:px-8 lg:px-12 mb-2 mt-5 " aria-label="Journal hero">
+    <section className="relative mx-auto w-full max-w-[1440px] px-4  mb-2 mt-5 " aria-label="Journal hero">
       {/* Hero Outer Wrapper */}
       <div className="relative w-full max-w-[1425px] min-h-[593px] md:h-[593px] mx-auto rounded-[1.5rem] shadow-sm flex flex-col">
 

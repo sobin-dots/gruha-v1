@@ -5,6 +5,7 @@ import { JournalTabsSection } from "./_components/JournalTabsSection";
 import JournalBreadCrumbs from "@/components/JournalBreadCrumbs";
 import * as Icons from "lucide-react";
 import journalData from "@/data/journal-data.json";
+import { FooterVariant } from "@/components/layout/FooterVariant";
 
 interface JournalSlugPageProps {
     params: Promise<{ slug: string }>;
@@ -34,7 +35,7 @@ export default async function JournalSlugPage({
     params,
 }: JournalSlugPageProps) {
     const { slug } = await params;
-    
+
     const article = {
         ...journalData.article,
         learnings: journalData.article.learnings.map((item) => ({
@@ -63,6 +64,7 @@ export default async function JournalSlugPage({
                 {/* ── Section 2 — Folder Tabs (Profile, Journey, Search, Projects, Learnings, Start here) ── */}
                 <JournalTabsSection />
             </main>
+            <FooterVariant />
         </>
     );
 }
