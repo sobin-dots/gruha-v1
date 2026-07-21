@@ -22,12 +22,12 @@ const FooterVariant = dynamic(() => import("@/components/layout/FooterVariant").
 export default function Home() {
   return (
     <>
-      <Header />
+      <Header sticky />
       <main className="flex flex-col min-h-screen">
         <HeroSection />
         <FeatureSection />
         <SpecialistsSection />
-        <HowItWorksSection/>
+        <HowItWorksSection />
         {/* Step-1 */}
         <HomeSearchJournalSection />
         <CohortSection />
