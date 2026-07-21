@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { 
   CheckCircle2, ChevronRight, Compass, ShieldAlert, Sparkles, UserCheck, Briefcase, Coins, Heart, Hourglass, 
@@ -221,17 +221,17 @@ export const JournalTabsSection: React.FC = () => {
 
   const containerRef = useRef<HTMLDivElement>(null);
   const isScrollingRef = useRef(false);
+  const isHoveredRef = useRef(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleScroll = () => {
-    // If programmatically scrolling, debounce the end of scroll
     if (isScrollingRef.current) {
       if (scrollTimeoutRef.current) {
         clearTimeout(scrollTimeoutRef.current);
       }
       scrollTimeoutRef.current = setTimeout(() => {
         isScrollingRef.current = false;
-      }, 150); // wait until scrolling fully stops before re-enabling observer
+      }, 150);
       return;
     }
 
@@ -253,16 +253,50 @@ export const JournalTabsSection: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    const handleGlobalWheel = (e: WheelEvent) => {
+      const container = containerRef.current;
+      if (!container) return;
+
+      // If hovered inside the folder card, let browser handle native scrolling naturally
+      if (isHoveredRef.current) return;
+
+      const isScrollAtBottom = window.scrollY >= document.documentElement.scrollHeight - window.innerHeight - 5;
+      const isContainerAtTop = container.scrollTop <= 0;
+      const isContainerAtBottom = container.scrollTop + container.clientHeight >= container.scrollHeight - 5;
+
+      if (e.deltaY > 0) {
+        // Scrolling Down
+        if (isScrollAtBottom && !isContainerAtBottom) {
+          e.preventDefault();
+          container.scrollTop += e.deltaY;
+        }
+      } else if (e.deltaY < 0) {
+        // Scrolling Up
+        if (!isContainerAtTop) {
+          e.preventDefault();
+          container.scrollTop += e.deltaY;
+        }
+      }
+    };
+
+    window.addEventListener("wheel", handleGlobalWheel, { passive: false });
+    return () => {
+      window.removeEventListener("wheel", handleGlobalWheel);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+  }, []);
+
   const handleTabClick = (id: TabId) => {
     const container = containerRef.current;
     const el = document.getElementById(`section-${id}`);
     if (container && el) {
       isScrollingRef.current = true;
-      
-      // Read offsetTop BEFORE updating active tab state to avoid stale layout readings
-      const targetTop = el.offsetTop - 10;
-      
       setActiveTab(id);
+
+      const targetTop = el.offsetTop - 10;
 
       container.scrollTo({
         top: targetTop,
@@ -274,7 +308,7 @@ export const JournalTabsSection: React.FC = () => {
       }
       scrollTimeoutRef.current = setTimeout(() => {
         isScrollingRef.current = false;
-      }, 350); // initial guard, will be extended by handleScroll
+      }, 800);
     }
   };
 
@@ -364,7 +398,9 @@ export const JournalTabsSection: React.FC = () => {
       <div
         ref={containerRef}
         onScroll={handleScroll}
-        className="w-full rounded-b-[2rem] rounded-tr-[2rem] p-6 md:p-10 border border-gray-200/80 shadow-xl bg-white relative z-0 flex-1 overflow-y-auto custom-scrollbar space-y-16"
+        onMouseEnter={() => { isHoveredRef.current = true; }}
+        onMouseLeave={() => { isHoveredRef.current = false; }}
+        className="w-full rounded-b-[2rem] rounded-tr-[2rem] p-6 md:p-10 border border-gray-200/80 shadow-xl bg-white relative z-0 flex-1 overflow-y-auto hide-scrollbar space-y-16"
       >
         <div id="section-profile" className="scroll-mt-4">
           {renderProfileContent()}
@@ -388,18 +424,12 @@ export const JournalTabsSection: React.FC = () => {
 
       <style dangerouslySetInnerHTML={{
         __html: `
+        .hide-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
         .hide-scrollbar::-webkit-scrollbar {
           display: none;
-        }
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: transparent;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background-color: rgba(0, 0, 0, 0.1);
-          border-radius: 9999px;
         }
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(4px); }
