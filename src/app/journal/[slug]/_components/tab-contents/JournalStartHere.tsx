@@ -92,7 +92,7 @@ export const JournalStartHere: React.FC<JournalStartHereProps> = ({
                     src={step.imageSrc}
                     alt={step.title}
                     fill
-                    className="object-contain mix-blend-darken grayscale"
+                    className="object-contain mix-blend-darken"
                   />
                 </div>
                 <div className="flex flex-col p-4 gap-[8px] w-full">
@@ -155,7 +155,7 @@ export const JournalStartHere: React.FC<JournalStartHereProps> = ({
               src={blankImageSrc}
               alt="Blank journal book illustration"
               fill
-              className="object-contain mix-blend-darken grayscale"
+              className="object-contain mix-blend-darken"
             />
           </div>
         </div>
