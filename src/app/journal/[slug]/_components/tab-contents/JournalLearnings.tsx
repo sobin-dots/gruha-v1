@@ -256,7 +256,7 @@ export const JournalLearnings: React.FC<JournalLearningsProps> = ({
                 return (
                   <div
                     key={index}
-                    className="w-full sm:w-[calc(50%-8px)] lg:w-[354px] min-h-[150px] bg-[#F8FAFC] border border-[#F1F5F9] rounded-[8px] p-[16px] flex flex-col justify-center items-start gap-[16px] shrink-0"
+                    className="w-full sm:w-[calc(50%-16px)] lg:w-[340px] min-h-[150px] bg-[#F8FAFC] border border-[#F1F5F9] rounded-[8px] p-[16px] flex flex-col justify-center items-start gap-[16px] shrink-0"
                   >
                     <div className="w-[44px] h-[44px] bg-[#FEF9F4] rounded-[12px] flex items-center justify-center shrink-0">
                       <Icon className="w-[24px] h-[24px] text-[#FE5B39]" strokeWidth={2} />
@@ -324,8 +324,8 @@ export const JournalLearnings: React.FC<JournalLearningsProps> = ({
                     </div>
                     <div
                       className={`flex flex-col justify-center items-start pl-2 pr-2 py-[4px] relative ${msg.isRiya
-                          ? "bg-[#744FFF] text-white rounded-[6px] rounded-tr-[0px] p-[8px] px-[12px] max-w-[280px]"
-                          : "bg-transparent text-[#2C2C2E] pl-2 pr-2 py-[4px]"
+                        ? "bg-[#744FFF] text-white rounded-[6px] rounded-tr-[0px] p-[8px] px-[12px] max-w-[280px]"
+                        : "bg-transparent text-[#2C2C2E] pl-2 pr-2 py-[4px]"
                         }`}
                     >
                       {!msg.isRiya && (
