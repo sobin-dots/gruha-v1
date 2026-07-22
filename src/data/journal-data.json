@@ -1,6 +1,8 @@
 {
   "article": {
-    "tags": ["JOURNAL • BENGALURU"],
+    "tags": [
+      "JOURNAL • BENGALURU"
+    ],
     "title": "Outer Sarjapur Road was their final choice.",
     "description": "The story of Pavan & Shruti Kulal's first home purchase journey in Bengaluru — a young couple navigating budget, fear, and a future built together.",
     "quote": "\"Everyone says buy. Nobody says how to stop being scared.\"",
@@ -30,14 +32,22 @@
         "name": "Pavan",
         "age": 29,
         "role": "Senior Engineer",
-        "tags": ["Responsible", "Practical", "Calm"],
+        "tags": [
+          "Responsible",
+          "Practical",
+          "Calm"
+        ],
         "image": "/journals/pavan.png"
       },
       {
         "name": "Shruti",
         "age": 28,
         "role": "QA",
-        "tags": ["Thoughtful", "Organised", "Empathetic"],
+        "tags": [
+          "Thoughtful",
+          "Organised",
+          "Empathetic"
+        ],
         "image": "/journals/shruti.png"
       }
     ],
@@ -85,28 +95,28 @@
     "prioritiesTitle": "Top priorities right now",
     "priorities": [
       {
-        "image": "/journals/priority-1.png",
+        "image": "/journals/1/1.1.png",
         "title": "Budget friendly, but future ready",
         "scorePercentage": 95,
         "scoreLabel": "9.5/10",
         "description": "Making a wrong financial decision that impacts our future."
       },
       {
-        "image": "/journals/priority-2.png",
+        "image": "/journals/1/2.png",
         "title": "Good connectivity to work",
         "scorePercentage": 90,
         "scoreLabel": "9/10",
         "description": "Daily commute should be easy and stress free."
       },
       {
-        "image": "/journals/priority-3.png",
+        "image": "/journals/1/3.png",
         "title": "Safe & family friendly neighborhood",
         "scorePercentage": 75,
         "scoreLabel": "7.5/10",
         "description": "A secure environment for our child to grow."
       },
       {
-        "image": "/journals/priority-4.png",
+        "image": "/journals/1/4.png",
         "title": "Enough space for their lifestyle",
         "scorePercentage": 80,
         "scoreLabel": "8/10",
@@ -242,8 +252,16 @@
     ],
     "timelineTitle": "Where they stand today",
     "timelineSteps": [
-      { "id": "planning", "label": "Planning", "icon": "Lightbulb" },
-      { "id": "exploring", "label": "Exploring", "icon": "Feather" },
+      {
+        "id": "planning",
+        "label": "Planning",
+        "icon": "Lightbulb"
+      },
+      {
+        "id": "exploring",
+        "label": "Exploring",
+        "icon": "Feather"
+      },
       {
         "id": "comparing",
         "label": "Comparing",
@@ -251,9 +269,21 @@
         "active": true,
         "tag": "You are here"
       },
-      { "id": "negotiating", "label": "Negotiating", "icon": "MessageSquare" },
-      { "id": "post-booking", "label": "Post-booking", "icon": "CalendarPlus" },
-      { "id": "buying", "label": "Buying", "icon": "Banknote" }
+      {
+        "id": "negotiating",
+        "label": "Negotiating",
+        "icon": "MessageSquare"
+      },
+      {
+        "id": "post-booking",
+        "label": "Post-booking",
+        "icon": "CalendarPlus"
+      },
+      {
+        "id": "buying",
+        "label": "Buying",
+        "icon": "Banknote"
+      }
     ],
     "momentsTitle": "Moments that changed everything",
     "moments": [
@@ -261,36 +291,45 @@
         "id": "budget-shift",
         "title": "The budget shift",
         "desc": "Their ₹1 Cr dream became a ₹1.5 Cr reality as prices rose faster than their savings.",
-        "imageSrc": "/journals/moment1.png"
+        "imageSrc": "/journals/2/1.png"
       },
       {
         "id": "baby-deadline",
         "title": "The baby deadline",
         "desc": "With their first child arriving next year, delaying the decision was no longer an option.",
-        "imageSrc": "/journals/moment2.png"
+        "imageSrc": "/journals/2/2.png"
       },
       {
         "id": "sunday-ritual",
         "title": "The Sunday Ritual",
         "desc": "Every Sunday meant one site visit, one Excel update, one argument and one make-up dosa.",
-        "imageSrc": "/journals/moment3.png"
+        "imageSrc": "/journals/2/3.png"
       },
       {
         "id": "why-it-matters",
         "title": "Why It Matters",
         "desc": "This isn't simply buying property. It's about creating a stable beginning for the next chapter of their family.",
-        "imageSrc": "/journals/moment4.png"
+        "imageSrc": "/journals/2/4.png"
       }
     ],
     "voicesTitle": "Voices around them",
     "quotes": [
-      { "text": "Buy a site. Land never loses value.", "author": "— Dad" },
+      {
+        "text": "Buy a site. Land never loses value.",
+        "author": "— Dad"
+      },
       {
         "text": "Find a home close to a temple and good schools.",
         "author": "— Mom"
       },
-      { "text": "Don't rush. Wait for ready-to-move projects.", "author": "— Friend" },
-      { "text": "Prices are increasing every quarter.", "author": "— Builder" }
+      {
+        "text": "Don't rush. Wait for ready-to-move projects.",
+        "author": "— Friend"
+      },
+      {
+        "text": "Prices are increasing every quarter.",
+        "author": "— Builder"
+      }
     ],
     "chatMessages": [
       {
@@ -577,37 +616,61 @@
       {
         "title": "Markets don't wait.",
         "description": "Their ₹1 Cr budget seemed realistic initially. Within two years, property prices rose to ₹1.35–1.55 Cr. Starting earlier would have offered more flexibility and choices.",
-        "imageSrc": "/journals/lesson-1.png"
+        "imageSrc": "/journals/3/1.png"
       },
       {
         "title": "Shortlists beat browsing.",
         "description": "After comparing many listings and projects, they found more options didn't help. Focusing on a few well-matched communities made decisions easier.",
-        "imageSrc": "/journals/lesson-2.png"
+        "imageSrc": "/journals/3/2.png"
       },
       {
         "title": "Builder trust matters.",
         "description": "Price wasn't the only factor. Quality, clear documentation, RERA compliance, and delivery history mattered as much as the floor plan.",
-        "imageSrc": "/journals/lesson-3.png"
+        "imageSrc": "/journals/3/3.png"
       },
       {
         "title": "Buy for tomorrow, not today.",
         "description": "Their priorities shifted after learning they would become parents. Schools, hospitals, safety and convenience became more valuable than luxury.",
-        "imageSrc": "/journals/lesson-4.png"
+        "imageSrc": "/journals/3/4.png"
       }
     ],
     "beforeTitle": "BEFORE",
     "beforeItems": [
-      { "icon": "Home", "text": "Bigger homes are always better" },
-      { "icon": "TrendingUp", "text": "The lowest EMI is the safest decision" },
-      { "icon": "LayoutGrid", "text": "Amenities decide everything." },
-      { "icon": "LayoutList", "text": "More options reduce risk." }
+      {
+        "icon": "Home",
+        "text": "Bigger homes are always better"
+      },
+      {
+        "icon": "TrendingUp",
+        "text": "The lowest EMI is the safest decision"
+      },
+      {
+        "icon": "LayoutGrid",
+        "text": "Amenities decide everything."
+      },
+      {
+        "icon": "LayoutList",
+        "text": "More options reduce risk."
+      }
     ],
     "afterTitle": "AFTER",
     "afterItems": [
-      { "icon": "Home", "text": "Better neighbourhoods build lasting value." },
-      { "icon": "TrendingUp", "text": "Sustainable payments matter most." },
-      { "icon": "Smile", "text": "Daily convenience drives happiness." },
-      { "icon": "ArrowLeftRight", "text": "Better comparisons build confidence." }
+      {
+        "icon": "Home",
+        "text": "Better neighbourhoods build lasting value."
+      },
+      {
+        "icon": "TrendingUp",
+        "text": "Sustainable payments matter most."
+      },
+      {
+        "icon": "Smile",
+        "text": "Daily convenience drives happiness."
+      },
+      {
+        "icon": "ArrowLeftRight",
+        "text": "Better comparisons build confidence."
+      }
     ],
     "differentlyTitle": "What they'd do differently",
     "differentlyCards": [
@@ -673,25 +736,25 @@
         "id": 1,
         "title": "You",
         "description": "Share your plans, family needs, lifestyle, budget and expectations.",
-        "imageSrc": "/journals/journal-step-1.png"
+        "imageSrc": "/journals/4/1.png"
       },
       {
         "id": 2,
         "title": "Riya listens",
         "description": "Riya understands your priorities, asks meaningful questions and discovers what truly matters to you.",
-        "imageSrc": "/journals/journal-step-2.png"
+        "imageSrc": "/journals/4/2.png"
       },
       {
         "id": 3,
         "title": "Journal created",
         "description": "Your conversations are transformed into a personalized home-buying journal with insights and recommendations.",
-        "imageSrc": "/journals/journal-step-3.png"
+        "imageSrc": "/journals/4/3.png"
       },
       {
         "id": 4,
         "title": "Better recommendations",
         "description": "Receive project suggestions that fit your priorities, not just your filters.",
-        "imageSrc": "/journals/journal-step-4.png"
+        "imageSrc": "/journals/4/4.png"
       }
     ],
     "valuePropsTitle": "What mattered most in their search",
