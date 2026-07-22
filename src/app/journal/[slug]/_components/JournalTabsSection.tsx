@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import Image from "next/image";
 import {
   CheckCircle2, ChevronRight, Compass, ShieldAlert, Sparkles, UserCheck, Briefcase, Coins, Heart, Hourglass,
   FileText, Search, Users, Calendar, IndianRupee, CalendarDays, BadgeCheck, CircleDollarSign, UserPlus,
@@ -17,7 +16,8 @@ import { JournalSearch } from "./tab-contents/JournalSearch";
 import { JournalProjects } from "./tab-contents/JournalProjects";
 import { JournalLearnings } from "./tab-contents/JournalLearnings";
 import { JournalStartHere } from "./tab-contents/JournalStartHere";
-import journalData from "@/data/journal-data.json";
+// Remove direct static JSON import to support dynamic API fetching from parent page
+// import journalData from "@/data/journal-data.json";
 
 const getIcon = (name: string): React.ComponentType<any> => {
   return (Icons as any)[name] || Icons.HelpCircle;
@@ -27,9 +27,9 @@ const getIcon = (name: string): React.ComponentType<any> => {
 // Tabs Configuration
 // ---------------------------------------------------------------------------
 
-type TabId = "profile" | "journey" | "search" | "projects" | "learnings" | "start-here";
+type TabId = "profile" | "journey" | "search" | "projects" | "learnings" | "start-here" | (string & {});
 
-interface TabItem {
+export interface TabItem {
   id: TabId;
   label: string;
   bgColorHex: string;       // Color when active
@@ -38,185 +38,137 @@ interface TabItem {
   inactiveTextColor: string; // Text color class when inactive
   avatar?: string;
   badgeCount?: string;
+  [key: string]: any;
 }
 
-export const JournalTabsSection: React.FC = () => {
+interface JournalTabsSectionProps {
+  tabs?: TabItem[];
+}
+
+export const JournalTabsSection: React.FC<JournalTabsSectionProps> = ({ tabs: passedTabs = [] }) => {
   const [activeTab, setActiveTab] = useState<TabId>("profile");
 
-  const tabs: TabItem[] = [
-    {
-      id: "profile",
-      label: "Profile",
-      bgColorHex: "#FCEAE2",
-      inactiveBgHex: "rgba(252, 234, 226, 0.45)",
-      textColor: "text-[#111827] font-bold",
-      inactiveTextColor: "text-gray-500 hover:text-gray-700",
-    },
-    {
-      id: "journey",
-      label: "Journey",
-      bgColorHex: "#E2DFFD",
-      inactiveBgHex: "rgba(226, 223, 253, 0.45)",
-      textColor: "text-[#4A438A] font-semibold",
-      inactiveTextColor: "text-gray-500 hover:text-gray-700",
-      avatar: "/journals/avatar-riya.png",
-    },
-    {
-      id: "search",
-      label: "Search",
-      bgColorHex: "#FCDFE3",
-      inactiveBgHex: "rgba(252, 223, 227, 0.45)",
-      textColor: "text-[#8A3243] font-semibold",
-      inactiveTextColor: "text-gray-500 hover:text-gray-700",
-      avatar: "/journals/avatar-riya.png",
-    },
-    {
-      id: "projects",
-      label: "Projects",
-      bgColorHex: "#D0F6E3",
-      inactiveBgHex: "rgba(208, 246, 227, 0.45)",
-      textColor: "text-[#2B6A4F] font-semibold",
-      inactiveTextColor: "text-gray-500 hover:text-gray-700",
-      avatar: "/journals/avatar-riya.png",
-      badgeCount: "10+",
-    },
-    {
-      id: "learnings",
-      label: "Learnings",
-      bgColorHex: "#FEF1CD",
-      inactiveBgHex: "rgba(254, 241, 205, 0.45)",
-      textColor: "text-[#7A601A] font-semibold",
-      inactiveTextColor: "text-gray-500 hover:text-gray-700",
-      badgeCount: "10+",
-    },
-    {
-      id: "start-here",
-      label: "Start here",
-      bgColorHex: "#D0EDFE",
-      inactiveBgHex: "rgba(208, 237, 254, 0.45)",
-      textColor: "text-[#1A5B7A] font-semibold",
-      inactiveTextColor: "text-gray-500 hover:text-gray-700",
-      avatar: "/journals/avatar-riya.png",
-    },
-  ];
+  const tabs: TabItem[] = passedTabs;
 
   // ---------------------------------------------------------------------------
-  // Tab Panel Renderers
+  // Dynamic Tab Content Renderer
   // ---------------------------------------------------------------------------
 
-  const renderProfileContent = () => {
-    const profileData = {
-      ...journalData.profile,
-      stats: journalData.profile.stats.map((item) => {
-        const IconComponent = getIcon(item.icon);
-        return {
-          ...item,
-          icon: <IconComponent className="h-5 w-5" strokeWidth={2} />,
+  const renderTabContent = (tab: any) => {
+    switch (tab.id) {
+      case "profile": {
+        const profileData = {
+          ...tab,
+          stats: (tab.stats || []).map((item: any) => {
+            const IconComponent = getIcon(item.icon);
+            return {
+              ...item,
+              icon: <IconComponent className="h-5 w-5" strokeWidth={2} />,
+            };
+          }),
         };
-      }),
-    };
+        return <JournalProfile {...profileData} />;
+      }
 
-    return <JournalProfile {...profileData} />;
-  };
+      case "journey": {
+        const journeyData = {
+          ...tab,
+          metrics: (tab.metrics || []).map((item: any) => ({
+            ...item,
+            icon: getIcon(item.icon),
+          })),
+          roadmapNodes: (tab.roadmapNodes || []).map((item: any) => ({
+            ...item,
+            icon: getIcon(item.icon),
+          })),
+          timelineSteps: (tab.timelineSteps || []).map((item: any) => ({
+            ...item,
+            icon: getIcon(item.icon),
+          })),
+          moments: (tab.moments || []).map((item: any) => ({
+            ...item,
+            desc: item.desc,
+          })),
+          realityChecks: (tab.realityChecks || []).map((item: any) => ({
+            ...item,
+            icon: getIcon(item.icon),
+          })),
+        };
+        return <JournalJourney {...journeyData} />;
+      }
 
-  const renderJourneyContent = () => {
-    const journeyData = {
-      ...journalData.journey,
-      metrics: journalData.journey.metrics.map((item) => ({
-        ...item,
-        icon: getIcon(item.icon),
-      })),
-      roadmapNodes: journalData.journey.roadmapNodes.map((item) => ({
-        ...item,
-        icon: getIcon(item.icon),
-      })),
-      timelineSteps: journalData.journey.timelineSteps.map((item) => ({
-        ...item,
-        icon: getIcon(item.icon),
-      })),
-      moments: journalData.journey.moments.map((item) => ({
-        ...item,
-        desc: item.desc,
-      })),
-      realityChecks: journalData.journey.realityChecks.map((item) => ({
-        ...item,
-        icon: getIcon(item.icon),
-      })),
-    };
+      case "search": {
+        const searchData = {
+          ...tab,
+          metrics: (tab.metrics || []).map((item: any) => ({
+            ...item,
+            icon: getIcon(item.icon),
+          })),
+          filters: (tab.filters || []).map((item: any) => ({
+            ...item,
+            icon: getIcon(item.icon),
+          })),
+        };
+        return <JournalSearch {...searchData} />;
+      }
 
-    return <JournalJourney {...journeyData} />;
-  };
+      case "projects": {
+        const projectsData = {
+          ...tab,
+          metrics: (tab.metrics || []).map((item: any) => ({
+            ...item,
+            icon: getIcon(item.icon),
+          })),
+          priorities: (tab.priorities || []).map((item: any) => ({
+            ...item,
+            icon: getIcon(item.icon),
+          })),
+          rejectedReasons: (tab.rejectedReasons || []).map((item: any) => ({
+            ...item,
+            icon: getIcon(item.icon),
+          })),
+        };
+        return <JournalProjects {...projectsData} />;
+      }
 
-  const renderSearchContent = () => {
-    const searchData = {
-      ...journalData.search,
-      metrics: journalData.search.metrics.map((item) => ({
-        ...item,
-        icon: getIcon(item.icon),
-      })),
-      filters: journalData.search.filters.map((item) => ({
-        ...item,
-        icon: getIcon(item.icon),
-      })),
-    };
+      case "learnings": {
+        const learningsData = {
+          ...tab,
+          metrics: (tab.metrics || []).map((item: any) => ({
+            ...item,
+            icon: getIcon(item.icon),
+          })),
+          beforeItems: (tab.beforeItems || []).map((item: any) => ({
+            ...item,
+            icon: getIcon(item.icon),
+          })),
+          afterItems: (tab.afterItems || []).map((item: any) => ({
+            ...item,
+            icon: getIcon(item.icon),
+          })),
+          differentlyCards: (tab.differentlyCards || []).map((item: any) => ({
+            ...item,
+            icon: getIcon(item.icon),
+          })),
+        };
+        return <JournalLearnings {...learningsData} />;
+      }
 
-    return <JournalSearch {...searchData} />;
-  };
+      case "start-here":
+      case "startHere": {
+        const startHereData = {
+          ...tab,
+          valueProps: (tab.valueProps || []).map((item: any) => ({
+            ...item,
+            icon: getIcon(item.icon),
+          })),
+        };
+        return <JournalStartHere {...startHereData} />;
+      }
 
-  const renderProjectsContent = () => {
-    const projectsData = {
-      ...journalData.projects,
-      metrics: journalData.projects.metrics.map((item) => ({
-        ...item,
-        icon: getIcon(item.icon),
-      })),
-      priorities: journalData.projects.priorities.map((item) => ({
-        ...item,
-        icon: getIcon(item.icon),
-      })),
-      rejectedReasons: journalData.projects.rejectedReasons.map((item) => ({
-        ...item,
-        icon: getIcon(item.icon),
-      })),
-    };
-
-    return <JournalProjects {...projectsData} />;
-  };
-
-  const renderLearningsContent = () => {
-    const learningsData = {
-      ...journalData.learnings,
-      metrics: journalData.learnings.metrics.map((item) => ({
-        ...item,
-        icon: getIcon(item.icon),
-      })),
-      beforeItems: journalData.learnings.beforeItems.map((item) => ({
-        ...item,
-        icon: getIcon(item.icon),
-      })),
-      afterItems: journalData.learnings.afterItems.map((item) => ({
-        ...item,
-        icon: getIcon(item.icon),
-      })),
-      differentlyCards: journalData.learnings.differentlyCards.map((item) => ({
-        ...item,
-        icon: getIcon(item.icon),
-      })),
-    };
-
-    return <JournalLearnings {...learningsData} />;
-  };
-
-  const renderStartHereContent = () => {
-    const startHereData = {
-      ...journalData.startHere,
-      valueProps: journalData.startHere.valueProps.map((item) => ({
-        ...item,
-        icon: getIcon(item.icon),
-      })),
-    };
-
-    return <JournalStartHere {...startHereData} />;
+      default:
+        return null;
+    }
   };
 
   const isScrollingRef = useRef(false);
@@ -225,7 +177,7 @@ export const JournalTabsSection: React.FC = () => {
   const handleScroll = () => {
     if (isScrollingRef.current) return;
 
-    const sectionIds: TabId[] = ["profile", "journey", "search", "projects", "learnings", "start-here"];
+    const sectionIds = tabs.map((tab: any) => tab.id as TabId);
     const offset = 140; // sticky header detection threshold
 
     for (let i = sectionIds.length - 1; i >= 0; i--) {
@@ -300,32 +252,6 @@ export const JournalTabsSection: React.FC = () => {
                     zIndex: isActive ? 30 : 20 - index,
                   }}
                 >
-                  {/* Top Badge Slot (Avatar & Tag Badge) */}
-                  {!isActive && (tab.avatar || tab.badgeCount) && (
-                    <div className="absolute top-[-14px] left-1/2 -translate-x-1/2 z-40 flex items-center justify-center pointer-events-none transition-opacity duration-200">
-                      {tab.avatar && (
-                        <div className="relative w-[23.8px] h-[23.8px] rounded-full overflow-hidden border border-black/10 flex-shrink-0 bg-white">
-                          <Image
-                            src={tab.avatar}
-                            alt={tab.label}
-                            fill
-                            sizes="24px"
-                            className="object-cover object-[50%_15%] scale-[2.3] origin-top"
-                          />
-                        </div>
-                      )}
-
-                      {tab.badgeCount && (
-                        <div
-                          className={`flex items-center justify-center h-4 sm:h-5 bg-white rounded-full px-1.5 sm:px-2 text-[10px] sm:text-[11px] font-bold text-slate-800 shadow-xs border border-slate-100 ${tab.avatar ? "-ml-1.5" : ""
-                            }`}
-                        >
-                          {tab.badgeCount}
-                        </div>
-                      )}
-                    </div>
-                  )}
-
                   {/* SVG Folder Path Vector */}
                   <div className="relative w-full h-full flex items-center justify-center">
                     <svg
@@ -362,24 +288,15 @@ export const JournalTabsSection: React.FC = () => {
 
       {/* ── Folder Body (Free Scrollable Inline Content) ── */}
       <div className="w-full relative z-10 py-10 space-y-24 bg-white">
-        <div id="section-profile" className="scroll-mt-28">
-          {renderProfileContent()}
-        </div>
-        <div id="section-journey" className="scroll-mt-28 border-t border-slate-200/50 ">
-          {renderJourneyContent()}
-        </div>
-        <div id="section-search" className="scroll-mt-28 border-t border-slate-200/50 ">
-          {renderSearchContent()}
-        </div>
-        <div id="section-projects" className="scroll-mt-28 border-t border-slate-200/50 ">
-          {renderProjectsContent()}
-        </div>
-        <div id="section-learnings" className="scroll-mt-28 border-t border-slate-200/50 ">
-          {renderLearningsContent()}
-        </div>
-        <div id="section-start-here" className="scroll-mt-28 border-t border-slate-200/50 ">
-          {renderStartHereContent()}
-        </div>
+        {tabs.map((tab: any, index: number) => (
+          <div
+            key={tab.id}
+            id={`section-${tab.id}`}
+            className={`scroll-mt-28 ${index > 0 ? "border-t border-slate-200/50" : ""}`}
+          >
+            {renderTabContent(tab)}
+          </div>
+        ))}
       </div>
 
       <style dangerouslySetInnerHTML={{

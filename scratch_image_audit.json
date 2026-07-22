@@ -1,0 +1,266 @@
+[
+  {
+    "num": 1,
+    "tabId": "profile",
+    "fileName": "suresh.png",
+    "targetPath": "/journals/the-quiet-crorepatis/suresh.png",
+    "exists": true,
+    "prompt": "A studio portrait photo of a 58-year-old South Indian retired bank manager named Suresh wearing a neat light grey cotton shirt and spectacles with a thoughtful and cautious expression, high-fidelity portrait photography, soft warm studio rim lighting, clean neutral gradient background."
+  },
+  {
+    "num": 2,
+    "tabId": "profile",
+    "fileName": "veena.png",
+    "targetPath": "/journals/the-quiet-crorepatis/veena.png",
+    "exists": true,
+    "prompt": "A studio portrait photo of a 54-year-old South Indian woman named Veena wearing a traditional elegant Kanjeevaram silk saree with a gentle confident smile, high-fidelity portrait photography, soft warm ambient lighting, clean modern minimalist background."
+  },
+  {
+    "num": 3,
+    "tabId": "profile",
+    "fileName": "safe-harbour-sketch.png",
+    "targetPath": "/journals/the-quiet-crorepatis/safe-harbour-sketch.png",
+    "exists": true,
+    "prompt": "An architectural pencil and watercolor sketch illustration of an elegant 4-story South Bengaluru residential apartment building with lush gulmohar trees and a passing yellow auto-rickshaw on a clean street, warm golden hour evening lighting, hand-drawn paper texture mood."
+  },
+  {
+    "num": 4,
+    "tabId": "profile",
+    "fileName": "priority-1.png",
+    "targetPath": "/journals/the-quiet-crorepatis/priority-1.png",
+    "exists": true,
+    "prompt": "An occupancy certificate document stamped in gold wax seal beside a solid brass safety padlock and 30-year property deed documents, detailed flat vector graphic illustration, warm gold and deep navy blue color palette, balanced flat-lay desk composition on dark wood surface."
+  },
+  {
+    "num": 5,
+    "tabId": "profile",
+    "fileName": "priority-2.png",
+    "targetPath": "/journals/the-quiet-crorepatis/priority-2.png",
+    "exists": false,
+    "prompt": "A classical bound paper financial ledger notebook displaying neat handwritten zero-debt balance calculations beside a sealed emergency fund reserve box and house keys, detailed flat vector graphic illustration, warm earth tones and cream paper palette, soft overhead studio lighting, clean symmetrical desk layout."
+  },
+  {
+    "num": 6,
+    "tabId": "profile",
+    "fileName": "priority-3.png",
+    "targetPath": "/journals/the-quiet-crorepatis/priority-3.png",
+    "exists": false,
+    "prompt": "A quiet tree-lined South Bengaluru street in Jayanagar showing an established residential apartment complex with a yellow auto-rickshaw parked near the entrance gate, detailed flat vector graphic illustration, vibrant green and warm sunlight palette, clear daytime perspective view."
+  },
+  {
+    "num": 7,
+    "tabId": "profile",
+    "fileName": "priority-4.png",
+    "targetPath": "/journals/the-quiet-crorepatis/priority-4.png",
+    "exists": false,
+    "prompt": "A serene bedroom interior with moonlit balcony window viewing a peaceful residential neighborhood, symbolizing financial peace of mind and calm sleep, detailed flat vector graphic illustration, cool midnight blue and warm glowing lamp lighting, cozy bedroom composition."
+  },
+  {
+    "num": 8,
+    "tabId": "journey",
+    "fileName": "moment-1.png",
+    "targetPath": "/journals/the-quiet-crorepatis/moment-1.png",
+    "exists": true,
+    "prompt": "An open paper financial ledger notebook with 41 handwritten diligence questions listed in neat blue ink next to an official 6.4% bank FD renewal notice and a traditional South Indian brass filter coffee tumbler, detailed flat vector graphic illustration, warm tungsten ambient lighting, top-down desk arrangement."
+  },
+  {
+    "num": 9,
+    "tabId": "journey",
+    "fileName": "moment-2.png",
+    "targetPath": "/journals/the-quiet-crorepatis/moment-2.png",
+    "exists": false,
+    "prompt": "A retired banker holding up a clear photocopied Occupancy Certificate document with a prominent green verification checkmark stamp, detailed flat vector graphic illustration, professional navy and white color palette, crisp studio lighting, waist-up character perspective."
+  },
+  {
+    "num": 10,
+    "tabId": "journey",
+    "fileName": "moment-3.png",
+    "targetPath": "/journals/the-quiet-crorepatis/moment-3.png",
+    "exists": false,
+    "prompt": "Handwritten society residential association financial ledger accounts with a red pen circling an un-audited ₹6 Lakh roof repair levy entry, detailed flat vector graphic illustration, dramatic accent lighting with red highlights, focused document close-up composition."
+  },
+  {
+    "num": 11,
+    "tabId": "journey",
+    "fileName": "moment-4.png",
+    "targetPath": "/journals/the-quiet-crorepatis/moment-4.png",
+    "exists": false,
+    "prompt": "An elderly South Indian couple holding house keys together on the balcony of their quiet apartment building overlooking green trees at sunset, serene flat vector graphic illustration, rich warm orange and golden twilight lighting, medium wide balcony scene."
+  },
+  {
+    "num": 12,
+    "tabId": "journey",
+    "fileName": "avatar-riya.png",
+    "targetPath": "/journals/the-quiet-crorepatis/avatar-riya.png",
+    "exists": false,
+    "prompt": "A flat vector illustration of avatar"
+  },
+  {
+    "num": 13,
+    "tabId": "search",
+    "fileName": "jp-nagar.png",
+    "targetPath": "/journals/the-quiet-crorepatis/jp-nagar.png",
+    "exists": true,
+    "prompt": "A peaceful residential corridor in JP Nagar 7th Phase Bengaluru with wide green avenues, mature gulmohar trees, and well-maintained low-rise apartment towers, modern architectural vector cityscape, soft morning sunlight, clear street perspective."
+  },
+  {
+    "num": 14,
+    "tabId": "search",
+    "fileName": "jayanagar.png",
+    "targetPath": "/journals/the-quiet-crorepatis/jayanagar.png",
+    "exists": true,
+    "prompt": "A vibrant heritage street corner in Jayanagar 4th Block Bengaluru featuring filter coffee shops, leafy avenues, and traditional South Indian residential buildings, modern architectural vector cityscape, bright natural daylight, inviting street-level perspective."
+  },
+  {
+    "num": 15,
+    "tabId": "search",
+    "fileName": "banashankari.png",
+    "targetPath": "/journals/the-quiet-crorepatis/banashankari.png",
+    "exists": false,
+    "prompt": "A quiet modern residential neighborhood landscape in Banashankari showing gated communities, clean paved roads, and landscaped gardens, modern architectural vector cityscape, soft pastel sky lighting, wide panoramic view."
+  },
+  {
+    "num": 16,
+    "tabId": "search",
+    "fileName": "advisor.png",
+    "targetPath": "/journals/the-quiet-crorepatis/advisor.png",
+    "exists": false,
+    "prompt": "A digital portrait photo of Riya, a friendly AI real estate advisor in her late 20s with short neat hair holding a digital tablet with property diligence checklists, modern high-fidelity character art, soft warm studio lighting, clean blurred office background."
+  },
+  {
+    "num": 17,
+    "tabId": "projects",
+    "fileName": "riya.png",
+    "targetPath": "/journals/the-quiet-crorepatis/riya.png",
+    "exists": false,
+    "prompt": "A stylized geographic vector map of South Bengaluru highlighting JP Nagar 7th Phase, Jayanagar 4th Block, Banashankari, and Sarakki with clear location pin markers and green corridor shaded areas, modern infographic vector illustration, clean pastel map color palette, overhead map perspective."
+  },
+  {
+    "num": 18,
+    "tabId": "projects",
+    "fileName": "search-map.png",
+    "targetPath": "/journals/the-quiet-crorepatis/search-map.png",
+    "exists": false,
+    "prompt": "A stylized geographic vector map of South Bengaluru highlighting JP Nagar 7th Phase, Jayanagar 4th Block, Banashankari, and Sarakki with clear location pin markers and green corridor shaded areas, modern infographic vector illustration, clean pastel map color palette, overhead map perspective."
+  },
+  {
+    "num": 19,
+    "tabId": "projects",
+    "fileName": "brigade-gardenia.png",
+    "targetPath": "/journals/the-quiet-crorepatis/brigade-gardenia.png",
+    "exists": true,
+    "prompt": "An exterior architectural render of Brigade Gardenia residential apartment complex in JP Nagar 7th Phase Bengaluru showing multi-story residential towers surrounded by lush manicured central lawns and walking paths, modern photorealistic architectural render, crisp blue sky with soft natural sunlight, wide angle front elevation view."
+  },
+  {
+    "num": 20,
+    "tabId": "projects",
+    "fileName": "prestige-falcon-city.png",
+    "targetPath": "/journals/the-quiet-crorepatis/prestige-falcon-city.png",
+    "exists": false,
+    "prompt": "An exterior architectural render of Prestige Falcon City township towers in Konanakunte Cross featuring modern high-rise residential towers and clubhouse amenities, photorealistic architectural render, bright afternoon daylight, dynamic upward elevation view."
+  },
+  {
+    "num": 21,
+    "tabId": "projects",
+    "fileName": "brigade-millennium.png",
+    "targetPath": "/journals/the-quiet-crorepatis/brigade-millennium.png",
+    "exists": false,
+    "prompt": "An exterior architectural photograph of Brigade Millennium residential complex featuring established towers with balcony gardens and paved entry plaza, high-resolution architectural photography, natural daylight, eye-level entrance perspective."
+  },
+  {
+    "num": 22,
+    "tabId": "projects",
+    "fileName": "jayanagar-boutique.png",
+    "targetPath": "/journals/the-quiet-crorepatis/jayanagar-boutique.png",
+    "exists": false,
+    "prompt": "An exterior architectural view of a 24-unit boutique apartment building in Jayanagar 4th Block featuring clean brick facade and balcony plants, modern architectural vector render, warm evening sunlight, close-up street view."
+  },
+  {
+    "num": 23,
+    "tabId": "learnings",
+    "fileName": "lesson-1.png",
+    "targetPath": "/journals/the-quiet-crorepatis/lesson-1.png",
+    "exists": false,
+    "prompt": "An official government-issued Occupancy Certificate document stamped with a prominent red 'VERIFIED OC NUMBER' seal alongside legal property documents, detailed flat vector graphic illustration, professional beige and gold color scheme, crisp document flat-lay composition."
+  },
+  {
+    "num": 24,
+    "tabId": "learnings",
+    "fileName": "lesson-2.png",
+    "targetPath": "/journals/the-quiet-crorepatis/lesson-2.png",
+    "exists": false,
+    "prompt": "A residential society financial audit ledger page displaying green checkmarks beside sinking fund reserves and maintenance balance columns, detailed flat vector graphic illustration, clean green and white color palette, bright overhead lighting, focused document view."
+  },
+  {
+    "num": 25,
+    "tabId": "learnings",
+    "fileName": "lesson-3.png",
+    "targetPath": "/journals/the-quiet-crorepatis/lesson-3.png",
+    "exists": false,
+    "prompt": "A firm handshake between a buyer and a real estate representative across a table with a final discounted price contract, detailed flat vector graphic illustration, confident blue and warm orange tones, medium shot scene."
+  },
+  {
+    "num": 26,
+    "tabId": "learnings",
+    "fileName": "lesson-4.png",
+    "targetPath": "/journals/the-quiet-crorepatis/lesson-4.png",
+    "exists": true,
+    "prompt": "A retired couple relaxing in easy chairs on a sunlit apartment balcony sipping filter coffee in complete contentment, warm vector graphic illustration, gentle morning sunlight and soft pastel green color palette, cozy balcony scene."
+  },
+  {
+    "num": 27,
+    "tabId": "learnings",
+    "fileName": "journey-storyboard.png",
+    "targetPath": "/journals/the-quiet-crorepatis/journey-storyboard.png",
+    "exists": false,
+    "prompt": "A horizontal comic storyboard sequence in 4 panels showing a retired couple reviewing ledger questions, verifying an OC document photocopy, auditing society accounts, and holding house keys on their new balcony, clean vector storyboard graphic, harmonious pastel palette, clear sequential layout."
+  },
+  {
+    "num": 28,
+    "tabId": "start-here",
+    "fileName": "1.png",
+    "targetPath": "/journals/the-quiet-crorepatis/1.png",
+    "exists": false,
+    "prompt": "A homebuyer typing property criteria and corpus budget into a smartphone app, clean flat vector illustration, warm pastel tones, simple background."
+  },
+  {
+    "num": 29,
+    "tabId": "start-here",
+    "fileName": "2.png",
+    "targetPath": "/journals/the-quiet-crorepatis/2.png",
+    "exists": false,
+    "prompt": "Riya the AI real estate guide sitting thoughtfully with a notebook reviewing property OC numbers and legal title chains, flat vector illustration, soft lighting."
+  },
+  {
+    "num": 30,
+    "tabId": "start-here",
+    "fileName": "3.png",
+    "targetPath": "/journals/the-quiet-crorepatis/3.png",
+    "exists": false,
+    "prompt": "An open leather-bound home search journal displaying structured tabs, visual charts, and verified project lists, detailed flat vector illustration, top-down view."
+  },
+  {
+    "num": 31,
+    "tabId": "start-here",
+    "fileName": "4.png",
+    "targetPath": "/journals/the-quiet-crorepatis/4.png",
+    "exists": false,
+    "prompt": "A curated selection of verified property cards stamped with green OC seals, clean vector illustration, bright pastel palette."
+  },
+  {
+    "num": 32,
+    "tabId": "start-here",
+    "fileName": "open-book-illustration.png",
+    "targetPath": "/journals/the-quiet-crorepatis/open-book-illustration.png",
+    "exists": false,
+    "prompt": "An open leather-bound ruled ledger notebook with clean blank cream pages inviting handwritten notes beside a fountain pen, detailed flat vector graphic illustration, warm cozy tungsten lighting."
+  },
+  {
+    "num": 33,
+    "tabId": "start-here",
+    "fileName": "riya-full-character.png",
+    "targetPath": "/journals/the-quiet-crorepatis/riya-full-character.png",
+    "exists": false,
+    "prompt": "An open leather-bound ruled ledger notebook with clean blank cream pages inviting handwritten notes beside a fountain pen, detailed flat vector graphic illustration, warm cozy tungsten lighting."
+  }
+]
