@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { Header } from "@/components/layout/Header";
 import { JournalHeroSection } from "./_components/JournalHero";
 import { JournalTabsSection } from "./_components/JournalTabsSection";
 import JournalBreadCrumbs from "@/components/JournalBreadCrumbs";
 import * as Icons from "lucide-react";
-import journalData from "@/data/journal-data.json";
+import { getJournalBySlug } from "@/lib/journal";
 import { FooterVariant } from "@/components/layout/FooterVariant";
 
 interface JournalSlugPageProps {
@@ -15,14 +16,21 @@ export async function generateMetadata({
     params,
 }: JournalSlugPageProps): Promise<Metadata> {
     const { slug } = await params;
+    const journalData = await getJournalBySlug(slug);
+
+    if (!journalData) {
+        return {
+            title: "Journal Not Found",
+        };
+    }
 
     return {
-        title: slug
+        title: journalData.article.title || slug
             .split("-")
             .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
             .join(" "),
         description:
-            "A real home-buying journey on Gruha.ai — budgets, fears, and futures built together.",
+            journalData.article.description || "A real home-buying journey on Gruha.ai — budgets, fears, and futures built together.",
     };
 }
 
@@ -35,16 +43,20 @@ export default async function JournalSlugPage({
     params,
 }: JournalSlugPageProps) {
     const { slug } = await params;
+    const journalData = await getJournalBySlug(slug);
+
+    if (!journalData) {
+        notFound();
+    }
 
     const article = {
         ...journalData.article,
-        learnings: journalData.article.learnings.map((item) => ({
+        learnings: (journalData.article.learnings || []).map((item) => ({
             icon: getIcon(item.icon),
             text: item.text,
         })),
     };
 
-    void slug;
     return (
         <>
             {/* <Header forceSolid /> */}
@@ -61,8 +73,8 @@ export default async function JournalSlugPage({
                     learnings={article.learnings}
                 />
 
-                {/* ── Section 2 — Folder Tabs (Profile, Journey, Search, Projects, Learnings, Start here) ── */}
-                <JournalTabsSection />
+                {/* ── Section 2 — Folder Tabs ────────────────────────────────── */}
+                <JournalTabsSection tabs={journalData.tabs} />
             </main>
             <FooterVariant />
         </>

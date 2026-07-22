@@ -46,7 +46,8 @@
             "Practical",
             "Calm"
           ],
-          "image": "/journals/pavan.png"
+          "image": "/journals/pavan.png",
+          "imagegenerationprompt": "A modern flat vector illustration of pavan"
         },
         {
           "name": "Shruti",
@@ -57,7 +58,8 @@
             "Organised",
             "Empathetic"
           ],
-          "image": "/journals/shruti.png"
+          "image": "/journals/shruti.png",
+          "imagegenerationprompt": "A modern flat vector illustration of shruti"
         }
       ],
       "sharedVisionTitle": "Shared vision",
@@ -108,30 +110,35 @@
           "title": "Budget friendly, but future ready",
           "scorePercentage": 95,
           "scoreLabel": "9.5/10",
-          "description": "Making a wrong financial decision that impacts our future."
+          "description": "Making a wrong financial decision that impacts our future.",
+          "imagegenerationprompt": "A modern flat vector illustration of 1.1"
         },
         {
           "image": "/journals/1/2.png",
           "title": "Good connectivity to work",
           "scorePercentage": 90,
           "scoreLabel": "9/10",
-          "description": "Daily commute should be easy and stress free."
+          "description": "Daily commute should be easy and stress free.",
+          "imagegenerationprompt": "A modern flat vector illustration of 2"
         },
         {
           "image": "/journals/1/3.png",
           "title": "Safe & family friendly neighborhood",
           "scorePercentage": 75,
           "scoreLabel": "7.5/10",
-          "description": "A secure environment for our child to grow."
+          "description": "A secure environment for our child to grow.",
+          "imagegenerationprompt": "A modern flat vector illustration of 3"
         },
         {
           "image": "/journals/1/4.png",
           "title": "Enough space for their lifestyle",
           "scorePercentage": 80,
           "scoreLabel": "8/10",
-          "description": "Room to grow, work and create memories."
+          "description": "Room to grow, work and create memories.",
+          "imagegenerationprompt": "A modern flat vector illustration of 4"
         }
-      ]
+      ],
+      "imagegenerationprompt": "A modern flat vector illustration of living room sketch"
     },
     {
       "id": "journey",
@@ -307,25 +314,29 @@
           "id": "budget-shift",
           "title": "The budget shift",
           "desc": "Their ₹1 Cr dream became a ₹1.5 Cr reality as prices rose faster than their savings.",
-          "imageSrc": "/journals/2/1.png"
+          "imageSrc": "/journals/2/1.png",
+          "imagegenerationprompt": "A modern flat vector illustration of 1"
         },
         {
           "id": "baby-deadline",
           "title": "The baby deadline",
           "desc": "With their first child arriving next year, delaying the decision was no longer an option.",
-          "imageSrc": "/journals/2/2.png"
+          "imageSrc": "/journals/2/2.png",
+          "imagegenerationprompt": "A modern flat vector illustration of 2"
         },
         {
           "id": "sunday-ritual",
           "title": "The Sunday Ritual",
           "desc": "Every Sunday meant one site visit, one Excel update, one argument and one make-up dosa.",
-          "imageSrc": "/journals/2/3.png"
+          "imageSrc": "/journals/2/3.png",
+          "imagegenerationprompt": "A modern flat vector illustration of 3"
         },
         {
           "id": "why-it-matters",
           "title": "Why It Matters",
           "desc": "This isn't simply buying property. It's about creating a stable beginning for the next chapter of their family.",
-          "imageSrc": "/journals/2/4.png"
+          "imageSrc": "/journals/2/4.png",
+          "imagegenerationprompt": "A modern flat vector illustration of 4"
         }
       ],
       "voicesTitle": "Voices around them",
@@ -351,13 +362,15 @@
         {
           "sender": "Pavan",
           "avatar": "/journals/pavan.png",
-          "text": "Every Sunday became one site visit, one Excel update, one argument... and one make-up dosa."
+          "text": "Every Sunday became one site visit, one Excel update, one argument... and one make-up dosa.",
+          "imagegenerationprompt": "A modern flat vector illustration of pavan"
         },
         {
           "sender": "Riya",
           "avatar": "/journals/avatar-riya.png",
           "text": "It wasn't really about the projects anymore. You were trying to convince yourselves that you were ready for this next chapter.",
-          "isRiya": true
+          "isRiya": true,
+          "imagegenerationprompt": "A modern flat vector illustration of avatar riya"
         }
       ],
       "realityChecksTitle": "Reality checks along the way",
@@ -429,21 +442,24 @@
           "description": "Strong social infrastructure, growing employment hubs and communities designed for young families.",
           "projects": 5,
           "siteVisits": 4,
-          "imageSrc": "/journals/sarjapur.png"
+          "imageSrc": "/journals/sarjapur.png",
+          "imagegenerationprompt": "A modern flat vector illustration of sarjapur"
         },
         {
           "title": "Hosa Road",
           "description": "Balanced connectivity, improving infrastructure and better value within their target budget.",
           "projects": 4,
           "siteVisits": 4,
-          "imageSrc": "/journals/hosa-road.png"
+          "imageSrc": "/journals/hosa-road.png",
+          "imagegenerationprompt": "A modern flat vector illustration of hosa road"
         },
         {
           "title": "Chandapura–Attibele Fringe",
           "description": "Larger homes within budget, but longer commute and fewer ready social conveniences.",
           "projects": 2,
           "siteVisits": 3,
-          "imageSrc": "/journals/attibele.png"
+          "imageSrc": "/journals/attibele.png",
+          "imagegenerationprompt": "A modern flat vector illustration of attibele"
         }
       ],
       "consideredAreasLabel": "Other areas they considered Kanakapura Road • Electronic City • Whitefield",
@@ -478,7 +494,8 @@
       "filtersFooterLabel": "They were searching for the right place to begin their family's next chapter with confidence.",
       "insightTitle": "What I noticed while we were searching",
       "insightDescription": "“Every time I suggested a lower-priced option, both of you kept returning to communities with trusted builders, better schools and realistic possession timelines. That's when I realized you weren't searching for the cheapest home. You were searching for peace of mind.”",
-      "insightImage": "/journals/advisor.png"
+      "insightImage": "/journals/advisor.png",
+      "imagegenerationprompt": "A modern flat vector illustration of advisor"
     },
     {
       "id": "projects",
@@ -547,13 +564,15 @@
         {
           "sender": "Pavan",
           "avatar": "/journals/pavan.png",
-          "text": "“Every Sunday became one site visit, one Excel update, one argument... and one make-up dosa.”"
+          "text": "“Every Sunday became one site visit, one Excel update, one argument... and one make-up dosa.”",
+          "imagegenerationprompt": "A modern flat vector illustration of pavan"
         },
         {
           "sender": "Riya",
           "avatar": "/journals/avatar-riya.png",
           "text": "It wasn't really about the projects anymore. You were trying to convince yourselves that you were ready for this next chapter.",
-          "isRiya": true
+          "isRiya": true,
+          "imagegenerationprompt": "A modern flat vector illustration of avatar riya"
         }
       ],
       "audioLabel": "Hear entire conversation (94 sec)",
@@ -565,22 +584,26 @@
       "projects": [
         {
           "title": "Greenwood Meadows",
-          "imageSrc": "/journals/greenwood-meadows.png"
+          "imageSrc": "/journals/greenwood-meadows.png",
+          "imagegenerationprompt": "A modern flat vector illustration of greenwood meadows"
         },
         {
           "title": "Sattva Aeropolis",
-          "imageSrc": "/journals/sattva-aeropolis.png"
+          "imageSrc": "/journals/sattva-aeropolis.png",
+          "imagegenerationprompt": "A modern flat vector illustration of sattva aeropolis"
         },
         {
           "title": "Brigade Sanctuary",
-          "imageSrc": "/journals/brigade-sanctuary.png"
+          "imageSrc": "/journals/brigade-sanctuary.png",
+          "imagegenerationprompt": "A modern flat vector illustration of brigade sanctuary"
         },
         {
           "title": "Greenwood meadows",
           "imageSrc": "/journals/greenwood-meadows1.png",
           "isOverlay": true,
           "overlayText": "+16",
-          "overlaySubtext": "more"
+          "overlaySubtext": "more",
+          "imagegenerationprompt": "A modern flat vector illustration of greenwood meadows1"
         }
       ],
       "rejectedTitle": "Why some projects didn't make the cut",
@@ -613,7 +636,8 @@
       ],
       "suggestionTitle": "Riya's suggestion",
       "suggestionDescription": "After reviewing their search journey, I noticed that Pavan and Shruti rarely chose the lowest-priced option. Instead, they consistently returned to projects that balanced trusted builders, family-friendly neighbourhoods and a realistic possession timeline before their baby's arrival.",
-      "suggestionImageSrc": "/journals/advisor.png"
+      "suggestionImageSrc": "/journals/advisor.png",
+      "imagegenerationprompt": "A modern flat vector illustration of riya"
     },
     {
       "id": "learnings",
@@ -653,22 +677,26 @@
         {
           "title": "Markets don't wait.",
           "description": "Their ₹1 Cr budget seemed realistic initially. Within two years, property prices rose to ₹1.35–1.55 Cr. Starting earlier would have offered more flexibility and choices.",
-          "imageSrc": "/journals/3/1.png"
+          "imageSrc": "/journals/3/1.png",
+          "imagegenerationprompt": "A modern flat vector illustration of 1"
         },
         {
           "title": "Shortlists beat browsing.",
           "description": "After comparing many listings and projects, they found more options didn't help. Focusing on a few well-matched communities made decisions easier.",
-          "imageSrc": "/journals/3/2.png"
+          "imageSrc": "/journals/3/2.png",
+          "imagegenerationprompt": "A modern flat vector illustration of 2"
         },
         {
           "title": "Builder trust matters.",
           "description": "Price wasn't the only factor. Quality, clear documentation, RERA compliance, and delivery history mattered as much as the floor plan.",
-          "imageSrc": "/journals/3/3.png"
+          "imageSrc": "/journals/3/3.png",
+          "imagegenerationprompt": "A modern flat vector illustration of 3"
         },
         {
           "title": "Buy for tomorrow, not today.",
           "description": "Their priorities shifted after learning they would become parents. Schools, hospitals, safety and convenience became more valuable than luxury.",
-          "imageSrc": "/journals/3/4.png"
+          "imageSrc": "/journals/3/4.png",
+          "imagegenerationprompt": "A modern flat vector illustration of 4"
         }
       ],
       "beforeTitle": "BEFORE",
@@ -743,25 +771,29 @@
         {
           "sender": "Pavan",
           "avatar": "/journals/pavan.png",
-          "text": "If we had to start all over again..."
+          "text": "If we had to start all over again...",
+          "imagegenerationprompt": "A modern flat vector illustration of pavan"
         },
         {
           "sender": "Riya",
           "avatar": "/journals/avatar-riya.png",
           "text": "What would you do differently?",
-          "isRiya": true
+          "isRiya": true,
+          "imagegenerationprompt": "A modern flat vector illustration of avatar riya"
         },
         {
           "sender": "Pavan",
           "avatar": "/journals/pavan.png",
-          "text": "I'd stop chasing perfect projects and start trusting our priorities much earlier."
+          "text": "I'd stop chasing perfect projects and start trusting our priorities much earlier.",
+          "imagegenerationprompt": "A modern flat vector illustration of pavan"
         }
       ],
       "audioLabel": "Hear entire conversation (94 sec)",
       "audioDurationLabel": "1:32",
       "adviceTitle": "Advice for people like them",
       "adviceStoryboardImage": "/journals/journey-storyboard.png",
-      "adviceDescription": "Every decision in their journey became a lesson. Looking back, Pavan and Shruti realised that confidence didn't come from visiting more projects or chasing the lowest price. It came from understanding their priorities, comparing thoughtfully and planning for the life they wanted to build. These lessons are the experiences they hope every future homebuyer can learn before beginning their own journey."
+      "adviceDescription": "Every decision in their journey became a lesson. Looking back, Pavan and Shruti realised that confidence didn't come from visiting more projects or chasing the lowest price. It came from understanding their priorities, comparing thoughtfully and planning for the life they wanted to build. These lessons are the experiences they hope every future homebuyer can learn before beginning their own journey.",
+      "imagegenerationprompt": "A modern flat vector illustration of riya"
     },
     {
       "id": "start-here",
@@ -780,25 +812,29 @@
           "id": 1,
           "title": "You",
           "description": "Share your plans, family needs, lifestyle, budget and expectations.",
-          "imageSrc": "/journals/4/1.png"
+          "imageSrc": "/journals/4/1.png",
+          "imagegenerationprompt": "A modern flat vector illustration of 1"
         },
         {
           "id": 2,
           "title": "Riya listens",
           "description": "Riya understands your priorities, asks meaningful questions and discovers what truly matters to you.",
-          "imageSrc": "/journals/4/2.png"
+          "imageSrc": "/journals/4/2.png",
+          "imagegenerationprompt": "A modern flat vector illustration of 2"
         },
         {
           "id": 3,
           "title": "Journal created",
           "description": "Your conversations are transformed into a personalized home-buying journal with insights and recommendations.",
-          "imageSrc": "/journals/4/3.png"
+          "imageSrc": "/journals/4/3.png",
+          "imagegenerationprompt": "A modern flat vector illustration of 3"
         },
         {
           "id": 4,
           "title": "Better recommendations",
           "description": "Receive project suggestions that fit your priorities, not just your filters.",
-          "imageSrc": "/journals/4/4.png"
+          "imageSrc": "/journals/4/4.png",
+          "imagegenerationprompt": "A modern flat vector illustration of 4"
         }
       ],
       "valuePropsTitle": "What mattered most in their search",
@@ -841,7 +877,8 @@
       "ctaTitle": "Ready to write your story?",
       "ctaDescription": "Let Riya understand your goals and, together with Kabir, create a personalized journal that guides you toward the right home with confidence",
       "ctaButtonText": "Copy Journal",
-      "ctaCharacterImage": "/journals/riya-full-character.png"
+      "ctaCharacterImage": "/journals/riya-full-character.png",
+      "imagegenerationprompt": "A modern flat vector illustration of open book illustration"
     }
   ]
 }
