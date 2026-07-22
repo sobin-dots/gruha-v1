@@ -166,7 +166,7 @@ export const JournalLearnings: React.FC<JournalLearningsProps> = ({
                     src={lesson.imageSrc}
                     alt={lesson.title}
                     fill
-                    className="object-cover grayscale mix-blend-darken"
+                    className="object-cover"
                   />
                 </div>
                 <div className="w-full flex flex-col justify-center items-start gap-2 py-2">
@@ -419,7 +419,7 @@ export const JournalLearnings: React.FC<JournalLearningsProps> = ({
               src={adviceStoryboardImage}
               alt="Advice storyboard"
               fill
-              className="object-contain lg:object-cover lg:object-top grayscale mix-blend-darken"
+              className="object-contain lg:object-cover lg:object-top"
             />
           </div>
           <p className="w-full text-[15px] sm:text-[16px] font-normal leading-[22px] sm:leading-[24px] text-[#64748B] m-0">

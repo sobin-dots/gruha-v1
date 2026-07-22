@@ -333,7 +333,7 @@ export const JournalJourney: React.FC<JournalJourneyProps> = ({
                       src={moment.imageSrc}
                       alt={moment.title}
                       fill
-                      className="object-cover grayscale contrast-[1.05]"
+                      className="object-cover"
                     />
                   </div>
                   <div className="flex flex-col gap-2 pt-1">
