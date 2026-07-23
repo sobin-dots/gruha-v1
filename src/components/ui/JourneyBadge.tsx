@@ -1,11 +1,11 @@
-import React from 'react';
+import  {FC} from 'react';
 
 interface JourneyBadgeProps {
   step: number | string;
   className?: string;
 }
 
-export const JourneyBadge: React.FC<JourneyBadgeProps> = ({ step, className = "" }) => {
+export const JourneyBadge: FC<JourneyBadgeProps> = ({ step, className = "" }) => {
   return (
     <div className={`left-0 w-full flex justify-center z-20 -translate-y-1/2 ${className}`}>
       <div className="flex flex-col items-center">
