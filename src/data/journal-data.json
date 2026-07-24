@@ -41,6 +41,7 @@
           "name": "Pavan",
           "age": 29,
           "role": "Senior Engineer",
+          "description": "A steady, practical planner who does the math twice before deciding. Stays calm under pressure and leans on logic over impulse.",
           "tags": [
             "Responsible",
             "Practical",
@@ -52,6 +53,7 @@
           "name": "Shruti",
           "age": 28,
           "role": "QA",
+          "description": "Detail-oriented and empathetic, she notices what others miss. Organised by nature, she keeps the family's plans grounded.",
           "tags": [
             "Thoughtful",
             "Organised",
@@ -66,39 +68,23 @@
       "stats": [
         {
           "icon": "Briefcase",
-          "label": "BUYER PROFILE",
-          "value": "Young Professionals & First-Timers",
-          "tag": "Age 29 & 28"
-        },
-        {
-          "icon": "TrendingUp",
-          "label": "THEIR REALITY",
-          "value": "₹1 Cr dream → ₹1.5 Cr reality",
-          "tag": "Emotional"
+          "label": "Buyer profile",
+          "value": "First-timers"
         },
         {
           "icon": "Heart",
-          "label": "LIFE STAGE",
-          "value": "Newly married(2 years)",
-          "tag": "Expecting first child"
+          "label": "Life stage",
+          "value": "Newly married"
         },
         {
-          "icon": "Sparkles",
-          "label": "SEARCH STAGE",
-          "value": "Actively exploring",
-          "tag": "11 site explored"
+          "icon": "TrendingUp",
+          "label": "Search stage",
+          "value": "Active explorer"
         },
         {
           "icon": "Hourglass",
-          "label": "TIMELINE",
-          "value": "Before the baby arrives",
-          "tag": "< 8 months"
-        },
-        {
-          "icon": "CheckCircle2",
-          "label": "TRANSACTION FOCUS",
-          "value": "Under Construction (RERA)",
-          "tag": "Primary purchase"
+          "label": "Timeline",
+          "value": "Before the baby"
         }
       ],
       "prioritiesTitle": "Top priorities right now",
@@ -320,12 +306,6 @@
           "title": "The Sunday Ritual",
           "desc": "Every Sunday meant one site visit, one Excel update, one argument and one make-up dosa.",
           "imageSrc": "/journals/2/3.png"
-        },
-        {
-          "id": "why-it-matters",
-          "title": "Why It Matters",
-          "desc": "This isn't simply buying property. It's about creating a stable beginning for the next chapter of their family.",
-          "imageSrc": "/journals/2/4.png"
         }
       ],
       "voicesTitle": "Voices around them",

@@ -22,10 +22,13 @@ Pavan & Shruti Kulal
 
 ### Extraction Protocol for `profile.buyers` Array:
 1. **Identify Persons**: Read the names listed under the title (e.g., `Pavan & Shruti Kulal`). Create a buyer entry in `profile.buyers` for **EACH** person involved in the persona.
-2. **Extract Attributes**: Parse `name`, `age`, `role` (profession), and 3 representative personality `tags` for each person.
+2. **Extract Attributes**: Parse `name`, `age`, `role` (profession), narrative `description` (e.g., `"A steady, practical planner who does the math twice before deciding. Stays calm under pressure and leans on logic over impulse."`), and 3 representative personality `tags` for each person.
 3. **Generate Person Image & Prompt**:
    - Set `"image"` to a relative path placeholder under the journal slug folder (e.g. `"/journals/the-quiet-crorepatis/suresh.png"`).
-   - Add a mandatory `"imagegenerationprompt"` key containing a detailed visual prompt for generating that specific person's portrait using AI image generators (Nano Banana, ChatGPT, DALL-E 3, Midjourney).
+   - Add a mandatory `"imagegenerationprompt"` key **DIRECTLY BELOW** the `"image"` key containing a detailed visual prompt for generating that specific person's portrait using AI image generators (Nano Banana, ChatGPT, DALL-E 3, Midjourney).
+4. **Layout Rule for 1 Persona vs 2 Personas**:
+   - If there is only **1 buyer persona**, the UI automatically renders the 1st persona card and brings the `Shared Vision` card into the 2nd slot of the top 2-column grid.
+   - If there are **2 buyer personas**, both personas fill the top 2-column grid and `Shared Vision` renders full-width below.
 
 ### Example Buyer Schema:
 ```json
@@ -33,9 +36,10 @@ Pavan & Shruti Kulal
   "name": "Pavan",
   "age": 29,
   "role": "Senior Engineer",
+  "description": "A steady, practical planner who does the math twice before deciding. Stays calm under pressure and leans on logic over impulse.",
   "tags": ["Responsible", "Practical", "Calm"],
   "image": "/journals/the-first-emi-family/pavan.png",
-  "imagegenerationprompt": "A studio portrait photo of a 29-year-old South Indian male software engineer named Pavan wearing a neat dark charcoal shirt in an 80% greyscale monochrome environment with a subtle Warm Coral #FF8A65 accent pin, Scandinavian minimalism, soft ambient studio rim lighting, clean pearl white background."
+  "imagegenerationprompt": "A studio portrait photo of a 29-year-old South Indian male software engineer named Pavan wearing a neat dark charcoal shirt in an 80% greyscale monochrome environment with a subtle Warm Coral #DD5128 accent pin, Scandinavian minimalism, soft ambient studio rim lighting, clean beige background."
 }
 ```
 
@@ -43,11 +47,11 @@ Pavan & Shruti Kulal
 
 ## 🎨 Image Generation Design & Color Theme Guideline (STRICT & MANDATORY)
 
-All `imagegenerationprompt` fields MUST strictly adhere to the following visual aesthetic & color palette rule:
+All `imagegenerationprompt` fields MUST strictly adhere to the following visual aesthetic & color palette rule and **MUST BE PLACED DIRECTLY BELOW THE IMAGE URL KEY**:
 
 ### 1. Color Palette System:
 - **80% Greyscale Monochrome Base**: Soft white (`#FFFFFF`), pearl white (`#F8F8F8`), light grey (`#E6E6E6`), silver (`#C9C9C9`), medium grey (`#8C8C8C`), charcoal (`#3A3A3A`), and matte black (`#1E1E1E`). All architecture, landscaping, background objects, furniture, shadows, and supporting elements MUST be rendered in refined greyscale monochrome.
-- **20% Focal Accent Color (Warm Coral `#FF8A65`)**: Reserve the **Warm Coral `#FF8A65`** accent ONLY for high-value focal elements (e.g. front doors, key icons, chart trend lines, coin symbols, verified checkmarks, key UI highlights, subtle interior glow, or workflow indicators). Keep the use of coral restrained and high-impact.
+- **20% Focal Accent Color (Warm Coral `#DD5128` / `#FF8A65`)**: Reserve the **Warm Coral `#DD5128`** accent ONLY for high-value focal elements (e.g. front doors, key icons, chart trend lines, coin symbols, verified checkmarks, key UI highlights, subtle interior glow, or workflow indicators). Keep the use of coral restrained and high-impact.
 
 ### 2. Aesthetic & Lighting Style:
 - **Medium**: High-end 3D Render / Flat Vector Graphic Illustration / Studio Photography with editorial quality.
@@ -55,14 +59,14 @@ All `imagegenerationprompt` fields MUST strictly adhere to the following visual 
 - **Aesthetic**: Premium Scandinavian minimalism meets Apple-inspired product design. Clean white/light grey studio background, pristine, elegant, modern, luxurious, and visually balanced.
 
 ### 3. Required Prompt Construction Formula:
-> **`[Subject & Action]` + `[80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with 20% Warm Coral (#FF8A65) accent on focal elements]` + `[Scandinavian minimalism, Apple-inspired product aesthetics, matte finishes, soft ambient lighting, clean white background, editorial quality]`**
+> **`[Subject & Action]` + `[80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with 20% Warm Coral (#DD5128) accent on focal elements]` + `[Scandinavian minimalism, Apple-inspired product aesthetics, matte finishes, soft ambient lighting, clean white background, editorial quality]`**
 
 - **Example (Persona Portrait)**:
-  `"A studio portrait photo of a 58-year-old South Indian retired bank manager named Suresh wearing a neat charcoal shirt and spectacles in an 80% greyscale monochrome aesthetic with a subtle Warm Coral #FF8A65 lapel pin accent, Scandinavian minimalism, soft studio rim lighting, clean pearl white background."`
+  `"A studio portrait photo of a 58-year-old South Indian retired bank manager named Suresh wearing a neat charcoal shirt and spectacles in an 80% greyscale monochrome aesthetic with a subtle Warm Coral #DD5128 lapel pin accent, Scandinavian minimalism, soft studio rim lighting, clean pearl white background."`
 - **Example (Narrative Scene / Document)**:
-  `"A detailed vector illustration of an open paper financial ledger notebook with handwritten diligence questions rendered in an 80% greyscale monochrome palette (#1E1E1E to #E6E6E6), featuring a single prominent Warm Coral #FF8A65 verified stamp accent, Scandinavian minimalism, clean white desk background."`
+  `"A detailed vector illustration of an open paper financial ledger notebook with handwritten diligence questions rendered in an 80% greyscale monochrome palette (#1E1E1E to #E6E6E6), featuring a single prominent Warm Coral #DD5128 verified stamp accent, Scandinavian minimalism, clean white desk background."`
 - **Example (Architectural Project)**:
-  `"A modern exterior architectural render of a residential apartment complex rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a striking Warm Coral #FF8A65 main entrance door accent, photorealistic Scandinavian architectural minimalism, soft global illumination, clean white backdrop."`
+  `"A modern exterior architectural render of a residential apartment complex rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a striking Warm Coral #DD5128 main entrance door accent, photorealistic Scandinavian architectural minimalism, soft global illumination, clean white backdrop."`
 
 ### 4. Folder Path Convention:
 All image relative paths in the JSON MUST be organized under the specific journal folder:
@@ -80,7 +84,7 @@ All image relative paths in the JSON MUST be organized under the specific journa
 Whenever ANY visual asset key exists in the schema (`image`, `imageSrc`, `sharedVisionImage`, `insightImage`, `mapImageSrc`, `adviceStoryboardImage`, `blankImageSrc`, `ctaCharacterImage`, `riyaConclusionImage`):
 
 1. **Path Assignment**: Set the image path key to a standard relative placeholder path under `/journals/<journal-slug>/` (e.g. `"/journals/the-quiet-crorepatis/priority-1.png"`).
-2. **AI Image Generation Prompt Key**: Add an accompanying `"imagegenerationprompt"` field next to the image path key using the 4-part prompt formula with 80% monochrome and 20% Warm Coral `#FF8A65` accent.
+2. **AI Image Generation Prompt Key Location**: Add an accompanying `"imagegenerationprompt"` field **DIRECTLY BELOW THE IMAGE URL KEY** in the JSON object, holding the visual prompt guidelines for AI image generators.
 
 ---
 
