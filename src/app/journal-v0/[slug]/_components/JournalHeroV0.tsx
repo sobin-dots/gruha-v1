@@ -1,0 +1,144 @@
+"use client";
+
+import React, { type RefObject } from "react";
+import * as Icons from "lucide-react";
+import imgHero from "@/imports/testy.jpg";
+
+const fd = "'Newsreader', Georgia, serif";
+const fu = "'Inter Tight', system-ui, sans-serif";
+
+const getImgSrc = (img: any): string => {
+  if (!img) return "";
+  if (typeof img === "string") return img;
+  if (typeof img === "object" && img.src) return img.src;
+  return String(img);
+};
+
+export const getIcon = (
+  name?: string,
+  defaultName = "HelpCircle",
+  props: any = { className: "w-4 h-4", strokeWidth: 2 }
+) => {
+  if (!name) return null;
+  const Icon = (Icons as any)[name] || (Icons as any)[defaultName] || Icons.HelpCircle;
+  return <Icon {...props} />;
+};
+
+export interface JournalHeroV0Props {
+  title?: string;
+  heroTitle?: string;
+  description?: string;
+  learningsLabel?: string;
+  learnings?: Array<{ icon?: string; text: string } | string>;
+  heroImage?: any;
+  startJournalText?: string;
+  adaptJournalText?: string;
+  heroImgWrapRef?: RefObject<HTMLDivElement | null>;
+  onStartJournal?: () => void;
+  onAdaptJournal?: () => void;
+}
+
+export const JournalHeroV0: React.FC<JournalHeroV0Props> = ({
+  title,
+  heroTitle,
+  description,
+  learningsLabel = "What you'll learn from this journey",
+  learnings = [],
+  heroImage,
+  startJournalText = "Start your journal",
+  adaptJournalText = "Adapt this journal",
+  heroImgWrapRef,
+  onStartJournal,
+  onAdaptJournal,
+}) => {
+  const displayTitle = heroTitle || title || "The Sixteenth Floor\nDream Journal.";
+  const displayDescription =
+    description ||
+    "The story of Pavan & Shruti Kalsi's first home purchase journey in Bengaluru — a young couple navigating budget, fear, and a future built together.";
+  const displayHeroImage = heroImage || imgHero;
+
+  const defaultLearnings = [
+    { text: "Stretch your budget without regret" },
+    { text: "Decide between ready vs under construction" },
+    { text: "Manage home buying before becoming parents" },
+  ];
+
+  const displayLearnings = learnings.length > 0 ? learnings : defaultLearnings;
+
+  return (
+    <div className="bg-white">
+      <div className="max-w-[1120px] mx-auto px-4 sm:px-8 py-10 sm:py-12 grid grid-cols-1 md:grid-cols-[400px_1fr] gap-8 md:gap-12 items-stretch">
+        {/* Left — Hero Image Container */}
+        <div ref={heroImgWrapRef} className="relative rounded-2xl overflow-hidden min-h-[340px] md:min-h-full border border-slate-100 shadow-xs">
+          <img
+            src={getImgSrc(displayHeroImage)}
+            alt={displayTitle.replace("\n", " ")}
+            className="absolute inset-0 w-full h-full object-cover object-center"
+          />
+        </div>
+
+        {/* Right — Title, Subtitle, Learnings & Actions */}
+        <div className="flex flex-col gap-5 justify-center">
+          <h1
+            className="text-[clamp(36px,4.5vw,56px)] font-semibold leading-[1.05] tracking-[-0.02em] whitespace-pre-line"
+            style={{ fontFamily: fd, color: "#111821" }}
+          >
+            {displayTitle}
+          </h1>
+
+          <p className="text-[16px] leading-[1.6]" style={{ fontFamily: fu, color: "#59636F", maxWidth: 520 }}>
+            {displayDescription}
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-start mt-2">
+            <div>
+              <p className="text-[9.5px] font-semibold tracking-[0.14em] uppercase mb-3" style={{ fontFamily: fu, color: "#8A94A1" }}>
+                {learningsLabel}
+              </p>
+              <div className="flex flex-col gap-2.5">
+                {displayLearnings.map((item: any, i: number) => {
+                  const text = typeof item === "string" ? item : item.text;
+                  const iconName = typeof item === "object" ? item.icon : undefined;
+                  return (
+                    <div key={i} className="flex items-start gap-3">
+                      <span className="text-[11px] font-semibold flex-none mt-0.5" style={{ fontFamily: fu, color: "#DD5128" }}>
+                        {iconName ? getIcon(iconName, "HelpCircle", { className: "w-4 h-4 text-[#DD5128]" }) : String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="text-[13.5px] leading-[1.45]" style={{ fontFamily: fu, color: "#374151" }}>
+                        {text}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="flex flex-col items-start gap-3">
+              <p className="text-[9.5px] font-semibold tracking-[0.14em] uppercase mb-3 invisible hidden sm:block" aria-hidden="true">
+                Spacer
+              </p>
+              <button
+                type="button"
+                onClick={onStartJournal}
+                className="w-full sm:w-auto px-6 py-3.5 text-[14px] font-semibold rounded-xl text-white transition-all duration-200 hover:opacity-90 active:scale-[0.98] cursor-pointer"
+                style={{ background: "#DD5128", fontFamily: fu }}
+              >
+                {startJournalText}
+              </button>
+              <button
+                type="button"
+                onClick={onAdaptJournal}
+                className="w-full sm:w-auto px-6 py-3.5 text-[14px] font-semibold rounded-xl border transition-colors hover:bg-slate-50 active:scale-[0.98] cursor-pointer"
+                style={{ borderColor: "#E4E9EF", fontFamily: fu, color: "#111821" }}
+              >
+                {adaptJournalText}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default JournalHeroV0;
