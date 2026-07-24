@@ -118,6 +118,7 @@
       "inactiveBgHex": "rgba(226, 223, 253, 0.45)",
       "textColor": "text-[#4A438A] font-semibold",
       "inactiveTextColor": "text-gray-500 hover:text-gray-700",
+      "tagline": "THE JOURNEY SO FAR",
       "title": "How their journey actually unfolded.",
       "description": "From self-build spreadsheets to a bandwidth audit, a volunteer auditor position, and a pre-portal GoodEarth Malhar resale.",
       "metrics": [
@@ -140,6 +141,102 @@
           "icon": "IndianRupee",
           "label": "BUILD TIME SAVED",
           "value": "18 Months (11 hrs/wk)"
+        }
+      ],
+      "journeyFrameTitle": "EVERY STAGE MAPPED",
+      "journeyFrameSubtitle": "How their journey unfolded",
+      "roadmapTitle": "How their journey unfolded",
+      "roadmapNodes": [
+        {
+          "id": "l1",
+          "title": "L1: Framework Verdict",
+          "desc": "Total life-carbon audit: edge-build loses to its own commute",
+          "icon": "TrendingUp",
+          "x": 130,
+          "y": 110,
+          "width": 150
+        },
+        {
+          "id": "l2",
+          "title": "L2: Volunteer Auditor",
+          "desc": "Joined GoodEarth Malhar sustainability group as volunteer auditor",
+          "icon": "ShieldCheck",
+          "x": 450,
+          "y": 140,
+          "width": 150
+        },
+        {
+          "id": "l3",
+          "title": "L3: Net-Zero Detour",
+          "desc": "Asked for performance bills, got a mood board; declined",
+          "icon": "HelpCircle",
+          "x": 880,
+          "y": 290,
+          "width": 150
+        },
+        {
+          "id": "l4",
+          "title": "L4: Bandwidth Audit",
+          "desc": "11 hrs/wk self-build vs startup Series A calendar; Path A premium accepted",
+          "icon": "Clock",
+          "x": 330,
+          "y": 450,
+          "width": 150
+        },
+        {
+          "id": "l5",
+          "title": "L5: Malhar Resale Surface",
+          "desc": "Pre-portal resale surfaces via community group with near-zero bills",
+          "icon": "Home",
+          "x": 150,
+          "y": 580,
+          "width": 150
+        },
+        {
+          "id": "l6",
+          "title": "L6: Malhar Closed & Plan 2031",
+          "desc": "GoodEarth Malhar closed; Magadi site bought as Plan 2031 land hold",
+          "icon": "CheckCircle2",
+          "x": 530,
+          "y": 740,
+          "width": 160
+        }
+      ],
+      "timelineTitle": "Where they stand today",
+      "timelineSteps": [
+        {
+          "id": "s1",
+          "label": "Framework Audit",
+          "icon": "FileCheck2"
+        },
+        {
+          "id": "s2",
+          "label": "Community Group",
+          "icon": "ShieldCheck"
+        },
+        {
+          "id": "s3",
+          "label": "Greenwash Screened",
+          "icon": "HelpCircle"
+        },
+        {
+          "id": "s4",
+          "label": "Bandwidth Decided",
+          "icon": "Clock"
+        },
+        {
+          "id": "s5",
+          "label": "GoodEarth Closed",
+          "icon": "CheckCircle2",
+          "active": true,
+          "tag": "Selected Home"
+        },
+        {
+          "id": "s7",
+          "label": "Plan 2031 Hold",
+          "icon": "Home",
+          "active": true,
+          "tag": "Phased Build"
         }
       ],
       "momentsTitle": "Moments that changed everything",
@@ -170,21 +267,22 @@
       "quotes": [
         {
           "text": "The framework you built to judge houses just judged you — gently, I hope.",
-          "author": "— Riya"
+          "author": "Riya"
         },
         {
           "text": "My own life-carbon spreadsheet says the Malhar flat beats my dream CSEB build once you count the commute.",
-          "author": "— Ishaan"
+          "author": "Ishaan"
         },
         {
           "text": "Buy the Magadi site at layout launch and hold it as Plan 2031. Conviction with a release schedule.",
-          "author": "— Riya"
+          "author": "Riya"
         },
         {
           "text": "Main ek aisa ghar le raha hoon jahan bijli ka bill lagbhag zero hai — aur ek plot bhi rakha hai.",
-          "author": "— Ishaan to Mother"
+          "author": "Ishaan to Mother"
         }
       ],
+      "riyaConclusionTitle": "Riya's take on the Journey",
       "chatMessages": [
         {
           "sender": "Ishaan",
@@ -196,6 +294,37 @@
           "avatar": "/journals/avatar-riya.png",
           "text": "So the framework you built to judge houses just judged you. Buy the Magadi site now, hold it as Plan 2031. Conviction with a release schedule.",
           "isRiya": true
+        }
+      ],
+      "audioLabel": "HEAR ENTIRE CONVERSATION",
+      "audioSrc": "https://samplelib.com/mp3/sample-3s.mp3",
+      "agentCards": [
+        {
+          "id": 1,
+          "name": "Riya",
+          "status": "Active",
+          "tag": "AI Real Estate Companion",
+          "description": "Framed the bandwidth audit: 'Buy GoodEarth Malhar now for focus, hold Magadi site as Plan 2031.'",
+          "image": "/journals/avatar-riya.png",
+          "color": "bg-gradient-to-b from-[#A78BFA] to-[#8B5CF6]"
+        },
+        {
+          "id": 2,
+          "name": "Kabir",
+          "status": "Active",
+          "tag": "Sustainability Curator",
+          "description": "Verified GoodEarth Malhar performance bills — zero-energy months and rainwater harvesting ledgers.",
+          "image": "https://i.pravatar.cc/300?u=kabir",
+          "color": "bg-gradient-to-b from-[#93C5FD] to-[#3B82F6]"
+        },
+        {
+          "id": 3,
+          "name": "Arjun",
+          "status": "Active",
+          "tag": "Plot & Land Analyst",
+          "description": "Screened Magadi Road arc layout launch for solar orientation, soil strength, and water table metrics.",
+          "image": "https://i.pravatar.cc/300?u=arjun",
+          "color": "bg-gradient-to-b from-[#F59E0B] to-[#D97706]"
         }
       ]
     },
