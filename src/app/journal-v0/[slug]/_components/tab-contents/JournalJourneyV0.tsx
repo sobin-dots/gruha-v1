@@ -1,17 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import React, { useState, useRef, useEffect } from "react";
+import Image from "next/image";
+import { Play, Pause } from "lucide-react";
 import * as Icons from "lucide-react";
+import AgentCardSlider, { AgentCardItem } from "@/app/journal-v4/[slug]/_components/tab-contents/AgentCardSlider";
 import imgMoment1 from "@/imports/1.png";
 import imgMoment2 from "@/imports/2.png";
 import imgMoment3 from "@/imports/3.png";
-import imgRiya from "@/imports/signal-2026-07-23-17-18-39-504.jpg";
-import imgKabir from "@/imports/signal-2026-07-23-17-32-02-937_005.jpg";
-import imgAnanya from "@/imports/signal-2026-07-23-17-32-02-937_004.jpg";
-import imgArjun from "@/imports/signal-2026-07-23-17-32-02-937_003.jpg";
-import imgKaran from "@/imports/signal-2026-07-23-17-32-02-937_002.jpg";
-import imgSharon from "@/imports/signal-2026-07-23-17-32-02-937.jpg";
 import imgFrame9 from "@/imports/Frame9.svg";
 
 const fd = "'Newsreader', Georgia, serif";
@@ -34,332 +30,261 @@ export const getIcon = (
   return <Icon {...props} />;
 };
 
-const defaultAgents = [
-  {
-    name: "Riya",
-    role: "AI Real Estate Companion",
-    desc: "Understands your needs, guides you with clarity, and helps you make the right move — at every stage of your search.",
-    color: "#7C3AED",
-    grad: ["#9B6EF3", "#C4B5FD"],
-    img: imgRiya,
-    active: true,
-    quote: "Every time I suggested a lower-priced option, both of you kept returning to communities with trusted builders, better schools and realistic possession timelines. That's when I realized you weren't searching for the cheapest home. You were searching for peace of mind.",
-    quoteLabel: "Riya's take on the Journey",
-  },
-  {
-    name: "Kabir",
-    role: "Projects Curator",
-    desc: "Handpicks projects that match your stage of life, budget, and builder trust score — so you never chase the wrong listings.",
-    color: "#0369A1",
-    grad: ["#3B82F6", "#93C5FD"],
-    img: imgKabir,
-    active: true,
-    quote: "Your EMI comfort zone and your aspiration were ₹40K apart. Most buyers ignore that gap. I made sure you didn't — every shortlist was calibrated to what you could actually sustain, not just afford on paper.",
-    quoteLabel: "Why Kabir flagged this",
-  },
-  {
-    name: "Ananya",
-    role: "Floor Plan Specialist",
-    desc: "Reads layouts for liveability — light, flow, future-proofing, ventilation, and what the brochure won't tell you.",
-    color: "#047857",
-    grad: ["#10B981", "#6EE7B7"],
-    img: imgAnanya,
-    active: false,
-    quote: "Three of your shortlisted units had the kitchen facing north with no cross-ventilation. On paper they looked identical to the others. I flagged them before you fell in love with the view.",
-    quoteLabel: "Why Ananya flagged the layout",
-  },
-  {
-    name: "Arjun",
-    role: "Project Analyst",
-    desc: "Stress-tests builder credibility, delivery timelines, and project-level risks before you commit — because paperwork matters as much as square feet.",
-    color: "#B45309",
-    grad: ["#F59E0B", "#FCD34D"],
-    img: imgArjun,
-    active: false,
-    quote: "Two of the 11 projects you visited had pending OC approvals. I flagged them in real-time during your site visits, so you never made a shortlist decision on incomplete documentation.",
-    quoteLabel: "Why Arjun raised a flag",
-  },
-  {
-    name: "Karan",
-    role: "Location Explorer",
-    desc: "Maps micro-market dynamics, commute realities, school catchments, and neighbourhood trajectories over 5 years.",
-    color: "#DB2777",
-    grad: ["#F43F5E", "#FDA4AF"],
-    img: imgKaran,
-    active: false,
-    quote: "Whitefield scored highest on commute but lowest on school density within 2 km. Sarjapur flipped that equation. I mapped 11 micro-markets so you could compare what actually mattered at the building stage of life.",
-    quoteLabel: "Why Karan mapped this area",
-  },
-  {
-    name: "Sharon",
-    role: "Lifestyle Curator",
-    desc: "Matches the neighbourhood's social fabric — cafés, parks, communities, weekend trails — to how you actually live, not how you wish you did.",
-    color: "#0F766E",
-    grad: ["#14B8A6", "#5EEAD4"],
-    img: imgSharon,
-    active: false,
-    quote: "You mentioned weekend farmers markets and a jogging trail twice each. I cross-referenced both against walkability scores and found only two projects where your Sunday routine would survive the move.",
-    quoteLabel: "Why Sharon curated this shortlist",
-  },
-];
+/* ── Type Definitions ────────────────────────────────────────────────────── */
 
-const waveHeights = [4, 6, 10, 14, 18, 22, 26, 28, 30, 28, 26, 22, 20, 24, 28, 30, 26, 20, 16, 18, 22, 26, 28, 24, 20, 16, 12, 10, 8, 6];
+export interface MomentItem {
+  id?: string;
+  title: string;
+  desc?: string;
+  description?: string;
+  imageSrc?: any;
+}
 
-function AgentsSection({ agentsData = defaultAgents, featuredIndex = 0 }: { agentsData?: any[]; featuredIndex?: number }) {
-  const [current, setCurrent] = useState(featuredIndex);
-  const [hovered, setHovered] = useState(false);
-  const [playing, setPlaying] = useState(false);
-  const [progress] = useState(0.35);
-  const list = agentsData.length > 0 ? agentsData : defaultAgents;
-  const total = list.length;
-  const agent = list[current];
-  const featured = list[featuredIndex];
+export interface RoadmapNode {
+  id: string;
+  title: string;
+  desc: string;
+  icon: any;
+  x: number; // Viewbox X (0 to 1000)
+  y: number; // Viewbox Y (0 to 800)
+  width: number;
+}
 
-  const prev = () => setCurrent((c) => (c - 1 + total) % total);
-  const next = () => setCurrent((c) => (c + 1) % total);
+export interface MetricItem {
+  icon?: any;
+  label: string;
+  value: string;
+}
 
-  return (
-    <div
-      className="mt-5 border overflow-hidden"
-      style={{ borderRadius: 14, borderColor: "#E4E9EF", background: "#ffffff", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
-    >
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px]">
-        <div className="px-6 lg:px-10 py-8 lg:py-10 flex flex-col justify-center gap-6 border-b lg:border-b-0 lg:border-r border-slate-100">
-          <p className="text-[9.5px] font-semibold tracking-[0.14em] uppercase" style={{ fontFamily: fu, color: "#8A94A1" }}>
-            AI agents on this journey
-          </p>
-          <div>
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="mb-3">
-              <path d="M14 2 L15.5 11.5 L25 14 L15.5 16.5 L14 26 L12.5 16.5 L3 14 L12.5 11.5 Z" stroke={featured.color || "#7C3AED"} strokeWidth="1.5" strokeLinejoin="round" />
-              <path d="M22 4 L22.7 7.3 L26 8 L22.7 8.7 L22 12 L21.3 8.7 L18 8 L21.3 7.3 Z" stroke={featured.color || "#7C3AED"} strokeWidth="1.2" strokeLinejoin="round" />
-            </svg>
-            <p className="text-[13px] font-semibold" style={{ fontFamily: fu, color: featured.color || "#7C3AED" }}>
-              {featured.quoteLabel || "Riya's take on the Journey"}
-            </p>
-          </div>
+export interface QuoteItem {
+  text: string;
+  author?: string;
+  speaker?: string;
+}
 
-          <blockquote className="text-[17px] leading-[1.65]" style={{ fontFamily: fd, color: "#1E293B" }}>
-            "{featured.quote}"
-          </blockquote>
+export interface ChatMessage {
+  sender: string;
+  avatar: string;
+  text: string;
+  isRiya?: boolean;
+}
 
-          <div>
-            <p className="text-[9.5px] font-semibold tracking-[0.14em] uppercase mb-3" style={{ fontFamily: fu, color: "#8A94A1" }}>
-              Hear entire conversation (92 sec)
-            </p>
-            <div className="flex items-center gap-4">
-              <button
-                type="button"
-                onClick={() => setPlaying(!playing)}
-                className="flex-none w-9 h-9 rounded-full flex items-center justify-center transition-opacity hover:opacity-80 cursor-pointer"
-                style={{ background: featured.color || "#7C3AED" }}
-              >
-                {playing ? (
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="white">
-                    <rect x="1" y="1" width="3.5" height="10" rx="1" />
-                    <rect x="7.5" y="1" width="3.5" height="10" rx="1" />
-                  </svg>
-                ) : (
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="white">
-                    <path d="M3 1.5 L10.5 6 L3 10.5 Z" />
-                  </svg>
-                )}
-              </button>
-              <div className="flex-1 flex items-center gap-[2.5px] h-9">
-                {waveHeights.map((h, i) => {
-                  const pct = i / waveHeights.length;
-                  return (
-                    <div
-                      key={i}
-                      className="flex-1 rounded-full transition-colors"
-                      style={{
-                        height: `${h}px`,
-                        background: pct <= progress ? (featured.color || "#7C3AED") : "#E2E8F0",
-                        opacity: pct <= progress ? 1 : 0.7,
-                      }}
-                    />
-                  );
-                })}
-              </div>
-              <div className="flex-none flex items-center gap-1.5">
-                <span className="text-[11px]" style={{ fontFamily: fu, color: "#94A3B8" }}>
-                  0:{Math.round(progress * 92).toString().padStart(2, "0")}
-                </span>
-                <span className="text-[11px]" style={{ fontFamily: fu, color: "#CBD5E1" }}>
-                  /
-                </span>
-                <span className="text-[11px]" style={{ fontFamily: fu, color: "#94A3B8" }}>
-                  1:32
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
+export interface RealityCheckItem {
+  icon?: any;
+  title: string;
+  description: string;
+}
 
-        <div
-          className="relative flex items-center justify-center py-10 px-8"
-          style={{ background: "#ffffff" }}
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-        >
-          <button
-            type="button"
-            onClick={prev}
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-md border border-slate-100 transition-all duration-200 cursor-pointer"
-            style={{
-              zIndex: 30,
-              opacity: hovered ? 1 : 0,
-              transform: `translateY(-50%) scale(${hovered ? 1 : 0.85})`,
-            }}
-          >
-            <ChevronLeft size={14} color="#475569" />
-          </button>
-
-          <button
-            type="button"
-            onClick={next}
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-md border border-slate-100 transition-all duration-200 cursor-pointer"
-            style={{
-              zIndex: 30,
-              opacity: hovered ? 1 : 0,
-              transform: `translateY(-50%) scale(${hovered ? 1 : 0.85})`,
-            }}
-          >
-            <ChevronRight size={14} color="#475569" />
-          </button>
-
-          <div className="relative flex flex-col items-center" style={{ width: 220 }}>
-            <div className="relative" style={{ width: 220, height: 340 }}>
-              <div
-                className="absolute inset-0 rounded-3xl"
-                style={{
-                  background: `linear-gradient(160deg, ${list[(current + 2) % total].grad?.[0] || "#9B6EF3"}, ${list[(current + 2) % total].grad?.[1] || "#C4B5FD"})`,
-                  transform: "rotate(8deg) translateY(6px) scale(0.95)",
-                  transformOrigin: "bottom center",
-                  zIndex: 1,
-                  opacity: 0.5,
-                }}
-              />
-              <div
-                className="absolute inset-0 rounded-3xl"
-                style={{
-                  background: `linear-gradient(160deg, ${list[(current + 1) % total].grad?.[0] || "#9B6EF3"}, ${list[(current + 1) % total].grad?.[1] || "#C4B5FD"})`,
-                  transform: "rotate(-6deg) translateY(3px) scale(0.97)",
-                  transformOrigin: "bottom center",
-                  zIndex: 2,
-                  opacity: 0.65,
-                }}
-              />
-              <div
-                className="absolute inset-0 rounded-3xl flex flex-col overflow-hidden"
-                style={{
-                  background: `linear-gradient(160deg, ${agent.grad?.[0] || "#9B6EF3"}, ${agent.grad?.[1] || "#C4B5FD"})`,
-                  boxShadow: `0 20px 60px ${agent.grad?.[0] || "#9B6EF3"}60`,
-                  zIndex: 3,
-                }}
-              >
-                <div className="flex items-center justify-between px-4 pt-4">
-                  {agent.active ? (
-                    <span className="flex items-center gap-1 text-[10px] font-semibold px-2.5 py-1 rounded-full" style={{ background: "rgba(255,255,255,0.25)", color: "white", fontFamily: fu }}>
-                      <span className="w-1.5 h-1.5 rounded-full bg-green-300 inline-block" />
-                      Active
-                    </span>
-                  ) : (
-                    <span className="flex items-center gap-1 text-[10px] font-semibold px-2.5 py-1 rounded-full" style={{ background: "rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.7)", fontFamily: fu }}>
-                      <span className="w-1.5 h-1.5 rounded-full bg-white/40 inline-block" />
-                      Not at this stage
-                    </span>
-                  )}
-                  <span className="text-[10px]" style={{ fontFamily: fu, color: "rgba(255,255,255,0.7)" }}>
-                    {current + 1} of {total}
-                  </span>
-                </div>
-
-                <div className="flex justify-center mt-4">
-                  <div
-                    className="rounded-full overflow-hidden flex-none"
-                    style={{
-                      width: 120,
-                      height: 120,
-                      border: "3px solid rgba(255,255,255,0.4)",
-                      boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
-                    }}
-                  >
-                    <img src={getImgSrc(agent.img || agent.image || imgRiya)} alt={agent.name} className="w-full h-full object-cover object-top" />
-                  </div>
-                </div>
-
-                <p className="text-center text-[24px] font-semibold mt-4 leading-tight text-white" style={{ fontFamily: fd }}>
-                  {agent.name}
-                </p>
-
-                <div className="flex justify-center mt-2">
-                  <span className="flex items-center gap-1 text-[10px] font-medium px-3 py-1 rounded-full" style={{ background: "rgba(255,255,255,0.2)", color: "white", fontFamily: fu }}>
-                    <svg width="8" height="8" viewBox="0 0 10 10">
-                      <path d="M5 0.5 L5.8 3.8 L9.5 5 L5.8 6.2 L5 9.5 L4.2 6.2 L0.5 5 L4.2 3.8 Z" fill="white" />
-                    </svg>
-                    {agent.role}
-                  </span>
-                </div>
-
-                <p className="text-center text-[11.5px] leading-[1.55] mx-5 mt-3" style={{ fontFamily: fu, color: "rgba(255,255,255,0.8)" }}>
-                  {agent.desc || agent.description}
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2 mt-5">
-              {list.map((_, i) => (
-                <button
-                  type="button"
-                  key={i}
-                  onClick={() => setCurrent(i)}
-                  className="rounded-full transition-all duration-200 cursor-pointer"
-                  style={{
-                    width: i === current ? 20 : 6,
-                    height: 6,
-                    background: i === current ? (agent.grad?.[0] || "#9B6EF3") : "#CBD5E1",
-                  }}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+export interface TimelineStep {
+  id: string;
+  label: string;
+  icon: any;
+  active?: boolean;
+  tag?: string;
 }
 
 export interface JournalJourneyV0Props {
   eyebrow?: string;
+  tagline?: string;
   title?: string;
   description?: string;
-  metrics?: Array<{
-    icon?: string | React.ReactNode;
-    label: string;
-    value: string;
-  }>;
+  metrics?: MetricItem[];
   journeyFrameTitle?: string;
   journeyFrameSubtitle?: string;
   journeyFrameImage?: any;
+  roadmapTitle?: string;
+  roadmapNodes?: RoadmapNode[];
+  timelineTitle?: string;
+  timelineSteps?: TimelineStep[];
   momentsTitle?: string;
-  moments?: Array<{
-    id?: string;
-    title: string;
-    desc?: string;
-    description?: string;
-    imageSrc?: any;
-  }>;
+  moments?: MomentItem[];
   agents?: any[];
+  agentCards?: AgentCardItem[];
+  agentCardsTitle?: string;
   voicesTitle?: string;
-  quotes?: Array<{
-    text: string;
-    author?: string;
-    speaker?: string;
-  }>;
+  quotes?: QuoteItem[];
+  riyaConclusionTitle?: string;
+  riyaConclusionImage?: string;
+  chatMessages?: ChatMessage[];
+  audioLabel?: string;
+  audioDurationLabel?: string;
+  audioSrc?: string;
+  waveformBars?: { height: number; opacity: number }[];
+  realityChecksTitle?: string;
+  realityChecks?: RealityCheckItem[];
 }
+
+/* ── Interactive Audio Player Sub-Component ─────────────────────────────── */
+
+export interface AudioPlayerProps {
+  audioLabel?: string;
+  audioSrc?: string;
+}
+
+const AudioPlayer: React.FC<AudioPlayerProps> = ({
+  audioLabel = "HEAR ENTIRE CONVERSATION",
+  audioSrc = "https://samplelib.com/mp3/sample-3s.mp3",
+}) => {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(92);
+
+  const togglePlay = () => {
+    if (!audioRef.current) return;
+    if (isPlaying) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      const playPromise = audioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => setIsPlaying(true))
+          .catch((err) => {
+            console.warn("Audio playback notice:", err);
+            setIsPlaying(true);
+          });
+      }
+    }
+  };
+
+  const handleTimeUpdate = () => {
+    if (audioRef.current && !isNaN(audioRef.current.currentTime)) {
+      setCurrentTime(audioRef.current.currentTime);
+    }
+  };
+
+  const handleLoadedMetadata = () => {
+    if (audioRef.current && audioRef.current.duration && !isNaN(audioRef.current.duration)) {
+      setDuration(Math.round(audioRef.current.duration));
+    }
+  };
+
+  const handleEnded = () => {
+    setIsPlaying(false);
+    setCurrentTime(0);
+  };
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (isPlaying) {
+      timer = setInterval(() => {
+        if (audioRef.current && !audioRef.current.paused && !isNaN(audioRef.current.currentTime)) {
+          setCurrentTime(audioRef.current.currentTime);
+          if (audioRef.current.duration && !isNaN(audioRef.current.duration)) {
+            setDuration(Math.round(audioRef.current.duration));
+          }
+        } else if (isPlaying) {
+          setCurrentTime((prev) => {
+            const next = prev + 0.25;
+            const maxDur = duration > 0 ? duration : 92;
+            if (next >= maxDur) {
+              setIsPlaying(false);
+              return 0;
+            }
+            return next;
+          });
+        }
+      }, 250);
+    }
+    return () => clearInterval(timer);
+  }, [isPlaying, duration]);
+
+  const formatTime = (secs: number) => {
+    if (isNaN(secs) || secs < 0) return "0:00";
+    const m = Math.floor(secs / 60);
+    const s = Math.floor(secs % 60);
+    return `${m}:${s.toString().padStart(2, "0")}`;
+  };
+
+  const progressRatio = duration > 0 ? currentTime / duration : 0;
+
+  const baseWaveform = [
+    12, 14, 18, 22, 26, 22, 28, 24, 20, 16, 24, 28, 22, 18, 14, 12, 16, 20, 24, 18, 14, 10, 14, 18, 22
+  ];
+  const totalBars = baseWaveform.length;
+  const activeBarIndex = Math.floor(progressRatio * totalBars);
+
+  const handleBarClick = (index: number) => {
+    const maxDur = duration > 0 ? duration : 92;
+    const targetTime = (index / totalBars) * maxDur;
+    if (audioRef.current) {
+      try {
+        audioRef.current.currentTime = targetTime;
+      } catch (e) {
+        // Fallback
+      }
+    }
+    setCurrentTime(targetTime);
+  };
+
+  return (
+    <div className="pt-4 border-t border-slate-100/80 space-y-3">
+      <audio
+        ref={audioRef}
+        src={audioSrc}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+        onTimeUpdate={handleTimeUpdate}
+        onLoadedMetadata={handleLoadedMetadata}
+        onEnded={handleEnded}
+        preload="auto"
+      />
+
+      <p
+        className="text-[9.5px] font-semibold tracking-[0.14em] uppercase"
+        style={{ fontFamily: fu, color: "rgb(138, 148, 161)" }}
+      >
+        {audioLabel} {duration > 0 ? `(${Math.round(duration)} SEC)` : "(92 SEC)"}
+      </p>
+
+      <div className="flex items-center gap-3.5">
+        <button
+          type="button"
+          onClick={togglePlay}
+          className="w-10 h-10 rounded-full bg-[#8B5CF6] hover:bg-[#7C3AED] transition-colors flex items-center justify-center shrink-0 border-none cursor-pointer shadow-md text-white"
+          aria-label={isPlaying ? "Pause audio" : "Play audio"}
+        >
+          {isPlaying ? (
+            <Pause className="w-4 h-4 fill-white text-white" />
+          ) : (
+            <Play className="w-4 h-4 fill-white text-white translate-x-[1px]" />
+          )}
+        </button>
+
+        {/* Dynamic Waveform Visualizer */}
+        <div className="flex items-center gap-[3px] flex-1 max-w-[280px] h-8 cursor-pointer select-none">
+          {baseWaveform.map((height, idx) => {
+            const isActive = idx <= activeBarIndex;
+            const barHeight = isPlaying && isActive
+              ? Math.min(28, Math.max(8, height + Math.sin(currentTime * 8 + idx) * 5))
+              : height;
+
+            return (
+              <div
+                key={idx}
+                onClick={() => handleBarClick(idx)}
+                className={`flex-1 rounded-full transition-all duration-150 hover:opacity-80 ${isActive ? "bg-[#8B5CF6]" : "bg-[#EBE9FE]"}`}
+                style={{ height: `${barHeight}px` }}
+              />
+            );
+          })}
+        </div>
+
+        {/* Time Display */}
+        <span className="text-[12px] font-medium text-slate-400 shrink-0 font-inter min-w-[70px] text-right">
+          {formatTime(currentTime)} / {formatTime(duration)}
+        </span>
+      </div>
+    </div>
+  );
+};
+
+/* ── Main Dynamic JournalJourneyV0 Component ───────────────────────────── */
 
 export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
   eyebrow = "The journey so far",
+  tagline,
   title = "How their journey actually unfolded.",
   description = "Months of conversations, weekend visits, changing budgets and countless trade-offs brought them to where they are today.",
   metrics = [
@@ -371,13 +296,17 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
   journeyFrameTitle = "How their journey unfolded",
   journeyFrameSubtitle = "Every stage, mapped.",
   journeyFrameImage = imgFrame9,
+  roadmapTitle = "How their journey unfolded",
+  roadmapNodes,
+  timelineTitle = "Where they stand today",
+  timelineSteps,
   momentsTitle = "Moments that changed everything",
   moments = [
     { title: "The budget shift", desc: "Their ₹1 Cr dream became a ₹1.5 Cr reality as prices rose faster than their savings.", imageSrc: imgMoment1 },
     { title: "The baby deadline", desc: "With their first child arriving next year, delaying the decision was no longer an option.", imageSrc: imgMoment2 },
     { title: "The Sunday Ritual", desc: "Every Sunday meant one site visit, one Excel update, one argument and one make-up dosa.", imageSrc: imgMoment3 },
   ],
-  agents: agentsFromProps = defaultAgents,
+  agentCards,
   voicesTitle = "Voices around them",
   quotes = [
     { text: "Buy a site. Land never loses value.", speaker: "Dad" },
@@ -385,132 +314,461 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
     { text: "Don't rush. Wait for ready-to-move projects.", speaker: "Friend" },
     { text: "Prices are increasing every quarter.", speaker: "Builder" },
   ],
+  riyaConclusionTitle = "Riya's take on the Journey",
+  chatMessages,
+  audioLabel = "HEAR ENTIRE CONVERSATION",
+  audioSrc,
+  realityChecksTitle = "Reality checks along the way",
+  realityChecks,
 }) => {
+  const displayEyebrow = tagline || eyebrow;
+
+  // Extract Riya quote from chatMessages if provided
+  const riyaChatMessage = chatMessages?.find((m) => m.isRiya || m.sender === "Riya")?.text;
+  const displayRiyaQuote = riyaChatMessage || "Every time I suggested a lower-priced option, both of you kept returning to communities with trusted builders, better schools and realistic possession timelines. That's when I realized you weren't searching for the cheapest home. You were searching for peace of mind.";
+
   return (
-    <section id="section-journey" className="pt-10 pb-12">
-      <div className="text-left mb-7">
-        <p className="text-[11px] font-semibold tracking-[0.15em] uppercase" style={{ fontFamily: fu, color: "#DD5128" }}>
-          {eyebrow}
-        </p>
-        <h2 className="mt-2 text-[clamp(28px,3.6vw,40px)] font-semibold leading-[1.08] tracking-[-0.02em]" style={{ fontFamily: fd, color: "#111821" }}>
-          {title}
-        </h2>
-        <p className="mt-3 text-[17px] leading-[1.55]" style={{ fontFamily: fd, color: "#59636F" }}>
-          {description}
-        </p>
-      </div>
+    <section id="section-journey" className="pt-10 pb-12 w-full text-slate-900">
+      <div className="w-full space-y-10">
 
-      {/* Metrics strip */}
-      <div
-        className="bg-white border flex flex-col sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-slate-100"
-        style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
-      >
-        {metrics.map((cell: any) => {
-          const iconElement =
-            typeof cell.icon === "string"
-              ? getIcon(cell.icon, "Briefcase", { className: "w-4 h-4 text-[#DD5128]" })
-              : cell.icon;
+        {/* ── Header ──────────────────────────────────────────────────── */}
+        <div className="text-left mb-7">
+          <p
+            className="text-[11px] font-semibold tracking-[0.15em] uppercase"
+            style={{ fontFamily: fu, color: "rgb(221, 81, 40)" }}
+          >
+            {displayEyebrow}
+          </p>
+          <h2
+            className="mt-2 text-[clamp(28px,3.6vw,40px)] font-semibold leading-[1.08] tracking-[-0.02em]"
+            style={{ fontFamily: fd, color: "rgb(17, 24, 33)" }}
+          >
+            {title}
+          </h2>
+          <p
+            className="mt-3 text-[17px] leading-[1.55]"
+            style={{ fontFamily: fd, color: "rgb(89, 99, 111)" }}
+          >
+            {description}
+          </p>
+        </div>
 
-          return (
-            <div key={cell.label} className="flex items-center gap-4 px-6 sm:px-8 py-5 flex-1">
-              <span className="flex-none text-[#DD5128]">{iconElement}</span>
-              <div>
-                <p className="text-[9.5px] font-semibold tracking-[0.13em] uppercase mb-1" style={{ fontFamily: fu, color: "#8A94A1" }}>
-                  {cell.label}
-                </p>
-                <p className="text-[17px] font-[500] leading-tight" style={{ fontFamily: fd, color: "#111821" }}>
-                  {cell.value}
-                </p>
-              </div>
+        {/* ── Metrics Strip ────────────────────────────────────────────── */}
+        {metrics && metrics.length > 0 && (
+          <div
+            className="w-full bg-white border border-slate-100 flex flex-col sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-slate-100 overflow-hidden"
+            style={{ borderRadius: 14, boxShadow: "rgba(17, 24, 33, 0.04) 0px 1px 2px, rgba(17, 24, 33, 0.06) 0px 8px 24px" }}
+          >
+            {metrics.map((cell: any, idx: number) => {
+              const iconElement =
+                typeof cell.icon === "string"
+                  ? getIcon(cell.icon, "Briefcase", { className: "w-4 h-4 text-[#DD5128]" })
+                  : cell.icon ? <cell.icon className="w-4 h-4 text-[#DD5128]" /> : getIcon("Briefcase", "Briefcase", { className: "w-4 h-4 text-[#DD5128]" });
+
+              return (
+                <div key={cell.label || idx} className="flex items-center gap-4 px-6 sm:px-8 py-5 flex-1">
+                  <span className="flex-none text-[#DD5128]">{iconElement}</span>
+                  <div>
+                    <p
+                      className="text-[9.5px] font-semibold tracking-[0.13em] uppercase mb-1"
+                      style={{ fontFamily: fu, color: "rgb(138, 148, 161)" }}
+                    >
+                      {cell.label}
+                    </p>
+                    <p
+                      className="text-[17px] font-[500] leading-tight"
+                      style={{ fontFamily: fd, color: "rgb(17, 24, 33)" }}
+                    >
+                      {cell.value}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        {/* ── Dynamic Roadmap (SVG / Nodes or Image Fallback) ──────────── */}
+        {roadmapNodes && roadmapNodes.length > 0 ? (
+          <div className="w-full border border-[#F1F5F9] rounded-[24px] bg-white overflow-hidden shadow-[0_1px_2px_rgba(17,24,33,.04),0_8px_24px_rgba(17,24,33,.05)]">
+            <div className="px-8 pt-7 pb-2">
+              <p
+                className="text-[9.5px] font-semibold tracking-[0.14em] uppercase"
+                style={{ fontFamily: fu, color: "rgb(138, 148, 161)" }}
+              >
+                {journeyFrameTitle}
+              </p>
+              <h3
+                className="mt-1 text-[20px] font-semibold leading-tight"
+                style={{ fontFamily: fd, color: "rgb(17, 24, 33)" }}
+              >
+                {roadmapTitle}
+              </h3>
             </div>
-          );
-        })}
-      </div>
 
-      {/* Journey SVG illustration */}
-      <div
-        className="mt-5 bg-white border overflow-hidden"
-        style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
-      >
-        <div className="px-8 pt-7 pb-2">
-          <p className="text-[9.5px] font-semibold tracking-[0.14em] uppercase" style={{ fontFamily: fu, color: "#8A94A1" }}>
-            {journeyFrameTitle}
-          </p>
-          <h3 className="mt-1 text-[20px] font-semibold leading-tight" style={{ fontFamily: fd, color: "#111821" }}>
-            {journeyFrameSubtitle}
-          </h3>
-        </div>
+            {/* Mobile Vertical Nodes */}
+            <div className="flex flex-col gap-6 p-6 md:hidden">
+              {roadmapNodes.map((stage, idx) => {
+                const Icon = typeof stage.icon === "string" ? (props: any) => getIcon(stage.icon, "HelpCircle", props) : stage.icon;
+                const isLast = idx === roadmapNodes.length - 1;
+
+                return (
+                  <div key={stage.id} className="relative flex items-start gap-4">
+                    <div className="flex flex-col items-center shrink-0">
+                      <div className="flex items-center justify-center w-[52px] h-[52px] bg-[#F1F5F9] rounded-[18px] z-10">
+                        {Icon ? <Icon className="w-[24px] h-[24px] text-[#475569]" strokeWidth={1.8} /> : getIcon("HelpCircle", "HelpCircle", { className: "w-6 h-6 text-[#475569]" })}
+                      </div>
+                      {!isLast && <div className="w-[2px] bg-slate-200 flex-1 my-2 min-h-[36px]" />}
+                    </div>
+                    <div className="flex flex-col gap-1 pt-1">
+                      <h4 className="font-semibold text-[15px] leading-[20px] text-[#334155] font-inter">
+                        {stage.title}
+                      </h4>
+                      <p className="font-medium text-[13px] leading-[18px] text-[#64748B] font-inter">
+                        {stage.desc}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Desktop SVG Snaking Path */}
+            <div className="hidden md:block relative w-full aspect-[4/3] h-auto max-h-[1220px]">
+              <svg
+                className="absolute inset-0 w-full h-full pointer-events-none z-0"
+                viewBox="0 0 1000 800"
+                preserveAspectRatio="xMidYMid meet"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <marker
+                    id="arrowhead-v0"
+                    markerWidth="7"
+                    markerHeight="7"
+                    refX="5"
+                    refY="3.5"
+                    orient="auto"
+                  >
+                    <path
+                      d="M 1 1 L 6 3.5 L 1 6"
+                      fill="none"
+                      stroke="#CBD5E1"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </marker>
+                </defs>
+                <path
+                  d="M 130 110 C 190 60, 270 190, 340 160 C 420 120, 480 180, 560 150 C 640 120, 680 140, 740 130 C 820 120, 880 190, 880 290"
+                  fill="none"
+                  stroke="#CBD5E1"
+                  strokeWidth="2.2"
+                  strokeDasharray="6 6"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M 880 290 C 800 370, 860 520, 930 450 C 980 400, 970 330, 950 335"
+                  fill="none"
+                  stroke="#CBD5E1"
+                  strokeWidth="2.2"
+                  strokeDasharray="6 6"
+                  strokeLinecap="round"
+                  markerEnd="url(#arrowhead-v0)"
+                />
+                <path
+                  d="M 880 290 C 830 350, 780 390, 710 400 C 630 410, 580 420, 510 430 C 440 440, 390 440, 330 450"
+                  fill="none"
+                  stroke="#CBD5E1"
+                  strokeWidth="2.2"
+                  strokeDasharray="6 6"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M 330 450 C 270 370, 320 340, 345 380 C 355 400, 348 415, 345 422"
+                  fill="none"
+                  stroke="#CBD5E1"
+                  strokeWidth="2.2"
+                  strokeDasharray="6 6"
+                  strokeLinecap="round"
+                  markerEnd="url(#arrowhead-v0)"
+                />
+                <path
+                  d="M 330 450 C 240 480, 190 520, 150 580 C 110 650, 230 730, 320 710 C 400 690, 460 760, 530 740"
+                  fill="none"
+                  stroke="#CBD5E1"
+                  strokeWidth="2.2"
+                  strokeDasharray="6 6"
+                  strokeLinecap="round"
+                />
+              </svg>
+
+              {roadmapNodes.map((stage) => {
+                const Icon = typeof stage.icon === "string" ? (props: any) => getIcon(stage.icon, "HelpCircle", props) : stage.icon;
+                return (
+                  <div
+                    key={stage.id}
+                    className="absolute z-10 flex flex-col items-center pointer-events-auto"
+                    style={{
+                      left: `${(stage.x / 1000) * 100}%`,
+                      top: `${(stage.y / 800) * 100}%`,
+                      width: `${stage.width}px`,
+                      transform: "translate(-50%, -27px)",
+                    }}
+                  >
+                    <div
+                      className="flex items-center justify-center w-[54px] h-[54px] bg-[#F1F5F9] rounded-[18px] mb-2 shrink-0 transition-transform duration-200 hover:scale-105"
+                      style={{ boxShadow: "0 0 0 8px #ffffff" }}
+                    >
+                      {Icon ? <Icon className="w-[26px] h-[26px] text-[#475569]" strokeWidth={1.75} /> : getIcon("HelpCircle", "HelpCircle", { className: "w-6 h-6 text-[#475569]" })}
+                    </div>
+                    <div className="flex flex-col items-center text-center gap-0.5 w-full">
+                      <h4 className="font-semibold text-[14px] leading-[18px] text-[#334155] font-inter">
+                        {stage.title}
+                      </h4>
+                      <p className="font-medium text-[13px] leading-[17px] text-[#64748B] font-inter">
+                        {stage.desc}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ) : (
+          /* Fallback Journey Frame Image */
+          <div
+            className="w-full bg-white border overflow-hidden"
+            style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
+          >
+            <div className="px-8 pt-7 pb-2">
+              <p className="text-[9.5px] font-semibold tracking-[0.14em] uppercase" style={{ fontFamily: fu, color: "#8A94A1" }}>
+                {journeyFrameTitle}
+              </p>
+              <h3 className="mt-1 text-[20px] font-semibold leading-tight" style={{ fontFamily: fd, color: "#111821" }}>
+                {journeyFrameSubtitle}
+              </h3>
+            </div>
+            <div className="w-full">
+              <img src={getImgSrc(journeyFrameImage || imgFrame9)} alt="How their journey unfolded" className="w-full h-auto block" />
+            </div>
+          </div>
+        )}
+
+        {/* ── Moments Cards Grid ───────────────────────────────────────── */}
+        {moments && moments.length > 0 && (
+          <div className="w-full">
+            <p
+              className="text-[9.5px] font-semibold tracking-[0.14em] uppercase mb-4"
+              style={{ fontFamily: fu, color: "rgb(138, 148, 161)" }}
+            >
+              {momentsTitle}
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {moments.slice(0, 3).map((m: any, idx: number) => {
+                const imgSrc = getImgSrc(m.imageSrc || (idx === 0 ? imgMoment1 : idx === 1 ? imgMoment2 : imgMoment3));
+                const bodyText = m.desc || m.description || "";
+
+                return (
+                  <div
+                    key={m.id || m.title || idx}
+                    className="bg-white border overflow-hidden flex flex-col"
+                    style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
+                  >
+                    <div className="flex-1 flex items-center justify-center pt-5 px-5 bg-slate-50/60">
+                      <img src={imgSrc} alt={m.title} className="w-full h-auto object-contain rounded-lg" />
+                    </div>
+                    <div className="px-6 py-5">
+                      <p className="text-[11px] font-semibold mb-1" style={{ fontFamily: fu, color: "#DD5128" }}>
+                        {String(idx + 1).padStart(2, "0")}
+                      </p>
+                      <h4 className="text-[16px] mb-1.5" style={{ fontFamily: fd, color: "#111821", fontWeight: 500 }}>
+                        {m.title}
+                      </h4>
+                      <p className="text-[13px] leading-[1.55]" style={{ fontFamily: fu, color: "#59636F" }}>
+                        {bodyText}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* ── Where They Stand Today Timeline ───────────────────────────── */}
+        {timelineSteps && timelineSteps.length > 0 && (
+          <div className="w-full border border-[#F1F5F9] rounded-[24px] bg-white p-6 space-y-6 overflow-hidden shadow-[0_1px_2px_rgba(17,24,33,.04),0_8px_24px_rgba(17,24,33,.05)]">
+            <h3 className="text-[16px] leading-[19px] font-semibold text-[#334155] font-inter">
+              {timelineTitle}
+            </h3>
+
+            <div className="relative flex items-center justify-between w-full min-h-[85px] overflow-x-auto pb-4 pt-8 scrollbar-none">
+              {timelineSteps.map((step, index) => {
+                const IconComponent = typeof step.icon === "string" ? (props: any) => getIcon(step.icon, "HelpCircle", props) : step.icon;
+                const isLast = index === timelineSteps.length - 1;
+
+                return (
+                  <React.Fragment key={step.id || index}>
+                    {/* Step Item */}
+                    <div className="relative flex flex-col items-center gap-3 min-w-[75px] shrink-0 z-10">
+                      {/* Tooltip Active Tag */}
+                      {step.tag && (
+                        <div className="absolute -top-[34px] left-1/2 -translate-x-1/2 flex flex-col items-center z-20">
+                          <div className="bg-black text-white text-[12px] leading-[15px] font-semibold px-3 py-1 rounded-[5px] whitespace-nowrap shadow-md font-inter">
+                            {step.tag}
+                          </div>
+                          <div className="w-0 h-0 border-x-[5px] border-x-transparent border-t-[5px] border-t-black" />
+                        </div>
+                      )}
+
+                      {/* Icon Circle */}
+                      <div
+                        className={`flex items-center justify-center w-[56px] h-[56px] rounded-full transition-all duration-300 ${
+                          step.active
+                            ? "bg-[#FF7E57] text-white shadow-sm"
+                            : "bg-[#F8FAFC] border border-[#F1F5F9] text-[#64748B]"
+                        }`}
+                      >
+                        {IconComponent ? <IconComponent className="w-[26px] h-[26px]" /> : getIcon("HelpCircle", "HelpCircle", { className: "w-6 h-6 text-[#475569]" })}
+                      </div>
+
+                      {/* Label */}
+                      <span className="text-[14px] leading-[17px] font-semibold text-center whitespace-nowrap font-inter text-[#475569]">
+                        {step.label}
+                      </span>
+                    </div>
+
+                    {/* Dashed Connecting Line */}
+                    {!isLast && (
+                      <div className="flex-1 flex items-center justify-center min-w-[30px] sm:min-w-[50px] px-1 mb-[28px] shrink-0">
+                        <div className="w-full flex items-center">
+                          <div className="w-full border-t-2 border-dashed border-[#94A3B8]" />
+                          <div className="w-0 h-0 border-y-[4px] border-y-transparent border-l-[6px] border-l-[#94A3B8] -ml-[2px]" />
+                        </div>
+                      </div>
+                    )}
+                  </React.Fragment>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* ── AI Agents & Audio Player Section ────────────────────────────── */}
         <div className="w-full">
-          <img src={getImgSrc(journeyFrameImage || imgFrame9)} alt="How their journey unfolded" className="w-full h-auto block" />
-        </div>
-      </div>
-
-      {/* Moments section */}
-      <div className="mt-5">
-        <p className="text-[9.5px] font-semibold tracking-[0.14em] uppercase mb-4" style={{ fontFamily: fu, color: "#8A94A1" }}>
-          {momentsTitle}
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {moments.slice(0, 3).map((m: any, idx: number) => {
-            const imgSrc = getImgSrc(m.imageSrc || (idx === 0 ? imgMoment1 : idx === 1 ? imgMoment2 : imgMoment3));
-            const bodyText = m.desc || m.description || "";
-            return (
-              <div
-                key={m.title}
-                className="bg-white border overflow-hidden flex flex-col"
-                style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
-              >
-                <div className="flex-1 flex items-center justify-center pt-5 px-5 bg-slate-50/60">
-                  <img src={imgSrc} alt={m.title} className="w-full h-auto object-contain rounded-lg" />
-                </div>
-                <div className="px-6 py-5">
-                  <p className="text-[11px] font-semibold mb-1" style={{ fontFamily: fu, color: "#DD5128" }}>
-                    {String(idx + 1).padStart(2, "0")}
-                  </p>
-                  <h4 className="text-[16px] mb-1.5" style={{ fontFamily: fd, color: "#111821", fontWeight: 500 }}>
-                    {m.title}
-                  </h4>
-                  <p className="text-[13px] leading-[1.55]" style={{ fontFamily: fu, color: "#59636F" }}>
-                    {bodyText}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* AI Agents */}
-      <div className="mt-5">
-        <AgentsSection agentsData={agentsFromProps} />
-      </div>
-
-      {/* Voices around them */}
-      <div className="mt-5">
-        <div
-          className="bg-white border p-6 sm:p-8"
-          style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
-        >
-          <p className="text-[9.5px] font-semibold tracking-[0.14em] uppercase mb-6" style={{ fontFamily: fu, color: "#8A94A1" }}>
-            {voicesTitle}
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {quotes.map((q: any) => (
-              <div
-                key={q.speaker || q.author || q.text}
-                className="rounded-xl border border-slate-100 p-6 flex flex-col justify-between gap-6"
-                style={{ background: "#F8FAFC" }}
-              >
-                <p className="text-[18px] leading-[1.5] italic" style={{ fontFamily: fd, color: "#1E293B" }}>
-                  "{q.text}"
+          <div
+            className="bg-white rounded-2xl border border-slate-100 grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-slate-100 overflow-hidden"
+            style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
+          >
+            {/* Left Column: Take on Journey & Audio Player */}
+            <div className="p-8 sm:p-10 flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <p
+                  className="text-[9.5px] font-semibold tracking-[0.14em] uppercase"
+                  style={{ fontFamily: fu, color: "rgb(138, 148, 161)" }}
+                >
+                  AI AGENTS ON THIS JOURNEY
                 </p>
-                <p className="text-[14px] font-semibold" style={{ fontFamily: fu, color: "#DD5128" }}>
-                  — {q.speaker || q.author}
+
+                <div className="flex items-center gap-2">
+                  <svg className="w-5 h-5 text-[#8B5CF6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  <span className="text-[14px] font-semibold text-[#8B5CF6] font-inter">
+                    {riyaConclusionTitle}
+                  </span>
+                </div>
+
+                <p
+                  className="text-[18px] sm:text-[19px] leading-[1.65] text-slate-800"
+                  style={{ fontFamily: fd }}
+                >
+                  "{displayRiyaQuote}"
                 </p>
               </div>
-            ))}
+
+              {/* Interactive Audio Player Controls */}
+              <AudioPlayer audioLabel={audioLabel} audioSrc={audioSrc} />
+            </div>
+
+            {/* Right Column: Card Slider */}
+            <div className="flex items-center justify-center bg-[#FAFAFD] lg:bg-white p-4">
+              <AgentCardSlider cards={agentCards} />
+            </div>
           </div>
         </div>
+
+        {/* ── Voices Around Them Grid ──────────────────────────────────── */}
+        {quotes && quotes.length > 0 && (
+          <div className="w-full">
+            <div
+              className="bg-white border p-6 sm:p-8"
+              style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
+            >
+              <p
+                className="text-[9.5px] font-semibold tracking-[0.14em] uppercase mb-6"
+                style={{ fontFamily: fu, color: "rgb(138, 148, 161)" }}
+              >
+                {voicesTitle}
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {quotes.map((q: any, idx: number) => (
+                  <div
+                    key={q.speaker || q.author || idx}
+                    className="rounded-xl border border-slate-100 p-6 flex flex-col justify-between gap-6"
+                    style={{ background: "#F8FAFC" }}
+                  >
+                    <p
+                      className="text-[18px] leading-[1.5] italic"
+                      style={{ fontFamily: fd, color: "rgb(30, 41, 59)" }}
+                    >
+                      "{q.text}"
+                    </p>
+                    <p
+                      className="text-[14px] font-semibold"
+                      style={{ fontFamily: fu, color: "rgb(221, 81, 40)" }}
+                    >
+                      — {q.author || q.speaker}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ── Reality Checks ───────────────────────────────────────────── */}
+        {realityChecks && realityChecks.length > 0 && (
+          <div className="w-full border border-[#F1F5F9] bg-white rounded-[24px] p-6 flex flex-col gap-6 shadow-[0_1px_2px_rgba(17,24,33,.04),0_8px_24px_rgba(17,24,33,.05)]">
+            <h3 className="text-[16px] leading-[19px] font-semibold text-[#334155] font-inter">
+              {realityChecksTitle}
+            </h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4 items-start">
+              {realityChecks.map((item: any, index: number) => {
+                const Icon = typeof item.icon === "string" ? (props: any) => getIcon(item.icon, "HelpCircle", props) : item.icon;
+                return (
+                  <div key={index} className="flex flex-col items-center gap-4 text-center">
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
+                      {Icon ? <Icon className="w-8 h-8 text-[#FF7E57] stroke-[1.75]" /> : getIcon("HelpCircle", "HelpCircle", { className: "w-8 h-8 text-[#FF7E57]" })}
+                    </div>
+                    <div className="flex flex-col items-center gap-2 w-full">
+                      <h4 className="text-[14px] leading-[17px] font-semibold text-[#475569] font-inter">
+                        {item.title}
+                      </h4>
+                      <p className="text-[14px] leading-[20px] font-medium text-[#64748B] font-inter">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
       </div>
     </section>
   );
