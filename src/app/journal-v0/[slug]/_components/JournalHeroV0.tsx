@@ -66,10 +66,10 @@ export const JournalHeroV0: React.FC<JournalHeroV0Props> = ({
   const displayLearnings = learnings.length > 0 ? learnings : defaultLearnings;
 
   return (
-    <div className="bg-white">
-      <div className="max-w-[1120px] mx-auto px-4 sm:px-8 py-10 sm:py-12 grid grid-cols-1 md:grid-cols-[400px_1fr] gap-8 md:gap-12 items-stretch">
-        {/* Left — Hero Image Container */}
-        <div ref={heroImgWrapRef} className="relative rounded-2xl overflow-hidden min-h-[340px] md:min-h-full border border-slate-100 shadow-xs">
+    <div className="w-full pt-10 sm:pt-12">
+      <div className="w-full grid grid-cols-1 md:grid-cols-[380px_1fr] gap-8 md:gap-10 items-stretch">
+        {/* Col 1 — Hero Image */}
+        <div ref={heroImgWrapRef} className="relative rounded-2xl overflow-hidden min-h-[340px] lg:min-h-[440px] border border-slate-100 shadow-xs">
           <img
             src={getImgSrc(displayHeroImage)}
             alt={displayTitle.replace("\n", " ")}
@@ -77,20 +77,20 @@ export const JournalHeroV0: React.FC<JournalHeroV0Props> = ({
           />
         </div>
 
-        {/* Right — Title, Subtitle, Learnings & Actions */}
-        <div className="flex flex-col gap-5 justify-center">
+        {/* Col 2 — Title, Subtitle, Learnings & Actions */}
+        <div className="flex flex-col gap-5 justify-center pt-2">
           <h1
-            className="text-[clamp(36px,4.5vw,56px)] font-semibold leading-[1.05] tracking-[-0.02em] whitespace-pre-line"
+            className="text-[clamp(30px,3.2vw,48px)] font-semibold leading-[1.08] tracking-[-0.02em] whitespace-pre-line"
             style={{ fontFamily: fd, color: "#111821" }}
           >
             {displayTitle}
           </h1>
 
-          <p className="text-[16px] leading-[1.6]" style={{ fontFamily: fu, color: "#59636F", maxWidth: 520 }}>
+          <p className="text-[15.5px] leading-[1.6]" style={{ fontFamily: fu, color: "#59636F", maxWidth: 500 }}>
             {displayDescription}
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-start mt-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-start mt-2">
             <div>
               <p className="text-[9.5px] font-semibold tracking-[0.14em] uppercase mb-3" style={{ fontFamily: fu, color: "#8A94A1" }}>
                 {learningsLabel}
@@ -113,14 +113,14 @@ export const JournalHeroV0: React.FC<JournalHeroV0Props> = ({
               </div>
             </div>
 
-            <div className="flex flex-col items-start gap-3">
+            {/* <div className="flex flex-col items-start gap-3">
               <p className="text-[9.5px] font-semibold tracking-[0.14em] uppercase mb-3 invisible hidden sm:block" aria-hidden="true">
                 Spacer
               </p>
               <button
                 type="button"
                 onClick={onStartJournal}
-                className="w-full sm:w-auto px-6 py-3.5 text-[14px] font-semibold rounded-xl text-white transition-all duration-200 hover:opacity-90 active:scale-[0.98] cursor-pointer"
+                className="w-full sm:w-auto px-6 py-3 text-[14px] font-semibold rounded-xl text-white transition-all duration-200 hover:opacity-90 active:scale-[0.98] cursor-pointer"
                 style={{ background: "#DD5128", fontFamily: fu }}
               >
                 {startJournalText}
@@ -128,12 +128,12 @@ export const JournalHeroV0: React.FC<JournalHeroV0Props> = ({
               <button
                 type="button"
                 onClick={onAdaptJournal}
-                className="w-full sm:w-auto px-6 py-3.5 text-[14px] font-semibold rounded-xl border transition-colors hover:bg-slate-50 active:scale-[0.98] cursor-pointer"
+                className="w-full sm:w-auto px-6 py-3 text-[14px] font-semibold rounded-xl border transition-colors hover:bg-slate-50 active:scale-[0.98] cursor-pointer"
                 style={{ borderColor: "#E4E9EF", fontFamily: fu, color: "#111821" }}
               >
                 {adaptJournalText}
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

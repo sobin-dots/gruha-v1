@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { JournalHeroV0 } from "./_components/JournalHeroV0";
 import { JournalTabsSectionV0 } from "./_components/JournalTabsSectionV0";
 import JournalBreadCrumbs from "@/components/JournalBreadCrumbs";
-import { RiyaDockedWidgetV3 } from "@/app/journal-v3/[slug]/_components/RiyaDockedWidgetV3";
+import { JournalSidebarCtaCardV0 } from "./_components/JournalSidebarCtaCardV0";
 import * as Icons from "lucide-react";
 import { getJournalBySlug } from "@/lib/journal";
 import { FooterVariant } from "@/components/layout/FooterVariant";
@@ -76,21 +76,38 @@ export default async function JournalSlugPageV0({
                 rel="stylesheet"
             />
 
-            <main className="min-h-screen bg-[#F3F6F9] text-[#111821] antialiased">
-                {/* ── Top Bar Breadcrumbs ──────────────────────────────────── */}
-                <JournalBreadCrumbs />
+            <main className="min-h-screen bg-[#F3F6F9] text-[#111821] antialiased relative">
+                {/* ── 1. Full Screenwidth White Background Layer for Hero ─────── */}
+                <div className="absolute top-0 left-0 right-0 h-[560px] bg-white border-b border-slate-200 pointer-events-none z-0" />
 
-                {/* ── Dynamic Hero Section V0 ──────────────────────────────── */}
-                <JournalHeroV0
-                    title={article.title}
-                    description={article.description}
-                    learnings={article.learnings}
-                />
+                {/* ── 2. Top Bar Breadcrumbs ─────────────────────────────────── */}
+                <div className="relative z-10">
+                    <JournalBreadCrumbs currentTitle={article.title} />
+                </div>
 
-                {/* ── Dynamic Component-Based Tabs Section V0 ───────────────── */}
-                <JournalTabsSectionV0 tabsData={journalData.tabs} />
+                {/* ── 3. Page-Level 2-Column Grid (Spans Hero + Tabs) ────────── */}
+                <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-[1fr_288px] gap-10">
+                    {/* Left Column: Hero Content + Tabs Sections */}
+                    <div className="min-w-0">
+                        <JournalHeroV0
+                            title={article.title}
+                            description={article.description}
+                            learnings={article.learnings}
+                        />
+                        <JournalTabsSectionV0
+                            tabsData={journalData.tabs}
+                            heroImage={(article as any)?.heroImage}
+                            title={article?.title}
+                        />
+                    </div>
 
-
+                    {/* Right Column: THE ONLY STICKY CTA CARD ON THE ENTIRE PAGE */}
+                    <div className="hidden lg:block h-full pt-10">
+                        <div className="sticky top-20 z-40">
+                            <JournalSidebarCtaCardV0 />
+                        </div>
+                    </div>
+                </div>
             </main>
 
             <FooterVariant />
