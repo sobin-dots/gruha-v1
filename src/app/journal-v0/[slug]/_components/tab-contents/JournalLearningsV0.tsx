@@ -125,10 +125,10 @@ export const JournalLearningsV0: React.FC<JournalLearningsV0Props> = ({
   const displayInsights = insights.length > 0 ? insights : defaultInsights;
   const displayMonthly = monthlyLearnings.length > 0 ? monthlyLearnings : defaultMonthlyLearnings;
   const displayThinking = thinkingChanged.length > 0 ? thinkingChanged : defaultThinkingChanged;
-  const displayLessons = lessons.length > 0 ? lessons : defaultClosureLessons;
+  const displayLessons = (lessons && lessons.length > 0 ? lessons : defaultClosureLessons).slice(0, 3);
 
   return (
-    <section id="section-learnings" className="pt-10 pb-12">
+    <section id="section-learnings" className="pt-10">
       <div className="text-left mb-7">
         <p className="text-[11px] font-semibold tracking-[0.15em] uppercase" style={{ fontFamily: fu, color: "#DD5128" }}>
           {eyebrow}

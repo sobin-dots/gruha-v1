@@ -20,7 +20,7 @@ const getImgSrc = (img: any): string => {
 export const getIcon = (
   name?: string,
   defaultName = "ShieldCheck",
-  props: any = { className: "w-4 h-4", strokeWidth: 2 }
+  props: any = { className: "w-4 h-4 text-slate-400 stroke-[1.5]" }
 ) => {
   if (!name) return null;
   const Icon = (Icons as any)[name] || (Icons as any)[defaultName] || Icons.HelpCircle;
@@ -30,43 +30,42 @@ export const getIcon = (
 const defaultProjects = [
   {
     name: "Bhartiya City Nikoo Homes",
-    location: "Thanisandra Main Rd, North Bengaluru",
+    location: "Thanisandra Main Rd",
     tagline: "The launch-window buy",
     priceRange: "₹1.31–2.9 Cr",
     psf: "₹11,950–12,500/sqft",
     possession: "2029",
+    possessionColor: "#111821",
     img: imgProj1,
-    active: true,
   },
   {
     name: "L&T Raintree Boulevard",
-    location: "Hebbal, North Bengaluru",
+    location: "Hebbal",
     tagline: "Delivered-premium benchmark",
     priceRange: "₹2.6–3.53 Cr",
     psf: "₹17,500–20,400/sqft",
     possession: "Ready",
+    possessionColor: "#10B981",
     img: imgProj2,
-    active: false,
   },
   {
     name: "Devanahalli Plotted",
-    location: "Devanahalli, North Bengaluru",
-    tagline: "The alternative thesis",
+    location: "Devanahalli",
+    tagline: "The alternative thesis — parked",
     priceRange: "₹38–45L",
     psf: "₹2,100–8,500/sqft",
     possession: "Immediate",
-    status: "parked",
+    possessionColor: "#64748B",
     img: imgProj3,
-    active: false,
   },
 ];
 
 const defaultCriteria = [
-  { icon: "ShieldCheck", text: "Safety & security", sub: "for family", active: false },
+  { icon: "Shield", text: "Safety & security", sub: "for family", active: false },
   { icon: "GraduationCap", text: "Good schools", sub: "nearby", active: false },
-  { icon: "CheckCircle2", text: "Trusted builders", sub: "for quality", active: false },
-  { icon: "IndianRupee", text: "Value of money", sub: "for future growth", active: false },
-  { icon: "Hourglass", text: "Possession timeline", sub: "before baby arrives", active: true },
+  { icon: "ShieldCheck", text: "Trusted builders", sub: "for quality", active: false },
+  { icon: "TrendingUp", text: "Value of money", sub: "for future growth", active: false },
+  { icon: "Clock", text: "Possession timeline", sub: "before baby arrives", active: true },
 ];
 
 export interface JournalProjectsV0Props {
@@ -84,14 +83,13 @@ export const JournalProjectsV0: React.FC<JournalProjectsV0Props> = ({
   eyebrow = "The Projects",
   title = "Where they looked and what they found.",
   description = "From defining non-negotiables to comparing communities and projects, every search brought them one step closer to understanding what truly mattered.",
-  projectsTitle = "Projects they explored",
+  projectsTitle = "PROJECTS THEY EXPLORED",
   projectsCountBadge = "19 projects",
   projects = defaultProjects,
   criteriaTitle = "Non-negotiables",
   criteria = defaultCriteria,
 }) => {
   const [startIndex, setStartIndex] = useState(0);
-  const [selectedIdx, setSelectedIdx] = useState(0);
 
   const displayProjects = projects.length > 0 ? projects : defaultProjects;
   const displayCriteria = criteria.length > 0 ? criteria : defaultCriteria;
@@ -113,101 +111,127 @@ export const JournalProjectsV0: React.FC<JournalProjectsV0Props> = ({
       });
 
   return (
-    <section id="section-projects" className="pt-10 pb-12">
-      <div className="text-left mb-7">
-        <p className="text-[11px] font-semibold tracking-[0.15em] uppercase" style={{ fontFamily: fu, color: "#DD5128" }}>
-          {eyebrow}
-        </p>
-        <h2 className="mt-2 text-[clamp(28px,3.6vw,40px)] font-semibold leading-[1.08] tracking-[-0.02em]" style={{ fontFamily: fd, color: "#111821" }}>
-          {title}
-        </h2>
-        <p className="mt-3 text-[17px] leading-[1.55]" style={{ fontFamily: fd, color: "#59636F" }}>
-          {description}
-        </p>
-      </div>
+    <section id="section-projects" className="pt-10 ">
+      {/* Optional Top Section Header */}
+      {title && (
+        <div className="text-left mb-7">
+          {eyebrow && (
+            <p className="text-[11px] font-semibold tracking-[0.15em] uppercase mb-2" style={{ fontFamily: fu, color: "#DD5128" }}>
+              {eyebrow}
+            </p>
+          )}
+          <h2 className="text-[clamp(28px,3.6vw,40px)] font-semibold leading-[1.08] tracking-[-0.02em]" style={{ fontFamily: fd, color: "#111821" }}>
+            {title}
+          </h2>
+          {description && (
+            <p className="mt-3 text-[17px] leading-[1.55]" style={{ fontFamily: fd, color: "#59636F" }}>
+              {description}
+            </p>
+          )}
+        </div>
+      )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-6 items-start">
-        {/* Projects Carousel */}
-        <div
-          className="bg-white border p-6 sm:p-8"
-          style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
-        >
-          <div className="flex items-center justify-between mb-6">
+      {/* Main Grid: Projects Carousel (Left) + Criteria Sidebar (Right) */}
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-8 items-start">
+        {/* Left Column: Carousel & Cards */}
+        <div>
+          {/* Header Bar */}
+          <div className="flex items-center justify-between mb-6 px-1">
+            <h3 className="text-[11px] font-semibold tracking-[0.14em] uppercase" style={{ fontFamily: fu, color: "#8A94A1" }}>
+              {projectsTitle}
+            </h3>
+
             <div className="flex items-center gap-3">
-              <h3 className="text-[20px] font-semibold" style={{ fontFamily: fd, color: "#111821" }}>
-                {projectsTitle}
-              </h3>
               {projectsCountBadge && (
-                <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600" style={{ fontFamily: fu }}>
+                <span className="text-[12px] font-medium" style={{ fontFamily: fu, color: "#64748B" }}>
                   {projectsCountBadge}
                 </span>
               )}
-            </div>
-
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={prev}
-                className="w-8 h-8 rounded-full border flex items-center justify-center transition-colors hover:bg-slate-50 cursor-pointer"
-                style={{ borderColor: "#E4E9EF" }}
-                aria-label="Previous projects"
-              >
-                <ChevronLeft size={16} color="#475569" />
-              </button>
-              <button
-                type="button"
-                onClick={next}
-                className="w-8 h-8 rounded-full border flex items-center justify-center transition-colors hover:bg-slate-50 cursor-pointer"
-                style={{ borderColor: "#E4E9EF" }}
-                aria-label="Next projects"
-              >
-                <ChevronRight size={16} color="#475569" />
-              </button>
+              <div className="flex items-center gap-1.5">
+                <button
+                  type="button"
+                  onClick={prev}
+                  className="w-7 h-7 rounded-full bg-white border border-slate-200/60 shadow-2xs flex items-center justify-center transition-all hover:bg-slate-50 cursor-pointer"
+                  aria-label="Previous projects"
+                >
+                  <ChevronLeft size={14} className="text-slate-500" />
+                </button>
+                <button
+                  type="button"
+                  onClick={next}
+                  className="w-7 h-7 rounded-full bg-white border border-slate-200/60 shadow-2xs flex items-center justify-center transition-all hover:bg-slate-50 cursor-pointer"
+                  aria-label="Next projects"
+                >
+                  <ChevronRight size={14} className="text-slate-500" />
+                </button>
+              </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 transition-all duration-300">
-            {visibleProjects.map(({ proj, originalIdx }: any, displayPos: number) => {
-              const isSelected = originalIdx === selectedIdx;
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            {visibleProjects.map(({ proj, originalIdx }: any) => {
               const imgSrc = getImgSrc(proj.img || proj.imageSrc || (originalIdx % 3 === 0 ? imgProj1 : originalIdx % 3 === 1 ? imgProj2 : imgProj3));
+              const possessionVal = proj.possession || "2029";
+              const isReady = possessionVal.toLowerCase().includes("ready");
+              const possessionColor = proj.possessionColor || (isReady ? "#10B981" : "#111821");
 
               return (
                 <div
                   key={`${proj.name || proj.title}-${originalIdx}`}
-                  onClick={() => setSelectedIdx(originalIdx)}
-                  className="border rounded-xl overflow-hidden flex flex-col cursor-pointer transition-all duration-200"
-                  style={{
-                    borderColor: isSelected ? "#DD5128" : "#E4E9EF",
-                    boxShadow: isSelected ? "0 4px 16px rgba(221,81,40,0.12)" : undefined,
-                  }}
+                  className="bg-white rounded-[20px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
                 >
-                  <div className="h-44 relative bg-slate-100 overflow-hidden">
+                  {/* Card Image with Gradient Overlay & Bottom-Left Tagline */}
+                  <div className="h-52 relative bg-slate-100 overflow-hidden">
                     <img src={imgSrc} alt={proj.name || proj.title} className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                     {proj.tagline && (
                       <span
-                        className="absolute top-3 left-3 text-[10px] font-semibold px-2.5 py-1 rounded-md text-white backdrop-blur-md"
-                        style={{ background: "rgba(17,24,33,0.75)", fontFamily: fu }}
+                        className="absolute bottom-3.5 left-4 text-[12px] font-medium text-white/95 leading-tight drop-shadow-sm"
+                        style={{ fontFamily: fu }}
                       >
                         {proj.tagline}
                       </span>
                     )}
                   </div>
-                  <div className="p-4 flex-1 flex flex-col justify-between bg-white">
+
+                  {/* Card Content */}
+                  <div className="p-5 flex-1 flex flex-col justify-between">
                     <div>
-                      <h4 className="text-[16px] font-semibold leading-snug mb-1" style={{ fontFamily: fd, color: "#111821" }}>
+                      <h4 className="text-[17px] font-medium leading-tight mb-1" style={{ fontFamily: fd, color: "#111821" }}>
                         {proj.name || proj.title}
                       </h4>
                       {proj.location && (
-                        <p className="text-[12px] leading-tight mb-3" style={{ fontFamily: fu, color: "#8A94A1" }}>
+                        <p className="text-[13px] leading-tight mb-4" style={{ fontFamily: fu, color: "#8A94A1" }}>
                           {proj.location}
                         </p>
                       )}
                     </div>
-                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[12px]" style={{ fontFamily: fu }}>
-                      <span className="font-semibold" style={{ color: "#111821" }}>
-                        {proj.priceRange || proj.price || "₹1.31–2.9 Cr"}
-                      </span>
-                      <span style={{ color: "#6B7280" }}>{proj.possession || "2029"}</span>
+
+                    <div className="pt-4 border-t border-slate-100/90">
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <p className="text-[9.5px] font-semibold tracking-[0.15em] uppercase mb-1" style={{ fontFamily: fu, color: "#94A3B8" }}>
+                            PRICE RANGE
+                          </p>
+                          <p className="text-[16px] font-semibold leading-none" style={{ fontFamily: fd, color: "#111821" }}>
+                            {proj.priceRange || proj.price || "₹1.31–2.9 Cr"}
+                          </p>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-[9.5px] font-semibold tracking-[0.15em] uppercase mb-1" style={{ fontFamily: fu, color: "#94A3B8" }}>
+                            POSSESSION
+                          </p>
+                          <p className="text-[15px] font-medium leading-none" style={{ fontFamily: fu, color: possessionColor }}>
+                            {possessionVal}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Per sqft price sub-line */}
+                      <p className="mt-2.5 text-[11px]" style={{ fontFamily: fu, color: "#94A3B8" }}>
+                        {proj.psf || proj.perSqft || "₹11,950–12,500/sqft"}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -216,49 +240,38 @@ export const JournalProjectsV0: React.FC<JournalProjectsV0Props> = ({
           </div>
         </div>
 
-        {/* Non-Negotiables Sidebar */}
-        <div
-          className="bg-white border p-6"
-          style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
-        >
-          <p className="text-[9.5px] font-semibold tracking-[0.14em] uppercase mb-4" style={{ fontFamily: fu, color: "#8A94A1" }}>
-            {criteriaTitle}
-          </p>
+        {/* Right Column: Non-Negotiables Criteria List */}
+        <div className="pt-10 flex flex-col gap-6">
+          {displayCriteria.map((item: any, idx: number) => {
+            const isActive = item.active;
+            const iconElement =
+              typeof item.icon === "string"
+                ? getIcon(item.icon, "Shield", { className: "w-4 h-4 text-slate-400 stroke-[1.5]" })
+                : item.icon;
 
-          <div className="flex flex-col gap-3">
-            {displayCriteria.map((item: any) => {
-              const isActive = item.active;
-              const iconElement =
-                typeof item.icon === "string"
-                  ? getIcon(item.icon, "ShieldCheck", { className: `w-4 h-4 ${isActive ? "text-[#DD5128]" : "text-slate-400"}` })
-                  : item.icon;
-
-              return (
-                <div
-                  key={item.text || item.title}
-                  className="flex items-start gap-3 p-3 rounded-xl border transition-colors"
-                  style={{
-                    borderColor: isActive ? "#FFD0C4" : "#F1F5F9",
-                    background: isActive ? "#FFF5F2" : "#F8FAFC",
-                  }}
-                >
-                  <span className="mt-0.5 flex-none" style={{ color: isActive ? "#DD5128" : "#94A3B8" }}>
-                    {iconElement}
-                  </span>
+            return (
+              <div key={item.text || item.title || idx} className="flex items-start justify-between gap-3">
+                <div className="flex items-start gap-3">
+                  <span className="mt-0.5 flex-none">{iconElement}</span>
                   <div>
-                    <p className="text-[13px] font-semibold leading-tight" style={{ fontFamily: fu, color: isActive ? "#111821" : "#475569" }}>
+                    <h5 className="text-[15px] font-medium leading-tight" style={{ fontFamily: fd, color: "#111821" }}>
                       {item.text || item.title}
-                    </p>
+                    </h5>
                     {(item.sub || item.subtitle) && (
-                      <p className="text-[11.5px] mt-0.5" style={{ fontFamily: fu, color: isActive ? "#DD5128" : "#94A3B8" }}>
+                      <p className="text-[12px] mt-0.5 leading-tight" style={{ fontFamily: fu, color: "#8A94A1" }}>
                         {item.sub || item.subtitle}
                       </p>
                     )}
                   </div>
                 </div>
-              );
-            })}
-          </div>
+
+                {/* Orange Dot indicator for active item */}
+                {isActive && (
+                  <span className="w-2 h-2 rounded-full bg-[#DD5128] mt-1.5 flex-none shadow-xs" />
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

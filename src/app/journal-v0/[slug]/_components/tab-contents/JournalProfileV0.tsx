@@ -82,7 +82,7 @@ export const JournalProfileV0: React.FC<JournalProfileV0Props> = ({
   ],
 }) => {
   return (
-    <section id="section-profile" className="pt-12 pb-16">
+    <section id="section-profile" className="pt-12 ">
       {/* Section Header */}
       <div className="text-left mb-7">
         <p className="text-[11px] font-semibold tracking-[0.15em] uppercase" style={{ fontFamily: fu, color: "#DD5128" }}>
@@ -110,14 +110,14 @@ export const JournalProfileV0: React.FC<JournalProfileV0Props> = ({
 
           return (
             <div key={cell.label} className="group flex items-center gap-4 px-6 sm:px-8 py-5 flex-1 cursor-pointer transition-colors">
-              <span className="flex-none transition-colors group-hover:text-[#DD5128]" style={{ color: isSearchStage ? "#DD5128" : "#8A94A1" }}>
+              <span className="flex-none transition-colors group-hover:text-[#DD5128] ">
                 {iconElement}
               </span>
               <div>
                 <p className="text-[9.5px] font-semibold tracking-[0.13em] uppercase mb-1 transition-colors group-hover:text-[#DD5128]" style={{ fontFamily: fu, color: "#8A94A1" }}>
                   {cell.label}
                 </p>
-                <p className="text-[17px] font-[500] leading-tight transition-colors group-hover:text-[#DD5128]" style={{ fontFamily: fd, color: isSearchStage ? "#DD5128" : "#111821" }}>
+                <p className="text-[17px] font-[500] leading-tight transition-colors group-hover:text-[#DD5128]" style={{ fontFamily: fd }}>
                   {cell.value}
                 </p>
               </div>

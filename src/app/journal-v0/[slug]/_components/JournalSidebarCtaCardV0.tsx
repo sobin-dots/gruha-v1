@@ -35,7 +35,7 @@ export const JournalSidebarCtaCardV0: React.FC<JournalSidebarCtaCardV0Props> = (
 }) => {
   return (
     <div
-      className="bg-white border p-6 flex flex-col items-center text-center"
+      className="bg-white border p-6 flex flex-col items-center text-center z-100"
       style={{
         borderRadius: 20,
         borderColor: "#E4E9EF",

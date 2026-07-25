@@ -4,11 +4,11 @@ import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { Play, Pause } from "lucide-react";
 import * as Icons from "lucide-react";
-import AgentCardSlider, { AgentCardItem } from "@/app/journal-v4/[slug]/_components/tab-contents/AgentCardSlider";
 import imgMoment1 from "@/imports/1.png";
 import imgMoment2 from "@/imports/2.png";
 import imgMoment3 from "@/imports/3.png";
 import imgFrame9 from "@/imports/Frame9.svg";
+import AgentCardSlider, { AgentCardItem } from "./JournalAgentCardStack";
 
 const fd = "'Newsreader', Georgia, serif";
 const fu = "'Inter Tight', system-ui, sans-serif";
@@ -328,7 +328,7 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
   const displayRiyaQuote = riyaChatMessage || "Every time I suggested a lower-priced option, both of you kept returning to communities with trusted builders, better schools and realistic possession timelines. That's when I realized you weren't searching for the cheapest home. You were searching for peace of mind.";
 
   return (
-    <section id="section-journey" className="pt-10 pb-12 w-full text-slate-900">
+    <section id="section-journey" className="pt-10  w-full text-slate-900">
       <div className="w-full space-y-10">
 
         {/* ── Header ──────────────────────────────────────────────────── */}
@@ -434,10 +434,10 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
             </div>
 
             {/* Desktop SVG Snaking Path */}
-            <div className="hidden md:block relative w-full aspect-[4/3] h-auto max-h-[1220px]">
+            <div className="hidden md:block relative w-full aspect-[1000/870] pb-10">
               <svg
                 className="absolute inset-0 w-full h-full pointer-events-none z-0"
-                viewBox="0 0 1000 800"
+                viewBox="0 0 1000 870"
                 preserveAspectRatio="xMidYMid meet"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -512,7 +512,7 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
                     className="absolute z-10 flex flex-col items-center pointer-events-auto"
                     style={{
                       left: `${(stage.x / 1000) * 100}%`,
-                      top: `${(stage.y / 800) * 100}%`,
+                      top: `${(stage.y / 870) * 100}%`,
                       width: `${stage.width}px`,
                       transform: "translate(-50%, -27px)",
                     }}
@@ -597,69 +597,10 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
           </div>
         )}
 
-        {/* ── Where They Stand Today Timeline ───────────────────────────── */}
-        {timelineSteps && timelineSteps.length > 0 && (
-          <div className="w-full border border-[#F1F5F9] rounded-[24px] bg-white p-6 space-y-6 overflow-hidden shadow-[0_1px_2px_rgba(17,24,33,.04),0_8px_24px_rgba(17,24,33,.05)]">
-            <h3 className="text-[16px] leading-[19px] font-semibold text-[#334155] font-inter">
-              {timelineTitle}
-            </h3>
-
-            <div className="relative flex items-center justify-between w-full min-h-[85px] overflow-x-auto pb-4 pt-8 scrollbar-none">
-              {timelineSteps.map((step, index) => {
-                const IconComponent = typeof step.icon === "string" ? (props: any) => getIcon(step.icon, "HelpCircle", props) : step.icon;
-                const isLast = index === timelineSteps.length - 1;
-
-                return (
-                  <React.Fragment key={step.id || index}>
-                    {/* Step Item */}
-                    <div className="relative flex flex-col items-center gap-3 min-w-[75px] shrink-0 z-10">
-                      {/* Tooltip Active Tag */}
-                      {step.tag && (
-                        <div className="absolute -top-[34px] left-1/2 -translate-x-1/2 flex flex-col items-center z-20">
-                          <div className="bg-black text-white text-[12px] leading-[15px] font-semibold px-3 py-1 rounded-[5px] whitespace-nowrap shadow-md font-inter">
-                            {step.tag}
-                          </div>
-                          <div className="w-0 h-0 border-x-[5px] border-x-transparent border-t-[5px] border-t-black" />
-                        </div>
-                      )}
-
-                      {/* Icon Circle */}
-                      <div
-                        className={`flex items-center justify-center w-[56px] h-[56px] rounded-full transition-all duration-300 ${
-                          step.active
-                            ? "bg-[#FF7E57] text-white shadow-sm"
-                            : "bg-[#F8FAFC] border border-[#F1F5F9] text-[#64748B]"
-                        }`}
-                      >
-                        {IconComponent ? <IconComponent className="w-[26px] h-[26px]" /> : getIcon("HelpCircle", "HelpCircle", { className: "w-6 h-6 text-[#475569]" })}
-                      </div>
-
-                      {/* Label */}
-                      <span className="text-[14px] leading-[17px] font-semibold text-center whitespace-nowrap font-inter text-[#475569]">
-                        {step.label}
-                      </span>
-                    </div>
-
-                    {/* Dashed Connecting Line */}
-                    {!isLast && (
-                      <div className="flex-1 flex items-center justify-center min-w-[30px] sm:min-w-[50px] px-1 mb-[28px] shrink-0">
-                        <div className="w-full flex items-center">
-                          <div className="w-full border-t-2 border-dashed border-[#94A3B8]" />
-                          <div className="w-0 h-0 border-y-[4px] border-y-transparent border-l-[6px] border-l-[#94A3B8] -ml-[2px]" />
-                        </div>
-                      </div>
-                    )}
-                  </React.Fragment>
-                );
-              })}
-            </div>
-          </div>
-        )}
-
         {/* ── AI Agents & Audio Player Section ────────────────────────────── */}
         <div className="w-full">
           <div
-            className="bg-white rounded-2xl border border-slate-100 grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-slate-100 overflow-hidden"
+            className="bg-white rounded-2xl border border-slate-100 grid grid-cols-1 lg:grid-cols-[1.25fr_0.75fr] divide-y lg:divide-y-0 lg:divide-x divide-slate-100 overflow-hidden"
             style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
           >
             {/* Left Column: Take on Journey & Audio Player */}
@@ -672,10 +613,8 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
                   AI AGENTS ON THIS JOURNEY
                 </p>
 
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-[#8B5CF6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                <div className="flex items-start gap-0 flex-col">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="mb-3"><path d="M14 2 L15.5 11.5 L25 14 L15.5 16.5 L14 26 L12.5 16.5 L3 14 L12.5 11.5 Z" stroke="#7C3AED" stroke-width="1.5" stroke-linejoin="round"></path><path d="M22 4 L22.7 7.3 L26 8 L22.7 8.7 L22 12 L21.3 8.7 L18 8 L21.3 7.3 Z" stroke="#7C3AED" stroke-width="1.2" stroke-linejoin="round"></path></svg>
                   <span className="text-[14px] font-semibold text-[#8B5CF6] font-inter">
                     {riyaConclusionTitle}
                   </span>
@@ -704,12 +643,18 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
         {quotes && quotes.length > 0 && (
           <div className="w-full">
             <div
-              className="bg-white border p-6 sm:p-8"
-              style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
+              className="bg-white border p-8"
+              style={{
+                borderRadius: 14,
+                borderColor: "#E4E9EF",
+                // boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)",
+                // borderradius: "14px", 
+                boxShadow: "rgba(17, 24, 33, 0.04) 0px 1px 2px, rgba(17, 24, 33, 0.05) 0px 8px 24px;"
+              }}
             >
               <p
                 className="text-[9.5px] font-semibold tracking-[0.14em] uppercase mb-6"
-                style={{ fontFamily: fu, color: "rgb(138, 148, 161)" }}
+                style={{ fontFamily: fu, color: "#8A94A1" }}
               >
                 {voicesTitle}
               </p>
@@ -717,54 +662,24 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
                 {quotes.map((q: any, idx: number) => (
                   <div
                     key={q.speaker || q.author || idx}
-                    className="rounded-xl border border-slate-100 p-6 flex flex-col justify-between gap-6"
-                    style={{ background: "#F8FAFC" }}
+                    className="rounded-xl border border-slate-100 p-7 flex flex-col justify-between gap-6"
+                    style={{ background: "#f8fafc" }}
                   >
                     <p
-                      className="text-[18px] leading-[1.5] italic"
-                      style={{ fontFamily: fd, color: "rgb(30, 41, 59)" }}
+                      className="text-[20px] leading-[1.5] italic"
+                      style={{ fontFamily: fd, color: "#2D3748" }}
                     >
                       "{q.text}"
                     </p>
                     <p
                       className="text-[14px] font-semibold"
-                      style={{ fontFamily: fu, color: "rgb(221, 81, 40)" }}
+                      style={{ fontFamily: fu, color: "#DD5128" }}
                     >
-                      — {q.author || q.speaker}
+                      {q.author || q.speaker}
                     </p>
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-        )}
-
-        {/* ── Reality Checks ───────────────────────────────────────────── */}
-        {realityChecks && realityChecks.length > 0 && (
-          <div className="w-full border border-[#F1F5F9] bg-white rounded-[24px] p-6 flex flex-col gap-6 shadow-[0_1px_2px_rgba(17,24,33,.04),0_8px_24px_rgba(17,24,33,.05)]">
-            <h3 className="text-[16px] leading-[19px] font-semibold text-[#334155] font-inter">
-              {realityChecksTitle}
-            </h3>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4 items-start">
-              {realityChecks.map((item: any, index: number) => {
-                const Icon = typeof item.icon === "string" ? (props: any) => getIcon(item.icon, "HelpCircle", props) : item.icon;
-                return (
-                  <div key={index} className="flex flex-col items-center gap-4 text-center">
-                    <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
-                      {Icon ? <Icon className="w-8 h-8 text-[#FF7E57] stroke-[1.75]" /> : getIcon("HelpCircle", "HelpCircle", { className: "w-8 h-8 text-[#FF7E57]" })}
-                    </div>
-                    <div className="flex flex-col items-center gap-2 w-full">
-                      <h4 className="text-[14px] leading-[17px] font-semibold text-[#475569] font-inter">
-                        {item.title}
-                      </h4>
-                      <p className="text-[14px] leading-[20px] font-medium text-[#64748B] font-inter">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
             </div>
           </div>
         )}

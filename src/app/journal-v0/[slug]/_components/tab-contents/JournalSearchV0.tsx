@@ -127,7 +127,7 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
 }) => {
   const exploredAreasList = exploredAreas && exploredAreas.length > 0 ? exploredAreas : defaultExploredAreas;
   return (
-    <section id="section-search" className="pt-10 pb-12">
+    <section id="section-search" className="pt-10 ">
       <div className="text-left mb-7">
         <p className="text-[11px] font-semibold tracking-[0.15em] uppercase" style={{ fontFamily: fu, color: "#DD5128" }}>
           {eyebrow}
