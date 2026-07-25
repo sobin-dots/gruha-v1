@@ -66,10 +66,10 @@ export const JournalHeroV0: React.FC<JournalHeroV0Props> = ({
   const displayLearnings = learnings.length > 0 ? learnings : defaultLearnings;
 
   return (
-    <div className="w-full pt-10 sm:pt-12">
+    <div className="w-full pt-10 sm:pt-12 pb-10 sm:pb-14">
       <div className="w-full grid grid-cols-1 md:grid-cols-[380px_1fr] gap-8 md:gap-10 items-stretch">
         {/* Col 1 — Hero Image */}
-        <div ref={heroImgWrapRef} className="relative rounded-2xl overflow-hidden min-h-[340px] lg:min-h-[440px] border border-slate-100 shadow-xs">
+        <div ref={heroImgWrapRef} className="relative rounded-2xl overflow-hidden aspect-square border border-slate-100 shadow-xs">
           <img
             src={getImgSrc(displayHeroImage)}
             alt={displayTitle.replace("\n", " ")}
@@ -98,11 +98,10 @@ export const JournalHeroV0: React.FC<JournalHeroV0Props> = ({
               <div className="flex flex-col gap-2.5">
                 {displayLearnings.map((item: any, i: number) => {
                   const text = typeof item === "string" ? item : item.text;
-                  const iconName = typeof item === "object" ? item.icon : undefined;
                   return (
                     <div key={i} className="flex items-start gap-3">
-                      <span className="text-[11px] font-semibold flex-none mt-0.5" style={{ fontFamily: fu, color: "#DD5128" }}>
-                        {iconName ? getIcon(iconName, "HelpCircle", { className: "w-4 h-4 text-[#DD5128]" }) : String(i + 1).padStart(2, "0")}
+                      <span className="text-[11px] font-semibold flex-none mt-0.5" style={{ fontFamily: fd, color: "#DD5128" }}>
+                        {String(i + 1).padStart(2, "0")}
                       </span>
                       <span className="text-[13.5px] leading-[1.45]" style={{ fontFamily: fu, color: "#374151" }}>
                         {text}

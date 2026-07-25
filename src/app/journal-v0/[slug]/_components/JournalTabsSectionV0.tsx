@@ -40,10 +40,10 @@ function TabNav({
   return (
     <div
       ref={navRef}
-      className="z-20 sticky top-0  w-screen relative left-0 right-1/2 -ml-[50vw] -mr-[50vw] bg-white border-y border-slate-200 shadow-xs"
+      className="z-20 sticky top-0 w-screen relative left-0 right-1/2 -ml-[50vw] -mr-[50vw] bg-white border-b border-slate-200 shadow-xs"
     >
       <div className="max-w-[1400px] mx-auto px-4 sm:px-8">
-        <nav className="flex items-center justify-start gap-1 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+        <nav className="flex items-center justify-start gap-1 overflow-x-auto overscroll-x-contain touch-pan-x [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {/* Brand Logo & Title (Reveals on the left when navbar sticks to the top) */}
           <div
             className="flex items-center gap-2.5 shrink-0 transition-all duration-300 ease-out overflow-hidden"
@@ -112,6 +112,7 @@ export const JournalTabsSectionV0: React.FC<JournalTabsSectionV0Props> = ({
   const [activeTab, setActiveTab] = useState("Profile");
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
   const tabNavRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
   const [showNavBrand, setShowNavBrand] = useState(false);
   const isScrollingRef = useRef(false);
 
@@ -170,7 +171,7 @@ export const JournalTabsSectionV0: React.FC<JournalTabsSectionV0Props> = ({
 
   return (
     <>
-      {/* ── Full Screenwidth Sticky TabNav Bar ──────────────────────── */}
+      {/* Full Screenwidth Sticky TabNav Bar */}
       <TabNav
         active={activeTab}
         showBrand={showNavBrand}
@@ -180,8 +181,8 @@ export const JournalTabsSectionV0: React.FC<JournalTabsSectionV0Props> = ({
         title={title}
       />
 
-      {/* ── Content Sections ────────────────────────────────────────── */}
-      <div className="w-full min-w-0 pt-8 space-y-12">
+      {/* Content Sections */}
+      <div ref={contentRef} id="journal-content" className="w-full min-w-0 pt-8 space-y-12">
         {/* Profile Section */}
         <div
           ref={(el) => {

@@ -132,7 +132,7 @@ export const JournalProjectsV0: React.FC<JournalProjectsV0Props> = ({
       )}
 
       {/* Main Grid: Projects Carousel (Left) + Criteria Sidebar (Right) */}
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-8 items-center">
         {/* Left Column: Carousel & Cards */}
         <div>
           {/* Header Bar */}

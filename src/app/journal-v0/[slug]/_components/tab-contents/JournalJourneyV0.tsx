@@ -30,7 +30,7 @@ export const getIcon = (
   return <Icon {...props} />;
 };
 
-/* ── Type Definitions ────────────────────────────────────────────────────── */
+/* -- Type Definitions ------------------------------------------------------ */
 
 export interface MomentItem {
   id?: string;
@@ -114,7 +114,7 @@ export interface JournalJourneyV0Props {
   realityChecks?: RealityCheckItem[];
 }
 
-/* ── Interactive Audio Player Sub-Component ─────────────────────────────── */
+/* -- Interactive Audio Player Sub-Component ------------------------------- */
 
 export interface AudioPlayerProps {
   audioLabel?: string;
@@ -280,7 +280,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
   );
 };
 
-/* ── Main Dynamic JournalJourneyV0 Component ───────────────────────────── */
+/* -- Main Dynamic JournalJourneyV0 Component ----------------------------- */
 
 export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
   eyebrow = "The journey so far",
@@ -331,7 +331,7 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
     <section id="section-journey" className="pt-10  w-full text-slate-900">
       <div className="w-full space-y-10">
 
-        {/* ── Header ──────────────────────────────────────────────────── */}
+        {/* -- Header ---------------------------------------------------- */}
         <div className="text-left mb-7">
           <p
             className="text-[11px] font-semibold tracking-[0.15em] uppercase"
@@ -353,7 +353,7 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
           </p>
         </div>
 
-        {/* ── Metrics Strip ────────────────────────────────────────────── */}
+        {/* -- Metrics Strip ---------------------------------------------- */}
         {metrics && metrics.length > 0 && (
           <div
             className="w-full bg-white border border-slate-100 flex flex-col sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-slate-100 overflow-hidden"
@@ -388,7 +388,7 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
           </div>
         )}
 
-        {/* ── Dynamic Roadmap (SVG / Nodes or Image Fallback) ──────────── */}
+        {/* -- Dynamic Roadmap (SVG / Nodes or Image Fallback) ------------ */}
         {roadmapNodes && roadmapNodes.length > 0 ? (
           <div className="w-full border border-[#F1F5F9] rounded-[24px] bg-white overflow-hidden shadow-[0_1px_2px_rgba(17,24,33,.04),0_8px_24px_rgba(17,24,33,.05)]">
             <div className="px-8 pt-7 pb-2">
@@ -556,7 +556,7 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
           </div>
         )}
 
-        {/* ── Moments Cards Grid ───────────────────────────────────────── */}
+        {/* -- Moments Cards Grid ----------------------------------------- */}
         {moments && moments.length > 0 && (
           <div className="w-full">
             <p
@@ -597,7 +597,7 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
           </div>
         )}
 
-        {/* ── AI Agents & Audio Player Section ────────────────────────────── */}
+        {/* -- AI Agents & Audio Player Section ------------------------------ */}
         <div className="w-full">
           <div
             className="bg-white rounded-2xl border border-slate-100 grid grid-cols-1 lg:grid-cols-[1.25fr_0.75fr] divide-y lg:divide-y-0 lg:divide-x divide-slate-100 overflow-hidden"
@@ -614,7 +614,7 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
                 </p>
 
                 <div className="flex items-start gap-0 flex-col">
-                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="mb-3"><path d="M14 2 L15.5 11.5 L25 14 L15.5 16.5 L14 26 L12.5 16.5 L3 14 L12.5 11.5 Z" stroke="#7C3AED" stroke-width="1.5" stroke-linejoin="round"></path><path d="M22 4 L22.7 7.3 L26 8 L22.7 8.7 L22 12 L21.3 8.7 L18 8 L21.3 7.3 Z" stroke="#7C3AED" stroke-width="1.2" stroke-linejoin="round"></path></svg>
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="mb-3"><path d="M14 2 L15.5 11.5 L25 14 L15.5 16.5 L14 26 L12.5 16.5 L3 14 L12.5 11.5 Z" stroke="#7C3AED" strokeWidth="1.5" strokeLinejoin="round"></path><path d="M22 4 L22.7 7.3 L26 8 L22.7 8.7 L22 12 L21.3 8.7 L18 8 L21.3 7.3 Z" stroke="#7C3AED" strokeWidth="1.2" strokeLinejoin="round"></path></svg>
                   <span className="text-[14px] font-semibold text-[#8B5CF6] font-inter">
                     {riyaConclusionTitle}
                   </span>
@@ -639,7 +639,7 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
           </div>
         </div>
 
-        {/* ── Voices Around Them Grid ──────────────────────────────────── */}
+        {/* -- Voices Around Them Grid ------------------------------------ */}
         {quotes && quotes.length > 0 && (
           <div className="w-full">
             <div
@@ -649,7 +649,7 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
                 borderColor: "#E4E9EF",
                 // boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)",
                 // borderradius: "14px", 
-                boxShadow: "rgba(17, 24, 33, 0.04) 0px 1px 2px, rgba(17, 24, 33, 0.05) 0px 8px 24px;"
+                boxShadow: "rgba(17, 24, 33, 0.04) 0px 1px 2px, rgba(17, 24, 33, 0.05) 0px 8px 24px"
               }}
             >
               <p

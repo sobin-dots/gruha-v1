@@ -105,7 +105,7 @@ export const JournalProfileV0: React.FC<JournalProfileV0Props> = ({
           const isSearchStage = cell.label.toLowerCase().includes("search");
           const iconElement =
             typeof cell.icon === "string"
-              ? getIcon(cell.icon, "Briefcase", { className: "w-4 h-4" })
+              ? getIcon(cell.icon, "Briefcase", { className: "w-4 h-4 text-[#DD5128]" })
               : cell.icon;
 
           return (
@@ -166,8 +166,8 @@ export const JournalProfileV0: React.FC<JournalProfileV0Props> = ({
 
         const renderSharedVisionCard = () => (
           <div
-            className="bg-white border rounded-2xl p-6 flex flex-col justify-center"
-            style={{ borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)", minHeight: 180 }}
+            className="bg-white border rounded-2xl p-4 sm:p-5 flex flex-col justify-center"
+            style={{ borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
           >
             <p className="text-[19px] font-semibold" style={{ fontFamily: fd, color: "#111821" }}>
               {sharedVisionTitle}

@@ -313,16 +313,14 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
                   : item.icon;
 
               return (
-                <div key={item.label} className="border rounded-xl p-4 flex flex-col justify-between gap-3 bg-slate-50/50" style={{ borderColor: "#E4E9EF" }}>
+                <div key={item.label} className="rounded-xl border border-slate-100 p-4 flex flex-col gap-2" style={{ background: "#f8fafc" }}>
                   <span className="text-[#DD5128]">{iconElement}</span>
-                  <div>
-                    <p className="text-[18px] font-semibold leading-none mb-1" style={{ fontFamily: fd, color: "#111821" }}>
-                      {item.value}
-                    </p>
-                    <p className="text-[11.5px] leading-tight" style={{ fontFamily: fu, color: "#6B7280" }}>
-                      {item.label}
-                    </p>
-                  </div>
+                  <p className="text-[18px] font-semibold leading-none" style={{ fontFamily: fd, color: "#111821" }}>
+                    {item.value}
+                  </p>
+                  <p className="text-[11.5px] leading-tight" style={{ fontFamily: fu, color: "#6B7280" }}>
+                    {item.label}
+                  </p>
                 </div>
               );
             })}

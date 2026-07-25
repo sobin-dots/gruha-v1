@@ -4,7 +4,6 @@ import { JournalHeroV0 } from "./_components/JournalHeroV0";
 import { JournalTabsSectionV0 } from "./_components/JournalTabsSectionV0";
 import JournalBreadCrumbs from "@/components/JournalBreadCrumbs";
 import { JournalSidebarCtaCardV0 } from "./_components/JournalSidebarCtaCardV0";
-import * as Icons from "lucide-react";
 import { getJournalBySlug } from "@/lib/journal";
 import { FooterVariant } from "@/components/layout/FooterVariant";
 
@@ -37,14 +36,6 @@ export async function generateMetadata({
     };
 }
 
-const getIcon = (
-    name: string,
-    props = { className: "h-5 w-5", strokeWidth: 2 }
-) => {
-    const Icon = (Icons as any)[name] || Icons.HelpCircle;
-    return <Icon {...props} />;
-};
-
 export default async function JournalSlugPageV0({
     params,
 }: JournalSlugPageProps) {
@@ -58,7 +49,7 @@ export default async function JournalSlugPageV0({
     const article = {
         ...journalData.article,
         learnings: (journalData.article?.learnings || []).map((item: any) => ({
-            icon: typeof item.icon === "string" ? getIcon(item.icon) : item.icon,
+            icon: item.icon,
             text: typeof item === "string" ? item : item.text,
         })),
     };
@@ -77,15 +68,15 @@ export default async function JournalSlugPageV0({
             />
 
             <main className="min-h-screen bg-[#F3F6F9] text-[#111821] antialiased relative">
-                {/* ── 1. Full Screenwidth White Background Layer for Hero ─────── */}
+                {/* -- 1. Full Screenwidth White Background Layer for Hero ------- */}
                 <div className="absolute top-0 left-0 right-0 h-[560px] bg-white border-b border-slate-200 pointer-events-none z-0" />
 
-                {/* ── 2. Top Bar Breadcrumbs ─────────────────────────────────── */}
+                {/* -- 2. Top Bar Breadcrumbs ----------------------------------- */}
                 <div className="relative z-10">
                     <JournalBreadCrumbs currentTitle={article.title} />
                 </div>
 
-                {/* ── 3. Page-Level 2-Column Grid (Spans Hero + Tabs) ────────── */}
+                {/* -- 3. Page-Level 2-Column Grid (Spans Hero + Tabs) ---------- */}
                 <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-[1fr_288px] gap-10">
                     {/* Left Column: Hero Content + Tabs Sections */}
                     <div className="min-w-0">
