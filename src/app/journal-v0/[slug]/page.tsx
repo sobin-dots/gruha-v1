@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Header } from "@/components/layout/Header";
 import { JournalHeroV0 } from "./_components/JournalHeroV0";
 import { JournalTabsSectionV0 } from "./_components/JournalTabsSectionV0";
-import JournalBreadCrumbs from "@/components/JournalBreadCrumbs";
 import { JournalSidebarCtaCardV0 } from "./_components/JournalSidebarCtaCardV0";
 import { getJournalBySlug } from "@/lib/journal";
 import { FooterVariant } from "@/components/layout/FooterVariant";
@@ -67,16 +67,12 @@ export default async function JournalSlugPageV0({
                 rel="stylesheet"
             />
 
-            <main className="min-h-screen bg-[#F3F6F9] text-[#111821] antialiased relative">
+            <Header forceSolid />
+            <main className="min-h-screen bg-[#F3F6F9] text-[#111821] antialiased relative pt-16">
                 {/* -- 1. Full Screenwidth White Background Layer for Hero ------- */}
                 <div className="absolute top-0 left-0 right-0 h-[560px] bg-white border-b border-slate-200 pointer-events-none z-0" />
 
-                {/* -- 2. Top Bar Breadcrumbs ----------------------------------- */}
-                <div className="relative z-10">
-                    <JournalBreadCrumbs currentTitle={article.title} />
-                </div>
-
-                {/* -- 3. Page-Level 2-Column Grid (Spans Hero + Tabs) ---------- */}
+                {/* -- 2. Page-Level 2-Column Grid (Spans Hero + Tabs) ---------- */}
                 <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-[1fr_288px] gap-10">
                     {/* Left Column: Hero Content + Tabs Sections */}
                     <div className="min-w-0">

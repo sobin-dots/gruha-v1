@@ -66,8 +66,22 @@ export const JournalHeroV0: React.FC<JournalHeroV0Props> = ({
   const displayLearnings = learnings.length > 0 ? learnings : defaultLearnings;
 
   return (
-    <div className="w-full pt-10 sm:pt-12 pb-10 sm:pb-14">
-      <div className="w-full grid grid-cols-1 md:grid-cols-[380px_1fr] gap-8 md:gap-10 items-stretch">
+    <div className="w-full pb-0">
+      {/* Breadcrumb */}
+      <nav className="flex items-center gap-2 text-[13px] mt-6 mb-5" style={{ fontFamily: fu }}>
+        <a href="/" className="flex items-center gap-1.5 text-slate-400 hover:text-slate-700 transition-colors">
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" /></svg>
+          Home
+        </a>
+        <span className="text-slate-300">/</span>
+        <a href="/community-journals" className="text-slate-400 hover:text-slate-700 transition-colors">Community Journals</a>
+        <span className="text-slate-300">/</span>
+        <span className="font-semibold text-slate-900 truncate max-w-[280px] md:max-w-[420px]">
+          {displayTitle.replace("\n", " ")}
+        </span>
+      </nav>
+
+      <div className="w-full grid grid-cols-1 md:grid-cols-[380px_1fr] gap-8 md:gap-10 items-stretch pb-10">
         {/* Col 1 — Hero Image */}
         <div ref={heroImgWrapRef} className="relative rounded-2xl overflow-hidden aspect-square border border-slate-100 shadow-xs">
           <img
