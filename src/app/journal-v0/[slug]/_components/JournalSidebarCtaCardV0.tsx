@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { Sparkles } from "lucide-react";
 import imgRiya from "@/imports/signal-2026-07-23-17-18-39-504.jpg";
 
 const fd = "'Newsreader', Georgia, serif";
@@ -34,88 +33,140 @@ export const JournalSidebarCtaCardV0: React.FC<JournalSidebarCtaCardV0Props> = (
   onAdaptJournal,
 }) => {
   return (
-    <div
-      className="bg-white border p-6 flex flex-col items-center text-center z-100"
-      style={{
-        borderRadius: 20,
-        borderColor: "#E4E9EF",
-        boxShadow: "0 4px 24px rgba(17,24,33,0.06)",
-      }}
-    >
-      {/* Top illustration container */}
-      <div className="relative w-full mb-10 pt-2">
+    <>
+      <style>{`
+        @keyframes pulse-glow {
+          0%, 100% { opacity: 0.6; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.05); }
+        }
+        @keyframes rotate-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+      `}</style>
+
+      <div
+        className="relative overflow-hidden z-100"
+        style={{
+          borderRadius: 40,
+          background: "rgba(17, 24, 39, 0.95)",
+          backdropFilter: "blur(12px)",
+          border: "1px solid rgba(255, 255, 255, 0.1)",
+          boxShadow: "0 20px 50px rgba(0,0,0,0.3)",
+        }}
+      >
+        {/* Background glow blobs */}
         <div
-          className="relative w-full h-[140px] border border-dashed rounded-[16px] p-5 flex flex-col justify-start items-start gap-2.5 overflow-hidden"
-          style={{
-            borderColor: "#E2E5F3",
-            background: "#F7F8FC",
-          }}
-        >
-          {/* Sparkle icon */}
-          <div className="absolute top-4 right-4">
-            <Sparkles size={20} className="text-[#6366F1]" />
-          </div>
+          className="absolute -top-24 -right-24 w-48 h-48 rounded-full"
+          style={{ background: "rgba(242, 90, 43, 0.15)", filter: "blur(80px)" }}
+        />
+        <div
+          className="absolute -bottom-24 -left-24 w-48 h-48 rounded-full"
+          style={{ background: "rgba(59, 130, 246, 0.08)", filter: "blur(80px)" }}
+        />
 
-          {/* Skeleton lines */}
-          <div className="w-1/2 h-2 rounded-full bg-[#E2E6F5]" />
-          <div className="w-3/4 h-2 rounded-full bg-[#E8ECF7]" />
-          <div className="w-3/5 h-2 rounded-full bg-[#EDF0F9]" />
-          <div className="w-1/3 h-2 rounded-full bg-[#FCE8E2]" />
-        </div>
-
-        {/* Overlapping Avatar */}
-        <div className="absolute left-1/2 -bottom-7 -translate-x-1/2 z-10">
-          <div
-            className="w-[78px] h-[78px] rounded-full overflow-hidden border-4 border-white"
-            style={{
-              boxShadow: "0 6px 18px rgba(0,0,0,0.12)",
-            }}
-          >
-            <img
-              src={getImgSrc(characterImage)}
-              alt="Riya"
-              className="w-full h-full object-cover object-top"
+        <div className="relative z-10 p-8 text-center">
+          {/* AI Aura & Avatar */}
+          <div className="relative inline-block mb-5">
+            {/* Animated gradient aura */}
+            <div
+              className="absolute inset-0 rounded-full"
+              style={{
+                background: "linear-gradient(to top right, #f25a2b, #7C3AED, #3B82F6)",
+                filter: "blur(10px)",
+                opacity: 0.35,
+                animation: "pulse-glow 3s ease-in-out infinite",
+              }}
+            />
+            {/* Rotating border ring */}
+            <div
+              className="absolute -inset-1.5 rounded-full"
+              style={{
+                border: "1px solid rgba(255,255,255,0.1)",
+                animation: "rotate-slow 12s linear infinite",
+              }}
+            />
+            {/* Avatar */}
+            <div
+              className="relative w-16 h-16 rounded-full overflow-hidden"
+              style={{ border: "2px solid rgba(255,255,255,0.2)", padding: 2, background: "#111827" }}
+            >
+              <img
+                src={getImgSrc(characterImage)}
+                alt="Riya"
+                className="w-full h-full object-cover object-top rounded-full"
+              />
+            </div>
+            {/* Green active indicator — on the border */}
+            <div
+              className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full"
+              style={{ background: "#4ADE80", border: "2.5px solid #111827" }}
             />
           </div>
+
+          {/* Content */}
+          <p
+            className="text-gray-400 text-[13px] leading-relaxed mb-8 px-2"
+            style={{ fontFamily: fu }}
+          >
+            {description}
+          </p>
+
+          {/* Action buttons */}
+          <div className="flex flex-col gap-3">
+            <button
+              type="button"
+              onClick={onStartJournal}
+              className="group relative w-full flex items-center justify-center gap-2 py-3.5 px-4 text-[14px] font-bold rounded-2xl text-white overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+              style={{
+                background: "#f25a2b",
+                fontFamily: fu,
+                boxShadow: "0 0 0 rgba(242,90,43,0)",
+                transition: "box-shadow 0.3s, transform 0.2s",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "0 0 20px rgba(242,90,43,0.4)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "0 0 0 rgba(242,90,43,0)";
+              }}
+            >
+              <span className="relative z-10">{startJournalText}</span>
+              <svg className="relative z-10 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M13 7l5 5m0 0l-5 5m5-5H6" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+              </svg>
+              {/* Shine sweep */}
+              <div
+                className="absolute inset-0 w-full h-full -translate-x-full group-hover:translate-x-full transition-all duration-1000 ease-in-out"
+                style={{ background: "linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent)" }}
+              />
+            </button>
+
+            <button
+              type="button"
+              onClick={onAdaptJournal}
+              className="w-full py-3.5 px-4 text-[14px] font-semibold rounded-2xl transition-colors hover:bg-white/5 active:scale-[0.98] cursor-pointer"
+              style={{
+                fontFamily: fu,
+                color: "rgba(255,255,255,0.6)",
+                border: "1px solid rgba(255,255,255,0.1)",
+              }}
+            >
+              {adaptJournalText}
+            </button>
+          </div>
+
+          {/* Decorative waveform bars */}
+          <div className="mt-8 flex justify-center gap-1 opacity-20">
+            <div className="w-1 h-4 bg-white rounded-full" />
+            <div className="w-1 h-6 bg-white rounded-full" />
+            <div className="w-1 h-3 bg-white rounded-full" />
+            <div className="w-1 h-5 bg-white rounded-full" />
+            <div className="w-1 h-2 bg-white rounded-full" />
+          </div>
         </div>
       </div>
-
-      {/* Card Content */}
-      <h3
-        className="text-[19px] font-semibold leading-tight mb-2 text-[#111821]"
-        style={{ fontFamily: fd }}
-      >
-        {title}
-      </h3>
-
-      <p
-        className="text-[13px] leading-[1.55] mb-6 text-[#59636F]"
-        style={{ fontFamily: fu }}
-      >
-        {description}
-      </p>
-
-      {/* Buttons */}
-      <div className="w-full flex flex-col gap-3">
-        <button
-          type="button"
-          onClick={onStartJournal}
-          className="w-full py-3.5 px-4 text-[14px] font-semibold rounded-[14px] text-white transition-all duration-200 hover:opacity-90 active:scale-[0.98] cursor-pointer"
-          style={{ background: "#E05326", fontFamily: fu }}
-        >
-          {startJournalText}
-        </button>
-
-        <button
-          type="button"
-          onClick={onAdaptJournal}
-          className="w-full py-3.5 px-4 text-[14px] font-semibold rounded-[14px] border transition-colors hover:bg-slate-50 active:scale-[0.98] cursor-pointer bg-white"
-          style={{ borderColor: "#E4E9EF", fontFamily: fu, color: "#111821" }}
-        >
-          {adaptJournalText}
-        </button>
-      </div>
-    </div>
+    </>
   );
 };
 
