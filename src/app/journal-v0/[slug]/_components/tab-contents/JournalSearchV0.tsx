@@ -87,6 +87,7 @@ const defaultExploredAreas = [
 
 export interface JournalSearchV0Props {
   eyebrow?: string;
+  tagline?: string;
   title?: string;
   description?: string;
   metrics?: Array<{
@@ -99,6 +100,9 @@ export interface JournalSearchV0Props {
   googleMapQuery?: string;
   searchMapImage?: any;
   costOfSearchTitle?: string;
+  filtersTitle?: string;
+  filters?: Array<any>;
+  filtersFooterLabel?: string;
   costOfSearchStats?: Array<{
     icon?: string | React.ReactNode;
     value: string;
@@ -109,6 +113,7 @@ export interface JournalSearchV0Props {
 
 export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
   eyebrow = "The Search",
+  tagline,
   title = "Where they looked and what they found.",
   description = "From defining non-negotiables to comparing communities and projects, every search brought them one step closer to understanding what truly mattered.",
   metrics = [
@@ -122,15 +127,25 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
   googleMapQuery = "Sarjapur Road, Bengaluru",
   searchMapImage = imgSearchMap,
   costOfSearchTitle = "The Cost of Searching",
+  filtersTitle,
+  filters,
+  filtersFooterLabel,
   costOfSearchStats = defaultCostOfSearchStats,
   costOfSearchQuote = "Not just time. It was the cost of waiting.",
 }) => {
   const exploredAreasList = exploredAreas && exploredAreas.length > 0 ? exploredAreas : defaultExploredAreas;
+  const sectionTagline = tagline || eyebrow;
+
+  const sectionTitle = filtersTitle || costOfSearchTitle || "What they filtered for";
+  const displayFilterStats = (filters && filters.length > 0)
+    ? filters
+    : ((costOfSearchStats && costOfSearchStats.length > 0) ? costOfSearchStats : defaultCostOfSearchStats);
+
   return (
     <section id="section-search" className="pt-10 ">
       <div className="text-left mb-7">
         <p className="text-[11px] font-semibold tracking-[0.15em] uppercase" style={{ fontFamily: fu, color: "#DD5128" }}>
-          {eyebrow}
+          {sectionTagline}
         </p>
         <h2 className="mt-2 text-[clamp(28px,3.6vw,40px)] font-semibold leading-[1.08] tracking-[-0.02em]" style={{ fontFamily: fd, color: "#111821" }}>
           {title}
@@ -140,9 +155,9 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
         </p>
       </div>
 
-      {/* Metrics strip */}
+      {/* Metrics Header Strip */}
       <div
-        className="bg-white border flex flex-col sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-slate-100"
+        className="mb-5 bg-white border flex flex-col sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-slate-100"
         style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
       >
         {metrics.map((cell: any) => {
@@ -177,7 +192,7 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
         </p>
 
         <div className="relative w-full rounded-[24px] border border-slate-200/80 overflow-hidden min-h-[580px] bg-[#F4F6F8] shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
-          {/* Real Google Map Background (Non-movable pointer-events-none to maintain perfect card alignment) */}
+          {/* Real Google Map Background */}
           <iframe
             title="Explored Areas Google Map"
             src={`https://maps.google.com/maps?q=${encodeURIComponent(googleMapQuery || "Sarjapur Road, Bengaluru")}&t=m&z=12&output=embed&iwloc=near`}
@@ -215,28 +230,23 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
               );
             })}
 
-            {/* Dynamic Overlayed Area Cards */}
+            {/* Area Info Marker Cards */}
             {exploredAreasList.map((area: any, idx: number) => {
-              const defaultPositions = [
-                { left: "10%", top: "10%" },
-                { left: "37%", top: "36%" },
-                { left: "64%", top: "8%" },
-              ];
-              const defaultPos = defaultPositions[idx % defaultPositions.length];
-              const posLeft = area.left || defaultPos.left;
-              const posTop = area.top || defaultPos.top;
               const areaName = area.name || area.title || "";
               const areaDesc = area.desc || area.description || "";
-              const areaImage = getImgSrc(area.image || area.imageSrc || searchMapImage || imgSearchMap);
-              const projectsCount = area.projectsCount || area.projects || 3;
-              const visitsCount = area.visitsCount || area.siteVisits || area.visits || 2;
-              const dotColor = area.dotColor || (idx === 2 ? "#DD5128" : idx === 1 ? "rgb(16, 185, 129)" : "rgb(59, 130, 246)");
+              const projectsCount = area.projectsCount || area.projects || 0;
+              const visitsCount = area.visitsCount || area.siteVisits || 0;
+              const dotColor = area.dotColor || "#DD5128";
+              const areaImage = getImgSrc(area.image || area.imageSrc || searchMapImage);
 
               return (
                 <div
                   key={area.id || idx}
-                  className="absolute pointer-events-auto transition-all duration-300 hover:scale-105 hover:z-30 z-10"
-                  style={{ left: posLeft, top: posTop }}
+                  className="absolute z-10 pointer-events-auto transition-transform hover:scale-[1.03]"
+                  style={{
+                    left: area.left || (idx === 0 ? "10%" : idx === 1 ? "37%" : "64%"),
+                    top: area.top || (idx === 0 ? "10%" : idx === 1 ? "36%" : "8%"),
+                  }}
                 >
                   <div
                     className="w-[190px] sm:w-[200px] rounded-xl overflow-hidden relative"
@@ -295,41 +305,50 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
         </div>
       </div>
 
-      {/* Cost of searching grid */}
+      {/* Dynamic Filters & Search Criteria Grid */}
       <div className="mt-5">
         <div
           className="bg-white border p-6 sm:p-8"
           style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
         >
           <p className="text-[9.5px] font-semibold tracking-[0.14em] uppercase mb-6" style={{ fontFamily: fu, color: "#8A94A1" }}>
-            {costOfSearchTitle}
+            {sectionTitle}
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-            {costOfSearchStats.map((item: any) => {
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {displayFilterStats.map((item: any, idx: number) => {
               const iconElement =
                 typeof item.icon === "string"
                   ? getIcon(item.icon, "MapPin", { className: "w-4 h-4 text-[#DD5128]" })
                   : item.icon;
 
+              const itemTitle = item.title || item.label || `Filter #${idx + 1}`;
+              const itemValue = item.value || "";
+              const itemDesc = item.description || item.subtext || "";
+
               return (
-                <div key={item.label} className="rounded-xl border border-slate-100 p-4 flex flex-col gap-2" style={{ background: "#f8fafc" }}>
+                <div key={itemTitle + idx} className="rounded-xl border border-slate-100 p-5 flex flex-col gap-2 bg-[#f8fafc]">
                   <span className="text-[#DD5128]">{iconElement}</span>
-                  <p className="text-[18px] font-semibold leading-none" style={{ fontFamily: fd, color: "#111821" }}>
-                    {item.value}
+                  <p className="text-[10px] font-semibold tracking-[0.12em] uppercase text-[#8A94A1]" style={{ fontFamily: fu }}>
+                    {itemTitle}
                   </p>
-                  <p className="text-[11.5px] leading-tight" style={{ fontFamily: fu, color: "#6B7280" }}>
-                    {item.label}
+                  <p className="text-[16.5px] font-medium leading-snug text-[#111821]" style={{ fontFamily: fd }}>
+                    {itemValue}
                   </p>
+                  {itemDesc && (
+                    <p className="text-[12.5px] leading-relaxed text-[#59636F] mt-1" style={{ fontFamily: fu }}>
+                      {itemDesc}
+                    </p>
+                  )}
                 </div>
               );
             })}
           </div>
 
-          {costOfSearchQuote && (
+          {(filtersFooterLabel || costOfSearchQuote) && (
             <div className="mt-6 pt-5 border-t border-slate-100 text-center">
-              <p className="text-[15px] italic font-medium" style={{ fontFamily: fd, color: "#4B5563" }}>
-                "{costOfSearchQuote}"
+              <p className="text-[14.5px] italic font-medium" style={{ fontFamily: fd, color: "#4B5563" }}>
+                "{filtersFooterLabel || costOfSearchQuote}"
               </p>
             </div>
           )}
