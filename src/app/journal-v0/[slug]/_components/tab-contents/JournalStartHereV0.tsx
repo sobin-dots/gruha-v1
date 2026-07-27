@@ -167,68 +167,66 @@ export const JournalStartHereV0: React.FC<JournalStartHereV0Props> = ({
 
         {/* CTA card */}
         <div
-          className="mt-10 w-full border overflow-hidden"
-          style={{ borderRadius: 14, borderColor: "#E4E9EF", background: "#ffffff", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
+          className="mt-10 w-full relative overflow-hidden"
+          style={{ borderRadius: 14, background: "rgba(17, 24, 39, 0.95)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.1)", boxShadow: "0 20px 50px rgba(0,0,0,0.3)" }}
         >
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px]">
+          {/* Glow blobs */}
+          <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full" style={{ background: "rgba(242,90,43,0.15)", filter: "blur(80px)" }} />
+          <div className="absolute -bottom-24 -left-24 w-48 h-48 rounded-full" style={{ background: "rgba(59,130,246,0.08)", filter: "blur(80px)" }} />
+
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_340px]">
             <div className="px-6 sm:px-10 py-10 lg:py-12 flex flex-col items-center justify-center text-center">
-              <h2 className="text-[clamp(28px,3.6vw,40px)] font-semibold leading-[1.08] tracking-[-0.02em] mb-4" style={{ fontFamily: fd, color: "#111821" }}>
+              <h2 className="text-[clamp(28px,3.6vw,40px)] font-semibold leading-[1.08] tracking-[-0.02em] mb-4 text-white" style={{ fontFamily: fd }}>
                 {ctaTitle}
               </h2>
-              <p className="text-[16px] leading-[1.6] mb-8 max-w-[480px]" style={{ fontFamily: fu, color: "#59636F" }}>
+              <p className="text-[16px] leading-[1.6] mb-8 max-w-[480px] text-gray-400" style={{ fontFamily: fu }}>
                 {ctaDescription}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
                 <button
                   type="button"
-                  className="w-full sm:w-auto px-6 py-3 text-[14px] font-semibold rounded-xl text-white transition-opacity hover:opacity-90 cursor-pointer"
-                  style={{ background: "#DD5128", fontFamily: fu }}
+                  className="group relative w-full sm:w-auto px-6 py-3 text-[14px] font-bold rounded-xl text-white overflow-hidden transition-all hover:shadow-[0_0_20px_rgba(242,90,43,0.4)] hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                  style={{ background: "#f25a2b", fontFamily: fu }}
                 >
-                  {ctaButtonText}
+                  <span className="relative z-10">{ctaButtonText}</span>
+                  <svg className="relative z-10 w-4 h-4 inline-block ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 7l5 5m0 0l-5 5m5-5H6" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" /></svg>
+                  <div className="absolute inset-0 w-full h-full -translate-x-full group-hover:translate-x-full transition-all duration-1000 ease-in-out" style={{ background: "linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent)" }} />
                 </button>
                 <button
                   type="button"
-                  className="w-full sm:w-auto px-6 py-3 text-[14px] font-semibold rounded-xl border transition-colors hover:bg-slate-50 cursor-pointer"
-                  style={{ borderColor: "#E4E9EF", fontFamily: fu, color: "#111821" }}
+                  className="w-full sm:w-auto px-6 py-3 text-[14px] font-semibold rounded-xl transition-colors hover:bg-white/5 cursor-pointer"
+                  style={{ fontFamily: fu, color: "rgba(255,255,255,0.6)", border: "1px solid rgba(255,255,255,0.1)" }}
                 >
                   {ctaAdaptButtonText}
                 </button>
               </div>
             </div>
 
-            <div
-              className="relative flex items-center justify-center py-10 px-8 overflow-hidden min-h-[220px]"
-              style={{ background: "linear-gradient(160deg, #9B6EF3, #C4B5FD)" }}
-            >
+            <div className="relative flex items-center justify-center py-10 px-8 overflow-hidden min-h-[220px]">
+              {/* Aura */}
+              <div className="absolute inset-0 rounded-full" style={{ background: "linear-gradient(to top right, #f25a2b, #7C3AED, #3B82F6)", filter: "blur(40px)", opacity: 0.25, animation: "pulse-glow 3s ease-in-out infinite" }} />
+
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="absolute" style={{ top: "16%", left: "14%" }}>
-                <path d="M10 1 L11 8 L18 10 L11 12 L10 19 L9 12 L2 10 L9 8 Z" fill="rgba(255,255,255,0.5)" stroke="white" strokeWidth="1" strokeLinejoin="round" />
+                <path d="M10 1 L11 8 L18 10 L11 12 L10 19 L9 12 L2 10 L9 8 Z" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" strokeWidth="1" strokeLinejoin="round" />
               </svg>
 
               <div
                 className="rounded-full overflow-hidden flex-none relative z-10"
-                style={{
-                  width: 140,
-                  height: 140,
-                  border: "4px solid rgba(255,255,255,0.5)",
-                  boxShadow: "0 12px 32px rgba(0,0,0,0.25)",
-                }}
+                style={{ width: 140, height: 140, border: "3px solid rgba(255,255,255,0.2)", boxShadow: "0 12px 32px rgba(0,0,0,0.3)" }}
               >
-                <img src={getImgSrc(ctaCharacterImage || imgRiya)} alt="Riya" className="w-full h-full object-cover object-top" />
+                <img src={getImgSrc(imgRiya)} alt="Riya" className="w-full h-full object-cover object-top" />
               </div>
+              {/* Green indicator */}
+              <div className="absolute z-20" style={{ bottom: "22%", right: "28%", width: 20, height: 20, background: "#4ADE80", border: "4px solid #111827", borderRadius: "50%" }} />
 
               <div
-                className="absolute flex items-center gap-1 px-3 py-1 rounded-full"
-                style={{
-                  bottom: "15%",
-                  background: "rgba(255,255,255,0.2)",
-                  backdropFilter: "blur(8px)",
-                  zIndex: 10,
-                }}
+                className="absolute flex items-center gap-1 px-3 py-1 rounded-full z-10"
+                style={{ bottom: "12%", background: "rgba(255,255,255,0.08)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.1)" }}
               >
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path d="M6 1 L6.5 4.5 L10 5 L6.5 5.5 L6 9 L5.5 4.5 Z" fill="white" stroke="white" strokeWidth="0.6" strokeLinejoin="round" />
+                  <path d="M6 1 L6.5 4.5 L10 5 L6.5 5.5 L6 9 L5.5 4.5 Z" fill="rgba(255,255,255,0.6)" stroke="rgba(255,255,255,0.6)" strokeWidth="0.6" strokeLinejoin="round" />
                 </svg>
-                <span className="text-[11px] font-semibold text-white" style={{ fontFamily: fu }}>
+                <span className="text-[11px] font-semibold text-white/70" style={{ fontFamily: fu }}>
                   {ctaBadgeText}
                 </span>
               </div>

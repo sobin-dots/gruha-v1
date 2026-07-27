@@ -43,15 +43,16 @@ function TabNav({
       className="z-20 sticky top-0 w-screen relative left-0 right-1/2 -ml-[50vw] -mr-[50vw] bg-white border-b border-slate-200 shadow-xs"
     >
       <div className="max-w-[1400px] mx-auto px-4 sm:px-8">
-        <nav className="flex items-center justify-start gap-1 overflow-x-auto overscroll-x-contain touch-pan-x [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+        <nav className="flex items-center justify-start gap-1 overflow-x-hidden overflow-y-hidden">
           {/* Brand Logo & Title (Reveals on the left when navbar sticks to the top) */}
           <div
-            className="flex items-center gap-2.5 shrink-0 transition-all duration-300 ease-out overflow-hidden"
+            className="flex items-center gap-2.5 shrink-0 transition-all ease-out overflow-hidden"
             style={{
               maxWidth: showBrand ? 240 : 0,
               opacity: showBrand ? 1 : 0,
               marginRight: showBrand ? 20 : 0,
               transform: showBrand ? "translateX(0)" : "translateX(-12px)",
+              transitionDuration: showBrand ? "500ms" : "600ms",
             }}
           >
             <img

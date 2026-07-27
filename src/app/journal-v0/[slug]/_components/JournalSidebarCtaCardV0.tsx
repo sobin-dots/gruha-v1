@@ -48,7 +48,7 @@ export const JournalSidebarCtaCardV0: React.FC<JournalSidebarCtaCardV0Props> = (
       <div
         className="relative overflow-hidden z-100"
         style={{
-          borderRadius: 40,
+          borderRadius: 14,
           background: "rgba(17, 24, 39, 0.95)",
           backdropFilter: "blur(12px)",
           border: "1px solid rgba(255, 255, 255, 0.1)",
