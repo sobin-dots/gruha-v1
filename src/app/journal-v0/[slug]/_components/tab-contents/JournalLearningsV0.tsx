@@ -229,7 +229,7 @@ export const JournalLearningsV0: React.FC<JournalLearningsV0Props> = ({
                     <div className="flex-1 min-w-0" style={{ paddingTop: 1 }}>
                       <div className="flex items-center gap-3 mb-2">
                         <p className="text-[9.5px] font-semibold tracking-[0.12em] uppercase" style={{ fontFamily: fu, color: item.turning ? "#DD5128" : "#8A94A1" }}>
-                          {item.month}
+                          {item.month || `LESSON 0${i + 1}`}
                         </p>
                         {item.turning && (
                           <span className="text-[9px] font-semibold px-2 py-0.5 rounded-full tracking-wide" style={{ background: "#FEF0EC", color: "#DD5128", fontFamily: fu }}>
@@ -238,43 +238,15 @@ export const JournalLearningsV0: React.FC<JournalLearningsV0Props> = ({
                         )}
                       </div>
                       <h4 className="text-[18px] leading-[1.3] mb-1.5" style={{ fontFamily: fd, color: "#111821", fontWeight: 500 }}>
-                        {item.headline}
+                        {item.headline || item.title}
                       </h4>
                       <p className="text-[13.5px] leading-[1.65]" style={{ fontFamily: fu, color: "#59636F" }}>
-                        {item.body}
+                        {item.body || item.description}
                       </p>
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-        ) : displayLessons && displayLessons.length > 0 ? (
-          <div
-            className="bg-white border px-6 sm:px-10 py-8"
-            style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
-          >
-            <p className="text-[9.5px] font-semibold tracking-[0.14em] uppercase mb-8" style={{ fontFamily: fu, color: "#8A94A1" }}>
-              {lessonsTitle}
-            </p>
-            <div className="flex flex-col gap-6">
-              {displayLessons.map((item: any, i: number) => (
-                <div key={i} className="flex flex-col sm:flex-row gap-5 items-start border-b border-slate-100 pb-6 last:pb-0 last:border-b-0">
-                  {item.imageSrc && (
-                    <div className="w-full sm:w-[160px] h-[110px] rounded-xl overflow-hidden bg-slate-50 flex-none border border-slate-100">
-                      <img src={getImgSrc(item.imageSrc)} alt={item.title} className="w-full h-full object-cover" />
-                    </div>
-                  )}
-                  <div className="flex-1">
-                    <h4 className="text-[18px] leading-[1.3] mb-2 font-semibold" style={{ fontFamily: fd, color: "#111821" }}>
-                      {item.title}
-                    </h4>
-                    <p className="text-[14px] leading-[1.6]" style={{ fontFamily: fu, color: "#59636F" }}>
-                      {item.description || item.body}
-                    </p>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         ) : null}

@@ -742,7 +742,40 @@
       "adviceTitle": "Advice for conservative buyers",
       "adviceStoryboardImage": "/journals/journey-storyboard.png",
       "adviceStoryboardImagePrompt": "A vector storyboard showing Suresh opening ledger, auditing OC number, walking away from price theatre, and signing Brigade Gardenia deed, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, clean white background.",
-      "adviceDescription": "For conservative buyers seeking capital protection over speculative growth, success comes from demanding photocopied OCs, auditing RWA accounts, and walking away from price theatre. Suresh & Veena proved that when safety leads, peace of mind follows."
+      "adviceDescription": "For conservative buyers seeking capital protection over speculative growth, success comes from demanding photocopied OCs, auditing RWA accounts, and walking away from price theatre. Suresh & Veena proved that when safety leads, peace of mind follows.",
+      "monthlyLearningsTitle": "Lessons learned along the way",
+      "monthlyLearnings": [
+        {
+          "month": "MONTH 1",
+          "headline": "\"Ready-to-move\" and \"OC received\" are not the same sentence",
+          "body": "Suresh learned to demand the occupancy certificate's number, not its existence, before opening price negotiations.",
+          "turning": false
+        },
+        {
+          "month": "MONTH 3",
+          "headline": "Builder-held inventory negotiates differently from launch stock",
+          "body": "Quarter-end and financial-year-end conversations produced ₹40–60L swings on identical completed units.",
+          "turning": false
+        },
+        {
+          "month": "MONTH 5",
+          "headline": "RWA sinking fund health is the real structural report",
+          "body": "Auditing society AGM minutes revealed unrecorded repair levies, saving ₹6L in unbudgeted maintenance.",
+          "turning": true
+        },
+        {
+          "month": "MONTH 7",
+          "headline": "Stopped comparing today's price to 2019 reference points",
+          "body": "Accepted current South Bengaluru market pricing — the market does not owe anyone historical reference points.",
+          "turning": false
+        },
+        {
+          "month": "MONTH 8",
+          "headline": "Walking away twice established real negotiation power",
+          "body": "Exiting negotiations when sellers moved final prices taught brokers Suresh was serious; the third deal started 8% lower.",
+          "turning": false
+        }
+      ]
     },
     {
       "id": "start-here",

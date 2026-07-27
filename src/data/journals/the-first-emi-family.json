@@ -767,7 +767,28 @@
       "adviceTitle": "Advice for people like them",
       "adviceStoryboardImage": "/journals/journey-storyboard.png",
       "adviceDescription": "Every decision in their journey became a lesson. Looking back, Pavan and Shruti realised that confidence didn't come from visiting more projects or chasing the lowest price. It came from understanding their priorities, comparing thoughtfully and planning for the life they wanted to build. These lessons are the experiences they hope every future homebuyer can learn before beginning their own journey.",
-      "imagegenerationprompt": "A modern flat vector illustration of riya, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+      "imagegenerationprompt": "A modern flat vector illustration of riya, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality.",
+      "monthlyLearningsTitle": "Lessons learned along the way",
+      "monthlyLearnings": [
+        {
+          "month": "MONTH 1",
+          "headline": "Budget boundaries are non-negotiable for first-time buyers",
+          "body": "Stretching for an extra room only works if emergency reserves remain 100% untouched.",
+          "turning": false
+        },
+        {
+          "month": "MONTH 3",
+          "headline": "RERA filing audits verify construction milestone promises",
+          "body": "Checking RERA progress filings confirmed builder delivery track record before signing booking agreement.",
+          "turning": true
+        },
+        {
+          "month": "MONTH 5",
+          "headline": "Outer Sarjapur Road balanced EMI, school, and commute",
+          "body": "Selecting a 2.5BHK in a family-oriented township provided long-term appreciation and immediate comfort.",
+          "turning": false
+        }
+      ]
     },
     {
       "id": "start-here",

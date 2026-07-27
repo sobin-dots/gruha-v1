@@ -715,7 +715,40 @@
       "adviceTitle": "Advice for data-first investors",
       "adviceStoryboardImage": "/journals/journey-storyboard.png",
       "adviceStoryboardImagePrompt": "A vector storyboard showing spreadsheet modeling, kitchen mandate framing, EOI refunding, and final tower unit booking.",
-      "adviceDescription": "For analytical investors, confidence comes from written decision mandates, tendered infrastructure verification, and strict RERA compliance. Nikhil proved that overcoming analysis paralysis with a clear 4-rule mandate delivers true compounding alpha."
+      "adviceDescription": "For analytical investors, confidence comes from written decision mandates, tendered infrastructure verification, and strict RERA compliance. Nikhil proved that overcoming analysis paralysis with a clear 4-rule mandate delivers true compounding alpha.",
+      "monthlyLearningsTitle": "Lessons learned along the way",
+      "monthlyLearnings": [
+        {
+          "month": "MONTH 2",
+          "headline": "\"Proposed\" infrastructure is a story; \"tendered\" is a catalyst",
+          "body": "Filtering for hard tendered contracts with contractor names eliminated half the speculative shortlist.",
+          "turning": false
+        },
+        {
+          "month": "MONTH 4",
+          "headline": "Early-bird launch pricing compensates for delivery risk",
+          "body": "The 8–12% pre-launch discount is compensation for construction wait, not free market upside. Price the risk.",
+          "turning": false
+        },
+        {
+          "month": "MONTH 6",
+          "headline": "Corridor appreciation timing arrives later than spreadsheets predict",
+          "body": "Back-tested predictions proved right on direction but wrong on timing by 2+ years. Corridors arrive late.",
+          "turning": false
+        },
+        {
+          "month": "MONTH 9",
+          "headline": "Foregone appreciation cost: ₹35L lost to analysis loop",
+          "body": "Decided on a hard decision rule: write down the 4 commit conditions and execute when green.",
+          "turning": true
+        },
+        {
+          "month": "MONTH 11",
+          "headline": "Deepa's rule (\"not a second job\") is the ultimate filter",
+          "body": "Any real estate asset requiring weekly management fails the family's core investment mandate.",
+          "turning": false
+        }
+      ]
     },
     {
       "id": "start-here",

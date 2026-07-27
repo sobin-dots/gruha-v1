@@ -711,7 +711,40 @@
       "adviceTitle": "Advice for inter-state land investors",
       "adviceStoryboardImage": "/journals/journey-storyboard.png",
       "adviceStoryboardImagePrompt": "A vector storyboard showing Guntur land sale, CA 54F calendar planning, lawyer EC checking, and double registration, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, clean white background.",
-      "adviceDescription": "For buyers reinvesting land capital across states under Section 54F, success requires pairing community sourcing with independent legal verification. Venkata Ramana Chowdary proved that when legal diligence leads, inter-state capital deployment succeeds seamlessly."
+      "adviceDescription": "For buyers reinvesting land capital across states under Section 54F, success requires pairing community sourcing with independent legal verification. Venkata Ramana Chowdary proved that when legal diligence leads, inter-state capital deployment succeeds seamlessly.",
+      "monthlyLearningsTitle": "Lessons learned along the way",
+      "monthlyLearnings": [
+        {
+          "month": "MONTH 1",
+          "headline": "Section 54F tax reinvestment clock dictates schedule",
+          "body": "Closing the Guntur land sale started the 54F calendar; CA's timeline defined the hard 8-month window.",
+          "turning": false
+        },
+        {
+          "month": "MONTH 2",
+          "headline": "Independent lawyer check saved ₹3.75 Cr from rajakaluve shadow",
+          "body": "Community WhatsApp \"super deals\" require independent title and EC runs before any advance is paid.",
+          "turning": true
+        },
+        {
+          "month": "MONTH 4",
+          "headline": "Laminated price sheets move at quarter-end via sales heads",
+          "body": "In-person negotiation works in Bengaluru — but through quarter-end sales heads rather than site executives.",
+          "turning": false
+        },
+        {
+          "month": "MONTH 6",
+          "headline": "Two-asset split satisfies both family and long-term land wealth",
+          "body": "Parking ₹3.75 Cr into a 3BHK flat near son in Bellandur plus a gated plot near airport balanced both goals.",
+          "turning": false
+        },
+        {
+          "month": "MONTH 7",
+          "headline": "Absorbed son's independence with grace to close in window",
+          "body": "Accepting the son's choice to stay in Bellandur allowed both registrations to complete inside the 54F deadline.",
+          "turning": false
+        }
+      ]
     },
     {
       "id": "start-here",

@@ -719,7 +719,40 @@
       "adviceTitle": "Advice for NRI home-buyers",
       "adviceStoryboardImage": "/journals/journey-storyboard.png",
       "adviceStoryboardImagePrompt": "A vector storyboard showing Dubai video calling, brother site visiting, consulate POA signing, and key handover, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, clean white background.",
-      "adviceDescription": "For NRI investors 3,000 miles away, confidence comes from structured video protocols, consulate-attested POA verification, and choosing brand developers with proven delivery records. Arjun proved that remote home buying succeeds when process leads and trips merely verify."
+      "adviceDescription": "For NRI investors 3,000 miles away, confidence comes from structured video protocols, consulate-attested POA verification, and choosing brand developers with proven delivery records. Arjun proved that remote home buying succeeds when process leads and trips merely verify.",
+      "monthlyLearningsTitle": "Lessons learned along the way",
+      "monthlyLearnings": [
+        {
+          "month": "MONTH 1",
+          "headline": "The Power of Attorney (POA) is the project",
+          "body": "Drafting, notarizing, and consular apostilling the POA takes longer than shortlisting — start it first.",
+          "turning": false
+        },
+        {
+          "month": "MONTH 3",
+          "headline": "Quarterly RERA portal progress tracking reveals real speed",
+          "body": "Comparing RERA filings across 4 quarters revealed which developer actually pours concrete on schedule.",
+          "turning": false
+        },
+        {
+          "month": "MONTH 4",
+          "headline": "Video-visit protocol resolves spreadsheet vs gut feel conflicts",
+          "body": "When spreadsheet and brother's gut feel disagreed, asking \"Which of us has stood in the flat?\" resolved it.",
+          "turning": true
+        },
+        {
+          "month": "MONTH 6",
+          "headline": "NRI Section 195 TDS mechanics require primary developer flow",
+          "body": "Buyer-side tax compliance rules for NRIs differ significantly from resale individual seller rules.",
+          "turning": false
+        },
+        {
+          "month": "MONTH 8",
+          "headline": "Optimized for verifiability over perfect specs from 3,000 km",
+          "body": "From abroad, documentation verifiability and brand developer track record are the true metrics of value.",
+          "turning": false
+        }
+      ]
     },
     {
       "id": "start-here",
