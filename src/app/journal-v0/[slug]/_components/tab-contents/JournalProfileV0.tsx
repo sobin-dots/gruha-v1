@@ -81,6 +81,28 @@ export const JournalProfileV0: React.FC<JournalProfileV0Props> = ({
     { title: "Safe, family-friendly neighbourhood", score: 7.5, why: "A secure environment for their child to grow up in.", pct: 75 },
   ],
 }) => {
+  const singleBuyerFirstName = (() => {
+    if (buyers && buyers.length === 1 && buyers[0]?.name) {
+      const rawName = buyers[0].name.trim();
+      if (!rawName.includes("&") && !/\band\b/i.test(rawName)) {
+        return rawName.split(" ")[0];
+      }
+    }
+    return null;
+  })();
+
+  const sectionTitle = (title === "Who they are" && singleBuyerFirstName)
+    ? `Who is ${singleBuyerFirstName}`
+    : title;
+
+  const defaultDescription = singleBuyerFirstName
+    ? `Getting to know ${singleBuyerFirstName} — their world, their dreams, and what matters most.`
+    : "Getting to know Pavan & Shruti — their world, their dreams, and what matters most.";
+
+  const sectionDescription = description === "Getting to know Pavan & Shruti — their world, their dreams, and what matters most." && singleBuyerFirstName
+    ? defaultDescription
+    : description;
+
   return (
     <section id="section-profile" className="pt-12 ">
       {/* Section Header */}
@@ -89,10 +111,10 @@ export const JournalProfileV0: React.FC<JournalProfileV0Props> = ({
           {aboutLabel}
         </p>
         <h2 className="mt-2 text-[clamp(28px,3.6vw,40px)] font-semibold leading-[1.08] tracking-[-0.02em]" style={{ fontFamily: fd, color: "#111821" }}>
-          {title}
+          {sectionTitle}
         </h2>
         <p className="mt-3 text-[17px] leading-[1.55]" style={{ fontFamily: fd, color: "#59636F" }}>
-          {description}
+          {sectionDescription}
         </p>
       </div>
 
