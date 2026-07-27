@@ -381,7 +381,7 @@
           "description": "High corporate demand, 85%+ occupancy, strict RWA audit required before token.",
           "projects": 6,
           "siteVisits": 8,
-          "imageSrc": "/journals/bellandur.png",
+          "imageSrc": "/journals/the-twelve-keys-journal/hero.png",
           "imagegenerationprompt": "A modern vector illustration of a modern vector landscape of Bellandur ORR tech park towers and glass facades, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
@@ -453,7 +453,7 @@
           "possession": "Ready",
           "psf": "₹9,000–11,500/sqft",
           "location": "Whitefield / Varthur Rd",
-          "imageSrc": "/journals/the-twelve-keys-journal/hero.png"
+          "imageSrc": "/journals/the-twelve-keys-journal/projects/1.jpg"
         },
         {
           "title": "ORR Studio Stock",
@@ -462,7 +462,7 @@
           "possession": "Ready",
           "psf": "₹15,000–17,000/sqft",
           "location": "Bellandur–Kadubeesanahalli",
-          "imageSrc": "/journals/bellandur.png"
+          "imageSrc": "/journals/default.png"
         },
         {
           "title": "Manyata Studio Stock",
@@ -471,7 +471,7 @@
           "possession": "2027",
           "psf": "₹11,500/sqft",
           "location": "Thanisandra",
-          "imageSrc": "/journals/manyata.png"
+          "imageSrc": "/journals/default.png"
         }
       ],
       "prioritiesTitle": "NON-NEGOTIABLE CRITERIA",

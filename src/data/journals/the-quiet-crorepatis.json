@@ -565,7 +565,7 @@
           "possession": "Ready",
           "psf": "₹11,785/sqft",
           "location": "JP Nagar 7th Phase",
-          "imageSrc": "/journals/the-quiet-crorepatis/hero.png"
+          "imageSrc": "/journals/the-quiet-crorepatis/projects/1.jpg"
         },
         {
           "title": "Prestige Falcon City",
@@ -574,7 +574,7 @@
           "possession": "Ready",
           "psf": "₹13,200/sqft",
           "location": "Konanakunte Cross",
-          "imageSrc": "/journals/the-quiet-crorepatis/hero.png"
+          "imageSrc": "/journals/the-quiet-crorepatis/projects/2.jpg"
         },
         {
           "title": "Brigade Millennium",
@@ -583,7 +583,7 @@
           "possession": "Ready",
           "psf": "₹12,250/sqft",
           "location": "JP Nagar 7th Phase",
-          "imageSrc": "/journals/the-quiet-crorepatis/hero.png"
+          "imageSrc": "/journals/the-quiet-crorepatis/projects/3.jpg"
         }
       ],
       "rejectedTitle": "Why some projects didn't make the cut",

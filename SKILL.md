@@ -623,7 +623,7 @@ When given raw narrative text:
         }
       ],
       "consideredAreasLabel": "Other areas considered: Rajajinagar • Sarakki • Kanakapura Road",
-      "filtersTitle": "What they filtered for",
+      "filtersTitle": "The Cost of Searching",
       "filters": [
         {
           "icon": "IndianRupee",

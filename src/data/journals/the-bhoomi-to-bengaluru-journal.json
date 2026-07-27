@@ -541,7 +541,7 @@
           "possession": "Ready",
           "psf": "₹12,750–13,150/sqft",
           "location": "Balagere–Panathur",
-          "imageSrc": "/journals/sobha-royal-pavilion.png"
+          "imageSrc": "/journals/the-bhoomi-to-bengaluru-journal/projects/1.jpg"
         },
         {
           "title": "Devanahalli Gated Plot",
@@ -550,7 +550,7 @@
           "possession": "Ready",
           "psf": "₹2,100–8,500/sqft",
           "location": "Airport Corridor",
-          "imageSrc": "/journals/devanahalli-plots.png"
+          "imageSrc": "/journals/default.png"
         },
         {
           "title": "North Fringe Layout",
@@ -559,7 +559,7 @@
           "possession": "Ready",
           "psf": "₹4,500/sqft",
           "location": "North Fringe",
-          "imageSrc": "/journals/the-bhoomi-to-bengaluru-journal/hero.png"
+          "imageSrc": "/journals/default.png"
         }
       ],
       "rejectedTitle": "Why some projects didn't make the cut",

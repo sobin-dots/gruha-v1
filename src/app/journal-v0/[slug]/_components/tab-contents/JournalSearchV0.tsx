@@ -136,7 +136,7 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
   const exploredAreasList = exploredAreas && exploredAreas.length > 0 ? exploredAreas : defaultExploredAreas;
   const sectionTagline = tagline || eyebrow;
 
-  const sectionTitle = filtersTitle || costOfSearchTitle || "What they filtered for";
+  const sectionTitle = filtersTitle || costOfSearchTitle || "The Cost of Searching";
   const displayFilterStats = (filters && filters.length > 0)
     ? filters
     : ((costOfSearchStats && costOfSearchStats.length > 0) ? costOfSearchStats : defaultCostOfSearchStats);

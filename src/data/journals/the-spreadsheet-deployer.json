@@ -541,7 +541,7 @@
           "possession": "2029",
           "psf": "₹11,950–12,100/sqft",
           "location": "Thanisandra Main Rd",
-          "imageSrc": "/journals/nikoo-homes.png"
+          "imageSrc": "/journals/the-spreadsheet-deployer/projects/1.jpg"
         },
         {
           "title": "L&T Raintree Boulevard",
@@ -550,7 +550,7 @@
           "possession": "Ready",
           "psf": "₹17,500–20,400/sqft",
           "location": "Hebbal",
-          "imageSrc": "/journals/raintree-boulevard.png"
+          "imageSrc": "/journals/the-spreadsheet-deployer/projects/2.jpg"
         },
         {
           "title": "Devanahalli Plots",
@@ -559,7 +559,7 @@
           "possession": "Ready",
           "psf": "₹2,100–8,500/sqft",
           "location": "Devanahalli",
-          "imageSrc": "/journals/devanahalli-plots.png"
+          "imageSrc": "/journals/default.png"
         }
       ],
       "rejectedTitle": "Why some projects didn't make the cut",

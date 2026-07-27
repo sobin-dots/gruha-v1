@@ -137,8 +137,8 @@ export const JournalLearningsV0: React.FC<JournalLearningsV0Props> = ({
   const displayInsights = (insights && insights.length > 0)
     ? insights
     : (metrics && metrics.length > 0)
-    ? metrics
-    : defaultInsights;
+      ? metrics
+      : defaultInsights;
 
   const displayMonthly = (monthlyLearnings && monthlyLearnings.length > 0)
     ? monthlyLearnings
@@ -167,7 +167,7 @@ export const JournalLearningsV0: React.FC<JournalLearningsV0Props> = ({
           {eyebrow}
         </p>
         <h2 className="mt-2 text-[clamp(28px,3.6vw,40px)] font-semibold leading-[1.08] tracking-[-0.02em]" style={{ fontFamily: fd, color: "#111821" }}>
-          {title}
+          {lessonsTitle || title}
         </h2>
         <p className="mt-3 text-[17px] leading-[1.55]" style={{ fontFamily: fd, color: "#59636F" }}>
           {description}
