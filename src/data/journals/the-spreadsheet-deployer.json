@@ -779,6 +779,15 @@
           "description": "Verify developer past delivery records and exit liquidity history.",
           "icon": "ShieldCheck"
         }
+      ],
+      "checklistTitle": "IS THIS YOU?",
+      "checklistItems": [
+        "You have capital ready and a spreadsheet that has been \"two weeks from final\" for most of a year.",
+        "You compare every property to an index-fund benchmark, out loud, at site visits.",
+        "Launch-window pricing excites you more than ready inventory — you want the developer's early-bird margin, not the resale market's.",
+        "You track infrastructure tenders the way others track cricket scores.",
+        "You know your analysis is partly fear, and you'd rather not discuss it.",
+        "Your spouse has one rule for this money, and you're quietly testing its edges."
       ]
     }
   ]

@@ -806,6 +806,15 @@
           "description": "Anchor liquid savings into ready brick assets while preserving reserve funds.",
           "icon": "Building2"
         }
+      ],
+      "checklistTitle": "IS THIS YOU?",
+      "checklistItems": [
+        "You have meaningful savings earning FD rates, and the guilt of \"doing nothing\" with them has started arriving with every renewal notice.",
+        "Capital protection matters more to you than capital growth — you would take 3% safe over 12% uncertain without blinking.",
+        "You will not sign an EMI. Ever. The conversation ends there.",
+        "You only trust what you can physically visit, and you want the asset within your daily geography.",
+        "Documents calm you down; brochures make you suspicious.",
+        "A 7-year-old building with a good RWA feels safer to you than a brand-new tower with a ribbon on it."
       ]
     }
   ]

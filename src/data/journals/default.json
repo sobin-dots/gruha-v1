@@ -823,7 +823,16 @@
       "ctaTitle": "Ready to write your story?",
       "ctaDescription": "Let Riya understand your goals and, together with Kabir, create a personalized journal that guides you toward the right home with confidence",
       "ctaButtonText": "Copy Journal",
-      "ctaCharacterImage": "/journals/riya-full-character.png"
+      "ctaCharacterImage": "/journals/riya-full-character.png",
+      "checklistTitle": "IS THIS YOU?",
+      "checklistItems": [
+        "You are buying your first home together before major life milestones (e.g., family planning).",
+        "Balancing EMI affordability with lifestyle preferences in growth corridors like Sarjapur Road.",
+        "Navigating builder trust, construction timelines, and RERA approvals for under-construction vs ready stock.",
+        "You do the math twice before committing and prioritize financial discipline.",
+        "Seeking a safe, family-oriented gated community with strong resale and rental potential.",
+        "Want a modern home with top amenities without overextending your emergency savings."
+      ]
     }
   ]
 }
