@@ -23,7 +23,8 @@
         "icon": "Home",
         "text": "Allocate physical memory objects (door, katte, photos) before splitting percentages"
       }
-    ]
+    ],
+    "heroImage": "/journals/the-inheritance-consolidators/hero.png"
   },
   "tabs": [
     {

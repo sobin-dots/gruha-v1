@@ -22,7 +22,8 @@
         "icon": "Users",
         "text": "Manage home buying before becoming parents"
       }
-    ]
+    ],
+    "heroImage": "/journals/default/hero.png"
   },
   "tabs": [
     {
