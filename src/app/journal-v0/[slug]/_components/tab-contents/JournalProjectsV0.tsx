@@ -174,11 +174,12 @@ export const JournalProjectsV0: React.FC<JournalProjectsV0Props> = ({
               return (
                 <div
                   key={`${projName}-${idx}`}
-                  className="bg-white rounded-[24px] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col transition-all duration-300 hover:shadow-[0_10px_32px_rgba(0,0,0,0.08)]"
+                  className="bg-white rounded-[20px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
                 >
                   {/* Card Image */}
                   <div className="h-52 relative bg-slate-100 overflow-hidden">
-                    <img src={projImg} alt={projName} className="w-full h-full object-cover object-center" />
+                    <img src={projImg} alt={projName} className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                     {proj.isOverlay && (
                       <div className="absolute inset-0 bg-black/65 backdrop-blur-[2px] flex flex-col items-center justify-center text-center p-4">
                         <span className="text-[12px] font-semibold tracking-wider uppercase text-[#FF8A65] mb-1 font-mono">
@@ -191,29 +192,29 @@ export const JournalProjectsV0: React.FC<JournalProjectsV0Props> = ({
                     )}
                   </div>
 
-                  {/* Card Body */}
-                  <div className="p-6 flex-1 flex flex-col justify-between bg-white">
-                    <div className="mb-4">
+                  {/* Card Content */}
+                  <div className="p-5 flex-1 flex flex-col justify-between">
+                    <div>
                       <h4
-                        className="text-[20px] font-normal leading-tight text-[#111821] tracking-[-0.01em]"
-                        style={{ fontFamily: fd }}
+                        className="text-[17px] font-medium leading-tight mb-1"
+                        style={{ fontFamily: fd, color: "#111821" }}
                       >
                         {projName}
                       </h4>
                     </div>
 
                     <div className="pt-4 border-t border-slate-100/90">
-                      <div className="flex items-start justify-between mb-2">
+                      <div className="flex items-start justify-between">
                         <div>
                           <p
-                            className="text-[9.5px] font-semibold tracking-[0.14em] uppercase text-[#94A3B8] mb-1.5"
-                            style={{ fontFamily: fu }}
+                            className="text-[9.5px] font-semibold tracking-[0.15em] uppercase mb-1"
+                            style={{ fontFamily: fu, color: "#94A3B8" }}
                           >
                             PRICE RANGE
                           </p>
                           <p
-                            className="text-[18px] font-semibold leading-none text-[#111821]"
-                            style={{ fontFamily: fd }}
+                            className="text-[16px] font-semibold leading-none"
+                            style={{ fontFamily: fd, color: "#111821" }}
                           >
                             {projPrice}
                           </p>
@@ -222,14 +223,14 @@ export const JournalProjectsV0: React.FC<JournalProjectsV0Props> = ({
                         {projPossession && (
                           <div className="text-right">
                             <p
-                              className="text-[9.5px] font-semibold tracking-[0.14em] uppercase text-[#94A3B8] mb-1.5"
-                              style={{ fontFamily: fu }}
+                              className="text-[9.5px] font-semibold tracking-[0.15em] uppercase mb-1"
+                              style={{ fontFamily: fu, color: "#94A3B8" }}
                             >
                               POSSESSION
                             </p>
                             <p
-                              className="text-[16px] font-semibold leading-none text-[#111821]"
-                              style={{ fontFamily: fd }}
+                              className="text-[15px] font-medium leading-none"
+                              style={{ fontFamily: fu, color: "#111821" }}
                             >
                               {projPossession}
                             </p>
@@ -239,8 +240,8 @@ export const JournalProjectsV0: React.FC<JournalProjectsV0Props> = ({
 
                       {projPsf && (
                         <p
-                          className="text-[12px] font-normal text-[#94A3B8] mt-2"
-                          style={{ fontFamily: fu }}
+                          className="mt-2.5 text-[11px]"
+                          style={{ fontFamily: fu, color: "#94A3B8" }}
                         >
                           {projPsf}
                         </p>
