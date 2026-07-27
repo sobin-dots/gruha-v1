@@ -442,32 +442,31 @@
         }
       ],
       "consideredAreasLabel": "Other areas considered: Konanakunte Cross • Sarakki • Rajajinagar",
-      "filtersTitle": "What they filtered for",
+      "filtersTitle": "SEARCH PAIN POINTS & FRUSTRATIONS",
       "filters": [
         {
-          "icon": "IndianRupee",
-          "title": "Corpus Allocation",
-          "value": "₹1.6–1.9 Cr (Zero Loan)",
-          "description": "₹1 Cr untouchable reserve kept in liquid SCSS & FDs."
+          "title": "FD YIELD GUILT",
+          "value": "6.4% FD Trap",
+          "description": "Guilt of doing nothing with ₹2.7 Cr paper savings arriving with every renewal notice.",
+          "icon": "AlertTriangle"
         },
         {
-          "icon": "MapPin",
-          "title": "South Corridor Only",
-          "value": "Jayanagar / JP Nagar / Banashankari",
-          "description": "Veena's rule: visible from an auto within 15 mins."
+          "title": "PRE-LAUNCH RISK",
+          "value": "Zero EMI Mandate",
+          "description": "Refusing to sign EMIs or risk capital on under-construction promises without OCs.",
+          "icon": "ShieldAlert"
         },
         {
-          "icon": "Building2",
-          "title": "Home Configuration",
-          "value": "2BHK / Compact 3BHK (1,100–1,450 sqft)",
-          "description": "Established community with active RWA."
+          "title": "PRICE THEATRE",
+          "value": "Moving Final Prices",
+          "description": "Brokers moving \"final price\" twice at token table; brochure hype over document facts.",
+          "icon": "TrendingDown"
         },
         {
-          "icon": "Link2",
-          "title": "Legal Non-Negotiables",
-          "value": "Photocopied OC + A-Khata",
-          "description": "30-year clean title chain; zero pre-launch risk.",
-          "isReraVerified": true
+          "title": "RWA LEVY TRAPS",
+          "value": "Unrecorded Deficits",
+          "description": "Unrecorded RWA repair levies and sinking fund deficits in boutique developments.",
+          "icon": "FileX"
         }
       ],
       "filtersFooterLabel": "Suresh was filtering for capital protection, verified documentation, and sleep quality.",

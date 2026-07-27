@@ -375,6 +375,33 @@
           "image": "/journals/the-regenerative-builder/detour.png",
           "imagegenerationprompt": "A modern vector rendering of a villa mood board in an 80% greyscale monochrome palette with a Warm Coral #DD5128 bookmark accent, Scandinavian minimalism, clean white background."
         }
+      ],
+      "filtersTitle": "SEARCH PAIN POINTS & FRUSTRATIONS",
+      "filters": [
+        {
+          "title": "CONTRACTOR DEVIATIONS",
+          "value": "Template vs Custom",
+          "description": "Fighting contractors over eco-friendly compressed stabilized earth block specs.",
+          "icon": "Wrench"
+        },
+        {
+          "title": "BBMP SANCTION DELAYS",
+          "value": "Plan Approval Gridlock",
+          "description": "Navigating municipal sanction plans and rainwater harvesting approvals.",
+          "icon": "FileText"
+        },
+        {
+          "title": "COST OVERRUN RISK",
+          "value": "Material Price Spikes",
+          "description": "Managing budget spikes in timber, solar installation, and mud-slab labor.",
+          "icon": "TrendingUp"
+        },
+        {
+          "title": "A-KHATA PLOT SCARCITY",
+          "value": "Fringe Clear Titles",
+          "description": "Finding clean A-Khata plots in green fringes like Horamavu and Hennur.",
+          "icon": "MapPin"
+        }
       ]
     },
     {

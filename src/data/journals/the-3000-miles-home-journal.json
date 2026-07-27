@@ -431,32 +431,31 @@
         }
       ],
       "consideredAreasLabel": "Other areas considered: Devanahalli • Sarjapur Road • Yelahanka",
-      "filtersTitle": "What they filtered for",
+      "filtersTitle": "SEARCH PAIN POINTS & FRUSTRATIONS",
       "filters": [
         {
-          "icon": "IndianRupee",
-          "title": "Budget Corpus",
-          "value": "₹2.6 Cr (AED Savings)",
-          "description": "All-cash or minimal loan, paying 5-8% brand premium for sleep."
+          "title": "3,000 MILE DISTANCE",
+          "value": "Zero Physical Access",
+          "description": "Buying from Dubai relying entirely on WhatsApp video calls and relative's gut feel.",
+          "icon": "Globe"
         },
         {
-          "icon": "MapPin",
-          "title": "Corridor Focus",
-          "value": "Whitefield / Hennur / Hebbal",
-          "description": "Airport access & high family livability."
+          "title": "POA & LEGAL GAPS",
+          "value": "Co-Owner Delays",
+          "description": "Consulate POA notarization delays and un-regularized balcony extension risks.",
+          "icon": "FileText"
         },
         {
-          "icon": "Building2",
-          "title": "Home Configuration",
-          "value": "3BHK (1,650–1,850 sqft)",
-          "description": "Tenant-ready layout with balcony view."
+          "title": "SECTION 195 NRI TDS",
+          "value": "Complex Tax Math",
+          "description": "Buyer-side NRI tax compliance hurdles differing from standard domestic rules.",
+          "icon": "Receipt"
         },
         {
-          "icon": "Link2",
-          "title": "Title & Legal Clearance",
-          "value": "Single NRI Owner or Direct Brand",
-          "description": "Clean Drive folder, consulate POA, Section 195 TDS clearance.",
-          "isReraVerified": true
+          "title": "2028 RETURN WINDOW",
+          "value": "Repricing Fear",
+          "description": "Daughter's Grade 6 school return date creating an expiring commitment window.",
+          "icon": "CalendarAlert"
         }
       ],
       "filtersFooterLabel": "Arjun was searching for remote confidence, airtight title chain, and family return flexibility.",

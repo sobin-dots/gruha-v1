@@ -417,32 +417,31 @@
         }
       ],
       "consideredAreasLabel": "Other areas considered: Yelahanka • Hennur Road • Bagalur",
-      "filtersTitle": "What they filtered for",
+      "filtersTitle": "SEARCH PAIN POINTS & FRUSTRATIONS",
       "filters": [
         {
-          "icon": "IndianRupee",
-          "title": "Capital & Leverage",
-          "value": "₹2.5 Cr Equity + ₹1 Cr Loan",
-          "description": "Targeting 12%+ XIRR over 7 years."
+          "title": "ANALYSIS PARALYSIS",
+          "value": "₹35L Cost of Delay",
+          "description": "11 months lost in a 47-tab spreadsheet while market repriced ₹35L higher.",
+          "icon": "Clock"
         },
         {
-          "icon": "MapPin",
-          "title": "Corridor Focus",
-          "value": "Hebbal • Thanisandra • Devanahalli",
-          "description": "Airport infrastructure catalysts."
+          "title": "INFRASTRUCTURE HYPE",
+          "value": "Stories vs Tenders",
+          "description": "Differentiating proposed infrastructure stories from real tendered contractor progress.",
+          "icon": "AlertTriangle"
         },
         {
-          "icon": "Building2",
-          "title": "Configuration",
-          "value": "3BHK (1,600–1,800 sqft)",
-          "description": "Or two plots as alternative thesis."
+          "title": "ALLOTMENT TRAPS",
+          "value": "Road-Facing Units",
+          "description": "Pre-launch early-bird pricing offset by low road-facing floor allotments.",
+          "icon": "RotateCcw"
         },
         {
-          "icon": "Link2",
-          "title": "Title & Track Record",
-          "value": "Tier-1 Developer & RERA Clean",
-          "description": "Exit liquidity under 6 months.",
-          "isReraVerified": true
+          "title": "TIME DILUTION",
+          "value": "Deepa's Rule Breach",
+          "description": "Real estate search turning into a second full-time job violating family mandates.",
+          "icon": "FileX"
         }
       ],
       "filtersFooterLabel": "Nikhil was searching for capital compounding and early-bird alpha, backed by hard tendered infrastructure.",

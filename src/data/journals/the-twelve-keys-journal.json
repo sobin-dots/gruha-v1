@@ -284,22 +284,31 @@
           "description": "Strong tech influx, lower entry price per sqft, developer-led stock."
         }
       ],
-      "filtersTitle": "OPERATIONAL FILTERS",
+      "filtersTitle": "SEARCH PAIN POINTS & FRUSTRATIONS",
       "filters": [
         {
-          "label": "OCCUPANCY RATE",
-          "value": "82% Avg",
-          "sub": "Corporate & Short-Stay"
+          "title": "RWA BYE-LAW HOSTILITY",
+          "value": "Short-Stay Bans",
+          "description": "Associations voting mid-negotiation to ban short-stay and corporate operators.",
+          "icon": "Ban"
         },
         {
-          "label": "RWA BYE-LAWS",
-          "value": "Verified",
-          "sub": "No Short-Stay Ban"
+          "title": "YIELD COMPRESSION",
+          "value": "150bps Entry Cut",
+          "description": "Compressed entry yields requiring tight turnkey furnishing and direct corporate bookings.",
+          "icon": "TrendingDown"
         },
         {
-          "label": "FURNISHING COST",
-          "value": "₹3.5L/unit",
-          "sub": "Turnkey Standard"
+          "title": "CORRIDOR RISK",
+          "value": "Hybrid Work Policy",
+          "description": "8 units within 3km of ORR vulnerable to tech park work-from-home policy shifts.",
+          "icon": "AlertTriangle"
+        },
+        {
+          "title": "FAKE YIELD SCHEMES",
+          "value": "LLP Operator Detours",
+          "description": "\"Guaranteed 9%\" schemes backed only by developer shell LLPs.",
+          "icon": "ShieldX"
         }
       ],
       "filtersFooterLabel": "FILTER DISCIPLINE",

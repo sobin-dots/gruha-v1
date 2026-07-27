@@ -272,6 +272,33 @@
           "image": "/journals/the-three-shares/jd.png",
           "imagegenerationprompt": "A modern architectural vector render of a boutique Malleshwaram apartment complex in an 80% greyscale monochrome palette with a Warm Coral #DD5128 entrance door accent, Scandinavian minimalism, clean white background."
         }
+      ],
+      "filtersTitle": "SEARCH PAIN POINTS & FRUSTRATIONS",
+      "filters": [
+        {
+          "title": "FAMILY CONSENSUS",
+          "value": "3-Sibling Signoff",
+          "description": "Balancing 3 siblings' conflicting priorities for ancestral asset liquidation.",
+          "icon": "Users"
+        },
+        {
+          "title": "TITLE CHAIN GAPS",
+          "value": "50-Year Document Audit",
+          "description": "Un-cleared Khata transfers and missing death certificates in heritage deeds.",
+          "icon": "FileSearch"
+        },
+        {
+          "title": "REINVESTMENT WINDOW",
+          "value": "Tax Penalty Risk",
+          "description": "Section 54 tax reinvestment deadlines following estate liquidation.",
+          "icon": "Clock"
+        },
+        {
+          "title": "VALUATION DISPUTES",
+          "value": "Emotional vs Market",
+          "description": "Reconciling ancestral emotional valuation with realistic buyer bids.",
+          "icon": "DollarSign"
+        }
       ]
     },
     {

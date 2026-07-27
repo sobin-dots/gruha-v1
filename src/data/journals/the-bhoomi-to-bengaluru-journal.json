@@ -417,32 +417,31 @@
         }
       ],
       "consideredAreasLabel": "Other areas considered: Whitefield • Yelahanka • Thanisandra",
-      "filtersTitle": "What they filtered for",
+      "filtersTitle": "SEARCH PAIN POINTS & FRUSTRATIONS",
       "filters": [
         {
-          "icon": "IndianRupee",
-          "title": "Reinvestment Budget",
-          "value": "₹3.75 Cr All-Cash",
-          "description": "Split between 3BHK (₹2.3 Cr) and Gated Plot (₹1.4 Cr)."
+          "title": "SECTION 54F DEADLINE",
+          "value": "8-Month Tax Clock",
+          "description": "Hard capital gains tax reinvestment deadline running since Guntur land closing.",
+          "icon": "Hourglass"
         },
         {
-          "icon": "MapPin",
-          "title": "Dual Location Mandate",
-          "value": "Son's Office Hub + Airport Corridor",
-          "description": "Bellandur–Sarjapur for flat; Devanahalli for plot."
+          "title": "ENCUMBRANCE SHADOWS",
+          "value": "Rajakaluve Title Risk",
+          "description": "Community \"great deals\" hiding rajakaluve shadows and un-cleared EC records.",
+          "icon": "ShieldAlert"
         },
         {
-          "icon": "Building2",
-          "title": "Asset Configurations",
-          "value": "3BHK (1,700+ sqft) + 2,400+ sqft Plot",
-          "description": "Immediate flat rental + long-term land holding."
+          "title": "FIXED PRICE THEATRE",
+          "value": "Laminated Site Sheets",
+          "description": "Navigating rigid site office price sheets that only move at quarter-end via sales heads.",
+          "icon": "DollarSign"
         },
         {
-          "icon": "Link2",
-          "title": "Legal Non-Negotiables",
-          "value": "DC-Converted A-Khata + Independent EC",
-          "description": "Independent legal audit overrides community word.",
-          "isReraVerified": true
+          "title": "INTER-STATE DILIGENCE",
+          "value": "Network Dependency",
+          "description": "Transitioning from Guntur walk-the-land trust to Bengaluru independent legal audits.",
+          "icon": "FileCheck"
         }
       ],
       "filtersFooterLabel": "Ramana was balancing Section 54F tax deadlines with strict legal verification.",

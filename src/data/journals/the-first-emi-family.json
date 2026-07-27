@@ -443,32 +443,31 @@
         }
       ],
       "consideredAreasLabel": "Other areas they considered Kanakapura Road • Electronic City • Whitefield",
-      "filtersTitle": "What they filtered for",
+      "filtersTitle": "SEARCH PAIN POINTS & FRUSTRATIONS",
       "filters": [
         {
-          "icon": "IndianRupee",
-          "title": "Budget Filter",
-          "value": "₹1.35 – ₹1.55 Cr",
-          "description": "Stretching budget without compromising stability."
+          "title": "FIRST-TIME BUYER FEAR",
+          "value": "Structural Anxiety",
+          "description": "Largest financial commitment ever signed creating fear of builder delivery delays.",
+          "icon": "AlertTriangle"
         },
         {
-          "icon": "MapPin",
-          "title": "Location",
-          "value": "Outer Sarjapur Road",
-          "description": "Good schools, hospitals and workplace connectivity."
+          "title": "MARKET REPRICING",
+          "value": "Savings vs Inflation",
+          "description": "Outer Sarjapur Road prices inflating faster than monthly savings rate.",
+          "icon": "TrendingUp"
         },
         {
-          "icon": "Calendar",
-          "title": "Home Configuration",
-          "value": "2 / 2.5 BHK",
-          "description": "1050-1200 sqft"
+          "title": "BABY ARRIVAL DATE",
+          "value": "Fixed Possession",
+          "description": "Family planning timeline giving home possession a hard non-negotiable expiry date.",
+          "icon": "Heart"
         },
         {
-          "icon": "Link2",
-          "title": "Builder Preference",
-          "value": "Transparent developers",
-          "description": "Transparent documentation and reliable delivery history.",
-          "isReraVerified": true
+          "title": "RENT + EMI OVERLAP",
+          "value": "Double Cash Drain",
+          "description": "Managing high current rent while paying pre-EMIs during under-construction phase.",
+          "icon": "CreditCard"
         }
       ],
       "filtersFooterLabel": "They were searching for the right place to begin their family's next chapter with confidence.",
