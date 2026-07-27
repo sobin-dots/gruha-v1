@@ -776,26 +776,33 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
                 {voicesTitle}
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                {quotes.map((q: any, idx: number) => (
-                  <div
-                    key={q.speaker || q.author || idx}
-                    className="rounded-xl border border-slate-100 p-7 flex flex-col justify-between gap-6"
-                    style={{ background: "#f8fafc" }}
-                  >
-                    <p
-                      className="text-[20px] leading-[1.5] italic"
-                      style={{ fontFamily: fd, color: "#2D3748" }}
+                {quotes.map((q: any, idx: number) => {
+                  const quoteText = typeof q === "string" ? q : (q.text || "");
+                  const quoteAuthor = typeof q === "string" ? "" : (q.author || q.speaker || "");
+
+                  return (
+                    <div
+                      key={quoteAuthor || idx}
+                      className="rounded-xl border border-slate-100 p-7 flex flex-col justify-between gap-6"
+                      style={{ background: "#f8fafc" }}
                     >
-                      "{q.text}"
-                    </p>
-                    <p
-                      className="text-[14px] font-semibold"
-                      style={{ fontFamily: fu, color: "#DD5128" }}
-                    >
-                      {q.author || q.speaker}
-                    </p>
-                  </div>
-                ))}
+                      <p
+                        className="text-[20px] leading-[1.5] italic"
+                        style={{ fontFamily: fd, color: "#2D3748" }}
+                      >
+                        "{quoteText}"
+                      </p>
+                      {quoteAuthor && (
+                        <p
+                          className="text-[14px] font-semibold"
+                          style={{ fontFamily: fu, color: "#DD5128" }}
+                        >
+                          {quoteAuthor}
+                        </p>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>

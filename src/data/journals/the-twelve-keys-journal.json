@@ -297,10 +297,22 @@
       ],
       "voicesTitle": "Voices around her",
       "quotes": [
-        "Buy residential flats. Renting to families is peaceful.",
-        "Short-stay guests will ruin the building's elevators.",
-        "High-yield operator schemes are too risky.",
-        "ORR tech park rentals will always stay full."
+        {
+          "text": "Buy residential flats. Renting to families is peaceful.",
+          "author": "— Senior Hotelier Mentor"
+        },
+        {
+          "text": "Short-stay guests will ruin the building's elevators.",
+          "author": "— Resale Apartment Broker"
+        },
+        {
+          "text": "High-yield operator schemes are too risky.",
+          "author": "— CA / Financial Advisor"
+        },
+        {
+          "text": "ORR tech park rentals will always stay full.",
+          "author": "— Tech Colleague"
+        }
       ],
       "riyaConclusionTitle": "Riya's take on the Journey",
       "chatMessages": [
