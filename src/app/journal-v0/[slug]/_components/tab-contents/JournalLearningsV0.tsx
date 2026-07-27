@@ -318,7 +318,7 @@ export const JournalLearningsV0: React.FC<JournalLearningsV0Props> = ({
 
       {/* Closure cards */}
       <div className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-4">
-        {displayLessons.map(({ img, imageSrc, title: cardTitle, body, description: desc }: any) => {
+        {displayLessons.slice(0, 3).map(({ img, imageSrc, title: cardTitle, body, description: desc }: any) => {
           const imgSrc = getImgSrc(img || imageSrc || imgClosure1);
           const displayBody = body || desc || "";
           return (

@@ -76,17 +76,7 @@ const JournalBreadCrumbs: React.FC<JournalBreadCrumbsProps> = ({
                     </nav>
                 </div>
 
-                {/* Right Section: Action Button */}
-                <div className="flex items-center">
-                    <button
-                        type="button"
-                        onClick={onAdaptJournal}
-                        className="inline-flex items-center gap-2 rounded-xl bg-[#FF583A] px-4 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-[#e0482b] active:scale-[0.98] transition-all cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF583A]"
-                    >
-                        <Copy className="h-4 w-4 stroke-[2.25]" />
-                        <span>{adaptButtonText}</span>
-                    </button>
-                </div>
+
             </div>
         </div>
     );
