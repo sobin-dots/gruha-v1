@@ -447,43 +447,31 @@
       "projectsCountBadge": "14 PROPOSED • 3 SHORTLISTED",
       "projects": [
         {
-          "title": "Brigade Cornerstone Utopia (studios)",
-          "name": "Brigade Cornerstone Utopia (studios)",
+          "title": "Brigade Cornerstone Utopia",
+          "name": "Brigade Cornerstone Utopia",
+          "price": "₹60–80L",
+          "possession": "Ready",
+          "psf": "₹9,000–11,500/sqft",
           "location": "Whitefield / Varthur Rd",
-          "roleInJourney": "The acquisition",
-          "tagline": "The acquisition",
-          "price": "Studios/1BHK ₹60–80L",
-          "marketData": "Studios/1BHK ₹60–80L; resale ~₹9–11.5K/sqft; ready township",
-          "source": "https://www.onecityproperty.com/projects/brigade-cornerstone-utopia-whitefield-bangalore",
-          "imageSrc": "/journals/the-twelve-keys-journal/hero.png",
-          "imagegenerationprompt": "A modern vector illustration of architectural vector render of Brigade Cornerstone Utopia studio apartment towers, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+          "imageSrc": "/journals/the-twelve-keys-journal/hero.png"
         },
         {
-          "title": "ORR/Ecospace-adjacent studio stock",
-          "name": "ORR/Ecospace-adjacent studio stock",
+          "title": "ORR Studio Stock",
+          "name": "ORR Studio Stock",
+          "price": "₹75–95L",
+          "possession": "Ready",
+          "psf": "₹15,000–17,000/sqft",
           "location": "Bellandur–Kadubeesanahalli",
-          "roleInJourney": "Pipeline + benchmark",
-          "tagline": "Pipeline + benchmark",
-          "price": "₹15–17K/sqft",
-          "marketData": "₹15–17K/sqft; entry yields compressed",
-          "source": "—",
-          "imageSrc": "/journals/bellandur.png",
-          "imagegenerationprompt": "A modern vector illustration of architectural vector render of modern studio apartment towers near Bellandur ORR, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+          "imageSrc": "/journals/bellandur.png"
         },
         {
-          "title": "\"Guaranteed 9%\" operator scheme",
-          "name": "\"Guaranteed 9%\" operator scheme",
-          "location": "Tech-park adjacent",
-          "roleInJourney": "The detour",
-          "tagline": "The detour",
-          "price": "₹75L Guaranteed",
-          "marketData": "Unnamed by policy — guarantee = seller's own LLP",
-          "source": "—",
-          "imageSrc": "/journals/the-twelve-keys-journal/hero.png",
-          "imagegenerationprompt": "A modern vector illustration of vector graphic showing a rejected guaranteed 9% operator scheme brochure, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality.",
-          "isOverlay": true,
-          "overlayText": "Rejected",
-          "overlaySubtext": "Shell LLP Guarantee"
+          "title": "Manyata Studio Stock",
+          "name": "Manyata Studio Stock",
+          "price": "₹65–85L",
+          "possession": "2027",
+          "psf": "₹11,500/sqft",
+          "location": "Thanisandra",
+          "imageSrc": "/journals/manyata.png"
         }
       ],
       "prioritiesTitle": "NON-NEGOTIABLE CRITERIA",

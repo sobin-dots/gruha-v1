@@ -161,37 +161,24 @@ export const JournalProjectsV0: React.FC<JournalProjectsV0Props> = ({
           </div>
 
           {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {displayProjects.slice(startIndex, startIndex + 3).concat(
               displayProjects.slice(0, Math.max(0, startIndex + 3 - displayProjects.length))
             ).slice(0, 3).map((proj: any, idx: number) => {
               const projName = proj.name || proj.title || "";
-              const projLoc = proj.location || proj.loc || "";
-              const projTag = proj.roleInJourney || proj.tagline || proj.tag || "";
-              const projPrice = proj.priceRange || proj.price || proj.marketData || "";
-              const projMarketData = proj.marketData || "";
-              const projSource = proj.source && proj.source.startsWith("http") ? proj.source : "";
-              const projPossession = proj.possession || proj.status || "";
-              const projPossessionColor = proj.possessionColor || (projPossession === "Ready" ? "#10B981" : "#DD5128");
+              const projPrice = proj.price || proj.priceRange || "₹1.31–2.9 Cr";
+              const projPossession = proj.possession || proj.status || "2029";
+              const projPsf = proj.psf || proj.sqftRate || "₹11,950–12,500/sqft";
               const projImg = getImgSrc(proj.img || proj.image || proj.imageSrc || imgProj1);
 
               return (
                 <div
                   key={`${projName}-${idx}`}
-                  className="bg-white rounded-[20px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] relative"
+                  className="bg-white rounded-[24px] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col transition-all duration-300 hover:shadow-[0_10px_32px_rgba(0,0,0,0.08)]"
                 >
-                  {/* Card Image with Tagline */}
-                  <div className="h-44 relative bg-slate-100 overflow-hidden">
-                    <img src={projImg} alt={projName} className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                    {projTag && (
-                      <span
-                        className="absolute bottom-3.5 left-4 right-4 text-[12px] font-medium text-white/95 leading-tight drop-shadow-xs truncate"
-                        style={{ fontFamily: fu }}
-                      >
-                        {projTag}
-                      </span>
-                    )}
+                  {/* Card Image */}
+                  <div className="h-52 relative bg-slate-100 overflow-hidden">
+                    <img src={projImg} alt={projName} className="w-full h-full object-cover object-center" />
                     {proj.isOverlay && (
                       <div className="absolute inset-0 bg-black/65 backdrop-blur-[2px] flex flex-col items-center justify-center text-center p-4">
                         <span className="text-[12px] font-semibold tracking-wider uppercase text-[#FF8A65] mb-1 font-mono">
@@ -204,39 +191,59 @@ export const JournalProjectsV0: React.FC<JournalProjectsV0Props> = ({
                     )}
                   </div>
 
-                  {/* Card Content */}
-                  <div className="p-5 flex-1 flex flex-col justify-between">
-                    <div>
-                      <h4 className="text-[17px] font-medium leading-tight mb-1" style={{ fontFamily: fd, color: "#111821" }}>
+                  {/* Card Body */}
+                  <div className="p-6 flex-1 flex flex-col justify-between bg-white">
+                    <div className="mb-4">
+                      <h4
+                        className="text-[20px] font-normal leading-tight text-[#111821] tracking-[-0.01em]"
+                        style={{ fontFamily: fd }}
+                      >
                         {projName}
                       </h4>
-                      {projLoc && (
-                        <p className="text-[13px] leading-tight mb-3" style={{ fontFamily: fu, color: "#8A94A1" }}>
-                          {projLoc}
-                        </p>
-                      )}
                     </div>
 
-                    <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
-                      <div>
-                        <p className="text-[9.5px] font-semibold tracking-[0.15em] uppercase mb-1" style={{ fontFamily: fu, color: "#94A3B8" }}>
-                          MARKET DATA / PRICE
-                        </p>
-                        <p className="text-[13.5px] font-medium leading-snug line-clamp-2" style={{ fontFamily: fd, color: "#111821" }}>
-                          {projPrice}
-                        </p>
+                    <div className="pt-4 border-t border-slate-100/90">
+                      <div className="flex items-start justify-between mb-2">
+                        <div>
+                          <p
+                            className="text-[9.5px] font-semibold tracking-[0.14em] uppercase text-[#94A3B8] mb-1.5"
+                            style={{ fontFamily: fu }}
+                          >
+                            PRICE RANGE
+                          </p>
+                          <p
+                            className="text-[18px] font-semibold leading-none text-[#111821]"
+                            style={{ fontFamily: fd }}
+                          >
+                            {projPrice}
+                          </p>
+                        </div>
+
+                        {projPossession && (
+                          <div className="text-right">
+                            <p
+                              className="text-[9.5px] font-semibold tracking-[0.14em] uppercase text-[#94A3B8] mb-1.5"
+                              style={{ fontFamily: fu }}
+                            >
+                              POSSESSION
+                            </p>
+                            <p
+                              className="text-[16px] font-semibold leading-none text-[#111821]"
+                              style={{ fontFamily: fd }}
+                            >
+                              {projPossession}
+                            </p>
+                          </div>
+                        )}
                       </div>
 
-                      {projSource && (
-                        <a
-                          href={projSource}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#DD5128] hover:underline mt-1"
+                      {projPsf && (
+                        <p
+                          className="text-[12px] font-normal text-[#94A3B8] mt-2"
                           style={{ fontFamily: fu }}
                         >
-                          Official Source & Listing ↗
-                        </a>
+                          {projPsf}
+                        </p>
                       )}
                     </div>
                   </div>
