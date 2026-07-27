@@ -22,7 +22,8 @@
         "icon": "Users",
         "text": "Manage home buying before becoming parents"
       }
-    ]
+    ],
+    "heroImage": "/journals/default/hero.png"
   },
   "tabs": [
     {
@@ -46,7 +47,8 @@
             "Practical",
             "Calm"
           ],
-          "image": "/journals/pavan.png"
+          "image": "/journals/pavan.png",
+          "imagegenerationprompt": "A stylized vector graphic portrait illustration of a 29-year-old South Indian male named Pavan (Senior Engineer), digital vector art style with fine dark outlines, posterized cel-shading, warm natural skin tones, friendly smiling expression, clean solid warm beige background (#F4EBE1), high quality character art."
         },
         {
           "name": "Shruti",
@@ -57,7 +59,8 @@
             "Organised",
             "Empathetic"
           ],
-          "image": "/journals/shruti.png"
+          "image": "/journals/shruti.png",
+          "imagegenerationprompt": "A stylized vector graphic portrait illustration of a 28-year-old South Indian female named Shruti (QA), digital vector art style with fine dark outlines, posterized cel-shading, warm natural skin tones, friendly smiling expression, clean solid warm beige background (#F4EBE1), high quality character art."
         }
       ],
       "sharedVisionTitle": "Shared vision",
@@ -67,38 +70,22 @@
         {
           "icon": "Briefcase",
           "label": "BUYER PROFILE",
-          "value": "Young Professionals & First-Timers",
-          "tag": "Age 29 & 28"
-        },
-        {
-          "icon": "TrendingUp",
-          "label": "THEIR REALITY",
-          "value": "₹1 Cr dream → ₹1.5 Cr reality",
-          "tag": "Emotional"
+          "value": "First-timers"
         },
         {
           "icon": "Heart",
           "label": "LIFE STAGE",
-          "value": "Newly married(2 years)",
-          "tag": "Expecting first child"
+          "value": "Newly married"
         },
         {
-          "icon": "Sparkles",
+          "icon": "TrendingUp",
           "label": "SEARCH STAGE",
-          "value": "Actively exploring",
-          "tag": "11 site explored"
+          "value": "Active explorer"
         },
         {
           "icon": "Hourglass",
           "label": "TIMELINE",
-          "value": "Before the baby arrives",
-          "tag": "< 8 months"
-        },
-        {
-          "icon": "CheckCircle2",
-          "label": "TRANSACTION FOCUS",
-          "value": "Under Construction (RERA)",
-          "tag": "Primary purchase"
+          "value": "Before baby"
         }
       ],
       "prioritiesTitle": "Top priorities right now",

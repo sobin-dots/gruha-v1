@@ -88,6 +88,11 @@ export interface JournalLearningsV0Props {
     label: string;
     value: string;
   }>;
+  metrics?: Array<{
+    icon?: string | React.ReactNode;
+    label: string;
+    value: string;
+  }>;
   monthlyLearningsTitle?: string;
   monthlyLearnings?: Array<{
     month: string;
@@ -100,6 +105,9 @@ export interface JournalLearningsV0Props {
     before: string;
     after: string;
   }>;
+  beforeItems?: Array<{ icon?: string; text: string }>;
+  afterItems?: Array<{ icon?: string; text: string }>;
+  differentlyCards?: Array<{ icon?: string; title: string; description: string }>;
   lessonsTitle?: string;
   lessons?: Array<{
     title: string;
@@ -112,20 +120,45 @@ export interface JournalLearningsV0Props {
 
 export const JournalLearningsV0: React.FC<JournalLearningsV0Props> = ({
   eyebrow = "Learnings",
-  title = "What eleven months of analysis taught him.",
-  description = "Not every lesson was about the property. Some were about the spreadsheet, and what it was really measuring.",
-  insights = defaultInsights,
-  monthlyLearningsTitle = "The journey, month by month",
-  monthlyLearnings = defaultMonthlyLearnings,
+  title = "What their journey taught them.",
+  description = "Key insights, mindset shifts, and lessons learned along the home-buying journey.",
+  insights,
+  metrics,
+  monthlyLearningsTitle = "Lessons learned along the way",
+  monthlyLearnings,
   thinkingChangedTitle = "How their thinking changed",
-  thinkingChanged = defaultThinkingChanged,
-  lessonsTitle = "Closure",
-  lessons = defaultClosureLessons,
+  thinkingChanged,
+  beforeItems,
+  afterItems,
+  differentlyCards,
+  lessonsTitle = "Key takeaways",
+  lessons,
 }) => {
-  const displayInsights = insights.length > 0 ? insights : defaultInsights;
-  const displayMonthly = monthlyLearnings.length > 0 ? monthlyLearnings : defaultMonthlyLearnings;
-  const displayThinking = thinkingChanged.length > 0 ? thinkingChanged : defaultThinkingChanged;
-  const displayLessons = (lessons && lessons.length > 0 ? lessons : defaultClosureLessons).slice(0, 3);
+  const displayInsights = (insights && insights.length > 0)
+    ? insights
+    : (metrics && metrics.length > 0)
+    ? metrics
+    : defaultInsights;
+
+  const displayMonthly = (monthlyLearnings && monthlyLearnings.length > 0)
+    ? monthlyLearnings
+    : null;
+
+  // Build thinking changed list from beforeItems + afterItems if thinkingChanged is not provided
+  let displayThinking = (thinkingChanged && thinkingChanged.length > 0) ? thinkingChanged : null;
+  if (!displayThinking && beforeItems && beforeItems.length > 0 && afterItems && afterItems.length > 0) {
+    displayThinking = beforeItems.map((bItem, idx) => ({
+      before: typeof bItem === "string" ? bItem : bItem.text,
+      after: typeof afterItems[idx] === "string" ? afterItems[idx] : afterItems[idx]?.text || "",
+    }));
+  }
+  if (!displayThinking) {
+    displayThinking = defaultThinkingChanged;
+  }
+
+  const displayLessons = (lessons && lessons.length > 0)
+    ? lessons
+    : defaultClosureLessons;
 
   return (
     <section id="section-learnings" className="pt-10">
@@ -169,52 +202,82 @@ export const JournalLearningsV0: React.FC<JournalLearningsV0Props> = ({
       </div>
 
       <div className="mt-5 flex flex-col gap-5">
-        {/* Month-by-month timeline */}
-        <div
-          className="bg-white border px-6 sm:px-10 py-8"
-          style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
-        >
-          <p className="text-[9.5px] font-semibold tracking-[0.14em] uppercase mb-8" style={{ fontFamily: fu, color: "#8A94A1" }}>
-            {monthlyLearningsTitle}
-          </p>
+        {/* Month-by-month timeline OR Core Lessons */}
+        {displayMonthly ? (
+          <div
+            className="bg-white border px-6 sm:px-10 py-8"
+            style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
+          >
+            <p className="text-[9.5px] font-semibold tracking-[0.14em] uppercase mb-8" style={{ fontFamily: fu, color: "#8A94A1" }}>
+              {monthlyLearningsTitle}
+            </p>
 
-          <div className="relative">
-            <div className="absolute left-[5px] top-2 bottom-2 w-px" style={{ background: "#E4E9EF" }} />
-            <div className="flex flex-col gap-0">
-              {displayMonthly.map((item: any, i: number) => (
-                <div key={i} className="relative flex gap-6 sm:gap-8 pb-10 last:pb-0">
-                  <div className="relative flex-none" style={{ width: 11, paddingTop: 4 }}>
-                    <div
-                      className="w-[11px] h-[11px] rounded-full border-2"
-                      style={{
-                        background: item.turning ? "#DD5128" : "white",
-                        borderColor: item.turning ? "#DD5128" : "#CBD5E1",
-                      }}
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0" style={{ paddingTop: 1 }}>
-                    <div className="flex items-center gap-3 mb-2">
-                      <p className="text-[9.5px] font-semibold tracking-[0.12em] uppercase" style={{ fontFamily: fu, color: item.turning ? "#DD5128" : "#8A94A1" }}>
-                        {item.month}
-                      </p>
-                      {item.turning && (
-                        <span className="text-[9px] font-semibold px-2 py-0.5 rounded-full tracking-wide" style={{ background: "#FEF0EC", color: "#DD5128", fontFamily: fu }}>
-                          Turning point
-                        </span>
-                      )}
+            <div className="relative">
+              <div className="absolute left-[5px] top-2 bottom-2 w-px" style={{ background: "#E4E9EF" }} />
+              <div className="flex flex-col gap-0">
+                {displayMonthly.map((item: any, i: number) => (
+                  <div key={i} className="relative flex gap-6 sm:gap-8 pb-10 last:pb-0">
+                    <div className="relative flex-none" style={{ width: 11, paddingTop: 4 }}>
+                      <div
+                        className="w-[11px] h-[11px] rounded-full border-2"
+                        style={{
+                          background: item.turning ? "#DD5128" : "white",
+                          borderColor: item.turning ? "#DD5128" : "#CBD5E1",
+                        }}
+                      />
                     </div>
-                    <h4 className="text-[18px] leading-[1.3] mb-1.5" style={{ fontFamily: fd, color: "#111821", fontWeight: 500 }}>
-                      {item.headline}
+                    <div className="flex-1 min-w-0" style={{ paddingTop: 1 }}>
+                      <div className="flex items-center gap-3 mb-2">
+                        <p className="text-[9.5px] font-semibold tracking-[0.12em] uppercase" style={{ fontFamily: fu, color: item.turning ? "#DD5128" : "#8A94A1" }}>
+                          {item.month}
+                        </p>
+                        {item.turning && (
+                          <span className="text-[9px] font-semibold px-2 py-0.5 rounded-full tracking-wide" style={{ background: "#FEF0EC", color: "#DD5128", fontFamily: fu }}>
+                            Turning point
+                          </span>
+                        )}
+                      </div>
+                      <h4 className="text-[18px] leading-[1.3] mb-1.5" style={{ fontFamily: fd, color: "#111821", fontWeight: 500 }}>
+                        {item.headline}
+                      </h4>
+                      <p className="text-[13.5px] leading-[1.65]" style={{ fontFamily: fu, color: "#59636F" }}>
+                        {item.body}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ) : displayLessons && displayLessons.length > 0 ? (
+          <div
+            className="bg-white border px-6 sm:px-10 py-8"
+            style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
+          >
+            <p className="text-[9.5px] font-semibold tracking-[0.14em] uppercase mb-8" style={{ fontFamily: fu, color: "#8A94A1" }}>
+              {lessonsTitle}
+            </p>
+            <div className="flex flex-col gap-6">
+              {displayLessons.map((item: any, i: number) => (
+                <div key={i} className="flex flex-col sm:flex-row gap-5 items-start border-b border-slate-100 pb-6 last:pb-0 last:border-b-0">
+                  {item.imageSrc && (
+                    <div className="w-full sm:w-[160px] h-[110px] rounded-xl overflow-hidden bg-slate-50 flex-none border border-slate-100">
+                      <img src={getImgSrc(item.imageSrc)} alt={item.title} className="w-full h-full object-cover" />
+                    </div>
+                  )}
+                  <div className="flex-1">
+                    <h4 className="text-[18px] leading-[1.3] mb-2 font-semibold" style={{ fontFamily: fd, color: "#111821" }}>
+                      {item.title}
                     </h4>
-                    <p className="text-[13.5px] leading-[1.65]" style={{ fontFamily: fu, color: "#59636F" }}>
-                      {item.body}
+                    <p className="text-[14px] leading-[1.6]" style={{ fontFamily: fu, color: "#59636F" }}>
+                      {item.description || item.body}
                     </p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-        </div>
+        ) : null}
 
         {/* How thinking changed */}
         <div
@@ -255,7 +318,7 @@ export const JournalLearningsV0: React.FC<JournalLearningsV0Props> = ({
 
       {/* Closure cards */}
       <div className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-4">
-        {displayLessons.map(({ img, imageSrc, title: cardTitle, body, description: desc }: any) => {
+        {displayLessons.slice(0, 3).map(({ img, imageSrc, title: cardTitle, body, description: desc }: any) => {
           const imgSrc = getImgSrc(img || imageSrc || imgClosure1);
           const displayBody = body || desc || "";
           return (

@@ -96,28 +96,30 @@ export const JournalProfileV0: React.FC<JournalProfileV0Props> = ({
         </p>
       </div>
 
-      {/* Profile stats strip */}
+      {/* Profile stats strip (Exactly 4 Columns) */}
       <div
-        className="mb-5 bg-white border flex flex-col sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-slate-100"
+        className="mb-5 bg-white border grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-100 overflow-hidden"
         style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
       >
-        {stats.map((cell: any) => {
-          const isSearchStage = cell.label.toLowerCase().includes("search");
+        {stats.slice(0, 4).map((cell: any, idx: number) => {
           const iconElement =
             typeof cell.icon === "string"
               ? getIcon(cell.icon, "Briefcase", { className: "w-4 h-4 text-[#DD5128]" })
               : cell.icon;
 
           return (
-            <div key={cell.label} className="group flex items-center gap-4 px-6 sm:px-8 py-5 flex-1 cursor-pointer transition-colors">
-              <span className="flex-none transition-colors group-hover:text-[#DD5128] ">
+            <div key={cell.label} className="group flex items-center gap-3.5 px-5 sm:px-6 py-4.5 flex-1 min-w-0 transition-colors">
+              <span className="flex-none text-[#DD5128]">
                 {iconElement}
               </span>
-              <div>
-                <p className="text-[9.5px] font-semibold tracking-[0.13em] uppercase mb-1 transition-colors group-hover:text-[#DD5128]" style={{ fontFamily: fu, color: "#8A94A1" }}>
+              <div className="min-w-0">
+                <p className="text-[9.5px] font-semibold tracking-[0.13em] uppercase mb-0.5" style={{ fontFamily: fu, color: "#8A94A1" }}>
                   {cell.label}
                 </p>
-                <p className="text-[17px] font-[500] leading-tight transition-colors group-hover:text-[#DD5128]" style={{ fontFamily: fd }}>
+                <p
+                  className="text-[16.5px] font-[500] leading-tight truncate whitespace-nowrap"
+                  style={{ fontFamily: fd, color: idx === 0 ? "#DD5128" : "#111821" }}
+                >
                   {cell.value}
                 </p>
               </div>

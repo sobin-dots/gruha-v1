@@ -61,10 +61,10 @@ function TabNav({
               className="w-10 h-10 rounded-lg object-cover flex-none border border-slate-100 shadow-xs"
             />
             <span
-              className="text-[13px] font-semibold leading-[1.25] text-[#111821] flex-none max-w-[130px]"
+              className="text-[13px] font-semibold leading-[1.25] text-[#111821] flex-none max-w-[130px] truncate"
               style={{ fontFamily: fu }}
             >
-              Pavan &amp; Shruti's Journal
+              {title ? title.split(":")[0] : "Homebuyer's Journal"}
             </span>
           </div>
 

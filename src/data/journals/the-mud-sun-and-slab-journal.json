@@ -1,6 +1,10 @@
 {
   "article": {
-    "tags": ["SPECIAL CONVICTIONS", "SUSTAINABILITY", "BENGALURU"],
+    "tags": [
+      "SPECIAL CONVICTIONS",
+      "SUSTAINABILITY",
+      "BENGALURU"
+    ],
     "title": "The Regenerative Builder: The Mud, Sun & Slab Journal",
     "description": "Ishaan Bhargava's search for a genuinely sustainable home in Bengaluru — balancing embodied carbon, water neutrality, passive cooling, and startup founder bandwidth.",
     "quote": "\"My house should compost, harvest, and breathe. Ideally before it impresses anyone.\"",
@@ -19,7 +23,8 @@
         "icon": "Home",
         "text": "Recognize founder bandwidth limits — buy focus now, phase the dream build to Plan 2031"
       }
-    ]
+    ],
+    "heroImage": "/journals/the-mud-sun-and-slab-journal/hero.png"
   },
   "tabs": [
     {
@@ -39,9 +44,13 @@
           "age": 38,
           "role": "Climate-Tech Founder (Battery Analytics)",
           "description": "Evangelical climate founder with one modest exit. Mission: a genuinely sustainable home in Bengaluru running on real performance arithmetic — embodied carbon, water neutrality, solar primacy.",
-          "tags": ["Climate Tech", "Data-Obsessed", "Evangelical"],
+          "tags": [
+            "Climate Tech",
+            "Data-Obsessed",
+            "Evangelical"
+          ],
           "image": "/journals/the-regenerative-builder/ishaan.png",
-          "imagegenerationprompt": "A studio portrait photo of a 38-year-old Indian male climate-tech founder named Ishaan wearing a dark charcoal linen shirt in an 80% greyscale monochrome aesthetic with a subtle Warm Coral #DD5128 lapel accent, Scandinavian minimalism, soft ambient studio rim lighting, clean beige background."
+          "imagegenerationprompt": "A stylized vector graphic portrait illustration of a 38-year-old South Indian male named Ishaan (Climate-Tech Founder (Battery Analytics)), digital vector art style with fine dark outlines, posterized cel-shading, warm natural skin tones, friendly smiling expression, clean solid warm beige background (#F4EBE1), high quality character art."
         }
       ],
       "sharedVisionTitle": "Shared vision",
@@ -52,26 +61,22 @@
         {
           "icon": "Briefcase",
           "label": "BUYER PROFILE",
-          "value": "Climate-Tech Founder (Age 38)",
-          "tag": "Series A Startup"
+          "value": "Tech Founder"
         },
         {
           "icon": "Heart",
           "label": "LIFE STAGE",
-          "value": "Single & Bandwidth-Constrained",
-          "tag": "₹2.1–2.6 Cr Budget"
+          "value": "Single founder"
         },
         {
-          "icon": "Sparkles",
+          "icon": "TrendingUp",
           "label": "SEARCH STAGE",
-          "value": "Green Resale + Peri-Urban Plot",
-          "tag": "GoodEarth Malhar Closed"
+          "value": "Green search"
         },
         {
           "icon": "Hourglass",
           "label": "TIMELINE",
-          "value": "Startup Series A Calendar",
-          "tag": "Plan 2031 Phased"
+          "value": "Series A"
         }
       ],
       "prioritiesTitle": "Top priorities right now",
@@ -413,11 +418,36 @@
       ],
       "criteriaTitle": "Non-negotiables",
       "criteria": [
-        { "icon": "ShieldCheck", "text": "Safety & security", "sub": "for family", "active": false },
-        { "icon": "GraduationCap", "text": "Good schools", "sub": "nearby", "active": false },
-        { "icon": "CheckCircle2", "text": "Trusted builders", "sub": "for quality", "active": false },
-        { "icon": "TrendingUp", "text": "Value of money", "sub": "for future growth", "active": false },
-        { "icon": "Hourglass", "text": "Possession timeline", "sub": "before baby arrives", "active": true }
+        {
+          "icon": "ShieldCheck",
+          "text": "Safety & security",
+          "sub": "for family",
+          "active": false
+        },
+        {
+          "icon": "GraduationCap",
+          "text": "Good schools",
+          "sub": "nearby",
+          "active": false
+        },
+        {
+          "icon": "CheckCircle2",
+          "text": "Trusted builders",
+          "sub": "for quality",
+          "active": false
+        },
+        {
+          "icon": "TrendingUp",
+          "text": "Value of money",
+          "sub": "for future growth",
+          "active": false
+        },
+        {
+          "icon": "Hourglass",
+          "text": "Possession timeline",
+          "sub": "before baby arrives",
+          "active": true
+        }
       ]
     },
     {

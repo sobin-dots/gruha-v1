@@ -80,6 +80,7 @@ export default async function JournalSlugPageV0({
                             title={article.title}
                             description={article.description}
                             learnings={article.learnings}
+                            heroImage={(article as any)?.heroImage || (article as any)?.image}
                         />
                         <JournalTabsSectionV0
                             tabsData={journalData.tabs}
