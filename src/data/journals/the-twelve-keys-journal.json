@@ -447,43 +447,43 @@
       "projectsCountBadge": "14 PROPOSED • 3 SHORTLISTED",
       "projects": [
         {
-          "title": "Brigade Cornerstone Utopia",
-          "location": "Whitefield / Varthur Rd, Bengaluru",
-          "price": "₹60–80L",
-          "tag": "Ready Studio Stock",
-          "tagline": "Benchmark Ready Township Studio",
+          "title": "Brigade Cornerstone Utopia (studios)",
+          "name": "Brigade Cornerstone Utopia (studios)",
+          "location": "Whitefield / Varthur Rd",
+          "roleInJourney": "The acquisition",
+          "tagline": "The acquisition",
+          "price": "Studios/1BHK ₹60–80L",
+          "marketData": "Studios/1BHK ₹60–80L; resale ~₹9–11.5K/sqft; ready township",
+          "source": "https://www.onecityproperty.com/projects/brigade-cornerstone-utopia-whitefield-bangalore",
           "imageSrc": "/journals/the-twelve-keys-journal/hero.png",
-          "imagegenerationprompt": "A modern vector illustration of an architectural render of Brigade Cornerstone Utopia studio apartment towers, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+          "imagegenerationprompt": "A modern vector illustration of architectural vector render of Brigade Cornerstone Utopia studio apartment towers, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
-          "title": "Sobha Royal Pavilion",
-          "location": "Sarjapur Road, Bengaluru",
-          "price": "₹1.15–1.45 Cr",
-          "tag": "High Corporate Demand",
-          "tagline": "Corporate Guest Preference",
-          "imageSrc": "/journals/sobha-royal-pavilion.png",
-          "imagegenerationprompt": "A modern vector illustration of an architectural render of Sobha Royal Pavilion residential towers, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
-        },
-        {
-          "title": "ORR / Ecospace Studio Stock",
-          "location": "Bellandur, Bengaluru",
+          "title": "ORR/Ecospace-adjacent studio stock",
+          "name": "ORR/Ecospace-adjacent studio stock",
+          "location": "Bellandur–Kadubeesanahalli",
+          "roleInJourney": "Pipeline + benchmark",
+          "tagline": "Pipeline + benchmark",
           "price": "₹15–17K/sqft",
-          "tag": "Pipeline Core",
-          "tagline": "ORR Corporate Corridor Core",
+          "marketData": "₹15–17K/sqft; entry yields compressed",
+          "source": "—",
           "imageSrc": "/journals/bellandur.png",
-          "imagegenerationprompt": "A modern vector illustration of an architectural render of modern studio apartment towers near Bellandur ORR, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+          "imagegenerationprompt": "A modern vector illustration of architectural vector render of modern studio apartment towers near Bellandur ORR, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
-          "title": "Guaranteed 9% Operator Scheme",
-          "location": "Tech-Park Adjacent",
-          "price": "₹75L",
-          "tag": "Rejected",
-          "tagline": "Shell LLP Guarantee",
+          "title": "\"Guaranteed 9%\" operator scheme",
+          "name": "\"Guaranteed 9%\" operator scheme",
+          "location": "Tech-park adjacent",
+          "roleInJourney": "The detour",
+          "tagline": "The detour",
+          "price": "₹75L Guaranteed",
+          "marketData": "Unnamed by policy — guarantee = seller's own LLP",
+          "source": "—",
           "imageSrc": "/journals/the-twelve-keys-journal/hero.png",
-          "imagegenerationprompt": "A modern vector illustration of a vector graphic showing a rejected guaranteed 9% operator scheme brochure, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality.",
+          "imagegenerationprompt": "A modern vector illustration of vector graphic showing a rejected guaranteed 9% operator scheme brochure, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality.",
           "isOverlay": true,
           "overlayText": "Rejected",
-          "overlaySubtext": "Fake Guarantee"
+          "overlaySubtext": "Shell LLP Guarantee"
         }
       ],
       "prioritiesTitle": "NON-NEGOTIABLE CRITERIA",

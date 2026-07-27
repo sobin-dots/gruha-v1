@@ -549,27 +549,55 @@
       "projectsCountBadge": "4 core options",
       "projects": [
         {
-          "title": "Prestige Park Grove Whitefield",
+          "title": "Prestige Lakeside Habitat",
+          "name": "Prestige Lakeside Habitat",
+          "location": "Varthur / Whitefield–Sarjapur Rd",
+          "roleInJourney": "The chosen project (and collapsed first attempt)",
+          "tagline": "The chosen project (and collapsed first attempt)",
+          "price": "₹1.8–2.8 Cr (905–2,830 sqft)",
+          "marketData": "102 acres; 3,426 apartments + 271 villas; 2–4BHK 905–2,830 sqft; deep NRI owner base",
+          "source": "https://www.prestigeconstructions.com/residential-projects/bangalore/prestige-lakeside-habitat",
           "imageSrc": "/journals/the-3000-miles-home-journal/prestige-park.png",
-          "imagegenerationprompt": "An architectural render of Prestige Park Grove towers in Whitefield, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+          "imagegenerationprompt": "A modern vector illustration of architectural vector render of Prestige Lakeside Habitat in Varthur Whitefield, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
-          "title": "Sobha Neopolis Whitefield",
-          "imageSrc": "/journals/the-3000-miles-home-journal/sobha-neopolis.png",
-          "imagegenerationprompt": "An architectural render of Sobha Neopolis high-rise towers, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+          "title": "Brigade Cornerstone Utopia",
+          "name": "Brigade Cornerstone Utopia",
+          "location": "Whitefield / Varthur Rd",
+          "roleInJourney": "Shortlist — value thesis",
+          "tagline": "Shortlist — value thesis",
+          "price": "Resale ~₹9–11.5K/sqft",
+          "marketData": "Ready township; effective resale ~₹9–11.5K/sqft",
+          "source": "https://www.onecityproperty.com/projects/brigade-cornerstone-utopia-whitefield-bangalore",
+          "imageSrc": "/journals/the-twelve-keys-journal/hero.png",
+          "imagegenerationprompt": "A modern vector illustration of architectural vector render of Brigade Cornerstone Utopia township towers, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
-          "title": "Purva Zenium Hennur",
-          "imageSrc": "/journals/the-3000-miles-home-journal/purva-zenium.png",
-          "imagegenerationprompt": "An architectural render of Purva Zenium smart residential apartments, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+          "title": "Sobha Dream Acres",
+          "name": "Sobha Dream Acres",
+          "location": "Balagere–Panathur",
+          "roleInJourney": "Shortlist — rental thesis",
+          "tagline": "Shortlist — rental thesis",
+          "price": "₹12,750–13,150/sqft Q1'26",
+          "marketData": "₹12,750→13,150/sqft Q1'26; strong tenant absorption",
+          "source": "https://www.sobha.com/bengaluru/sobha-dream-acres/",
+          "imageSrc": "/journals/sobha-neopolis.png",
+          "imagegenerationprompt": "A modern vector illustration of architectural vector render of Sobha Dream Acres residential towers, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
-          "title": "Devanahalli 6% Assured Rental Scheme",
+          "title": "Devanahalli \"NRI special\" scheme",
+          "name": "Devanahalli \"NRI special\" scheme",
+          "location": "Devanahalli arc",
+          "roleInJourney": "The detour",
+          "tagline": "The detour",
+          "price": "Unregistered",
+          "marketData": "Unnamed by policy; \"RERA applied\" ≠ registered",
+          "source": "—",
           "imageSrc": "/journals/the-3000-miles-home-journal/devanahalli-scheme.png",
-          "imagegenerationprompt": "A vector graphic showing a rejected 6% assured rental brochure, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality.",
+          "imagegenerationprompt": "A modern vector illustration of vector graphic showing a rejected 6% assured rental brochure, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality.",
           "isOverlay": true,
           "overlayText": "Rejected",
-          "overlaySubtext": "Unpaved Road"
+          "overlaySubtext": "Unregistered RERA"
         }
       ],
       "rejectedTitle": "Why some projects didn't make the cut",

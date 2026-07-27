@@ -559,30 +559,55 @@
       "projectsCountBadge": "4 core options",
       "projects": [
         {
-          "title": "Brigade Gardenia JP Nagar 7th Phase",
-          "imageSrc": "/journals/the-quiet-crorepatis/brigade-gardenia.png",
-          "imagegenerationprompt": "An architectural render of Brigade Gardenia residential towers in JP Nagar 7th Phase, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+          "title": "Brigade Gardenia",
+          "name": "Brigade Gardenia",
+          "location": "JP Nagar 7th Phase",
+          "roleInJourney": "The chosen home",
+          "tagline": "The chosen home",
+          "price": "₹1.17 Cr (Avg ~₹11,785/sqft)",
+          "marketData": "1,029 units, 6 towers, possession ~2017; listings avg ~₹11,785/sqft",
+          "source": "https://www.99acres.com/brigade-gardenia-7th-phase-jp-nagar-bangalore-south-npxid-r361",
+          "imageSrc": "/journals/the-quiet-crorepatis/hero.png",
+          "imagegenerationprompt": "A modern vector illustration of architectural vector render of Brigade Gardenia residential towers in JP Nagar, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
-          "title": "Prestige Falcon City Luxe",
-          "imageSrc": "/journals/the-quiet-crorepatis/falcon-city.png",
-          "imagegenerationprompt": "An architectural render of Prestige Falcon City township towers, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality.",
+          "title": "Prestige Falcon City + Luxe phase",
+          "name": "Prestige Falcon City + Luxe phase",
+          "location": "Konanakunte Cross",
+          "roleInJourney": "Control visit + print-ad detour",
+          "tagline": "Control visit + print-ad detour",
+          "price": "2BHK from ~₹1.75 Cr",
+          "marketData": "Ready township, 2BHK from ~₹1.75 Cr; Luxe = launch-stage pricing, later possession",
+          "source": "https://www.prestigeconstructions.com/residential-projects/bangalore/prestige-falcon-city",
+          "imageSrc": "/journals/the-quiet-crorepatis/hero.png",
+          "imagegenerationprompt": "A modern vector illustration of architectural vector render of Prestige Falcon City township towers, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+        },
+        {
+          "title": "Brigade Millennium / Elita Promenade",
+          "name": "Brigade Millennium / Elita Promenade",
+          "location": "JP Nagar 7th Phase",
+          "roleInJourney": "Shortlist benchmarks",
+          "tagline": "Shortlist benchmarks",
+          "price": "Locality Avg ~₹12,250/sqft",
+          "marketData": "Locality average ~₹12,250/sqft",
+          "source": "https://www.99acres.com/7th-phase-jp-nagar-bangalore-south-overview-piffid",
+          "imageSrc": "/journals/the-quiet-crorepatis/hero.png",
+          "imagegenerationprompt": "A modern vector illustration of architectural vector render of Brigade Millennium towers, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+        },
+        {
+          "title": "Jayanagar 4th Block boutique (24 units)",
+          "name": "Jayanagar 4th Block boutique (24 units)",
+          "location": "Jayanagar",
+          "roleInJourney": "Walk-away #1",
+          "tagline": "Walk-away #1",
+          "price": "₹15–21K/sqft",
+          "marketData": "Unnamed by policy; segment trades ₹15–21K/sqft",
+          "source": "—",
+          "imageSrc": "/journals/the-quiet-crorepatis/hero.png",
+          "imagegenerationprompt": "A modern vector illustration of vector illustration of a rejected boutique building brochure, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality.",
           "isOverlay": true,
-          "overlayText": "Rejected Detour",
-          "overlaySubtext": "Pre-Launch Risk"
-        },
-        {
-          "title": "Brigade Millennium & Elita Promenade",
-          "imageSrc": "/journals/the-quiet-crorepatis/brigade-millennium.png",
-          "imagegenerationprompt": "An architectural render of Brigade Millennium high-rise towers in JP Nagar, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
-        },
-        {
-          "title": "Jayanagar 4th Block 24-Unit Boutique",
-          "imageSrc": "/journals/the-quiet-crorepatis/jayanagar-boutique.png",
-          "imagegenerationprompt": "An architectural render of a 24-unit boutique apartment building in Jayanagar, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality.",
-          "isOverlay": true,
-          "overlayText": "Walk-Away #1",
-          "overlaySubtext": "Roof Levy Deficit"
+          "overlayText": "Walk-away",
+          "overlaySubtext": "Unrecorded Levy"
         }
       ],
       "rejectedTitle": "Why some projects didn't make the cut",

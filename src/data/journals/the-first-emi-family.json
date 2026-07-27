@@ -562,27 +562,64 @@
       "projectsCountBadge": "19 projects",
       "projects": [
         {
-          "title": "Greenwood Meadows",
+          "title": "Shriram Chirping Woods",
+          "name": "Shriram Chirping Woods",
+          "location": "Kasavanahalli / Harlur",
+          "roleInJourney": "The chosen home",
+          "tagline": "The chosen home",
+          "price": "2BHK from ~₹1.39 Cr",
+          "marketData": "Ready; 2BHK from ~₹1.39 Cr per listings",
+          "source": "https://www.99acres.com/shriram-chirping-woods-kasavanahalli-bangalore-south-npxid-r12358",
           "imageSrc": "/journals/greenwood-meadows.png",
-          "imagegenerationprompt": "A modern flat vector illustration of greenwood meadows, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+          "imagegenerationprompt": "A modern vector illustration of architectural vector render of Shriram Chirping Woods residential apartments, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
-          "title": "Sattva Aeropolis",
-          "imageSrc": "/journals/sattva-aeropolis.png",
-          "imagegenerationprompt": "A modern flat vector illustration of sattva aeropolis, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+          "title": "Sobha Neopolis",
+          "name": "Sobha Neopolis",
+          "location": "Panathur",
+          "roleInJourney": "The print-ad detour",
+          "tagline": "The print-ad detour",
+          "price": "3BHK ₹2.3–2.72 Cr (~₹15,600/sqft)",
+          "marketData": "3BHK ₹2.3–2.72 Cr; ~₹15,600/sqft",
+          "source": "https://www.sobha.com/bengaluru/sobha-neopolis-apartments-in-panathur/",
+          "imageSrc": "/journals/sobha-neopolis.png",
+          "imagegenerationprompt": "A modern vector illustration of architectural vector render of Sobha Neopolis high-rise towers, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
-          "title": "Brigade Sanctuary",
-          "imageSrc": "/journals/brigade-sanctuary.png",
-          "imagegenerationprompt": "A modern flat vector illustration of brigade sanctuary, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+          "title": "Godrej Splendour",
+          "name": "Godrej Splendour",
+          "location": "Belathur / Whitefield edge",
+          "roleInJourney": "The value mirage",
+          "tagline": "The value mirage",
+          "price": "2BHK ~₹72L base / ₹85L all-in",
+          "marketData": "2BHK from ~₹72L base / ₹85L all-in; possession Dec 2025",
+          "source": "https://www.casagrandsunside.com/",
+          "imageSrc": "/journals/greenwood-meadows.png",
+          "imagegenerationprompt": "A modern vector illustration of architectural vector render of Godrej Splendour apartments, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
-          "title": "Greenwood meadows",
-          "imageSrc": "/journals/greenwood-meadows1.png",
-          "isOverlay": true,
-          "overlayText": "+16",
-          "overlaySubtext": "more",
-          "imagegenerationprompt": "A modern flat vector illustration of greenwood meadows1, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+          "title": "Casagrand Sunside",
+          "name": "Casagrand Sunside",
+          "location": "Sompura, off Sarjapur",
+          "roleInJourney": "Sticker-shock visit",
+          "tagline": "Sticker-shock visit",
+          "price": "2BHK quoted ~₹1.85 Cr",
+          "marketData": "2BHK quoted from ~₹1.85 Cr",
+          "source": "https://www.99acres.com/godrej-splendour-whitefield-bangalore-east-npxid-r393040",
+          "imageSrc": "/journals/greenwood-meadows.png",
+          "imagegenerationprompt": "A modern vector illustration of architectural vector render of Casagrand Sunside apartments, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+        },
+        {
+          "title": "Oceanus Monarda",
+          "name": "Oceanus Monarda",
+          "location": "Hosa Road",
+          "roleInJourney": "The resale education",
+          "tagline": "The resale education",
+          "price": "1,214 sqft 2BHK",
+          "marketData": "1,214 sqft 2BHK via community listings",
+          "source": "https://www.facebook.com/groups/442516359732161/",
+          "imageSrc": "/journals/hosa-road.png",
+          "imagegenerationprompt": "A modern vector illustration of architectural vector render of Oceanus Monarda apartment building, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         }
       ],
       "rejectedTitle": "Why some projects didn't make the cut",

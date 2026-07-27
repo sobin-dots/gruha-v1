@@ -535,22 +535,43 @@
       "projectsCountBadge": "3 core options",
       "projects": [
         {
-          "title": "Sobha Dream Acres Balagere-Panathur",
-          "imageSrc": "/journals/the-bhoomi-to-bengaluru-journal/sobha-dream-acres.png",
-          "imagegenerationprompt": "An architectural render of Sobha Dream Acres high-rise residential towers in Balagere Panathur, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+          "title": "Sobha Dream Acres",
+          "name": "Sobha Dream Acres",
+          "location": "Balagere–Panathur",
+          "roleInJourney": "The flat near the son",
+          "tagline": "The flat near the son",
+          "price": "3BHK ₹2.23–2.56 Cr",
+          "marketData": "3BHK ₹2.23–2.56 Cr; ₹12,750–13,150/sqft Q1'26",
+          "source": "https://www.sobha.com/bengaluru/sobha-dream-acres/",
+          "imageSrc": "/journals/sobha-royal-pavilion.png",
+          "imagegenerationprompt": "A modern vector illustration of architectural vector render of Sobha Dream Acres towers near Sarjapur road, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
-          "title": "Devanahalli Premium Gated Plotted Layout",
-          "imageSrc": "/journals/the-bhoomi-to-bengaluru-journal/devanahalli-plot.png",
-          "imagegenerationprompt": "An architectural vector render of a premium gated plot layout in Devanahalli with asphalt roads and boundary walls, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+          "title": "Devanahalli-side gated plotted development",
+          "name": "Devanahalli-side gated plotted development",
+          "location": "Airport corridor",
+          "roleInJourney": "The plot for the soul",
+          "tagline": "The plot for the soul",
+          "price": "₹2,100–8,500/sqft",
+          "marketData": "Corridor band ₹2,100–8,500/sqft; premium gated plotted at top of band",
+          "source": "https://www.99acres.com/property-rates-and-price-trends-in-devanahalli-bangalore-north-prffid",
+          "imageSrc": "/journals/devanahalli-plots.png",
+          "imagegenerationprompt": "A modern vector illustration of vector illustration of a gated plot development with compound walls in Devanahalli, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
-          "title": "WhatsApp Group 'Great Deal' Plot",
-          "imageSrc": "/journals/the-bhoomi-to-bengaluru-journal/whatsapp-plot.png",
-          "imagegenerationprompt": "A vector graphic showing a rejected plot layout with a highlighted rajakaluve buffer line, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality.",
+          "title": "WhatsApp group \"great deal\" plot",
+          "name": "WhatsApp group \"great deal\" plot",
+          "location": "North fringe",
+          "roleInJourney": "The regression",
+          "tagline": "The regression",
+          "price": "Unverified Title",
+          "marketData": "Unnamed by policy — EC shadow",
+          "source": "—",
+          "imageSrc": "/journals/the-bhoomi-to-bengaluru-journal/hero.png",
+          "imagegenerationprompt": "A modern vector illustration of vector graphic of rejected plot listing with encumbrance certificate warnings, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality.",
           "isOverlay": true,
           "overlayText": "Rejected",
-          "overlaySubtext": "Rajakaluve Issue"
+          "overlaySubtext": "EC Shadow"
         }
       ],
       "rejectedTitle": "Why some projects didn't make the cut",

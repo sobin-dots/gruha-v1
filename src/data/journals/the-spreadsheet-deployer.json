@@ -536,26 +536,54 @@
       "projects": [
         {
           "title": "Bhartiya City Nikoo Homes",
+          "name": "Bhartiya City Nikoo Homes",
+          "location": "Thanisandra Main Rd",
+          "roleInJourney": "The launch-window buy",
+          "tagline": "The launch-window buy",
+          "price": "₹1.31–2.9 Cr (~₹11,950/sqft)",
+          "marketData": "~₹11,950 → 12,100/sqft Q1'26; ₹1.31–2.9 Cr; new-phase possession 2029",
+          "source": "https://housystan.com/property/bhartiya-nikoo-homes/bangalore/thanisandra-main-road/price-brochure-floor-plan-review",
           "imageSrc": "/journals/nikoo-homes.png",
-          "imagegenerationprompt": "An architectural render of Bhartiya City Nikoo Homes phase building towers in Thanisandra Bengaluru, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+          "imagegenerationprompt": "A modern vector illustration of architectural vector render of Bhartiya City Nikoo Homes towers in Thanisandra, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
           "title": "L&T Raintree Boulevard",
+          "name": "L&T Raintree Boulevard",
+          "location": "Hebbal",
+          "roleInJourney": "Delivered-premium benchmark",
+          "tagline": "Delivered-premium benchmark",
+          "price": "₹2.4–3.53 Cr (₹17.5K–20.4K/sqft)",
+          "marketData": "₹17.5K → 20.4K/sqft Q4'25; ₹2.4–3.53 Cr — what the corridor pays when wait is over",
+          "source": "https://www.homznspace.com/lnt-raintree-boulevard/",
           "imageSrc": "/journals/raintree-boulevard.png",
-          "imagegenerationprompt": "An architectural render of L&T Raintree Boulevard luxury apartments in Hebbal Bengaluru, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+          "imagegenerationprompt": "A modern vector illustration of architectural vector render of L&T Raintree Boulevard towers in Hebbal, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
-          "title": "Devanahalli Plotted Developments",
+          "title": "Devanahalli plotted developments",
+          "name": "Devanahalli plotted developments",
+          "location": "Devanahalli",
+          "roleInJourney": "The alternative thesis (parked)",
+          "tagline": "The alternative thesis (parked)",
+          "price": "₹38–45L (₹2,100–8,500/sqft)",
+          "marketData": "Plots ₹2,100–8,500/sqft; 1,500 sqft from ₹38–45L in emerging pockets",
+          "source": "https://www.99acres.com/property-rates-and-price-trends-in-devanahalli-bangalore-north-prffid",
           "imageSrc": "/journals/devanahalli-plots.png",
-          "imagegenerationprompt": "An aerial vector illustration of plotted land developments near Devanahalli airport, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+          "imagegenerationprompt": "A modern vector illustration of vector graphic of gated plotted development layout in Devanahalli, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
-          "title": "Airport-Corridor Land Syndicate",
+          "title": "Airport-corridor land syndicate",
+          "name": "Airport-corridor land syndicate",
+          "location": "Devanahalli arc",
+          "roleInJourney": "The detour",
+          "tagline": "The detour",
+          "price": "Unverified",
+          "marketData": "Unnamed by policy; no RERA, no title packet",
+          "source": "—",
           "imageSrc": "/journals/land-syndicate.png",
-          "imagegenerationprompt": "A vector graphic showing a rejected land syndicate investment deck, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality.",
+          "imagegenerationprompt": "A modern vector illustration of vector graphic of rejected un-cleared land syndicate brochure, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality.",
           "isOverlay": true,
           "overlayText": "Rejected",
-          "overlaySubtext": "No RERA"
+          "overlaySubtext": "No RERA Title"
         }
       ],
       "rejectedTitle": "Why some projects didn't make the cut",
