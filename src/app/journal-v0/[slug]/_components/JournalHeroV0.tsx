@@ -66,10 +66,10 @@ export const JournalHeroV0: React.FC<JournalHeroV0Props> = ({
   const displayLearnings = learnings.length > 0 ? learnings : defaultLearnings;
 
   return (
-    <div className="w-full pt-10 sm:pt-12 pb-10 sm:pb-14">
-      <div className="w-full grid grid-cols-1 md:grid-cols-[380px_1fr] gap-8 md:gap-10 items-stretch">
+    <div className="w-full pt-6 sm:pt-8 pb-8 sm:pb-10">
+      <div className="w-full grid grid-cols-1 sm:grid-cols-[220px_1fr] lg:grid-cols-[250px_1fr] xl:grid-cols-[280px_1fr] gap-6 lg:gap-8 items-start">
         {/* Col 1 — Hero Image */}
-        <div ref={heroImgWrapRef} className="relative rounded-2xl overflow-hidden aspect-square border border-slate-100 shadow-xs">
+        <div ref={heroImgWrapRef} className="relative rounded-2xl overflow-hidden aspect-square border border-slate-100 shadow-xs w-full max-w-[280px] mx-auto sm:mx-0 flex-none">
           <img
             src={getImgSrc(displayHeroImage)}
             alt={displayTitle.replace("\n", " ")}
@@ -78,15 +78,15 @@ export const JournalHeroV0: React.FC<JournalHeroV0Props> = ({
         </div>
 
         {/* Col 2 — Title, Subtitle, Learnings & Actions */}
-        <div className="flex flex-col gap-5 justify-center pt-2">
+        <div className="flex flex-col gap-4 justify-center pt-1 min-w-0">
           <h1
-            className="text-[clamp(30px,3.2vw,48px)] font-semibold leading-[1.08] tracking-[-0.02em] whitespace-pre-line"
+            className="text-[clamp(24px,2.2vw,38px)] font-semibold leading-[1.12] tracking-[-0.02em] whitespace-pre-line break-words"
             style={{ fontFamily: fd, color: "#111821" }}
           >
             {displayTitle}
           </h1>
 
-          <p className="text-[15.5px] leading-[1.6]" style={{ fontFamily: fu, color: "#59636F", maxWidth: 500 }}>
+          <p className="text-[14.5px] leading-[1.55]" style={{ fontFamily: fu, color: "#59636F", maxWidth: 520 }}>
             {displayDescription}
           </p>
 

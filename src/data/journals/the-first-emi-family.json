@@ -48,7 +48,7 @@
             "Calm"
           ],
           "image": "/journals/pavan.png",
-          "imagegenerationprompt": "A modern flat vector illustration of pavan"
+          "imagegenerationprompt": "A stylized vector graphic portrait illustration of a 29-year-old South Indian male software engineer named Pavan with short dark hair, wearing a dark navy shirt, digital vector art style with fine dark outlines, posterized cel-shading, warm natural skin tones, friendly smiling expression, clean solid warm beige background (#F4EBE1), high quality character art."
         },
         {
           "name": "Shruti",
@@ -61,7 +61,7 @@
             "Empathetic"
           ],
           "image": "/journals/shruti.png",
-          "imagegenerationprompt": "A modern flat vector illustration of shruti"
+          "imagegenerationprompt": "A stylized vector graphic portrait illustration of a 28-year-old South Indian female QA engineer named Shruti with long dark hair, wearing a clean off-white sweater, digital vector art style with fine dark outlines, posterized cel-shading, warm natural skin tones, friendly smiling expression, clean solid warm beige background (#F4EBE1), high quality character art."
         }
       ],
       "sharedVisionTitle": "Shared vision",
@@ -70,23 +70,23 @@
       "stats": [
         {
           "icon": "Briefcase",
-          "label": "Buyer profile",
+          "label": "BUYER PROFILE",
           "value": "First-timers"
         },
         {
           "icon": "Heart",
-          "label": "Life stage",
+          "label": "LIFE STAGE",
           "value": "Newly married"
         },
         {
           "icon": "TrendingUp",
-          "label": "Search stage",
+          "label": "SEARCH STAGE",
           "value": "Active explorer"
         },
         {
           "icon": "Hourglass",
-          "label": "Timeline",
-          "value": "Before the baby"
+          "label": "TIMELINE",
+          "value": "Before baby"
         }
       ],
       "prioritiesTitle": "Top priorities right now",
@@ -97,7 +97,7 @@
           "scorePercentage": 95,
           "scoreLabel": "9.5/10",
           "description": "Making a wrong financial decision that impacts our future.",
-          "imagegenerationprompt": "A modern flat vector illustration of 1.1"
+          "imagegenerationprompt": "A modern flat vector illustration of 1.1, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
           "image": "/journals/1/2.png",
@@ -105,7 +105,7 @@
           "scorePercentage": 90,
           "scoreLabel": "9/10",
           "description": "Daily commute should be easy and stress free.",
-          "imagegenerationprompt": "A modern flat vector illustration of 2"
+          "imagegenerationprompt": "A modern flat vector illustration of 2, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
           "image": "/journals/1/3.png",
@@ -113,7 +113,7 @@
           "scorePercentage": 75,
           "scoreLabel": "7.5/10",
           "description": "A secure environment for our child to grow.",
-          "imagegenerationprompt": "A modern flat vector illustration of 3"
+          "imagegenerationprompt": "A modern flat vector illustration of 3, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
           "image": "/journals/1/4.png",
@@ -121,10 +121,10 @@
           "scorePercentage": 80,
           "scoreLabel": "8/10",
           "description": "Room to grow, work and create memories.",
-          "imagegenerationprompt": "A modern flat vector illustration of 4"
+          "imagegenerationprompt": "A modern flat vector illustration of 4, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         }
       ],
-      "imagegenerationprompt": "A modern flat vector illustration of living room sketch"
+      "imagegenerationprompt": "A modern flat vector illustration of living room sketch, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
     },
     {
       "id": "journey",
@@ -301,21 +301,21 @@
           "title": "The budget shift",
           "desc": "Their ₹1 Cr dream became a ₹1.5 Cr reality as prices rose faster than their savings.",
           "imageSrc": "/journals/2/1.png",
-          "imagegenerationprompt": "A modern flat vector illustration of 1"
+          "imagegenerationprompt": "A modern flat vector illustration of 1, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
           "id": "baby-deadline",
           "title": "The baby deadline",
           "desc": "With their first child arriving next year, delaying the decision was no longer an option.",
           "imageSrc": "/journals/2/2.png",
-          "imagegenerationprompt": "A modern flat vector illustration of 2"
+          "imagegenerationprompt": "A modern flat vector illustration of 2, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
           "id": "sunday-ritual",
           "title": "The Sunday Ritual",
           "desc": "Every Sunday meant one site visit, one Excel update, one argument and one make-up dosa.",
           "imageSrc": "/journals/2/3.png",
-          "imagegenerationprompt": "A modern flat vector illustration of 3"
+          "imagegenerationprompt": "A modern flat vector illustration of 3, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         }
       ],
       "voicesTitle": "Voices around them",
@@ -342,14 +342,14 @@
           "sender": "Pavan",
           "avatar": "/journals/pavan.png",
           "text": "Every Sunday became one site visit, one Excel update, one argument... and one make-up dosa.",
-          "imagegenerationprompt": "A modern flat vector illustration of pavan"
+          "imagegenerationprompt": "A modern flat vector illustration of pavan, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
           "sender": "Riya",
           "avatar": "/journals/avatar-riya.png",
           "text": "Every time I suggested a lower-priced option, both of you kept returning to communities with trusted builders, better schools and realistic possession timelines. That's when I realized you weren't searching for the cheapest home. You were searching for peace of mind.",
           "isRiya": true,
-          "imagegenerationprompt": "A modern flat vector illustration of avatar riya"
+          "imagegenerationprompt": "A modern flat vector illustration of avatar riya, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         }
       ],
       "realityChecksTitle": "Reality checks along the way",
@@ -422,7 +422,7 @@
           "projects": 5,
           "siteVisits": 4,
           "imageSrc": "/journals/sarjapur.png",
-          "imagegenerationprompt": "A modern flat vector illustration of sarjapur"
+          "imagegenerationprompt": "A modern flat vector illustration of sarjapur, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
           "title": "Hosa Road",
@@ -430,7 +430,7 @@
           "projects": 4,
           "siteVisits": 4,
           "imageSrc": "/journals/hosa-road.png",
-          "imagegenerationprompt": "A modern flat vector illustration of hosa road"
+          "imagegenerationprompt": "A modern flat vector illustration of hosa road, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
           "title": "Chandapura–Attibele Fringe",
@@ -438,7 +438,7 @@
           "projects": 2,
           "siteVisits": 3,
           "imageSrc": "/journals/attibele.png",
-          "imagegenerationprompt": "A modern flat vector illustration of attibele"
+          "imagegenerationprompt": "A modern flat vector illustration of attibele, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         }
       ],
       "consideredAreasLabel": "Other areas they considered Kanakapura Road • Electronic City • Whitefield",
@@ -474,7 +474,7 @@
       "insightTitle": "What I noticed while we were searching",
       "insightDescription": "“Every time I suggested a lower-priced option, both of you kept returning to communities with trusted builders, better schools and realistic possession timelines. That's when I realized you weren't searching for the cheapest home. You were searching for peace of mind.”",
       "insightImage": "/journals/advisor.png",
-      "imagegenerationprompt": "A modern flat vector illustration of advisor"
+      "imagegenerationprompt": "A modern flat vector illustration of advisor, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
     },
     {
       "id": "projects",
@@ -544,14 +544,14 @@
           "sender": "Pavan",
           "avatar": "/journals/pavan.png",
           "text": "“Every Sunday became one site visit, one Excel update, one argument... and one make-up dosa.”",
-          "imagegenerationprompt": "A modern flat vector illustration of pavan"
+          "imagegenerationprompt": "A modern flat vector illustration of pavan, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
           "sender": "Riya",
           "avatar": "/journals/avatar-riya.png",
           "text": "It wasn't really about the projects anymore. You were trying to convince yourselves that you were ready for this next chapter.",
           "isRiya": true,
-          "imagegenerationprompt": "A modern flat vector illustration of avatar riya"
+          "imagegenerationprompt": "A modern flat vector illustration of avatar riya, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         }
       ],
       "audioLabel": "Hear entire conversation (94 sec)",
@@ -564,17 +564,17 @@
         {
           "title": "Greenwood Meadows",
           "imageSrc": "/journals/greenwood-meadows.png",
-          "imagegenerationprompt": "A modern flat vector illustration of greenwood meadows"
+          "imagegenerationprompt": "A modern flat vector illustration of greenwood meadows, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
           "title": "Sattva Aeropolis",
           "imageSrc": "/journals/sattva-aeropolis.png",
-          "imagegenerationprompt": "A modern flat vector illustration of sattva aeropolis"
+          "imagegenerationprompt": "A modern flat vector illustration of sattva aeropolis, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
           "title": "Brigade Sanctuary",
           "imageSrc": "/journals/brigade-sanctuary.png",
-          "imagegenerationprompt": "A modern flat vector illustration of brigade sanctuary"
+          "imagegenerationprompt": "A modern flat vector illustration of brigade sanctuary, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
           "title": "Greenwood meadows",
@@ -582,7 +582,7 @@
           "isOverlay": true,
           "overlayText": "+16",
           "overlaySubtext": "more",
-          "imagegenerationprompt": "A modern flat vector illustration of greenwood meadows1"
+          "imagegenerationprompt": "A modern flat vector illustration of greenwood meadows1, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         }
       ],
       "rejectedTitle": "Why some projects didn't make the cut",
@@ -616,7 +616,7 @@
       "suggestionTitle": "Riya's suggestion",
       "suggestionDescription": "After reviewing their search journey, I noticed that Pavan and Shruti rarely chose the lowest-priced option. Instead, they consistently returned to projects that balanced trusted builders, family-friendly neighbourhoods and a realistic possession timeline before their baby's arrival.",
       "suggestionImageSrc": "/journals/advisor.png",
-      "imagegenerationprompt": "A modern flat vector illustration of riya"
+      "imagegenerationprompt": "A modern flat vector illustration of riya, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
     },
     {
       "id": "learnings",
@@ -657,19 +657,19 @@
           "title": "Markets don't wait.",
           "description": "Their ₹1 Cr budget seemed realistic initially. Within two years, property prices rose to ₹1.35–1.55 Cr. Starting earlier would have offered more flexibility and choices.",
           "imageSrc": "/journals/3/1.png",
-          "imagegenerationprompt": "A modern flat vector illustration of 1"
+          "imagegenerationprompt": "A modern flat vector illustration of 1, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
           "title": "Shortlists beat browsing.",
           "description": "After comparing many listings and projects, they found more options didn't help. Focusing on a few well-matched communities made decisions easier.",
           "imageSrc": "/journals/3/2.png",
-          "imagegenerationprompt": "A modern flat vector illustration of 2"
+          "imagegenerationprompt": "A modern flat vector illustration of 2, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
           "title": "Builder trust matters.",
           "description": "Price wasn't the only factor. Quality, clear documentation, RERA compliance, and delivery history mattered as much as the floor plan.",
           "imageSrc": "/journals/3/3.png",
-          "imagegenerationprompt": "A modern flat vector illustration of 3"
+          "imagegenerationprompt": "A modern flat vector illustration of 3, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         }
       ],
       "beforeTitle": "BEFORE",
@@ -745,20 +745,20 @@
           "sender": "Pavan",
           "avatar": "/journals/pavan.png",
           "text": "If we had to start all over again...",
-          "imagegenerationprompt": "A modern flat vector illustration of pavan"
+          "imagegenerationprompt": "A modern flat vector illustration of pavan, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
           "sender": "Riya",
           "avatar": "/journals/avatar-riya.png",
           "text": "What would you do differently?",
           "isRiya": true,
-          "imagegenerationprompt": "A modern flat vector illustration of avatar riya"
+          "imagegenerationprompt": "A modern flat vector illustration of avatar riya, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
           "sender": "Pavan",
           "avatar": "/journals/pavan.png",
           "text": "I'd stop chasing perfect projects and start trusting our priorities much earlier.",
-          "imagegenerationprompt": "A modern flat vector illustration of pavan"
+          "imagegenerationprompt": "A modern flat vector illustration of pavan, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         }
       ],
       "audioLabel": "Hear entire conversation (94 sec)",
@@ -766,7 +766,7 @@
       "adviceTitle": "Advice for people like them",
       "adviceStoryboardImage": "/journals/journey-storyboard.png",
       "adviceDescription": "Every decision in their journey became a lesson. Looking back, Pavan and Shruti realised that confidence didn't come from visiting more projects or chasing the lowest price. It came from understanding their priorities, comparing thoughtfully and planning for the life they wanted to build. These lessons are the experiences they hope every future homebuyer can learn before beginning their own journey.",
-      "imagegenerationprompt": "A modern flat vector illustration of riya"
+      "imagegenerationprompt": "A modern flat vector illustration of riya, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
     },
     {
       "id": "start-here",
@@ -786,28 +786,28 @@
           "title": "You",
           "description": "Share your plans, family needs, lifestyle, budget and expectations.",
           "imageSrc": "/journals/4/1.png",
-          "imagegenerationprompt": "A modern flat vector illustration of 1"
+          "imagegenerationprompt": "A modern flat vector illustration of 1, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
           "id": 2,
           "title": "Riya listens",
           "description": "Riya understands your priorities, asks meaningful questions and discovers what truly matters to you.",
           "imageSrc": "/journals/4/2.png",
-          "imagegenerationprompt": "A modern flat vector illustration of 2"
+          "imagegenerationprompt": "A modern flat vector illustration of 2, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
           "id": 3,
           "title": "Journal created",
           "description": "Your conversations are transformed into a personalized home-buying journal with insights and recommendations.",
           "imageSrc": "/journals/4/3.png",
-          "imagegenerationprompt": "A modern flat vector illustration of 3"
+          "imagegenerationprompt": "A modern flat vector illustration of 3, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
         {
           "id": 4,
           "title": "Better recommendations",
           "description": "Receive project suggestions that fit your priorities, not just your filters.",
           "imageSrc": "/journals/4/4.png",
-          "imagegenerationprompt": "A modern flat vector illustration of 4"
+          "imagegenerationprompt": "A modern flat vector illustration of 4, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         }
       ],
       "valuePropsTitle": "What mattered most in their search",
@@ -851,7 +851,7 @@
       "ctaDescription": "Let Riya understand your goals and, together with Kabir, create a personalized journal that guides you toward the right home with confidence",
       "ctaButtonText": "Copy Journal",
       "ctaCharacterImage": "/journals/riya-full-character.png",
-      "imagegenerationprompt": "A modern flat vector illustration of open book illustration"
+      "imagegenerationprompt": "A modern flat vector illustration of open book illustration, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
     }
   ]
 }

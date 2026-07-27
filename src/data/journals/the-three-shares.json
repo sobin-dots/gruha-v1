@@ -1,6 +1,10 @@
 {
   "article": {
-    "tags": ["FAMILIES / LEGACY", "MALLESHWARAM", "INHERITANCE"],
+    "tags": [
+      "FAMILIES / LEGACY",
+      "MALLESHWARAM",
+      "INHERITANCE"
+    ],
     "title": "The Inheritance Consolidators: The Three Shares Journal",
     "description": "Three siblings, one Malleshwaram house, no will. How Ramesh, Suma, and Mohan converted their late father's 30x50 ancestral house into three fair shares, three futures, and zero family ruptures.",
     "quote": "\"Appa left one house and three children. The house cannot be cut. The money can.\"",
@@ -39,27 +43,39 @@
           "age": 54,
           "role": "Bank Manager (Bengaluru)",
           "description": "Caretaker son by proximity. Managed repairs, tenants, and khata for 15 years while holding the family's presence in Bengaluru.",
-          "tags": ["Methodical", "Local Caretaker", "Prudent"],
+          "tags": [
+            "Methodical",
+            "Local Caretaker",
+            "Prudent"
+          ],
           "image": "/journals/the-three-shares/ramesh.png",
-          "imagegenerationprompt": "A studio portrait photo of a 54-year-old South Indian male bank manager named Ramesh wearing a charcoal formal shirt in an 80% greyscale monochrome aesthetic with a subtle Warm Coral #DD5128 lapel accent, Scandinavian minimalism, soft ambient studio rim lighting, clean beige background."
+          "imagegenerationprompt": "A stylized vector graphic portrait illustration of a 54-year-old South Indian male named Ramesh (Bank Manager (Bengaluru)), digital vector art style with fine dark outlines, posterized cel-shading, warm natural skin tones, friendly smiling expression, clean solid warm beige background (#F4EBE1), high quality character art."
         },
         {
           "name": "Suma",
           "age": 50,
           "role": "Doctor (Hubballi)",
           "description": "Quiet, empathetic sister rooted in Hubballi. Spoke the defining sentence at Deepavali that ended 6 years of family stasis.",
-          "tags": ["Empathetic", "Decisive", "Unselfish"],
+          "tags": [
+            "Empathetic",
+            "Decisive",
+            "Unselfish"
+          ],
           "image": "/journals/the-three-shares/suma.png",
-          "imagegenerationprompt": "A studio portrait photo of a 50-year-old South Indian female doctor named Suma wearing an elegant charcoal saree in an 80% greyscale monochrome aesthetic with a subtle Warm Coral #DD5128 border accent, Scandinavian minimalism, soft ambient studio rim lighting, clean beige background."
+          "imagegenerationprompt": "A stylized vector graphic portrait illustration of a 50-year-old South Indian female named Suma (Doctor (Hubballi)), digital vector art style with fine dark outlines, posterized cel-shading, warm natural skin tones, friendly smiling expression, clean solid warm beige background (#F4EBE1), high quality character art."
         },
         {
           "name": "Mohan",
           "age": 46,
           "role": "IT Professional (Toronto)",
           "description": "Farthest geographically, carrying nostalgia across time zones. Visits every two years for one conversation that never finished.",
-          "tags": ["Global", "Nostalgic", "Practical"],
+          "tags": [
+            "Global",
+            "Nostalgic",
+            "Practical"
+          ],
           "image": "/journals/the-three-shares/mohan.png",
-          "imagegenerationprompt": "A studio portrait photo of a 46-year-old South Indian male IT professional named Mohan in a dark charcoal sweater in an 80% greyscale monochrome aesthetic with a subtle Warm Coral #DD5128 accent, Scandinavian minimalism, soft ambient studio rim lighting, clean beige background."
+          "imagegenerationprompt": "A stylized vector graphic portrait illustration of a 46-year-old South Indian male named Mohan (IT Professional (Toronto)), digital vector art style with fine dark outlines, posterized cel-shading, warm natural skin tones, friendly smiling expression, clean solid warm beige background (#F4EBE1), high quality character art."
         }
       ],
       "sharedVisionTitle": "Shared vision",
@@ -70,26 +86,22 @@
         {
           "icon": "Briefcase",
           "label": "BUYER PROFILE",
-          "value": "3 Siblings (Bengaluru, Hubballi, Toronto)",
-          "tag": "Intestate Estate"
+          "value": "Family Estate"
         },
         {
           "icon": "Heart",
           "label": "LIFE STAGE",
-          "value": "Inheritance & Estate Settlement",
-          "tag": "Zero Family Ruptures"
+          "value": "Inheritance"
         },
         {
-          "icon": "Sparkles",
+          "icon": "TrendingUp",
           "label": "SEARCH STAGE",
-          "value": "Boutique Joint Development",
-          "tag": "3 Flats + ₹1.2 Cr Cash"
+          "value": "Joint Venture"
         },
         {
           "icon": "Hourglass",
           "label": "TIMELINE",
-          "value": "90-Day Builder Window",
-          "tag": "6 Years Stasis Ended"
+          "value": "90 Days"
         }
       ],
       "prioritiesTitle": "Top priorities right now",
@@ -302,11 +314,36 @@
       ],
       "criteriaTitle": "Non-negotiables",
       "criteria": [
-        { "icon": "ShieldCheck", "text": "Safety & security", "sub": "for family", "active": false },
-        { "icon": "GraduationCap", "text": "Good schools", "sub": "nearby", "active": false },
-        { "icon": "CheckCircle2", "text": "Trusted builders", "sub": "for quality", "active": false },
-        { "icon": "TrendingUp", "text": "Value of money", "sub": "for future growth", "active": false },
-        { "icon": "Hourglass", "text": "Possession timeline", "sub": "before baby arrives", "active": true }
+        {
+          "icon": "ShieldCheck",
+          "text": "Safety & security",
+          "sub": "for family",
+          "active": false
+        },
+        {
+          "icon": "GraduationCap",
+          "text": "Good schools",
+          "sub": "nearby",
+          "active": false
+        },
+        {
+          "icon": "CheckCircle2",
+          "text": "Trusted builders",
+          "sub": "for quality",
+          "active": false
+        },
+        {
+          "icon": "TrendingUp",
+          "text": "Value of money",
+          "sub": "for future growth",
+          "active": false
+        },
+        {
+          "icon": "Hourglass",
+          "text": "Possession timeline",
+          "sub": "before baby arrives",
+          "active": true
+        }
       ]
     },
     {

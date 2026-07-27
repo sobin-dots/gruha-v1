@@ -7,7 +7,6 @@ import * as Icons from "lucide-react";
 import imgMoment1 from "@/imports/1.png";
 import imgMoment2 from "@/imports/2.png";
 import imgMoment3 from "@/imports/3.png";
-import imgFrame9 from "@/imports/Frame9.svg";
 import AgentCardSlider, { AgentCardItem } from "./JournalAgentCardStack";
 
 const fd = "'Newsreader', Georgia, serif";
@@ -271,7 +270,6 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
           })}
         </div>
 
-        {/* Time Display */}
         <span className="text-[12px] font-medium text-slate-400 shrink-0 font-inter min-w-[70px] text-right">
           {formatTime(currentTime)} / {formatTime(duration)}
         </span>
@@ -279,6 +277,16 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
     </div>
   );
 };
+
+const defaultRoadmapNodes: RoadmapNode[] = [
+  { id: "spreadsheet-loop", title: "The 47-Tab Spreadsheet", desc: "Eleven months of analysis loop; ₹35L cost of analysis added as its own column.", icon: "FileSpreadsheet", x: 130, y: 110, width: 190 },
+  { id: "raintree-benchmark", title: "Raintree Boulevard Benchmark", desc: "Calibrating delivered Hebbal premium (₹17.5K–20.4K/sqft) to establish exit ceiling.", icon: "TrendingUp", x: 340, y: 160, width: 190 },
+  { id: "land-syndicate-detour", title: "Land Syndicate Detour", desc: "22% IRR pitch deck with no RERA or title packet; killed by one lawyer call.", icon: "AlertTriangle", x: 560, y: 150, width: 190 },
+  { id: "kitchen-mandate", title: "Kitchen Mandate Formed", desc: "Thesis narrows to launch window; 4 written conditions framed in kitchen.", icon: "FileText", x: 740, y: 130, width: 190 },
+  { id: "eoi-bounce", title: "Road-Facing EOI Bounce", desc: "Allotment day offered low road-facing floors; exercised refundable EOI clause.", icon: "RotateCcw", x: 880, y: 290, width: 180 },
+  { id: "nikoo-unit-secured", title: "East Mid-Floor Secured", desc: "Secured ideal east-facing mid-floor in Nikoo's new phase (possession 2029).", icon: "CheckCircle2", x: 620, y: 400, width: 190 },
+  { id: "rera-progress-ritual", title: "RERA Progress Ritual", desc: "Quarterly RERA progress tracking ritual established; Deepa's rule audited.", icon: "CalendarCheck", x: 340, y: 410, width: 190 },
+];
 
 /* -- Main Dynamic JournalJourneyV0 Component ----------------------------- */
 
@@ -295,9 +303,8 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
   ],
   journeyFrameTitle = "How their journey unfolded",
   journeyFrameSubtitle = "Every stage, mapped.",
-  journeyFrameImage = imgFrame9,
   roadmapTitle = "How their journey unfolded",
-  roadmapNodes,
+  roadmapNodes = defaultRoadmapNodes,
   timelineTitle = "Where they stand today",
   timelineSteps,
   momentsTitle = "Moments that changed everything",
@@ -388,173 +395,160 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
           </div>
         )}
 
-        {/* -- Dynamic Roadmap (SVG / Nodes or Image Fallback) ------------ */}
-        {roadmapNodes && roadmapNodes.length > 0 ? (
-          <div className="w-full border border-[#F1F5F9] rounded-[24px] bg-white overflow-hidden shadow-[0_1px_2px_rgba(17,24,33,.04),0_8px_24px_rgba(17,24,33,.05)]">
-            <div className="px-8 pt-7 pb-2">
-              <p
-                className="text-[9.5px] font-semibold tracking-[0.14em] uppercase"
-                style={{ fontFamily: fu, color: "rgb(138, 148, 161)" }}
-              >
-                {journeyFrameTitle}
-              </p>
-              <h3
-                className="mt-1 text-[20px] font-semibold leading-tight"
-                style={{ fontFamily: fd, color: "rgb(17, 24, 33)" }}
-              >
-                {roadmapTitle}
-              </h3>
-            </div>
+        {/* -- Dynamic Roadmap SVG ---------------------------------------- */}
+        <div className="w-full border border-[#F1F5F9] rounded-[24px] bg-white overflow-hidden shadow-[0_1px_2px_rgba(17,24,33,.04),0_8px_24px_rgba(17,24,33,.05)]">
+          <div className="px-8 pt-7 pb-2">
+            <p
+              className="text-[9.5px] font-semibold tracking-[0.14em] uppercase"
+              style={{ fontFamily: fu, color: "rgb(138, 148, 161)" }}
+            >
+              {journeyFrameTitle}
+            </p>
+            <h3
+              className="mt-1 text-[20px] font-semibold leading-tight"
+              style={{ fontFamily: fd, color: "rgb(17, 24, 33)" }}
+            >
+              {roadmapTitle}
+            </h3>
+          </div>
 
-            {/* Mobile Vertical Nodes */}
-            <div className="flex flex-col gap-6 p-6 md:hidden">
-              {roadmapNodes.map((stage, idx) => {
-                const Icon = typeof stage.icon === "string" ? (props: any) => getIcon(stage.icon, "HelpCircle", props) : stage.icon;
-                const isLast = idx === roadmapNodes.length - 1;
+          {/* Mobile Vertical Nodes */}
+          <div className="flex flex-col gap-6 p-6 md:hidden">
+            {roadmapNodes.map((stage, idx) => {
+              const Icon = typeof stage.icon === "string" ? (props: any) => getIcon(stage.icon, "HelpCircle", props) : stage.icon;
+              const isLast = idx === roadmapNodes.length - 1;
 
-                return (
-                  <div key={stage.id} className="relative flex items-start gap-4">
-                    <div className="flex flex-col items-center shrink-0">
-                      <div className="flex items-center justify-center w-[52px] h-[52px] bg-[#F1F5F9] rounded-[18px] z-10">
-                        {Icon ? <Icon className="w-[24px] h-[24px] text-[#475569]" strokeWidth={1.8} /> : getIcon("HelpCircle", "HelpCircle", { className: "w-6 h-6 text-[#475569]" })}
-                      </div>
-                      {!isLast && <div className="w-[2px] bg-slate-200 flex-1 my-2 min-h-[36px]" />}
+              return (
+                <div key={stage.id} className="relative flex items-start gap-4">
+                  <div className="flex flex-col items-center shrink-0">
+                    <div className="flex items-center justify-center w-[52px] h-[52px] bg-[#F1F5F9] rounded-[18px] z-10">
+                      {Icon ? <Icon className="w-[24px] h-[24px] text-[#475569]" strokeWidth={1.8} /> : getIcon("HelpCircle", "HelpCircle", { className: "w-6 h-6 text-[#475569]" })}
                     </div>
-                    <div className="flex flex-col gap-1 pt-1">
-                      <h4 className="font-semibold text-[15px] leading-[20px] text-[#334155] font-inter">
-                        {stage.title}
-                      </h4>
-                      <p className="font-medium text-[13px] leading-[18px] text-[#64748B] font-inter">
-                        {stage.desc}
-                      </p>
-                    </div>
+                    {!isLast && <div className="w-[2px] bg-slate-200 flex-1 my-2 min-h-[36px]" />}
                   </div>
-                );
-              })}
-            </div>
+                  <div className="flex flex-col gap-1 pt-1">
+                    <h4 className="font-semibold text-[15px] leading-[20px] text-[#334155] font-inter">
+                      {stage.title}
+                    </h4>
+                    <p className="font-medium text-[13px] leading-[18px] text-[#64748B] font-inter">
+                      {stage.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
 
-            {/* Desktop SVG Snaking Path */}
-            <div className="hidden md:block relative w-full aspect-[1000/870] pb-10">
-              <svg
-                className="absolute inset-0 w-full h-full pointer-events-none z-0"
-                viewBox="0 0 1000 870"
-                preserveAspectRatio="xMidYMid meet"
-                xmlns="http://www.w3.org/2000/svg"
+          {/* Desktop SVG Snaking Path */}
+          {(() => {
+            const maxY = Math.max(...roadmapNodes.map((n) => n.y), 300);
+            const viewBoxHeight = Math.min(870, Math.max(460, maxY + 140));
+
+            // Dynamically build path connecting nodes in exact sequence
+            const pathD = roadmapNodes.reduce((acc, curr, idx) => {
+              if (idx === 0) return `M ${curr.x} ${curr.y}`;
+              const prev = roadmapNodes[idx - 1];
+              const dx = curr.x - prev.x;
+              const dy = curr.y - prev.y;
+
+              if (Math.abs(dx) > Math.abs(dy)) {
+                const cx1 = prev.x + dx * 0.5;
+                const cy1 = prev.y;
+                const cx2 = prev.x + dx * 0.5;
+                const cy2 = curr.y;
+                return `${acc} C ${cx1} ${cy1}, ${cx2} ${cy2}, ${curr.x} ${curr.y}`;
+              } else {
+                const cx1 = prev.x;
+                const cy1 = prev.y + dy * 0.5;
+                const cx2 = curr.x;
+                const cy2 = prev.y + dy * 0.5;
+                return `${acc} C ${cx1} ${cy1}, ${cx2} ${cy2}, ${curr.x} ${curr.y}`;
+              }
+            }, "");
+
+            return (
+              <div
+                className="hidden md:block relative w-full pb-6"
+                style={{ aspectRatio: `1000 / ${viewBoxHeight}` }}
               >
-                <defs>
-                  <marker
-                    id="arrowhead-v0"
-                    markerWidth="7"
-                    markerHeight="7"
-                    refX="5"
-                    refY="3.5"
-                    orient="auto"
-                  >
-                    <path
-                      d="M 1 1 L 6 3.5 L 1 6"
-                      fill="none"
-                      stroke="#CBD5E1"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </marker>
-                </defs>
-                <path
-                  d="M 130 110 C 190 60, 270 190, 340 160 C 420 120, 480 180, 560 150 C 640 120, 680 140, 740 130 C 820 120, 880 190, 880 290"
-                  fill="none"
-                  stroke="#CBD5E1"
-                  strokeWidth="2.2"
-                  strokeDasharray="6 6"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M 880 290 C 800 370, 860 520, 930 450 C 980 400, 970 330, 950 335"
-                  fill="none"
-                  stroke="#CBD5E1"
-                  strokeWidth="2.2"
-                  strokeDasharray="6 6"
-                  strokeLinecap="round"
-                  markerEnd="url(#arrowhead-v0)"
-                />
-                <path
-                  d="M 880 290 C 830 350, 780 390, 710 400 C 630 410, 580 420, 510 430 C 440 440, 390 440, 330 450"
-                  fill="none"
-                  stroke="#CBD5E1"
-                  strokeWidth="2.2"
-                  strokeDasharray="6 6"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M 330 450 C 270 370, 320 340, 345 380 C 355 400, 348 415, 345 422"
-                  fill="none"
-                  stroke="#CBD5E1"
-                  strokeWidth="2.2"
-                  strokeDasharray="6 6"
-                  strokeLinecap="round"
-                  markerEnd="url(#arrowhead-v0)"
-                />
-                <path
-                  d="M 330 450 C 240 480, 190 520, 150 580 C 110 650, 230 730, 320 710 C 400 690, 460 760, 530 740"
-                  fill="none"
-                  stroke="#CBD5E1"
-                  strokeWidth="2.2"
-                  strokeDasharray="6 6"
-                  strokeLinecap="round"
-                />
-              </svg>
-
-              {roadmapNodes.map((stage) => {
-                const Icon = typeof stage.icon === "string" ? (props: any) => getIcon(stage.icon, "HelpCircle", props) : stage.icon;
-                return (
-                  <div
-                    key={stage.id}
-                    className="absolute z-10 flex flex-col items-center pointer-events-auto"
-                    style={{
-                      left: `${(stage.x / 1000) * 100}%`,
-                      top: `${(stage.y / 870) * 100}%`,
-                      width: `${stage.width}px`,
-                      transform: "translate(-50%, -27px)",
-                    }}
-                  >
-                    <div
-                      className="flex items-center justify-center w-[54px] h-[54px] bg-[#F1F5F9] rounded-[18px] mb-2 shrink-0 transition-transform duration-200 hover:scale-105"
-                      style={{ boxShadow: "0 0 0 8px #ffffff" }}
+                <svg
+                  className="absolute inset-0 w-full h-full pointer-events-none z-0"
+                  viewBox={`0 0 1000 ${viewBoxHeight}`}
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <marker
+                      id="arrowhead-v0"
+                      markerWidth="7"
+                      markerHeight="7"
+                      refX="5"
+                      refY="3.5"
+                      orient="auto"
                     >
-                      {Icon ? <Icon className="w-[26px] h-[26px] text-[#475569]" strokeWidth={1.75} /> : getIcon("HelpCircle", "HelpCircle", { className: "w-6 h-6 text-[#475569]" })}
+                      <path
+                        d="M 1 1 L 6 3.5 L 1 6"
+                        fill="none"
+                        stroke="#CBD5E1"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </marker>
+                  </defs>
+
+                  {/* Smooth Dynamic Connecting Path */}
+                  <path
+                    d={pathD}
+                    fill="none"
+                    stroke="#CBD5E1"
+                    strokeWidth="2.2"
+                    strokeDasharray="6 6"
+                    strokeLinecap="round"
+                  />
+                </svg>
+
+                {roadmapNodes.map((stage) => {
+                  const Icon =
+                    typeof stage.icon === "string"
+                      ? (props: any) => getIcon(stage.icon, "HelpCircle", props)
+                      : stage.icon;
+                  return (
+                    <div
+                      key={stage.id}
+                      className="absolute z-10 flex flex-col items-center pointer-events-auto"
+                      style={{
+                        left: `${(stage.x / 1000) * 100}%`,
+                        top: `${(stage.y / viewBoxHeight) * 100}%`,
+                        width: `${stage.width}px`,
+                        transform: "translate(-50%, -27px)",
+                      }}
+                    >
+                      <div
+                        className="flex items-center justify-center w-[54px] h-[54px] bg-[#F1F5F9] rounded-[18px] mb-2 shrink-0 transition-transform duration-200 hover:scale-105"
+                        style={{ boxShadow: "0 0 0 8px #ffffff" }}
+                      >
+                        {Icon ? (
+                          <Icon className="w-[26px] h-[26px] text-[#475569]" strokeWidth={1.75} />
+                        ) : (
+                          getIcon("HelpCircle", "HelpCircle", { className: "w-6 h-6 text-[#475569]" })
+                        )}
+                      </div>
+                      <div className="flex flex-col items-center text-center gap-0.5 w-full">
+                        <h4 className="font-semibold text-[14px] leading-[18px] text-[#334155] font-inter">
+                          {stage.title}
+                        </h4>
+                        <p className="font-medium text-[13px] leading-[17px] text-[#64748B] font-inter">
+                          {stage.desc}
+                        </p>
+                      </div>
                     </div>
-                    <div className="flex flex-col items-center text-center gap-0.5 w-full">
-                      <h4 className="font-semibold text-[14px] leading-[18px] text-[#334155] font-inter">
-                        {stage.title}
-                      </h4>
-                      <p className="font-medium text-[13px] leading-[17px] text-[#64748B] font-inter">
-                        {stage.desc}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        ) : (
-          /* Fallback Journey Frame Image */
-          <div
-            className="w-full bg-white border overflow-hidden"
-            style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
-          >
-            <div className="px-8 pt-7 pb-2">
-              <p className="text-[9.5px] font-semibold tracking-[0.14em] uppercase" style={{ fontFamily: fu, color: "#8A94A1" }}>
-                {journeyFrameTitle}
-              </p>
-              <h3 className="mt-1 text-[20px] font-semibold leading-tight" style={{ fontFamily: fd, color: "#111821" }}>
-                {journeyFrameSubtitle}
-              </h3>
-            </div>
-            <div className="w-full">
-              <img src={getImgSrc(journeyFrameImage || imgFrame9)} alt="How their journey unfolded" className="w-full h-auto block" />
-            </div>
-          </div>
-        )}
+                  );
+                })}
+              </div>
+            );
+          })()}
+        </div>
 
         {/* -- Moments Cards Grid ----------------------------------------- */}
         {moments && moments.length > 0 && (

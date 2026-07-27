@@ -30,17 +30,20 @@ Pavan & Shruti Kulal
    - If there is only **1 buyer persona**, the UI automatically renders the 1st persona card and brings the `Shared Vision` card into the 2nd slot of the top 2-column grid.
    - If there are **2 buyer personas**, both personas fill the top 2-column grid and `Shared Vision` renders full-width below.
 
-### Example Buyer Schema:
+### 📊 Profile Stats Strip Standard (STRICT 4 COLUMNS):
+The `stats` array in `tabs[0]` (Profile) MUST contain **EXACTLY 4 items** with short 1-2 word values that fit cleanly on a single line:
+1. `BUYER PROFILE` (icon: `"Briefcase"`, e.g. `"First-timers"`, `"Fintech Exec"`, `"Dubai Expat"`, `"Agri Business"`)
+2. `LIFE STAGE` (icon: `"Heart"`, e.g. `"Newly married"`, `"Mid-career"`, `"NRI Investor"`, `"Reinvestment"`)
+3. `SEARCH STAGE` (icon: `"TrendingUp"`, e.g. `"Active explorer"`, `"Shortlisting"`, `"Re-evaluating"`, `"Exploring"`)
+4. `TIMELINE` (icon: `"Hourglass"`, e.g. `"Before baby"`, `"This quarter"`, `"Grade 6"`, `"8 Months"`)
+
 ```json
-{
-  "name": "Pavan",
-  "age": 29,
-  "role": "Senior Engineer",
-  "description": "A steady, practical planner who does the math twice before deciding. Stays calm under pressure and leans on logic over impulse.",
-  "tags": ["Responsible", "Practical", "Calm"],
-  "image": "/journals/the-first-emi-family/pavan.png",
-  "imagegenerationprompt": "A studio portrait photo of a 29-year-old South Indian male software engineer named Pavan wearing a neat dark charcoal shirt in an 80% greyscale monochrome environment with a subtle Warm Coral #DD5128 accent pin, Scandinavian minimalism, soft ambient studio rim lighting, clean beige background."
-}
+"stats": [
+  { "icon": "Briefcase", "label": "BUYER PROFILE", "value": "First-timers" },
+  { "icon": "Heart", "label": "LIFE STAGE", "value": "Newly married" },
+  { "icon": "TrendingUp", "label": "SEARCH STAGE", "value": "Active explorer" },
+  { "icon": "Hourglass", "label": "TIMELINE", "value": "Before baby" }
+]
 ```
 
 ---
@@ -49,24 +52,27 @@ Pavan & Shruti Kulal
 
 All `imagegenerationprompt` fields MUST strictly adhere to the following visual aesthetic & color palette rule and **MUST BE PLACED DIRECTLY BELOW THE IMAGE URL KEY**:
 
-### 1. Color Palette System:
-- **80% Greyscale Monochrome Base**: Soft white (`#FFFFFF`), pearl white (`#F8F8F8`), light grey (`#E6E6E6`), silver (`#C9C9C9`), medium grey (`#8C8C8C`), charcoal (`#3A3A3A`), and matte black (`#1E1E1E`). All architecture, landscaping, background objects, furniture, shadows, and supporting elements MUST be rendered in refined greyscale monochrome.
-- **20% Focal Accent Color (Warm Coral `#DD5128` / `#FF8A65`)**: Reserve the **Warm Coral `#DD5128`** accent ONLY for high-value focal elements (e.g. front doors, key icons, chart trend lines, coin symbols, verified checkmarks, key UI highlights, subtle interior glow, or workflow indicators). Keep the use of coral restrained and high-impact.
+### 1. Avatar & Profile Picture Style (STYLIZED VECTOR ART, NOT PHOTOREALISTIC):
+- **Stylized Vector Graphic Portrait**: All persona avatars and profile pictures MUST be rendered as stylized digital vector portrait illustrations (NOT photorealistic photography or 3D plastic renders).
+- **Visual Features**: Fine dark inked outlines around facial features and collar, smooth posterized cel-shading gradients, warm natural Indian skin tones, friendly open smiling expression, chest-up frontal headshot portrait.
+- **Background**: Solid clean warm beige / off-white studio background (`#F4EBE1` / `#EBE3D7`).
 
-### 2. Aesthetic & Lighting Style:
-- **Medium**: High-end 3D Render / Flat Vector Graphic Illustration / Studio Photography with editorial quality.
-- **Lighting**: Soft global ambient illumination, subtle directional light, matte non-reflective finishes, soft shadows.
-- **Aesthetic**: Premium Scandinavian minimalism meets Apple-inspired product design. Clean white/light grey studio background, pristine, elegant, modern, luxurious, and visually balanced.
+### 2. Color Palette System for Scenes & Documents:
+- **80% Greyscale Monochrome Base for Technical Diagrams/Documents**: Soft white (`#FFFFFF`), light grey (`#E6E6E6`), silver (`#C9C9C9`), charcoal (`#3A3A3A`), and matte black (`#1E1E1E`). All architecture, landscaping, background objects, furniture, shadows, and supporting elements in scene illustrations MUST be rendered in refined greyscale monochrome.
+- **20% Focal Accent Color (Warm Coral `#DD5128` / `#FF8A65`)**: Reserve the **Warm Coral `#DD5128`** accent ONLY for high-value focal elements (e.g. key icons, chart trend lines, coin symbols, verified checkmarks, key UI highlights, or workflow indicators).
 
 ### 3. Required Prompt Construction Formula:
-> **`[Subject & Action]` + `[80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with 20% Warm Coral (#DD5128) accent on focal elements]` + `[Scandinavian minimalism, Apple-inspired product aesthetics, matte finishes, soft ambient lighting, clean white background, editorial quality]`**
 
-- **Example (Persona Portrait)**:
-  `"A studio portrait photo of a 58-year-old South Indian retired bank manager named Suresh wearing a neat charcoal shirt and spectacles in an 80% greyscale monochrome aesthetic with a subtle Warm Coral #DD5128 lapel pin accent, Scandinavian minimalism, soft studio rim lighting, clean pearl white background."`
-- **Example (Narrative Scene / Document)**:
-  `"A detailed vector illustration of an open paper financial ledger notebook with handwritten diligence questions rendered in an 80% greyscale monochrome palette (#1E1E1E to #E6E6E6), featuring a single prominent Warm Coral #DD5128 verified stamp accent, Scandinavian minimalism, clean white desk background."`
-- **Example (Architectural Project)**:
-  `"A modern exterior architectural render of a residential apartment complex rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a striking Warm Coral #DD5128 main entrance door accent, photorealistic Scandinavian architectural minimalism, soft global illumination, clean white backdrop."`
+#### A. Persona Profile Picture Formula:
+> **`[Subject Description]` + `[digital vector graphic portrait illustration with fine dark outlines and posterized cel-shading]` + `[warm natural skin tones, friendly smiling expression]` + `[clean solid warm beige background (#F4EBE1), high quality character art]`**
+
+- **Example (Male Persona Avatar)**:
+  `"A stylized vector graphic portrait illustration of a 41-year-old South Indian male tech executive named Nikhil with short curly black hair and a neat trim beard, wearing a dark navy button-down shirt, digital vector art style with fine dark outlines, posterized cel-shading, warm natural skin tones, friendly smiling expression, clean solid warm beige background (#F4EBE1), high quality character art."`
+- **Example (Female Persona Avatar)**:
+  `"A stylized vector graphic portrait illustration of a 50-year-old South Indian woman named Suma with long dark wavy hair, wearing a clean ribbed off-white sweater, digital vector art style with fine dark outlines, posterized cel-shading, warm natural skin tones, friendly smiling expression, clean solid warm beige background (#F4EBE1), high quality character art."`
+
+#### B. Scene / Document / Architectural Diagram Formula:
+> **`[Subject & Action]` + `[detailed vector graphic illustration]` + `[80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with 20% Warm Coral (#DD5128) accent on focal elements]` + `[Scandinavian minimalism, Apple-inspired product aesthetics, clean white background, editorial quality]`**
 
 ### 4. Folder Path Convention:
 All image relative paths in the JSON MUST be organized under the specific journal folder:
