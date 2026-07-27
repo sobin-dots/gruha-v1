@@ -5,7 +5,7 @@
       "NRI",
       "BENGALURU"
     ],
-    "title": "The NRI Buying on a Video Call: The 3,000 Miles Home Journal",
+    "title": "The 3,000 Miles Home Journal",
     "description": "Arjun Nair's ₹2.6 Cr remote home-buying journey from Dubai to Whitefield & Hennur — trusting WhatsApp video calls, a 12-point visit protocol, and his brother's gut.",
     "quote": "\"I'm trusting a WhatsApp video and my brother's gut.\"",
     "readTime": "15 min read",
@@ -24,7 +24,8 @@
         "text": "Top-tier brand developers reduce remote execution & title risk"
       }
     ],
-    "heroImage": "/journals/the-3000-miles-home-journal/hero.png"
+    "heroImage": "/journals/the-3000-miles-home-journal/hero.png",
+    "heroTitle": "The 3,000 Miles Home Journal"
   },
   "tabs": [
     {

@@ -5,7 +5,7 @@
       "SECTION 54F",
       "BENGALURU"
     ],
-    "title": "The Land-Money Parker: The Bhoomi to Bengaluru Journal",
+    "title": "The Bhoomi to Bengaluru Journal",
     "description": "Venkata Ramana Chowdary's ₹3.75 Cr reinvestment journey from Guntur land sale into Bengaluru real estate — balancing Section 54F tax deadlines, independent legal verification, and family consent.",
     "quote": "\"Land money should go back into land. Or at least into concrete.\"",
     "readTime": "16 min read",
@@ -24,7 +24,8 @@
         "text": "Developer price sheets move at quarter-end through sales heads"
       }
     ],
-    "heroImage": "/journals/the-bhoomi-to-bengaluru-journal/hero.png"
+    "heroImage": "/journals/the-bhoomi-to-bengaluru-journal/hero.png",
+    "heroTitle": "The Bhoomi to Bengaluru Journal"
   },
   "tabs": [
     {

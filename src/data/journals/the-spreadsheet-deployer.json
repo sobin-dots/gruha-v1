@@ -4,7 +4,7 @@
       "INVESTORS & WEALTH",
       "NORTH BENGALURU"
     ],
-    "title": "The Spreadsheet Deployer: The Capital Compounding Journal",
+    "title": "The Capital Compounding Journal",
     "description": "Nikhil Menon's ₹2.5 Cr capital compounding journey across Hebbal, Thanisandra & Devanahalli — balancing launch-window IRR against 11 months of analysis paralysis.",
     "quote": "\"Show me the IRR, not the clubhouse.\"",
     "readTime": "14 min read",
@@ -23,7 +23,8 @@
         "text": "Decide on written mandate rules to beat analysis costs"
       }
     ],
-    "heroImage": "/journals/the-spreadsheet-deployer/hero.png"
+    "heroImage": "/journals/the-spreadsheet-deployer/hero.png",
+    "heroTitle": "The Capital Compounding Journal"
   },
   "tabs": [
     {

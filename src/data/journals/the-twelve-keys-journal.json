@@ -1,0 +1,358 @@
+{
+  "id": "the-twelve-keys-journal",
+  "name": "Priyanka Bhat",
+  "persona": "The Micro-Stay Operator",
+  "buyerName": "Priyanka Bhat",
+  "role": "Micro-Stay Operator & House-Hacker",
+  "tagline": "The Twelve Keys Journal",
+  "article": {
+    "title": "The Twelve Keys Journal",
+    "heroTitle": "The Twelve Keys Journal",
+    "description": "Priyanka Bhat (35), ex-hotelier operating short-stay and corporate units across HSR and Bellandur, searching for ready builder-held studios with high net-yields and RWA short-stay tolerance.",
+    "quote": "Every flat should introduce itself with its occupancy rate.",
+    "heroImage": "/journals/the-twelve-keys-journal/hero.png",
+    "learnings": [
+      {
+        "text": "Underwrite net-yield at 7%+ post-OTA and housekeeping fees"
+      },
+      {
+        "text": "Audit RWA bye-laws and AGM minutes before submitting token"
+      },
+      {
+        "text": "Split inventory across ORR and Manyata to cut concentration risk"
+      }
+    ]
+  },
+  "buyers": [
+    {
+      "name": "Priyanka Bhat",
+      "role": "Ex-Hotelier & Micro-Stay Operator (35 yrs)",
+      "avatar": "/journals/priyanka.png",
+      "image": "/journals/priyanka.png"
+    }
+  ],
+  "sharedVisionTitle": "THE OPERATING MACHINE",
+  "sharedVisionDescription": "Priyanka treats residential apartments as high-yield operating assets rather than passive homes. Every purchase is underwritten against occupancy rates, RWA short-stay regulations, and 7%+ net yields.",
+  "sharedVisionImage": "/journals/the-twelve-keys-journal/hero.png",
+  "stats": [
+    {
+      "label": "BUYER PROFILE",
+      "val": "MICRO-STAY OPERATOR",
+      "color": "text-[#DD5128]"
+    },
+    {
+      "label": "LIFE STAGE",
+      "val": "BUSINESS SCALE",
+      "color": "text-[#111821]"
+    },
+    {
+      "label": "SEARCH STAGE",
+      "val": "BUILDER STOCK",
+      "color": "text-[#111821]"
+    },
+    {
+      "label": "TIMELINE",
+      "val": "IMMEDIATE OC",
+      "color": "text-[#111821]"
+    }
+  ],
+  "tabs": [
+    {
+      "id": "profile",
+      "name": "Profile",
+      "label": "Profile",
+      "bgColorHex": "#FDF2E9",
+      "inactiveBgHex": "rgba(253, 242, 233, 0.45)",
+      "textColor": "text-[#C45D3A] font-semibold",
+      "inactiveTextColor": "text-gray-500 hover:text-gray-700",
+      "sharedVisionTitle": "THE OPERATING MACHINE",
+      "sharedVisionDescription": "Priyanka treats residential apartments as high-yield operating assets rather than passive homes. Every purchase is underwritten against occupancy rates, RWA short-stay regulations, and 7%+ net yields.",
+      "sharedVisionImage": "/journals/the-twelve-keys-journal/hero.png",
+      "buyers": [
+        {
+          "name": "Priyanka Bhat",
+          "role": "Ex-Hotelier & Micro-Stay Operator (35 yrs)",
+          "avatar": "/journals/priyanka.png",
+          "image": "/journals/priyanka.png"
+        }
+      ],
+      "stats": [
+        {
+          "label": "BUYER PROFILE",
+          "val": "MICRO-STAY OPERATOR",
+          "color": "text-[#DD5128]"
+        },
+        {
+          "label": "LIFE STAGE",
+          "val": "BUSINESS SCALE",
+          "color": "text-[#111821]"
+        },
+        {
+          "label": "SEARCH STAGE",
+          "val": "BUILDER STOCK",
+          "color": "text-[#111821]"
+        },
+        {
+          "label": "TIMELINE",
+          "val": "IMMEDIATE OC",
+          "color": "text-[#111821]"
+        }
+      ],
+      "prioritiesTitle": "NON-NEGOTIABLE CRITERIA",
+      "priorities": [
+        {
+          "title": "RWA Bye-Law Tolerance",
+          "description": "AGM minutes and draft circular audit before second site visit.",
+          "icon": "ShieldCheck"
+        },
+        {
+          "title": "7%+ Net Yield Floor",
+          "description": "Underwritten post-OTA, housekeeping, and maintenance levies.",
+          "icon": "TrendingUp"
+        },
+        {
+          "title": "Tech Park Proximity",
+          "description": "Within 1.5 km of major ORR / Manyata tech park gates.",
+          "icon": "MapPin"
+        },
+        {
+          "title": "Immediate OC / Ready Stock",
+          "description": "Zero construction delay risk — immediate deployment for guests.",
+          "icon": "Key"
+        }
+      ]
+    },
+    {
+      "id": "journey",
+      "name": "Journey",
+      "label": "Journey",
+      "bgColorHex": "#FDF2E9",
+      "inactiveBgHex": "rgba(253, 242, 233, 0.45)",
+      "textColor": "text-[#C45D3A] font-semibold",
+      "inactiveTextColor": "text-gray-500 hover:text-gray-700",
+      "metrics": [
+        {
+          "label": "SEARCH DURATION",
+          "value": "11 Weeks"
+        },
+        {
+          "label": "PROJECTS EVALUATED",
+          "value": "14 Sites"
+        },
+        {
+          "label": "SHORT-STAY YIELD",
+          "value": "7.4% Net"
+        }
+      ],
+      "timelineTitle": "THE OPERATING TEMPO",
+      "timeline": [
+        {
+          "month": "Week 1",
+          "title": "Portfolio Evaluation",
+          "description": "Mapped HSR and Bellandur occupancy trends; set 7% net yield criteria."
+        },
+        {
+          "month": "Week 4",
+          "title": "AGM Bye-Law Filter",
+          "description": "Reviewing association notice boards and draft short-stay restrictions."
+        },
+        {
+          "month": "Week 8",
+          "title": "Builder-Held Negotiation",
+          "description": "Secured GST-inclusive pricing on ready builder inventory."
+        },
+        {
+          "month": "Week 11",
+          "title": "Dual Corridor Split",
+          "description": "Acquired 2 units split across Manyata and ORR to hedge RTO policy shifts."
+        }
+      ]
+    },
+    {
+      "id": "search",
+      "name": "Search & Filters",
+      "label": "Search & Filters",
+      "bgColorHex": "#FDF2E9",
+      "inactiveBgHex": "rgba(253, 242, 233, 0.45)",
+      "textColor": "text-[#C45D3A] font-semibold",
+      "inactiveTextColor": "text-gray-500 hover:text-gray-700",
+      "metrics": [
+        {
+          "label": "SEARCH RADIUS",
+          "value": "1.5 km Tech Parks"
+        },
+        {
+          "label": "UNIT TARGET",
+          "value": "Studios & 1BHKs"
+        },
+        {
+          "label": "NET YIELD GATE",
+          "value": "≥ 7.0% Post-Fees"
+        }
+      ],
+      "exploredAreasTitle": "MICRO-MARKETS EVALUATED",
+      "exploredAreas": [
+        {
+          "name": "Outer Ring Road (Bellandur)",
+          "status": "Primary Yield Core",
+          "description": "High corporate demand, 85%+ occupancy, strict RWA audit required."
+        },
+        {
+          "name": "Manyata Tech Park (Thanisandra)",
+          "status": "Hedge Corridor",
+          "description": "Strong tech influx, lower entry price per sqft, developer-led stock."
+        }
+      ],
+      "filtersTitle": "OPERATIONAL FILTERS",
+      "filters": [
+        {
+          "label": "OCCUPANCY RATE",
+          "value": "82% Avg",
+          "sub": "Corporate & Short-Stay"
+        },
+        {
+          "label": "RWA BYE-LAWS",
+          "value": "Verified",
+          "sub": "No Short-Stay Ban"
+        },
+        {
+          "label": "FURNISHING COST",
+          "value": "₹3.5L/unit",
+          "sub": "Turnkey Standard"
+        }
+      ],
+      "filtersFooterLabel": "FILTER DISCIPLINE",
+      "insightTitle": "OPERATOR VS OWNER TEMPERAMENT",
+      "insightDescription": "Priyanka exits host-averse buildings within 24 hours. From an operator's perspective, a hostile RWA is a non-renovatable business risk."
+    },
+    {
+      "id": "projects",
+      "name": "Projects",
+      "label": "Projects",
+      "bgColorHex": "#FDF2E9",
+      "inactiveBgHex": "rgba(253, 242, 233, 0.45)",
+      "textColor": "text-[#C45D3A] font-semibold",
+      "inactiveTextColor": "text-gray-500 hover:text-gray-700",
+      "projectsTitle": "PROJECTS EVALUATED",
+      "projectsCountBadge": "14 PROPOSED • 3 SHORTLISTED",
+      "projects": [
+        {
+          "name": "Sobha Royal Pavilion",
+          "location": "Sarjapur Road, Bengaluru",
+          "tagline": "Benchmark Ready Studio Stock",
+          "priceRange": "₹1.15–1.45 Cr",
+          "psf": "₹10,800/sqft",
+          "possession": "Ready OC",
+          "image": "/journals/the-twelve-keys-journal/hero.png"
+        },
+        {
+          "name": "Assetz Marq 3.0",
+          "location": "Whitefield Road, Bengaluru",
+          "tagline": "High Corporate Tenant Demand",
+          "priceRange": "₹95L–1.2 Cr",
+          "psf": "₹9,500/sqft",
+          "possession": "Nearing OC",
+          "image": "/journals/the-twelve-keys-journal/hero.png"
+        }
+      ],
+      "prioritiesTitle": "NON-NEGOTIABLE CRITERIA",
+      "priorities": [
+        {
+          "title": "RWA Bye-Law Tolerance",
+          "subtitle": "AGM minutes review before second visit",
+          "icon": "ShieldCheck",
+          "active": true
+        },
+        {
+          "title": "7%+ Net Yield Floor",
+          "subtitle": "Post-OTA and housekeeping levies",
+          "icon": "TrendingUp",
+          "active": true
+        },
+        {
+          "title": "Tech Park Gate Distance",
+          "subtitle": "≤ 1.5 km to major corporate tech hubs",
+          "icon": "MapPin",
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "learnings",
+      "name": "Learnings",
+      "label": "Learnings",
+      "bgColorHex": "#FDF2E9",
+      "inactiveBgHex": "rgba(253, 242, 233, 0.45)",
+      "textColor": "text-[#C45D3A] font-semibold",
+      "inactiveTextColor": "text-gray-500 hover:text-gray-700",
+      "metrics": [
+        {
+          "label": "NET OPERATING YIELD",
+          "value": "7.4%"
+        },
+        {
+          "label": "OCCUPANCY BENCHMARK",
+          "value": "84%"
+        },
+        {
+          "label": "RWA CLAUSE AUDIT",
+          "value": "100% Clear"
+        }
+      ],
+      "monthlyLearningsTitle": "Lessons learned along the way",
+      "monthlyLearnings": [
+        {
+          "month": "MONTH 1",
+          "headline": "Entry yields compressed 150bps — operating edge is everything",
+          "body": "Easy arbitrage is gone; net yield relies on turnkey furnishing efficiency and direct corporate bookings.",
+          "turning": false
+        },
+        {
+          "month": "MONTH 2",
+          "headline": "RWA bye-law review before purchase beats the RWA war after",
+          "body": "Requesting AGM minutes and draft circulars before second visits eliminated two hostile towers early.",
+          "turning": true
+        },
+        {
+          "month": "MONTH 3",
+          "headline": "Builder-held ready stock negotiated GST-inclusive beats resale",
+          "body": "Direct developer negotiations on inventory clearance yielded cleaner titles and superior margin.",
+          "turning": false
+        },
+        {
+          "month": "MONTH 4",
+          "headline": "Ugliest unit delivered highest guest occupancy rate",
+          "body": "Guests buy location and reliability; owners buy facades. Underwrite for guests, not ego.",
+          "turning": false
+        },
+        {
+          "month": "MONTH 5",
+          "headline": "Split portfolio between ORR and Manyata for concentration hedge",
+          "body": "Distributing units across tech corridors protected portfolio against single-zone hybrid work shifts.",
+          "turning": false
+        }
+      ]
+    },
+    {
+      "id": "start-here",
+      "name": "Start here",
+      "label": "Start here",
+      "bgColorHex": "#FDF2E9",
+      "inactiveBgHex": "rgba(253, 242, 233, 0.45)",
+      "textColor": "text-[#C45D3A] font-semibold",
+      "inactiveTextColor": "text-gray-500 hover:text-gray-700",
+      "tagline": "START HERE",
+      "title": "What if this journal was about you?",
+      "description": "Every home-buying and operating journey leaves behind lessons. These are the insights Priyanka Bhat developed while scaling her micro-stay portfolio across Bengaluru's tech corridors.",
+      "checklistTitle": "IS THIS YOU?",
+      "checklistItems": [
+        "You buy property as operating business inputs, not as homes — occupancy rate is your first question.",
+        "You have systems: housekeeping, dynamic pricing, a vendor list, and a P&L per unit.",
+        "Your constraint isn't capital — it's finding buildings where your short-stay model is welcome.",
+        "You'd rather own three units in one tolerant building than five scattered across hostile ones.",
+        "Leverage doesn't scare you; vacancy does.",
+        "You visit buildings at check-in hours and read RWA notice boards before price sheets."
+      ]
+    }
+  ]
+}

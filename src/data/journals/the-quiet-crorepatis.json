@@ -5,7 +5,7 @@
       "SOUTH BENGALURU",
       "RETIREMENT"
     ],
-    "title": "The Quiet Crorepatis: The Safe Harbour Journal",
+    "title": "The Safe Harbour Journal",
     "description": "Suresh & Veena Kulkarni's ₹1.69 Cr home purchase journey in JP Nagar 7th Phase — converting ₹2.7 Cr paper savings into sleep-tested brick assets.",
     "quote": "\"We didn't save for thirty years to gamble now.\"",
     "readTime": "15 min read",
@@ -24,7 +24,8 @@
         "text": "Price the sleep -- safety and zero-EMI peace beat peak yield"
       }
     ],
-    "heroImage": "/journals/the-quiet-crorepatis/hero.png"
+    "heroImage": "/journals/the-quiet-crorepatis/hero.png",
+    "heroTitle": "The Safe Harbour Journal"
   },
   "tabs": [
     {
