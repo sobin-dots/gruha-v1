@@ -150,67 +150,83 @@
       ],
       "roadmapNodes": [
         {
-          "id": "land-sale-54f",
-          "title": "Land Sale & 54F Clock Starts",
-          "desc": "Amaravati 4-acre sale closes for ₹5.2 Cr; CA's backward-planned calendar shrinks shopping time.",
+          "id": "s1-54f-tax-clock",
+          "stage": "S1",
+          "type": "stage",
+          "title": "S1: 54F Tax Clock Starts",
+          "desc": "3 weeks: Guntur land sale closing starts 8-month Section 54F tax reinvestment deadline.",
           "icon": "Clock",
-          "x": 130,
-          "y": 110,
-          "width": 190
-        },
-        {
-          "id": "whatsapp-shortlist-lawyer",
-          "title": "Shortlist & Lawyer Hired",
-          "desc": "Community WhatsApp shortlist arrives pre-made; independent Bengaluru lawyer hired at ₹60K over family objections.",
-          "icon": "FileText",
-          "x": 340,
-          "y": 160,
-          "width": 190
-        },
-        {
-          "id": "price-sheet-negotiation",
-          "title": "Negotiation Meets Price Sheet",
-          "desc": "First site weekend: negotiating instincts meet fixed price sheets; learns quarter-end sales choreography.",
-          "icon": "DollarSign",
-          "x": 560,
-          "y": 150,
-          "width": 190
-        },
-        {
-          "id": "rajakaluve-plot-killed",
-          "title": "Rajakaluve Plot Killed",
-          "desc": "Group's 'confirmed great deal' plot fails EC check due to rajakaluve shadow; lawyer fee repaid 50-fold.",
-          "icon": "AlertTriangle",
-          "x": 740,
-          "y": 130,
-          "width": 190
-        },
-        {
-          "id": "sobha-dream-acres-flat",
-          "title": "Sobha Dream Acres 3BHK",
-          "desc": "Flat near son: Sobha Dream Acres 3BHK validated by community and lawyer; unit circled by family.",
-          "icon": "Building2",
-          "x": 880,
-          "y": 290,
+          "x": 100,
+          "y": 120,
           "width": 180
         },
         {
-          "id": "devanahalli-gated-plot",
-          "title": "Devanahalli DC Plot Verified",
-          "desc": "Plot leg: gated plotted development on airport side; DC conversion and A-khata verified independently.",
-          "icon": "CheckCircle2",
-          "x": 530,
-          "y": 410,
+          "id": "s2-community-network-deals",
+          "stage": "S2",
+          "type": "stage",
+          "title": "S2: Trust Network Deals",
+          "desc": "5 weeks evaluating community WhatsApp deals across North Bengaluru & Bellandur.",
+          "icon": "Users",
+          "x": 340,
+          "y": 120,
+          "width": 180
+        },
+        {
+          "id": "s4-ec-shadow-regression",
+          "stage": "S4",
+          "type": "regression",
+          "targetNodeId": "s2-community-network-deals",
+          "title": "S4 REGRESSION: EC Shadow",
+          "desc": "2 weeks regression: 'great deal' plot killed by lawyer's EC check; rajakaluve shadow.",
+          "icon": "AlertOctagon",
+          "loopText": "S4 → S2 Regression (EC Shadow)",
+          "x": 620,
+          "y": 220,
           "width": 190
         },
         {
-          "id": "double-registration-close",
-          "title": "Double Registration Inside 54F",
-          "desc": "Both registrations completed within 54F window; son's condition 'I may not live there' absorbed.",
-          "icon": "Key",
-          "x": 190,
+          "id": "s3-dual-asset-thesis",
+          "stage": "S3",
+          "type": "stage",
+          "title": "S3: Dual Asset Strategy",
+          "desc": "3 weeks structuring capital split: 3BHK flat near son + Devanahalli land plot.",
+          "icon": "Layers",
+          "x": 820,
+          "y": 120,
+          "width": 180
+        },
+        {
+          "id": "s5-flat-sobha-dream-acres",
+          "stage": "S5",
+          "type": "stage",
+          "title": "S5: 3BHK Flat Secured",
+          "desc": "3 weeks: Sobha Dream Acres 3BHK flat near son in Bellandur registered.",
+          "icon": "Home",
+          "x": 640,
           "y": 420,
-          "width": 190
+          "width": 180
+        },
+        {
+          "id": "s5-plot-devanahalli-gated",
+          "stage": "S5",
+          "type": "stage",
+          "title": "S5: A-Khata Plot Secured",
+          "desc": "4 weeks: Devanahalli premium gated plot with A-Khata & DC conversion verified.",
+          "icon": "Map",
+          "x": 370,
+          "y": 420,
+          "width": 180
+        },
+        {
+          "id": "s7-54f-window-close",
+          "stage": "S7",
+          "type": "stage",
+          "title": "S7: 54F Window Closed",
+          "desc": "Both flat and plot registered inside Section 54F tax reinvestment window.",
+          "icon": "CheckCircle2",
+          "x": 110,
+          "y": 420,
+          "width": 180
         }
       ],
       "timelineTitle": "Where they stand today",
@@ -819,6 +835,87 @@
         "You want multiple assets: a flat near your children and a plot for long-term land wealth.",
         "You negotiate hard in person, face-to-face, and value developer relationships over portal listings."
       ]
+    }
+  ],
+  "roadmapNodes": [
+    {
+      "id": "s1-54f-tax-clock",
+      "stage": "S1",
+      "type": "stage",
+      "title": "S1: 54F Tax Clock Starts",
+      "desc": "3 weeks: Guntur land sale closing starts 8-month Section 54F tax reinvestment deadline.",
+      "icon": "Clock",
+      "x": 100,
+      "y": 120,
+      "width": 180
+    },
+    {
+      "id": "s2-community-network-deals",
+      "stage": "S2",
+      "type": "stage",
+      "title": "S2: Trust Network Deals",
+      "desc": "5 weeks evaluating community WhatsApp deals across North Bengaluru & Bellandur.",
+      "icon": "Users",
+      "x": 340,
+      "y": 120,
+      "width": 180
+    },
+    {
+      "id": "s4-ec-shadow-regression",
+      "stage": "S4",
+      "type": "regression",
+      "targetNodeId": "s2-community-network-deals",
+      "title": "S4 REGRESSION: EC Shadow",
+      "desc": "2 weeks regression: 'great deal' plot killed by lawyer's EC check; rajakaluve shadow.",
+      "icon": "AlertOctagon",
+      "loopText": "S4 → S2 Regression (EC Shadow)",
+      "x": 620,
+      "y": 220,
+      "width": 190
+    },
+    {
+      "id": "s3-dual-asset-thesis",
+      "stage": "S3",
+      "type": "stage",
+      "title": "S3: Dual Asset Strategy",
+      "desc": "3 weeks structuring capital split: 3BHK flat near son + Devanahalli land plot.",
+      "icon": "Layers",
+      "x": 820,
+      "y": 120,
+      "width": 180
+    },
+    {
+      "id": "s5-flat-sobha-dream-acres",
+      "stage": "S5",
+      "type": "stage",
+      "title": "S5: 3BHK Flat Secured",
+      "desc": "3 weeks: Sobha Dream Acres 3BHK flat near son in Bellandur registered.",
+      "icon": "Home",
+      "x": 640,
+      "y": 420,
+      "width": 180
+    },
+    {
+      "id": "s5-plot-devanahalli-gated",
+      "stage": "S5",
+      "type": "stage",
+      "title": "S5: A-Khata Plot Secured",
+      "desc": "4 weeks: Devanahalli premium gated plot with A-Khata & DC conversion verified.",
+      "icon": "Map",
+      "x": 370,
+      "y": 420,
+      "width": 180
+    },
+    {
+      "id": "s7-54f-window-close",
+      "stage": "S7",
+      "type": "stage",
+      "title": "S7: 54F Window Closed",
+      "desc": "Both flat and plot registered inside Section 54F tax reinvestment window.",
+      "icon": "CheckCircle2",
+      "x": 110,
+      "y": 420,
+      "width": 180
     }
   ]
 }

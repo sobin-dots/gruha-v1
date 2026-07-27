@@ -150,76 +150,97 @@
       ],
       "roadmapNodes": [
         {
-          "id": "registration-selfie",
-          "title": "Registration Selfie Shock",
-          "desc": "Colleague's sub-registrar selfie glowing on a Dubai midnight phone triggers the Rent vs Return decision.",
-          "icon": "Smartphone",
-          "x": 130,
-          "y": 110,
-          "width": 190
-        },
-        {
-          "id": "corridor-triage",
-          "title": "Corridor Triage",
-          "desc": "Whitefield vs Hennur vs Hebbal; Meera's rule: 'buy where we'd actually live if we return.'",
-          "icon": "MapPin",
-          "x": 340,
-          "y": 160,
-          "width": 190
-        },
-        {
-          "id": "devanahalli-detour",
-          "title": "Devanahalli 6% Detour",
-          "desc": "Instagram 'NRI Exclusive 6% assured rental' scheme killed by brother Vinod's gimbal video of unpaved road.",
-          "icon": "AlertTriangle",
-          "x": 560,
-          "y": 150,
-          "width": 190
-        },
-        {
-          "id": "video-protocol",
-          "title": "12-Point Video Protocol",
-          "desc": "Structured 12-point video-visit checklist card built with Vinod; Saturday 9am Dubai calls standardized.",
-          "icon": "Video",
-          "x": 740,
-          "y": 130,
-          "width": 190
-        },
-        {
-          "id": "trip-home-overload",
-          "title": "9 Visits in 6 Days Trip",
-          "desc": "Trip home: 9 frantic site visits in 6 days, zero decisions. Realization: 'Trips verify, process decides.'",
-          "icon": "CalendarDays",
-          "x": 880,
-          "y": 290,
+          "id": "s1-nre-three-tabs",
+          "stage": "S1",
+          "type": "stage",
+          "title": "S1: Three-Tab NRE Sheet",
+          "desc": "Return / Rent / Regret spreadsheet in Dubai; AED savings ready for deployment.",
+          "icon": "Globe",
+          "x": 100,
+          "y": 120,
           "width": 180
         },
         {
-          "id": "poa-resale-bounce",
-          "title": "POA Co-Ownership Bounce",
-          "desc": "Resale deal collapses on co-owner POA gap; ₹40K legal fee; co-ownership verification becomes mandatory.",
-          "icon": "RotateCcw",
-          "x": 710,
-          "y": 400,
+          "id": "s2-corridor-triage",
+          "stage": "S2",
+          "type": "stage",
+          "title": "S2: Corridor Triage",
+          "desc": "2 weeks triaging Whitefield vs Hennur vs Hebbal; brand developer rule set.",
+          "icon": "Compass",
+          "x": 320,
+          "y": 120,
+          "width": 180
+        },
+        {
+          "id": "detour-high-yield-resale",
+          "stage": "DETOUR",
+          "type": "detour",
+          "title": "DETOUR: High-Yield Resale",
+          "desc": "3 weeks Kadubeesanahalli unit with un-regularized balcony extension.",
+          "icon": "AlertTriangle",
+          "x": 540,
+          "y": 220,
+          "width": 180
+        },
+        {
+          "id": "s2-video-protocol-loop",
+          "stage": "S2",
+          "type": "loop",
+          "title": "S2 LOOP: Video Protocol",
+          "desc": "2 weeks building 12-point WhatsApp video-visit protocol with brother in Bengaluru.",
+          "icon": "Video",
+          "loopText": "Video Protocol Loop",
+          "x": 760,
+          "y": 120,
+          "width": 180
+        },
+        {
+          "id": "s3-s2-trip-home-regression",
+          "stage": "S3",
+          "type": "regression",
+          "targetNodeId": "s2-corridor-triage",
+          "title": "S3 → S2: Trip Home Regression",
+          "desc": "9 site visits in 6 days, zero decisions made; 'trips verify, process decides'.",
+          "icon": "PlaneTakeoff",
+          "loopText": "S3 → S2 Regression (-3)",
+          "x": 880,
+          "y": 320,
           "width": 190
         },
         {
-          "id": "single-nri-match",
-          "title": "Single NRI Owner Match",
-          "desc": "Second unit match with single NRI owner; all documents organized in Drive folder before being asked.",
-          "icon": "CheckCircle2",
-          "x": 450,
-          "y": 410,
-          "width": 190
-        },
-        {
-          "id": "consulate-poa-close",
-          "title": "Consulate POA & Key Courier",
-          "desc": "Consulate token, Section 195 TDS, NRE wire complete; brass key couriered in bubble wrap to Dubai.",
-          "icon": "Key",
-          "x": 190,
+          "id": "s5-s3-seller-hike-bounce",
+          "stage": "S5",
+          "type": "bounce",
+          "targetNodeId": "s2-video-protocol-loop",
+          "title": "S5 → S3 BOUNCE: Price Hike",
+          "desc": "6 weeks bounce: first PLH seller raised price by ₹15L after verbal token agreement.",
+          "icon": "TrendingUp",
+          "loopText": "S5 → S3 Bounce (6 wks)",
+          "x": 600,
           "y": 420,
           "width": 190
+        },
+        {
+          "id": "s5-second-plh-unit",
+          "stage": "S5",
+          "type": "stage",
+          "title": "S5: Second PLH Unit",
+          "desc": "3 weeks: single NRI owner unit with complete Drive folder before asking.",
+          "icon": "FileCheck",
+          "x": 340,
+          "y": 420,
+          "width": 180
+        },
+        {
+          "id": "s7-consulate-poa-close",
+          "stage": "S7",
+          "type": "stage",
+          "title": "S7: Consulate POA Close",
+          "desc": "4 weeks: Consulate POA, Section 195 TDS & NRE wire complete at ₹2.5 Cr.",
+          "icon": "CheckCircle2",
+          "x": 100,
+          "y": 420,
+          "width": 180
         }
       ],
       "timelineTitle": "Where they stand today",
@@ -827,6 +848,101 @@
         "A family deadline (school, parents) gives your decision a real expiry date.",
         "You've watched the market reprice between your visits home, and waiting again frightens you more than committing."
       ]
+    }
+  ],
+  "roadmapNodes": [
+    {
+      "id": "s1-nre-three-tabs",
+      "stage": "S1",
+      "type": "stage",
+      "title": "S1: Three-Tab NRE Sheet",
+      "desc": "Return / Rent / Regret spreadsheet in Dubai; AED savings ready for deployment.",
+      "icon": "Globe",
+      "x": 100,
+      "y": 120,
+      "width": 180
+    },
+    {
+      "id": "s2-corridor-triage",
+      "stage": "S2",
+      "type": "stage",
+      "title": "S2: Corridor Triage",
+      "desc": "2 weeks triaging Whitefield vs Hennur vs Hebbal; brand developer rule set.",
+      "icon": "Compass",
+      "x": 320,
+      "y": 120,
+      "width": 180
+    },
+    {
+      "id": "detour-high-yield-resale",
+      "stage": "DETOUR",
+      "type": "detour",
+      "title": "DETOUR: High-Yield Resale",
+      "desc": "3 weeks Kadubeesanahalli unit with un-regularized balcony extension.",
+      "icon": "AlertTriangle",
+      "x": 540,
+      "y": 220,
+      "width": 180
+    },
+    {
+      "id": "s2-video-protocol-loop",
+      "stage": "S2",
+      "type": "loop",
+      "title": "S2 LOOP: Video Protocol",
+      "desc": "2 weeks building 12-point WhatsApp video-visit protocol with brother in Bengaluru.",
+      "icon": "Video",
+      "loopText": "Video Protocol Loop",
+      "x": 760,
+      "y": 120,
+      "width": 180
+    },
+    {
+      "id": "s3-s2-trip-home-regression",
+      "stage": "S3",
+      "type": "regression",
+      "targetNodeId": "s2-corridor-triage",
+      "title": "S3 → S2: Trip Home Regression",
+      "desc": "9 site visits in 6 days, zero decisions made; 'trips verify, process decides'.",
+      "icon": "PlaneTakeoff",
+      "loopText": "S3 → S2 Regression (-3)",
+      "x": 880,
+      "y": 320,
+      "width": 190
+    },
+    {
+      "id": "s5-s3-seller-hike-bounce",
+      "stage": "S5",
+      "type": "bounce",
+      "targetNodeId": "s2-video-protocol-loop",
+      "title": "S5 → S3 BOUNCE: Price Hike",
+      "desc": "6 weeks bounce: first PLH seller raised price by ₹15L after verbal token agreement.",
+      "icon": "TrendingUp",
+      "loopText": "S5 → S3 Bounce (6 wks)",
+      "x": 600,
+      "y": 420,
+      "width": 190
+    },
+    {
+      "id": "s5-second-plh-unit",
+      "stage": "S5",
+      "type": "stage",
+      "title": "S5: Second PLH Unit",
+      "desc": "3 weeks: single NRI owner unit with complete Drive folder before asking.",
+      "icon": "FileCheck",
+      "x": 340,
+      "y": 420,
+      "width": 180
+    },
+    {
+      "id": "s7-consulate-poa-close",
+      "stage": "S7",
+      "type": "stage",
+      "title": "S7: Consulate POA Close",
+      "desc": "4 weeks: Consulate POA, Section 195 TDS & NRE wire complete at ₹2.5 Cr.",
+      "icon": "CheckCircle2",
+      "x": 100,
+      "y": 420,
+      "width": 180
     }
   ]
 }

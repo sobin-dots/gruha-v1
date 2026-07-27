@@ -166,6 +166,87 @@
           "title": "Dual Corridor Split",
           "description": "Acquired 2 units split across Manyata and ORR to hedge RTO policy shifts."
         }
+      ],
+      "roadmapNodes": [
+        {
+          "id": "s1-yield-compression",
+          "stage": "S1",
+          "type": "stage",
+          "title": "S1: Yield Compression Audit",
+          "desc": "2 weeks evaluating compressed 150bps entry yields; operating edge focus.",
+          "icon": "TrendingDown",
+          "x": 100,
+          "y": 120,
+          "width": 180
+        },
+        {
+          "id": "s2-rwa-first-audits",
+          "stage": "S2",
+          "type": "stage",
+          "title": "S2: RWA Bye-Law Audits",
+          "desc": "4 weeks reviewing AGM minutes & short-stay rules before second site visits.",
+          "icon": "FileSearch",
+          "x": 330,
+          "y": 120,
+          "width": 180
+        },
+        {
+          "id": "detour-guaranteed-9-percent",
+          "stage": "DETOUR",
+          "type": "detour",
+          "title": "DETOUR: Guaranteed 9%",
+          "desc": "2 weeks operator scheme detour; guarantee backed only by seller's LLP.",
+          "icon": "AlertTriangle",
+          "x": 560,
+          "y": 220,
+          "width": 180
+        },
+        {
+          "id": "s3-builder-stock-shortlist",
+          "stage": "S3",
+          "type": "stage",
+          "title": "S3: Builder Stock Shortlist",
+          "desc": "3 weeks shortlisting ready builder-held studio inventory with OC.",
+          "icon": "Building",
+          "x": 790,
+          "y": 120,
+          "width": 180
+        },
+        {
+          "id": "s5-byelaw-draft-bounce",
+          "stage": "S5",
+          "type": "bounce",
+          "targetNodeId": "s3-builder-stock-shortlist",
+          "title": "S5 BOUNCE: Bye-law Draft",
+          "desc": "1 week bounce: association circulated short-stay ban draft; exited before token.",
+          "icon": "RotateCcw",
+          "loopText": "S5 → S3 Bounce (Bye-law Draft)",
+          "x": 640,
+          "y": 420,
+          "width": 190
+        },
+        {
+          "id": "s5-two-units-closed",
+          "stage": "S5",
+          "type": "stage",
+          "title": "S5: Two Units Closed",
+          "desc": "3 weeks: GST-inclusive builder ready stock closed across ORR and Manyata.",
+          "icon": "Key",
+          "x": 370,
+          "y": 420,
+          "width": 180
+        },
+        {
+          "id": "s7-dual-corridor-machine",
+          "stage": "S7",
+          "type": "stage",
+          "title": "S7: Dual Corridor Machine",
+          "desc": "Portfolio scaled to 12 keys operating at 84% average occupancy.",
+          "icon": "CheckCircle2",
+          "x": 110,
+          "y": 420,
+          "width": 180
+        }
       ]
     },
     {
@@ -353,6 +434,87 @@
         "Leverage doesn't scare you; vacancy does.",
         "You visit buildings at check-in hours and read RWA notice boards before price sheets."
       ]
+    }
+  ],
+  "roadmapNodes": [
+    {
+      "id": "s1-yield-compression",
+      "stage": "S1",
+      "type": "stage",
+      "title": "S1: Yield Compression Audit",
+      "desc": "2 weeks evaluating compressed 150bps entry yields; operating edge focus.",
+      "icon": "TrendingDown",
+      "x": 100,
+      "y": 120,
+      "width": 180
+    },
+    {
+      "id": "s2-rwa-first-audits",
+      "stage": "S2",
+      "type": "stage",
+      "title": "S2: RWA Bye-Law Audits",
+      "desc": "4 weeks reviewing AGM minutes & short-stay rules before second site visits.",
+      "icon": "FileSearch",
+      "x": 330,
+      "y": 120,
+      "width": 180
+    },
+    {
+      "id": "detour-guaranteed-9-percent",
+      "stage": "DETOUR",
+      "type": "detour",
+      "title": "DETOUR: Guaranteed 9%",
+      "desc": "2 weeks operator scheme detour; guarantee backed only by seller's LLP.",
+      "icon": "AlertTriangle",
+      "x": 560,
+      "y": 220,
+      "width": 180
+    },
+    {
+      "id": "s3-builder-stock-shortlist",
+      "stage": "S3",
+      "type": "stage",
+      "title": "S3: Builder Stock Shortlist",
+      "desc": "3 weeks shortlisting ready builder-held studio inventory with OC.",
+      "icon": "Building",
+      "x": 790,
+      "y": 120,
+      "width": 180
+    },
+    {
+      "id": "s5-byelaw-draft-bounce",
+      "stage": "S5",
+      "type": "bounce",
+      "targetNodeId": "s3-builder-stock-shortlist",
+      "title": "S5 BOUNCE: Bye-law Draft",
+      "desc": "1 week bounce: association circulated short-stay ban draft; exited before token.",
+      "icon": "RotateCcw",
+      "loopText": "S5 → S3 Bounce (Bye-law Draft)",
+      "x": 640,
+      "y": 420,
+      "width": 190
+    },
+    {
+      "id": "s5-two-units-closed",
+      "stage": "S5",
+      "type": "stage",
+      "title": "S5: Two Units Closed",
+      "desc": "3 weeks: GST-inclusive builder ready stock closed across ORR and Manyata.",
+      "icon": "Key",
+      "x": 370,
+      "y": 420,
+      "width": 180
+    },
+    {
+      "id": "s7-dual-corridor-machine",
+      "stage": "S7",
+      "type": "stage",
+      "title": "S7: Dual Corridor Machine",
+      "desc": "Portfolio scaled to 12 keys operating at 84% average occupancy.",
+      "icon": "CheckCircle2",
+      "x": 110,
+      "y": 420,
+      "width": 180
     }
   ]
 }

@@ -163,85 +163,95 @@
       ],
       "roadmapNodes": [
         {
-          "id": "fd-renewal-shock",
-          "title": "FD Renewal at 6.4%",
-          "desc": "FD renewal notice at 6.4% triggers Suresh's 41-question ledger; son's advice accepted.",
-          "icon": "FileText",
-          "x": 130,
-          "y": 110,
-          "width": 190
-        },
-        {
-          "id": "jayanagar-price-shock",
-          "title": "Jayanagar Showflat Shock",
-          "desc": "Jayanagar prices at ₹15-21K/sqft recalibrate corpus expectation to 2BHK / compact 3BHK.",
-          "icon": "TrendingUp",
-          "x": 340,
-          "y": 160,
-          "width": 190
-        },
-        {
-          "id": "falcon-city-detour",
-          "title": "Prestige Falcon City Detour",
-          "desc": "Full-page jacket ad detour; EOI brought home twice, returned unsigned ('launch discount = delivery risk').",
-          "icon": "AlertTriangle",
-          "x": 560,
-          "y": 150,
-          "width": 190
-        },
-        {
-          "id": "photocopied-oc-rule",
-          "title": "Photocopied-OC Rule Born",
-          "desc": "Sarakki 'ready' tower lacks OC document; photocopied-OC rule #42 is penned into ledger.",
-          "icon": "ShieldCheck",
-          "x": 740,
-          "y": 130,
-          "width": 190
-        },
-        {
-          "id": "jayanagar-boutique-romance",
-          "title": "Jayanagar 24-Unit Romance",
-          "desc": "Charming 24-unit boutique short-listed; accounts requested to verify building health.",
-          "icon": "Building2",
-          "x": 880,
-          "y": 290,
+          "id": "s1-fd-audit",
+          "stage": "S1",
+          "type": "stage",
+          "title": "S1: FD Renewal Guilt",
+          "desc": "6 weeks auditing ₹2.7 Cr paper savings earning 6.4% FD; capital protection mandate.",
+          "icon": "Landmark",
+          "x": 100,
+          "y": 120,
           "width": 180
         },
         {
-          "id": "walkaway-roof-levy",
-          "title": "Walk-Away #1: Roof Levy",
-          "desc": "Society accounts reveal ₹6L unrecorded roof levy; Suresh walks away immediately.",
+          "id": "s2-corridor-triage",
+          "stage": "S2",
+          "type": "stage",
+          "title": "S2: Corridor Triage",
+          "desc": "3 weeks shortlisting JP Nagar vs Banashankari; 7-year-old RWA building focus.",
+          "icon": "MapPin",
+          "x": 320,
+          "y": 120,
+          "width": 180
+        },
+        {
+          "id": "detour-luxe-ad",
+          "stage": "DETOUR",
+          "type": "detour",
+          "title": "DETOUR: Print-Ad Luxe",
+          "desc": "2.5 weeks chasing shiny luxury tower brochure outside budget; zero OC in hand.",
+          "icon": "AlertTriangle",
+          "x": 540,
+          "y": 220,
+          "width": 180
+        },
+        {
+          "id": "s3-oc-photocopy-audit",
+          "stage": "S3",
+          "type": "stage",
+          "title": "S3: OC Photocopy Audit",
+          "desc": "5 weeks evaluating 7-year-old ready buildings; photocopy OC rule strictly enforced.",
+          "icon": "FileCheck",
+          "x": 760,
+          "y": 120,
+          "width": 180
+        },
+        {
+          "id": "s4-walkaway-stall",
+          "stage": "S4",
+          "type": "loop",
+          "title": "S4: Walk-Away Stall",
+          "desc": "3 weeks grief disguised as re-exploring Banashankari after seller price hike.",
           "icon": "RotateCcw",
-          "x": 710,
-          "y": 400,
-          "width": 190
+          "loopText": "3-Week Stall Loop",
+          "x": 880,
+          "y": 320,
+          "width": 180
         },
         {
-          "id": "riya-sleep-reframe",
-          "title": "Riya Reframe: Price the Sleep",
-          "desc": "Riya reframes evaluation: 'Price the sleep'; comparison table gets new 'sleep test' row.",
-          "icon": "Moon",
-          "x": 530,
-          "y": 410,
-          "width": 190
-        },
-        {
-          "id": "walkaway-seller-theatre",
-          "title": "Walk-Away #2: Price Theatre",
-          "desc": "Seller moves 'final price' twice; Suresh walks away; next broker talks start 8% lower.",
-          "icon": "DollarSign",
-          "x": 340,
-          "y": 410,
-          "width": 190
-        },
-        {
-          "id": "brigade-gardenia-close",
-          "title": "Brigade Gardenia 3BHK Close",
-          "desc": "Original-allottee 3BHK in Brigade Gardenia closed at ₹1.69 Cr in 32 days; sleep intact.",
-          "icon": "Key",
-          "x": 190,
+          "id": "s5-seller-theatre-bounce",
+          "stage": "S5",
+          "type": "bounce",
+          "targetNodeId": "s3-oc-photocopy-audit",
+          "title": "S5 BOUNCE: Price Theatre",
+          "desc": "1 week bounce: seller tried adding ₹12L at token table; Suresh walked out.",
+          "icon": "Undo2",
+          "loopText": "S5 → S3 Bounce (Walk-Away #2)",
+          "x": 620,
           "y": 420,
           "width": 190
+        },
+        {
+          "id": "s5-nominee-wobble",
+          "stage": "S5",
+          "type": "stage",
+          "title": "S5: Co-Nominee Wobble",
+          "desc": "10-day seller paper wobble held by all-cash proof-of-funds leverage.",
+          "icon": "ShieldAlert",
+          "x": 360,
+          "y": 420,
+          "width": 180
+        },
+        {
+          "id": "s7-brigade-gardenia-close",
+          "stage": "S7",
+          "type": "stage",
+          "title": "S7: Brigade Gardenia Close",
+          "desc": "32-day all-cash close at ₹1.69 Cr. Zero-EMI sleep-tested peace achieved.",
+          "icon": "CheckCircle2",
+          "x": 120,
+          "y": 420,
+          "width": 180
         }
       ],
       "timelineTitle": "Where they stand today",
@@ -850,6 +860,99 @@
         "Documents calm you down; brochures make you suspicious.",
         "A 7-year-old building with a good RWA feels safer to you than a brand-new tower with a ribbon on it."
       ]
+    }
+  ],
+  "roadmapNodes": [
+    {
+      "id": "s1-fd-audit",
+      "stage": "S1",
+      "type": "stage",
+      "title": "S1: FD Renewal Guilt",
+      "desc": "6 weeks auditing ₹2.7 Cr paper savings earning 6.4% FD; capital protection mandate.",
+      "icon": "Landmark",
+      "x": 100,
+      "y": 120,
+      "width": 180
+    },
+    {
+      "id": "s2-corridor-triage",
+      "stage": "S2",
+      "type": "stage",
+      "title": "S2: Corridor Triage",
+      "desc": "3 weeks shortlisting JP Nagar vs Banashankari; 7-year-old RWA building focus.",
+      "icon": "MapPin",
+      "x": 320,
+      "y": 120,
+      "width": 180
+    },
+    {
+      "id": "detour-luxe-ad",
+      "stage": "DETOUR",
+      "type": "detour",
+      "title": "DETOUR: Print-Ad Luxe",
+      "desc": "2.5 weeks chasing shiny luxury tower brochure outside budget; zero OC in hand.",
+      "icon": "AlertTriangle",
+      "x": 540,
+      "y": 220,
+      "width": 180
+    },
+    {
+      "id": "s3-oc-photocopy-audit",
+      "stage": "S3",
+      "type": "stage",
+      "title": "S3: OC Photocopy Audit",
+      "desc": "5 weeks evaluating 7-year-old ready buildings; photocopy OC rule strictly enforced.",
+      "icon": "FileCheck",
+      "x": 760,
+      "y": 120,
+      "width": 180
+    },
+    {
+      "id": "s4-walkaway-stall",
+      "stage": "S4",
+      "type": "loop",
+      "title": "S4: Walk-Away Stall",
+      "desc": "3 weeks grief disguised as re-exploring Banashankari after seller price hike.",
+      "icon": "RotateCcw",
+      "loopText": "3-Week Stall Loop",
+      "x": 880,
+      "y": 320,
+      "width": 180
+    },
+    {
+      "id": "s5-seller-theatre-bounce",
+      "stage": "S5",
+      "type": "bounce",
+      "targetNodeId": "s3-oc-photocopy-audit",
+      "title": "S5 BOUNCE: Price Theatre",
+      "desc": "1 week bounce: seller tried adding ₹12L at token table; Suresh walked out.",
+      "icon": "Undo2",
+      "loopText": "S5 → S3 Bounce (Walk-Away #2)",
+      "x": 620,
+      "y": 420,
+      "width": 190
+    },
+    {
+      "id": "s5-nominee-wobble",
+      "stage": "S5",
+      "type": "stage",
+      "title": "S5: Co-Nominee Wobble",
+      "desc": "10-day seller paper wobble held by all-cash proof-of-funds leverage.",
+      "icon": "ShieldAlert",
+      "x": 360,
+      "y": 420,
+      "width": 180
+    },
+    {
+      "id": "s7-brigade-gardenia-close",
+      "stage": "S7",
+      "type": "stage",
+      "title": "S7: Brigade Gardenia Close",
+      "desc": "32-day all-cash close at ₹1.69 Cr. Zero-EMI sleep-tested peace achieved.",
+      "icon": "CheckCircle2",
+      "x": 120,
+      "y": 420,
+      "width": 180
     }
   ]
 }

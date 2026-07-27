@@ -439,13 +439,13 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
             })}
           </div>
 
-          {/* Desktop SVG Snaking Path */}
+          {/* Desktop SVG Snaking Path & Loop/Bounce Overlays */}
           {(() => {
             const maxY = Math.max(...roadmapNodes.map((n) => n.y), 300);
             const viewBoxHeight = Math.min(870, Math.max(460, maxY + 140));
 
-            // Dynamically build path connecting nodes in exact sequence
-            const pathD = roadmapNodes.reduce((acc, curr, idx) => {
+            // 1. Main sequential connecting path
+            const mainPathD = roadmapNodes.reduce((acc, curr, idx) => {
               if (idx === 0) return `M ${curr.x} ${curr.y}`;
               const prev = roadmapNodes[idx - 1];
               const dx = curr.x - prev.x;
@@ -465,6 +465,52 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
                 return `${acc} C ${cx1} ${cy1}, ${cx2} ${cy2}, ${curr.x} ${curr.y}`;
               }
             }, "");
+
+            // 2. Identify loop & bounce/regression overlay arcs
+            const overlayArcs: Array<{
+              id: string;
+              type: string;
+              pathD: string;
+              label?: string;
+              labelPos: { x: number; y: number };
+            }> = [];
+
+            roadmapNodes.forEach((node) => {
+              const nodeType = (node as any).type;
+              const targetId = (node as any).targetNodeId;
+              const loopText = (node as any).loopText;
+
+              // Self-looping node (e.g. S1 11-month spreadsheet loop, S2 video protocol loop)
+              if (nodeType === "loop") {
+                const loopD = `M ${node.x - 15} ${node.y - 30} C ${node.x - 60} ${node.y - 110}, ${node.x + 60} ${node.y - 110}, ${node.x + 15} ${node.y - 30}`;
+                overlayArcs.push({
+                  id: `loop-${node.id}`,
+                  type: "loop",
+                  pathD: loopD,
+                  label: loopText || "Stage Loop",
+                  labelPos: { x: node.x, y: node.y - 100 },
+                });
+              }
+
+              // Backward bounce or regression connecting back to targetNodeId
+              if ((nodeType === "bounce" || nodeType === "regression") && targetId) {
+                const targetNode = roadmapNodes.find((n) => n.id === targetId);
+                if (targetNode) {
+                  // Arch curve high above or below
+                  const isTopArc = node.y > 300 && targetNode.y > 300;
+                  const archY = isTopArc ? Math.min(node.y, targetNode.y) - 130 : Math.max(node.y, targetNode.y) + 120;
+                  const midX = (node.x + targetNode.x) / 2;
+                  const bounceD = `M ${node.x} ${node.y - 25} C ${node.x} ${archY}, ${targetNode.x} ${archY}, ${targetNode.x} ${targetNode.y - 25}`;
+                  overlayArcs.push({
+                    id: `bounce-${node.id}`,
+                    type: nodeType,
+                    pathD: bounceD,
+                    label: loopText || (nodeType === "bounce" ? "Bounce" : "Regression"),
+                    labelPos: { x: midX, y: archY + (isTopArc ? -12 : 16) },
+                  });
+                }
+              }
+            });
 
             return (
               <div
@@ -489,30 +535,102 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
                       <path
                         d="M 1 1 L 6 3.5 L 1 6"
                         fill="none"
-                        stroke="#CBD5E1"
+                        stroke="#94A3B8"
                         strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </marker>
+                    <marker
+                      id="arrowhead-coral"
+                      markerWidth="7"
+                      markerHeight="7"
+                      refX="5"
+                      refY="3.5"
+                      orient="auto"
+                    >
+                      <path
+                        d="M 1 1 L 6 3.5 L 1 6"
+                        fill="none"
+                        stroke="#DD5128"
+                        strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       />
                     </marker>
                   </defs>
 
-                  {/* Smooth Dynamic Connecting Path */}
+                  {/* Base Connecting Path */}
                   <path
-                    d={pathD}
+                    d={mainPathD}
                     fill="none"
                     stroke="#CBD5E1"
                     strokeWidth="2.2"
                     strokeDasharray="6 6"
                     strokeLinecap="round"
                   />
+
+                  {/* Loop & Bounce Overlay Arcs */}
+                  {overlayArcs.map((arc) => {
+                    const strokeColor = arc.type === "bounce" ? "#DD5128" : arc.type === "regression" ? "#8B5CF6" : "#3B82F6";
+                    return (
+                      <g key={arc.id}>
+                        <path
+                          d={arc.pathD}
+                          fill="none"
+                          stroke={strokeColor}
+                          strokeWidth="2.4"
+                          strokeDasharray={arc.type === "loop" ? "4 4" : "6 4"}
+                          markerEnd={arc.type === "bounce" ? "url(#arrowhead-coral)" : "url(#arrowhead-v0)"}
+                        />
+                      </g>
+                    );
+                  })}
                 </svg>
 
+                {/* SVG Text & Overlay Badges */}
+                {overlayArcs.map((arc) => (
+                  <div
+                    key={`badge-${arc.id}`}
+                    className="absolute z-20 pointer-events-auto transform -translate-x-1/2 -translate-y-1/2"
+                    style={{
+                      left: `${(arc.labelPos.x / 1000) * 100}%`,
+                      top: `${(arc.labelPos.y / viewBoxHeight) * 100}%`,
+                    }}
+                  >
+                    <span
+                      className={`px-2.5 py-1 rounded-full text-[10px] font-semibold tracking-wide border shadow-xs whitespace-nowrap ${
+                        arc.type === "bounce"
+                          ? "bg-[#FEF0EC] text-[#DD5128] border-[#FDBA74]"
+                          : arc.type === "regression"
+                          ? "bg-purple-50 text-purple-700 border-purple-200"
+                          : "bg-blue-50 text-blue-700 border-blue-200"
+                      }`}
+                      style={{ fontFamily: fu }}
+                    >
+                      {arc.label}
+                    </span>
+                  </div>
+                ))}
+
                 {roadmapNodes.map((stage) => {
+                  const nodeType = (stage as any).type;
                   const Icon =
                     typeof stage.icon === "string"
                       ? (props: any) => getIcon(stage.icon, "HelpCircle", props)
                       : stage.icon;
+
+                  const badgeBg =
+                    nodeType === "bounce"
+                      ? "bg-rose-500 text-white"
+                      : nodeType === "regression"
+                      ? "bg-purple-600 text-white"
+                      : nodeType === "detour"
+                      ? "bg-amber-500 text-white"
+                      : nodeType === "loop"
+                      ? "bg-blue-600 text-white"
+                      : null;
+
                   return (
                     <div
                       key={stage.id}
@@ -525,9 +643,14 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
                       }}
                     >
                       <div
-                        className="flex items-center justify-center w-[54px] h-[54px] bg-[#F1F5F9] rounded-[18px] mb-2 shrink-0 transition-transform duration-200 hover:scale-105"
+                        className="relative flex items-center justify-center w-[54px] h-[54px] bg-[#F1F5F9] rounded-[18px] mb-2 shrink-0 transition-transform duration-200 hover:scale-105"
                         style={{ boxShadow: "0 0 0 8px #ffffff" }}
                       >
+                        {badgeBg && (
+                          <span className={`absolute -top-2.5 px-1.5 py-0.5 rounded-full text-[8px] font-extrabold uppercase tracking-wider ${badgeBg}`}>
+                            {nodeType}
+                          </span>
+                        )}
                         {Icon ? (
                           <Icon className="w-[26px] h-[26px] text-[#475569]" strokeWidth={1.75} />
                         ) : (
