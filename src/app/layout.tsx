@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import { AppProviders } from "@/components/ui/AppProviders";
@@ -81,9 +81,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://gruha.ai",
   },
-};
-
-export const viewport: Viewport = {
   themeColor: "#000000",
 };
 
