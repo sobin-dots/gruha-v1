@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useRef, useEffect } from "react";
 import Image from "next/image";
 import * as Icons from "lucide-react";
 import imgSearchMap from "@/imports/Container.png";
@@ -121,6 +121,38 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
   const [selectedAreaId, setSelectedAreaId] = useState<string | number | null>(null);
   const [hoveredAreaId, setHoveredAreaId] = useState<string | number | null>(null);
 
+  // Interactive Mouse Drag Panning & Wheel Zooming State
+  const [panOffset, setPanOffset] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+  const [zoomOffset, setZoomOffset] = useState<number>(0);
+  const [committedCenter, setCommittedCenter] = useState<{ lat: number; lng: number } | null>(null);
+  const [isDraggingMap, setIsDraggingMap] = useState<boolean>(false);
+  const dragStartRef = useRef<{ x: number; y: number } | null>(null);
+  const panStartRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
+
+  // Reset pan, zoom, and committed center when selected area changes
+  useEffect(() => {
+    setPanOffset({ x: 0, y: 0 });
+    setZoomOffset(0);
+    setCommittedCenter(null);
+  }, [selectedAreaId]);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (e.button !== 0) return;
+    setIsDraggingMap(true);
+    dragStartRef.current = { x: e.clientX, y: e.clientY };
+    panStartRef.current = { ...panOffset };
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDraggingMap || !dragStartRef.current) return;
+    const dx = e.clientX - dragStartRef.current.x;
+    const dy = e.clientY - dragStartRef.current.y;
+    setPanOffset({
+      x: panStartRef.current.x + dx,
+      y: panStartRef.current.y + dy,
+    });
+  };
+
   // Filter exploredAreas to ONLY items that contain latlong key
   const exploredAreasList = useMemo(() => {
     const rawList = exploredAreas && exploredAreas.length > 0 ? exploredAreas : defaultExploredAreas;
@@ -200,12 +232,65 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
     };
   }, [exploredAreasList]);
 
-  // Determine current map view center based on selected area or default bounding center
+  // Determine current map view center based on selected area or first card's location
   const selectedArea = areasWithPoints.find((a) => a.areaId === selectedAreaId);
-  const mapQuery = selectedArea
-    ? `${selectedArea.latlong.lat},${selectedArea.latlong.lng}`
-    : googleMapQuery || `${centerLat},${centerLng}`;
-  const mapZoom = selectedArea ? 14 : 12;
+  const firstArea = areasWithPoints[0];
+  const baseLat = selectedArea ? selectedArea.latlong.lat : (firstArea?.latlong?.lat ?? centerLat);
+  const baseLng = selectedArea ? selectedArea.latlong.lng : (firstArea?.latlong?.lng ?? centerLng);
+  const baseZoom = selectedArea ? 14 : 12;
+
+  const effectiveZoom = Math.min(Math.max(baseZoom + zoomOffset, 8), 18);
+  const mapCenterLat = committedCenter ? committedCenter.lat : baseLat;
+  const mapCenterLng = committedCenter ? committedCenter.lng : baseLng;
+
+  const handleMouseUp = () => {
+    if (isDraggingMap) {
+      setIsDraggingMap(false);
+      dragStartRef.current = null;
+      if (panOffset.x !== 0 || panOffset.y !== 0) {
+        setCommittedCenter(() => {
+          const currentLat = committedCenter ? committedCenter.lat : baseLat;
+          const currentLng = committedCenter ? committedCenter.lng : baseLng;
+          const degPerPixel = 0.00012 * Math.pow(2, 12 - effectiveZoom);
+          return {
+            lat: currentLat + panOffset.y * degPerPixel,
+            lng: currentLng - panOffset.x * degPerPixel,
+          };
+        });
+        setPanOffset({ x: 0, y: 0 });
+      }
+    }
+  };
+
+  const handleWheel = (e: React.WheelEvent) => {
+    if (e.deltaY < 0) {
+      setZoomOffset((prev) => Math.min(prev + 1, 4));
+    } else {
+      setZoomOffset((prev) => Math.max(prev - 1, -3));
+    }
+  };
+
+  const handleZoomIn = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    setZoomOffset((prev) => Math.min(prev + 1, 4));
+  };
+
+  const handleZoomOut = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    setZoomOffset((prev) => Math.max(prev - 1, -3));
+  };
+
+  const handleResetMap = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    setSelectedAreaId(null);
+    setHoveredAreaId(null);
+    setPanOffset({ x: 0, y: 0 });
+    setZoomOffset(0);
+    setCommittedCenter(null);
+  };
+
+  const mapQuery = `${mapCenterLat.toFixed(6)},${mapCenterLng.toFixed(6)}`;
+  const mapZoom = effectiveZoom;
 
   const sectionTitle = filtersTitle || costOfSearchTitle || "The Cost of Searching";
   const displayFilterStats = (filters && filters.length > 0)
@@ -350,7 +435,14 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
             })()}
 
             {/* Full Width Google Map Canvas with Polygonal Overlay */}
-            <div className="relative w-full h-full bg-[#E5E3DF] overflow-hidden">
+            <div
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseUp}
+              onWheel={handleWheel}
+              className={`relative w-full h-[600px] bg-[#E5E3DF] overflow-hidden select-none ${isDraggingMap ? "cursor-grabbing" : "cursor-grab"}`}
+            >
               <iframe
                 key={mapQuery}
                 title="Explored Areas Polygonal Google Map"
@@ -362,8 +454,42 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
 
               <div className="absolute inset-0 bg-white/10 pointer-events-none z-1" />
 
+              {/* Floating Zoom & Map Navigation Controls */}
+              <div className="absolute top-4 right-4 z-40 flex flex-col gap-1.5 bg-white/95 backdrop-blur-md p-1.5 rounded-xl shadow-lg border border-slate-200/80 pointer-events-auto">
+                <button
+                  type="button"
+                  onClick={handleZoomIn}
+                  className="w-8 h-8 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-base transition-colors cursor-pointer"
+                  title="Zoom In (+)"
+                  aria-label="Zoom In"
+                >
+                  <Icons.Plus className="w-4 h-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={handleZoomOut}
+                  className="w-8 h-8 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-base transition-colors cursor-pointer"
+                  title="Zoom Out (-)"
+                  aria-label="Zoom Out"
+                >
+                  <Icons.Minus className="w-4 h-4" />
+                </button>
+                {(panOffset.x !== 0 || panOffset.y !== 0 || zoomOffset !== 0 || selectedAreaId !== null) && (
+                  <button
+                    type="button"
+                    onClick={handleResetMap}
+                    className="w-8 h-8 rounded-lg bg-slate-50 hover:bg-[#FEF0EC] text-[#DD5128] flex items-center justify-center transition-colors cursor-pointer"
+                    title="Reset Map View"
+                    aria-label="Reset Map View"
+                  >
+                    <Icons.RotateCcw className="w-3.5 h-3.5" />
+                  </button>
+                )}
+              </div>
+
               <svg
-                className="absolute inset-0 w-full h-full z-10 pointer-events-none"
+                className="absolute inset-0 w-full h-full z-10 pointer-events-none transition-transform duration-75"
+                style={{ transform: `translate(${panOffset.x}px, ${panOffset.y}px)` }}
                 viewBox="0 0 1000 600"
                 preserveAspectRatio="none"
               >
@@ -526,14 +652,7 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
                           : "bg-white/80 hover:bg-white border-slate-200/70 shadow-2xs"
                         }`}
                     >
-                      {/* Left color bar indicator */}
-                      {/* <div
-                        className="absolute left-0 top-3 bottom-3 w-1 rounded-r-full transition-all"
-                        style={{ backgroundColor: isSelected || isHovered ? "#DD5128" : dotColor }}
-                      /> */}
-
                       <div className="pl-2">
-                        {/* Top badge if present */}
                         {area.isTopChoice && (
                           <div className="inline-flex items-center gap-1 mb-2 px-2 py-0.5 rounded-md bg-[#FE5B39]/10 text-[#DD5128] text-[10px] font-bold tracking-wider uppercase font-inter">
                             <Icons.Sparkles className="w-3 h-3" />
@@ -581,162 +700,204 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
             </div>
 
             {/* Right Column: Google Map Canvas with Polygonal Overlay */}
-            <div className="relative w-full h-[600px] bg-[#E5E3DF] overflow-hidden">
-              {/* Google Map iframe background focusing on selected area or center */}
-              <iframe
-                key={mapQuery}
-                title="Explored Areas Polygonal Google Map"
-                src={`https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&t=m&z=${mapZoom}&output=embed&iwloc=near`}
-                className="absolute inset-0 w-full h-full border-none pointer-events-none transition-opacity duration-300"
-                style={{ filter: "grayscale(80%) contrast(95%) brightness(105%)", opacity: 0.9 }}
-                loading="lazy"
-              />
-
-              {/* Light Map Overlay */}
-              <div className="absolute inset-0 bg-white/10 pointer-events-none z-1" />
-
-              {/* Interactive SVG Layer for Polygonal Plots around latlong */}
-              <svg
-                className="absolute inset-0 w-full h-full z-10 pointer-events-none"
-                viewBox="0 0 1000 600"
-                preserveAspectRatio="none"
+            <div
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseUp}
+              onWheel={handleWheel}
+              className={`relative w-full h-[600px] bg-[#E5E3DF] overflow-hidden select-none ${isDraggingMap ? "cursor-grabbing" : "cursor-grab"}`}
+            >
+              {/* Inner Canvas Wrapper translating iframe, overlay, SVG, and pins together as one single pinned canvas */}
+              <div
+                className={`absolute inset-0 w-full h-full ${isDraggingMap ? "transition-none" : "transition-transform duration-200"}`}
+                style={{ transform: `translate(${panOffset.x}px, ${panOffset.y}px)` }}
               >
-                <defs>
-                  <filter id="poly-glow" x="-20%" y="-20%" width="140%" height="140%">
-                    <feGaussianBlur stdDeviation="6" result="blur" />
-                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                  </filter>
-                </defs>
+                <iframe
+                  key={mapQuery}
+                  title="Explored Areas Polygonal Google Map"
+                  src={`https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&t=m&z=${mapZoom}&output=embed&iwloc=near`}
+                  className="absolute inset-0 w-full h-full border-none pointer-events-none transition-opacity duration-300"
+                  style={{ filter: "grayscale(80%) contrast(95%) brightness(105%)", opacity: 0.9 }}
+                  loading="lazy"
+                />
 
-                {areasWithPoints.filter((area: any) => !selectedAreaId || area.areaId === selectedAreaId).map((area: any, idx: number) => {
-                  const areaId = area.areaId;
-                  const isSelected = selectedAreaId === areaId;
-                  const isHovered = hoveredAreaId === areaId || isSelected;
-                  const points = area.computedPolygonPoints;
-                  const strokeColor = area.dotColor || (idx === 0 ? "#3B82F6" : idx === 1 ? "#10B981" : "#DD5128");
+                <div className="absolute inset-0 bg-white/10 pointer-events-none z-1" />
 
-                  return (
-                    <polygon
-                      key={`polygon-${areaId}`}
-                      points={points}
-                      onClick={() => {
-                        if (selectedAreaId === areaId) {
-                          setSelectedAreaId(null);
-                          setHoveredAreaId(null);
-                        } else {
-                          setSelectedAreaId(areaId);
-                          setHoveredAreaId(areaId);
-                        }
-                      }}
-                      onMouseEnter={() => setHoveredAreaId(areaId)}
-                      onMouseLeave={() => setHoveredAreaId(null)}
-                      className="pointer-events-auto transition-all duration-300 cursor-pointer"
-                      style={{
-                        fill: strokeColor,
-                        fillOpacity: isSelected ? 0.45 : isHovered ? 0.35 : 0.18,
-                        stroke: isSelected ? "#DD5128" : strokeColor,
-                        strokeWidth: isSelected ? 4 : isHovered ? 3.5 : 2,
-                        strokeDasharray: isSelected || isHovered ? "none" : "6 4",
-                        filter: isSelected || isHovered ? "url(#poly-glow)" : "none",
-                      }}
-                    />
-                  );
-                })}
-              </svg>
+                <svg
+                  className="absolute inset-0 w-full h-full z-10 pointer-events-none"
+                  viewBox="0 0 1000 600"
+                  preserveAspectRatio="none"
+                >
+                  <defs>
+                    <filter id="poly-glow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="6" result="blur" />
+                      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                    </filter>
+                  </defs>
 
-              {/* Area Pin Badges & Floating Hover Callouts on Map */}
-              <div className="absolute inset-0 z-20 pointer-events-none">
-                {areasWithPoints.filter((area: any) => !selectedAreaId || area.areaId === selectedAreaId).map((area: any, idx: number) => {
-                  const areaId = area.areaId;
-                  const isSelected = selectedAreaId === areaId;
-                  const isHovered = hoveredAreaId === areaId || isSelected;
-                  const centroid = area.computedCentroid;
-                  const areaName = area.name || area.title || "";
-                  const projectsCount = area.projectsCount || area.projects || 0;
-                  const dotColor = area.dotColor || (idx === 0 ? "#3B82F6" : idx === 1 ? "#10B981" : "#DD5128");
-                  const areaImage = getImgSrc(area.image || area.imageSrc || searchMapImage);
+                  {areasWithPoints.filter((area: any) => !selectedAreaId || area.areaId === selectedAreaId).map((area: any, idx: number) => {
+                    const areaId = area.areaId;
+                    const isSelected = selectedAreaId === areaId;
+                    const isHovered = hoveredAreaId === areaId || isSelected;
+                    const points = area.computedPolygonPoints;
+                    const strokeColor = area.dotColor || (idx === 0 ? "#3B82F6" : idx === 1 ? "#10B981" : "#DD5128");
 
-                  const leftPercent = `${(centroid.x / 1000) * 100}%`;
-                  const topPercent = `${(centroid.y / 600) * 100}%`;
+                    return (
+                      <polygon
+                        key={`polygon-${areaId}`}
+                        points={points}
+                        onClick={() => {
+                          if (selectedAreaId === areaId) {
+                            setSelectedAreaId(null);
+                            setHoveredAreaId(null);
+                          } else {
+                            setSelectedAreaId(areaId);
+                            setHoveredAreaId(areaId);
+                          }
+                        }}
+                        onMouseEnter={() => setHoveredAreaId(areaId)}
+                        onMouseLeave={() => setHoveredAreaId(null)}
+                        className="pointer-events-auto transition-all duration-300 cursor-pointer"
+                        style={{
+                          fill: strokeColor,
+                          fillOpacity: isSelected ? 0.45 : isHovered ? 0.35 : 0.18,
+                          stroke: isSelected ? "#DD5128" : strokeColor,
+                          strokeWidth: isSelected ? 4 : isHovered ? 3.5 : 2,
+                          strokeDasharray: isSelected || isHovered ? "none" : "6 4",
+                          filter: isSelected || isHovered ? "url(#poly-glow)" : "none",
+                        }}
+                      />
+                    );
+                  })}
+                </svg>
 
-                  return (
-                    <div
-                      key={`pin-${areaId}`}
-                      className="absolute -translate-x-1/2 -translate-y-1/2 pointer-events-auto transition-all duration-300"
-                      style={{ left: leftPercent, top: topPercent }}
-                      onClick={() => {
-                        if (selectedAreaId === areaId) {
-                          setSelectedAreaId(null);
-                          setHoveredAreaId(null);
-                        } else {
-                          setSelectedAreaId(areaId);
-                          setHoveredAreaId(areaId);
-                        }
-                      }}
-                      onMouseEnter={() => setHoveredAreaId(areaId)}
-                      onMouseLeave={() => setHoveredAreaId(null)}
-                    >
-                      {/* Polygon Centroid Pin Pill */}
+                <div className="absolute inset-0 z-20 pointer-events-none">
+                  {areasWithPoints.filter((area: any) => !selectedAreaId || area.areaId === selectedAreaId).map((area: any, idx: number) => {
+                    const areaId = area.areaId;
+                    const isSelected = selectedAreaId === areaId;
+                    const isHovered = hoveredAreaId === areaId || isSelected;
+                    const centroid = area.computedCentroid;
+                    const areaName = area.name || area.title || "";
+                    const projectsCount = area.projectsCount || area.projects || 0;
+                    const dotColor = area.dotColor || (idx === 0 ? "#3B82F6" : idx === 1 ? "#10B981" : "#DD5128");
+                    const areaImage = getImgSrc(area.image || area.imageSrc || searchMapImage);
+
+                    const leftPercent = `${(centroid.x / 1000) * 100}%`;
+                    const topPercent = `${(centroid.y / 600) * 100}%`;
+
+                    return (
                       <div
-                        className={`flex items-center justify-center rounded-full shadow-md backdrop-blur-md transition-all duration-300 ease-in-out cursor-pointer border overflow-hidden ${isSelected
-                          ? "bg-[#DD5128] text-white scale-110 shadow-2xl border-2 border-white w-8 h-8 p-0 aspect-square"
-                          : isHovered
-                            ? "bg-[#111827] text-white scale-110 shadow-xl border-2 w-8 h-8 p-0 aspect-square"
-                            : "bg-white/95 text-slate-800 hover:scale-105 border-slate-200 w-auto h-8 px-3 py-1.5 gap-2"
-                          }`}
-                        style={{ borderColor: !isSelected && isHovered ? dotColor : undefined }}
+                        key={`pin-${areaId}`}
+                        className="absolute -translate-x-1/2 -translate-y-1/2 pointer-events-auto transition-all duration-300"
+                        style={{ left: leftPercent, top: topPercent }}
+                        onClick={() => {
+                          if (selectedAreaId === areaId) {
+                            setSelectedAreaId(null);
+                            setHoveredAreaId(null);
+                          } else {
+                            setSelectedAreaId(areaId);
+                            setHoveredAreaId(areaId);
+                          }
+                        }}
+                        onMouseEnter={() => setHoveredAreaId(areaId)}
+                        onMouseLeave={() => setHoveredAreaId(null)}
                       >
-                        <span
-                          className="w-2.5 h-2.5 rounded-full flex-none animate-pulse"
-                          style={{ backgroundColor: isSelected ? "#FFFFFF" : dotColor }}
-                        />
-
+                        {/* Polygon Centroid Pin Pill */}
                         <div
-                          className={`flex items-center gap-1 transition-all duration-300 ease-in-out overflow-hidden whitespace-nowrap ${isHovered || isSelected
-                            ? "max-w-0 opacity-0 pointer-events-none"
-                            : "max-w-[220px] opacity-100"
+                          className={`flex items-center justify-center rounded-full shadow-md backdrop-blur-md transition-all duration-300 ease-in-out cursor-pointer border overflow-hidden ${isSelected
+                            ? "bg-[#DD5128] text-white scale-110 shadow-2xl border-2 border-white w-8 h-8 p-0 aspect-square"
+                            : isHovered
+                              ? "bg-[#111827] text-white scale-110 shadow-xl border-2 w-8 h-8 p-0 aspect-square"
+                              : "bg-white/95 text-slate-800 hover:scale-105 border-slate-200 w-auto h-8 px-3 py-1.5 gap-2"
                             }`}
+                          style={{ borderColor: !isSelected && isHovered ? dotColor : undefined }}
                         >
-                          <span className="text-[12px] font-semibold font-inter">
-                            {areaName}
-                          </span>
-                          <span className="text-[10px] font-medium opacity-80 font-inter">
-                            ({projectsCount})
-                          </span>
-                        </div>
-                      </div>
+                          <span
+                            className="w-2.5 h-2.5 rounded-full flex-none animate-pulse"
+                            style={{ backgroundColor: isSelected ? "#FFFFFF" : dotColor }}
+                          />
 
-                      {/* Floating Callout Card on Hover/Selection */}
-                      {isHovered && (
-                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-[220px] rounded-xl bg-white p-3 shadow-2xl border border-slate-100 z-40 animate-fadeIn pointer-events-auto">
-                          <button
-                            type="button"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setSelectedAreaId(null);
-                              setHoveredAreaId(null);
-                            }}
-                            className="absolute top-2 right-2 w-5.5 h-5.5 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white flex items-center justify-center cursor-pointer transition-colors z-50 shadow-xs"
-                            aria-label="Close location view"
+                          <div
+                            className={`flex items-center gap-1 transition-all duration-300 ease-in-out overflow-hidden whitespace-nowrap ${isHovered || isSelected
+                              ? "max-w-0 opacity-0 pointer-events-none"
+                              : "max-w-[220px] opacity-100"
+                              }`}
                           >
-                            <Icons.X className="w-3 h-3" />
-                          </button>
-                          {areaImage && (
-                            <div className="h-[75px] rounded-lg overflow-hidden mb-2 relative">
-                              <Image src={area.image || area.imageSrc || searchMapImage} alt={areaName} fill className="object-cover" />
-                            </div>
-                          )}
-                          <p className="text-[13px] font-semibold text-slate-900 leading-tight font-inter pr-5">
-                            {areaName}
-                          </p>
-                          <p className="text-[13px] text-slate-500 mt-0.5 line-clamp-2 font-inter">
-                            {area.desc || area.description}
-                          </p>
+                            <span className="text-[12px] font-semibold font-inter">
+                              {areaName}
+                            </span>
+                            <span className="text-[10px] font-medium opacity-80 font-inter">
+                              ({projectsCount})
+                            </span>
+                          </div>
                         </div>
-                      )}
-                    </div>
-                  );
-                })}
+
+                        {/* Floating Callout Card on Hover/Selection */}
+                        {isHovered && (
+                          <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-[220px] rounded-xl bg-white p-3 shadow-2xl border border-slate-100 z-40 animate-fadeIn pointer-events-auto">
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setSelectedAreaId(null);
+                                setHoveredAreaId(null);
+                              }}
+                              className="absolute top-2 right-2 w-5.5 h-5.5 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white flex items-center justify-center cursor-pointer transition-colors z-50 shadow-xs"
+                              aria-label="Close location view"
+                            >
+                              <Icons.X className="w-3 h-3" />
+                            </button>
+                            {areaImage && (
+                              <div className="h-[75px] rounded-lg overflow-hidden mb-2 relative">
+                                <Image src={area.image || area.imageSrc || searchMapImage} alt={areaName} fill className="object-cover" />
+                              </div>
+                            )}
+                            <p className="text-[13px] font-semibold text-slate-900 leading-tight font-inter pr-5">
+                              {areaName}
+                            </p>
+                            <p className="text-[13px] text-slate-500 mt-0.5 line-clamp-2 font-inter">
+                              {area.desc || area.description}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Floating Zoom & Map Navigation Controls */}
+              <div className="absolute top-4 right-4 z-40 flex flex-col gap-1.5 bg-white/95 backdrop-blur-md p-1.5 rounded-xl shadow-lg border border-slate-200/80 pointer-events-auto">
+                <button
+                  type="button"
+                  onClick={handleZoomIn}
+                  className="w-8 h-8 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-base transition-colors cursor-pointer"
+                  title="Zoom In (+)"
+                  aria-label="Zoom In"
+                >
+                  <Icons.Plus className="w-4 h-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={handleZoomOut}
+                  className="w-8 h-8 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-base transition-colors cursor-pointer"
+                  title="Zoom Out (-)"
+                  aria-label="Zoom Out"
+                >
+                  <Icons.Minus className="w-4 h-4" />
+                </button>
+                {(panOffset.x !== 0 || panOffset.y !== 0 || zoomOffset !== 0 || selectedAreaId !== null || committedCenter !== null) && (
+                  <button
+                    type="button"
+                    onClick={handleResetMap}
+                    className="w-8 h-8 rounded-lg bg-slate-50 hover:bg-[#FEF0EC] text-[#DD5128] flex items-center justify-center transition-colors cursor-pointer"
+                    title="Reset Map View"
+                    aria-label="Reset Map View"
+                  >
+                    <Icons.RotateCcw className="w-3.5 h-3.5" />
+                  </button>
+                )}
               </div>
             </div>
           </div>
