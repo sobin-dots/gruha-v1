@@ -298,15 +298,15 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
     : ((costOfSearchStats && costOfSearchStats.length > 0) ? costOfSearchStats : defaultCostOfSearchStats);
 
   return (
-    <section id="section-search" className="pt-0 sm:pt-10">
+    <section id="section-search">
       <div className="text-left mb-7">
-        <p className="text-[11px] font-semibold tracking-[0.15em] uppercase" style={{ fontFamily: fu, color: "#DD5128" }}>
+        <p className="text-md font-semibold tracking-[0.15em] uppercase" style={{ fontFamily: fu, color: "#DD5128" }}>
           {sectionTagline}
         </p>
         <h2 className="mt-2 text-[clamp(28px,3.6vw,40px)] font-semibold leading-[1.08] tracking-[-0.02em]" style={{ fontFamily: fd, color: "#111821" }}>
           {title}
         </h2>
-        <p className="mt-3 text-[17px] leading-[1.55]" style={{ fontFamily: fd, color: "#59636F" }}>
+        <p className="mt-3 text-base leading-[1.55]" style={{ fontFamily: fd, color: "#59636F" }}>
           {description}
         </p>
       </div>
@@ -323,13 +323,14 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
               : cell.icon;
 
           return (
-            <div key={cell.label} className="flex items-center gap-4 px-6 sm:px-8 py-5 flex-1">
+            <div key={cell.label} className="flex items-center gap-4 px-6 sm:px-8 py-5 flex-1 min-w-0">
               <span className="flex-none text-[#DD5128]">{iconElement}</span>
-              <div>
-                <p className="text-[9.5px] font-semibold tracking-[0.13em] uppercase mb-1" style={{ fontFamily: fu, color: "#8A94A1" }}>
+
+              <div className="min-w-0 flex-1">
+                <p className="text-xs font-semibold tracking-[0.10em] uppercase mb-1.5" style={{ fontFamily: fu, color: "#8A94A1" }}>
                   {cell.label}
                 </p>
-                <p className="text-[17px] font-[500] leading-tight" style={{ fontFamily: fd, color: "#111821" }}>
+                <p className="text-sm sm:text-base font-[500] leading-tight" style={{ fontFamily: fd, color: "#111821" }}>
                   {cell.value}
                 </p>
               </div>
@@ -370,13 +371,13 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
                   <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
                     <div className="flex items-center gap-2">
                       <div className="w-2.5 h-2.5 rounded-full bg-[#DD5128] animate-pulse" />
-                      <span className="text-[11px] font-semibold text-slate-800 uppercase tracking-wider font-inter">
+                      <span className="text-sm sm:text-base font-semibold text-slate-800 uppercase tracking-wider font-inter">
                         1 Corridor Explored
                       </span>
                     </div>
                     <div className="flex items-center gap-2">
                       {area.isTopChoice && (
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#FE5B39]/10 text-[#DD5128] text-[10px] font-bold tracking-wider uppercase font-inter">
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#FE5B39]/10 text-[#DD5128] text-sm sm:text-base font-bold tracking-wider uppercase font-inter">
                           <Icons.Sparkles className="w-3 h-3" />
                           Top Choice
                         </span>
@@ -400,13 +401,13 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
 
                   <div className="space-y-1.5">
                     <h3
-                      className="text-[17px] font-semibold leading-snug transition-colors group-hover:text-[#DD5128]"
+                      className="text-sm sm:text-base font-semibold leading-snug transition-colors group-hover:text-[#DD5128]"
                       style={{ fontFamily: fd, color: "#111821" }}
                     >
                       {areaName}
                     </h3>
                     <p
-                      className="text-[13px] leading-relaxed"
+                      className="text-base leading-relaxed"
                       style={{ fontFamily: fu, color: "#59636F" }}
                     >
                       {areaDesc}
@@ -419,7 +420,7 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
                     </div>
                   )}
 
-                  <div className="mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11.5px] font-medium font-inter text-slate-600">
+                  <div className="mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-between text-sm sm:text-base font-medium font-inter text-slate-600">
                     <div className="flex items-center gap-1.5">
                       <span className="w-2.5 h-2.5 rounded-full flex-none" style={{ backgroundColor: dotColor }} />
                       <span>{projectsCount} Projects</span>
@@ -588,10 +589,10 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
                             : "max-w-[220px] opacity-100"
                             }`}
                         >
-                          <span className="text-[12px] font-semibold font-inter">
+                          <span className="text-sm sm:text-base font-semibold font-inter">
                             {areaName}
                           </span>
-                          <span className="text-[10px] font-medium opacity-80 font-inter">
+                          <span className="text-sm sm:text-base font-medium opacity-80 font-inter">
                             ({projectsCount})
                           </span>
                         </div>
@@ -612,7 +613,7 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
               <div className="p-4 border-b border-slate-200/80 bg-white flex items-center justify-between shrink-0">
                 <div className="flex items-center gap-2">
                   <div className="w-2.5 h-2.5 rounded-full bg-[#DD5128] animate-pulse" />
-                  <span className="text-[13px] font-semibold text-slate-800 uppercase tracking-wider font-inter">
+                  <span className="text-base font-semibold text-slate-800 uppercase tracking-wider font-inter">
                     {areasWithPoints.length} Corridors Explored
                   </span>
                 </div>
@@ -654,7 +655,7 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
                     >
                       <div className="pl-2">
                         {area.isTopChoice && (
-                          <div className="inline-flex items-center gap-1 mb-2 px-2 py-0.5 rounded-md bg-[#FE5B39]/10 text-[#DD5128] text-[10px] font-bold tracking-wider uppercase font-inter">
+                          <div className="inline-flex items-center gap-1 mb-2 px-2 py-0.5 rounded-md bg-[#FE5B39]/10 text-[#DD5128] text-sm sm:text-base font-bold tracking-wider uppercase font-inter">
                             <Icons.Sparkles className="w-3 h-3" />
                             Top Choice
                           </div>
@@ -663,13 +664,13 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
                         <div className="flex items-start justify-between gap-2">
                           <div>
                             <h3
-                              className="text-[15px] font-semibold leading-snug transition-colors group-hover:text-[#DD5128]"
+                              className="text-sm sm:text-base font-semibold leading-snug transition-colors group-hover:text-[#DD5128]"
                               style={{ fontFamily: fd, color: isSelected ? "#DD5128" : "#111821" }}
                             >
                               {areaName}
                             </h3>
                             <p
-                              className="text-[13px] leading-relaxed mt-1 line-clamp-2"
+                              className="text-[15px] leading-relaxed mt-1 line-clamp-2"
                               style={{ fontFamily: fu, color: "#59636F" }}
                             >
                               {areaDesc}
@@ -678,18 +679,18 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
                         </div>
 
                         {/* Footer Stats Row */}
-                        <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[11px] font-medium font-inter text-slate-500">
+                        <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-sm sm:text-base font-medium font-inter text-slate-500">
                           <div className="flex items-center gap-1.5">
                             <span
                               className="w-2 h-2 rounded-full flex-none"
                               style={{ backgroundColor: dotColor }}
                             />
-                            <span>{projectsCount} Projects</span>
+                            <span className="text-xs sm:text-sm">{projectsCount} Projects</span>
                           </div>
                           <span>•</span>
                           <div className="flex items-center gap-1">
                             <Icons.Eye className="w-3 h-3 text-slate-400" />
-                            <span>{visitsCount} Site visits</span>
+                            <span className="text-xs sm:text-sm">{visitsCount} Site visits</span>
                           </div>
                         </div>
                       </div>
@@ -813,10 +814,14 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
                             }`}
                           style={{ borderColor: !isSelected && isHovered ? dotColor : undefined }}
                         >
-                          <span
-                            className="w-2.5 h-2.5 rounded-full flex-none animate-pulse"
-                            style={{ backgroundColor: isSelected ? "#FFFFFF" : dotColor }}
-                          />
+                          <span className="text-sm sm:text-base font-semibold font-inter">
+                            {areaName}
+                          </span>
+                          <span className="text-sm sm:text-base font-medium opacity-80 font-inter">
+                            ({projectsCount})
+                          </span>
+                        </div>
+                      </div>
 
                           <div
                             className={`flex items-center gap-1 transition-all duration-300 ease-in-out overflow-hidden whitespace-nowrap ${isHovered || isSelected
@@ -824,13 +829,19 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
                               : "max-w-[220px] opacity-100"
                               }`}
                           >
-                            <span className="text-[12px] font-semibold font-inter">
-                              {areaName}
-                            </span>
-                            <span className="text-[10px] font-medium opacity-80 font-inter">
-                              ({projectsCount})
-                            </span>
-                          </div>
+                            <Icons.X className="w-3 h-3" />
+                          </button>
+                          {areaImage && (
+                            <div className="h-[75px] rounded-lg overflow-hidden mb-2 relative">
+                              <Image src={area.image || area.imageSrc || searchMapImage} alt={areaName} fill className="object-cover" />
+                            </div>
+                          )}
+                          <p className="text-base font-semibold text-slate-900 leading-tight font-inter pr-5">
+                            {areaName}
+                          </p>
+                          <p className="text-[15px] text-slate-500 mt-0.5 line-clamp-2 font-inter">
+                            {area.desc || area.description}
+                          </p>
                         </div>
 
                         {/* Floating Callout Card on Hover/Selection */}
@@ -910,7 +921,7 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
           className="bg-white border p-6 sm:p-8"
           style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
         >
-          <p className="text-[9.5px] font-semibold tracking-[0.14em] uppercase mb-6" style={{ fontFamily: fu, color: "#8A94A1" }}>
+          <p className="text-sm sm:text-base font-semibold tracking-[0.14em] uppercase mb-6" style={{ fontFamily: fu, color: "#8A94A1" }}>
             {sectionTitle}
           </p>
 
@@ -926,16 +937,32 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
               const itemDesc = item.description || item.subtext || "";
 
               return (
-                <div key={itemTitle + idx} className="rounded-xl border border-slate-100 p-5 flex flex-col gap-2 bg-[#f8fafc]">
-                  <span className="text-[#DD5128]">{iconElement}</span>
-                  <p className="text-[10px] font-semibold tracking-[0.12em] uppercase text-[#8A94A1]" style={{ fontFamily: fu }}>
-                    {itemTitle}
-                  </p>
-                  <p className="text-[16.5px] font-medium leading-snug text-[#111821]" style={{ fontFamily: fd }}>
+                <div key={itemTitle + idx} className="rounded-xl border border-slate-100 p-5 flex flex-col bg-[#f8fafc] h-full">
+                  <span className="text-[#DD5128] mb-2">{iconElement}</span>
+
+                  <div className="flex items-start mb-1">
+                    <p
+                      className="text-sm font-medium tracking-[0.05em] uppercase text-[#8A94A1]"
+                      style={{ fontFamily: fu }}
+                    >
+                      {itemTitle}
+                    </p>
+                  </div>
+
+
+                  <p
+                    className="text-base font-semibold leading-snug text-[#111821] mb-2"
+                    style={{ fontFamily: fd, color: "#111821" }}
+                  >
                     {itemValue}
                   </p>
+
+                  {/* Description */}
                   {itemDesc && (
-                    <p className="text-[13px] leading-relaxed text-[#59636F] mt-1" style={{ fontFamily: fu }}>
+                    <p
+                      className="text-base leading-relaxed text-[#59636F]"
+                      style={{ fontFamily: fu }}
+                    >
                       {itemDesc}
                     </p>
                   )}
@@ -946,7 +973,7 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
 
           {(filtersFooterLabel || costOfSearchQuote) && (
             <div className="mt-6 pt-5 border-t border-slate-100 text-center">
-              <p className="text-[14.5px] italic font-medium" style={{ fontFamily: fd, color: "#4B5563" }}>
+              <p className="text-base italic font-medium" style={{ fontFamily: fd, color: "#4B5563" }}>
                 "{filtersFooterLabel || costOfSearchQuote}"
               </p>
             </div>

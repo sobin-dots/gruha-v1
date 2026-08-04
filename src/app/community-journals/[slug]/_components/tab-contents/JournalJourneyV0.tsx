@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import Image from "next/image";
 import { Play, Pause } from "lucide-react";
 import * as Icons from "lucide-react";
 import imgMoment1 from "@/imports/1.png";
 import imgMoment2 from "@/imports/2.png";
 import imgMoment3 from "@/imports/3.png";
 import AgentCardSlider, { AgentCardItem } from "./JournalAgentCardStack";
+import BlurTintImage from "@/components/ui/BlurTintImage";
 
 const fd = "'Newsreader', Georgia, serif";
 const fu = "'Inter Tight', system-ui, sans-serif";
@@ -231,7 +231,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
       />
 
       <p
-        className="text-[9.5px] font-semibold tracking-[0.14em] uppercase"
+        className="text-sm sm:text-base font-semibold tracking-[0.14em] uppercase"
         style={{ fontFamily: fu, color: "rgb(138, 148, 161)" }}
       >
         {audioLabel} {duration > 0 ? `(${Math.round(duration)} SEC)` : "(92 SEC)"}
@@ -270,7 +270,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
           })}
         </div>
 
-        <span className="text-[12px] font-medium text-slate-400 shrink-0 font-inter min-w-[70px] text-right">
+        <span className="text-sm sm:text-base font-medium text-slate-400 shrink-0 font-inter min-w-[70px] text-right">
           {formatTime(currentTime)} / {formatTime(duration)}
         </span>
       </div>
@@ -341,7 +341,7 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
         {/* -- Header ---------------------------------------------------- */}
         <div className="text-left mb-7">
           <p
-            className="text-[11px] font-semibold tracking-[0.15em] uppercase"
+            className="text-md font-semibold tracking-[0.15em] uppercase"
             style={{ fontFamily: fu, color: "rgb(221, 81, 40)" }}
           >
             {displayEyebrow}
@@ -353,7 +353,7 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
             {title}
           </h2>
           <p
-            className="mt-3 text-[17px] leading-[1.55]"
+            className="mt-3 text-sm sm:text-base leading-[1.55]"
             style={{ fontFamily: fd, color: "rgb(89, 99, 111)" }}
           >
             {description}
@@ -373,17 +373,25 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
                   : cell.icon ? <cell.icon className="w-4 h-4 text-[#DD5128]" /> : getIcon("Briefcase", "Briefcase", { className: "w-4 h-4 text-[#DD5128]" });
 
               return (
-                <div key={cell.label || idx} className="flex items-center gap-4 px-6 sm:px-8 py-5 flex-1">
-                  <span className="flex-none text-[#DD5128]">{iconElement}</span>
-                  <div>
+                <div
+                  key={cell.label || idx}
+                  className="flex items-center gap-3.5 px-6 sm:px-8 py-5 flex-1 min-w-0"
+                >
+                  {/* Icon aligned with the first line of the value text */}
+                  <span className="flex-none text-[#DD5128]">
+                    {iconElement}
+                  </span>
+
+                  {/* Text block top-aligned so all 4 labels share the top row */}
+                  <div className="min-w-0 flex-1">
                     <p
-                      className="text-[9.5px] font-semibold tracking-[0.13em] uppercase mb-1"
+                      className="text-xs font-semibold tracking-[0.10em] uppercase mb-1.5"
                       style={{ fontFamily: fu, color: "rgb(138, 148, 161)" }}
                     >
                       {cell.label}
                     </p>
                     <p
-                      className="text-[17px] font-[500] leading-tight"
+                      className="text-base font-[500] leading-tight  whitespace-nowrap"
                       style={{ fontFamily: fd, color: "rgb(17, 24, 33)" }}
                     >
                       {cell.value}
@@ -399,17 +407,14 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
         <div className="w-full border border-[#F1F5F9] rounded-[24px] bg-white overflow-hidden pb-0 shadow-[0_1px_2px_rgba(17,24,33,.04),0_8px_24px_rgba(17,24,33,.05)]">
           <div className="px-8 pt-7 pb-2">
             <p
-              className="text-[9.5px] font-semibold tracking-[0.14em] uppercase"
+              className="text-sm sm:text-base font-semibold tracking-[0.14em] uppercase"
               style={{ fontFamily: fu, color: "rgb(138, 148, 161)" }}
             >
               {journeyFrameTitle}
             </p>
-            <h3
-              className="mt-1 text-[20px] font-semibold leading-tight"
-              style={{ fontFamily: fd, color: "rgb(17, 24, 33)" }}
-            >
+            <h4 className="text-base font-semibold leading-[1.25] mt-1" style={{ fontFamily: fd, color: "#111821" }}>
               {roadmapTitle}
-            </h3>
+            </h4>
           </div>
 
           {/* Mobile Vertical Nodes */}
@@ -430,7 +435,7 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
                     <h4 className="font-semibold text-[15px] leading-[20px] text-[#334155] font-inter">
                       {stage.title}
                     </h4>
-                    <p className="font-medium text-[13px] leading-[18px] text-[#64748B] font-inter">
+                    <p className="font-medium text-sm sm:text-base leading-[18px] text-[#64748B] font-inter">
                       {stage.desc}
                     </p>
                   </div>
@@ -651,7 +656,7 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
                     }}
                   >
                     <span
-                      className={`px-2.5 py-1 rounded-full text-[10px] font-semibold tracking-wide border shadow-xs whitespace-nowrap ${arc.type === "bounce"
+                      className={`px-2.5 py-1 rounded-full text-sm sm:text-base font-semibold tracking-wide border shadow-xs whitespace-nowrap ${arc.type === "bounce"
                         ? "bg-[#FEF0EC] text-[#DD5128] border-[#FDBA74]"
                         : arc.type === "regression"
                           ? "bg-purple-50 text-purple-700 border-purple-200"
@@ -698,7 +703,7 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
                         style={{ boxShadow: "0 0 0 8px #ffffff" }}
                       >
                         {badgeBg && (
-                          <span className={`absolute -top-2.5 px-1.5 py-0.5 rounded-full text-[8px] font-extrabold uppercase tracking-wider ${badgeBg}`}>
+                          <span className={`absolute -top-2.5 px-1.5 py-0.5 rounded-full text-xs font-extrabold uppercase tracking-wider ${badgeBg}`}>
                             {nodeType}
                           </span>
                         )}
@@ -709,10 +714,10 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
                         )}
                       </div>
                       <div className="flex flex-col items-center text-center gap-0.5 w-full">
-                        <h4 className="font-semibold text-[14px] leading-[18px] text-[#334155] font-inter">
+                        <h4 className="font-semibold text-sm leading-[18px] text-[#334155] font-inter">
                           {stage.title}
                         </h4>
-                        <p className="text-[13px] leading-[17px] text-[#64748B] font-inter">
+                        <p className="text-sm leading-[17px] text-[#64748B] font-inter">
                           {stage.desc}
                         </p>
                       </div>
@@ -728,7 +733,7 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
         {moments && moments.length > 0 && (
           <div className="w-full">
             <p
-              className="text-[9.5px] font-semibold tracking-[0.14em] uppercase mb-4"
+              className="text-sm sm:text-base font-semibold tracking-[0.14em] uppercase mb-4"
               style={{ fontFamily: fu, color: "rgb(138, 148, 161)" }}
             >
               {momentsTitle}
@@ -744,20 +749,29 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
                     className="bg-white border overflow-hidden flex flex-col"
                     style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
                   >
-                    <div className="flex-1 flex items-center justify-center pt-5 px-5 bg-slate-50/60 relative min-h-[160px]">
-                      <Image src={momentImg} alt={m.title} fill className="object-contain rounded-lg p-5" />
-                    </div>
-                    <div className="px-6 py-5">
-                      <p className="text-[11px] font-semibold mb-1" style={{ fontFamily: fu, color: "#DD5128" }}>
-                        {String(idx + 1).padStart(2, "0")}
-                      </p>
-                      <h4 className="text-[16px] mb-1.5" style={{ fontFamily: fd, color: "#111821", fontWeight: 500 }}>
-                        {m.title}
-                      </h4>
-                      <p className="text-[13px] leading-[1.55]" style={{ fontFamily: fu, color: "#59636F" }}>
-                        {bodyText}
-                      </p>
-                    </div>
+                    {/* Image tile with blurred self-tint backdrop */}
+                    <BlurTintImage
+                      src={momentImg}
+                      alt={bodyText}
+                      height={180}
+                    />
+                    <div className="px-6 pt-5 pb-1 flex-none">
+                        <p className="text-sm sm:text-base font-semibold" style={{ fontFamily: fu, color: "#DD5128" }}>
+                          {String(idx + 1).padStart(2, "0")}
+                        </p>
+                      </div>
+
+                      {/* 3. Independent Content Wrapper (Title + Body) */}
+                      <div className="px-6 pb-5 pt-0 flex-1 flex flex-col justify-start">
+                        <h4 className="text-base font-semibold leading-[1.25] mb-2" style={{ fontFamily: fd, color: "#111821" }}>
+
+                          {m.title}
+                        </h4>
+
+                        <p className="text-sm sm:text-base leading-[1.55]" style={{ fontFamily: fu, color: "#59636F" }}>
+                          {bodyText}
+                        </p>
+                      </div>
                   </div>
                 );
               })}
@@ -775,7 +789,7 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
             <div className="p-5 sm:p-10 flex flex-col justify-between space-y-4 sm:space-y-6">
               <div className="space-y-4">
                 <p
-                  className="text-[9.5px] font-semibold tracking-[0.14em] uppercase"
+                  className="text-sm sm:text-base font-semibold tracking-[0.14em] uppercase"
                   style={{ fontFamily: fu, color: "rgb(138, 148, 161)" }}
                 >
                   AI AGENTS ON THIS JOURNEY
@@ -783,7 +797,7 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
 
                 <div className="flex items-start gap-0 flex-col">
                   <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="mb-3"><path d="M14 2 L15.5 11.5 L25 14 L15.5 16.5 L14 26 L12.5 16.5 L3 14 L12.5 11.5 Z" stroke="#7C3AED" strokeWidth="1.5" strokeLinejoin="round"></path><path d="M22 4 L22.7 7.3 L26 8 L22.7 8.7 L22 12 L21.3 8.7 L18 8 L21.3 7.3 Z" stroke="#7C3AED" strokeWidth="1.2" strokeLinejoin="round"></path></svg>
-                  <span className="text-[14px] font-semibold text-[#8B5CF6] font-inter">
+                  <span className="text-base font-semibold text-[#8B5CF6] font-inter">
                     {riyaConclusionTitle}
                   </span>
                 </div>
@@ -819,7 +833,7 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
               }}
             >
               <p
-                className="text-[9.5px] font-semibold tracking-[0.14em] uppercase mb-4 sm:mb-6"
+                className="text-sm sm:text-base font-semibold tracking-[0.14em] uppercase mb-4 sm:mb-6"
                 style={{ fontFamily: fu, color: "#8A94A1" }}
               >
                 {voicesTitle}
@@ -836,14 +850,14 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
                       style={{ background: "#f8fafc" }}
                     >
                       <p
-                        className="text-[16px] sm:text-[20px] leading-[1.45] sm:leading-[1.5] italic"
+                        className="text-base sm:text-lg leading-[1.45] sm:leading-[1.5] italic"
                         style={{ fontFamily: fd, color: "#2D3748" }}
                       >
                         "{quoteText}"
                       </p>
                       {quoteAuthor && (
                         <p
-                          className="text-[13px] sm:text-[14px] font-semibold"
+                          className="text-sm sm:text-base font-semibold text-right"
                           style={{ fontFamily: fu, color: "#DD5128" }}
                         >
                           {quoteAuthor}

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import BlurTintImage from "@/components/ui/BlurTintImage";
 import * as Icons from "lucide-react";
 import imgClosure1 from "@/imports/1-1.png";
 import imgClosure2 from "@/imports/2-1.png";
@@ -162,15 +162,15 @@ export const JournalLearningsV0: React.FC<JournalLearningsV0Props> = ({
     : defaultClosureLessons;
 
   return (
-    <section id="section-learnings" className="pt-0 sm:pt-10 pb-10">
+    <section id="section-learnings">
       <div className="text-left mb-7">
-        <p className="text-[11px] font-semibold tracking-[0.15em] uppercase" style={{ fontFamily: fu, color: "#DD5128" }}>
+        <p className="text-md font-semibold tracking-[0.15em] uppercase" style={{ fontFamily: fu, color: "#DD5128" }}>
           {eyebrow}
         </p>
         <h2 className="mt-2 text-[clamp(28px,3.6vw,40px)] font-semibold leading-[1.08] tracking-[-0.02em]" style={{ fontFamily: fd, color: "#111821" }}>
           {lessonsTitle || title}
         </h2>
-        <p className="mt-3 text-[17px] leading-[1.55]" style={{ fontFamily: fd, color: "#59636F" }}>
+        <p className="mt-3 text-base leading-[1.55]" style={{ fontFamily: fd, color: "#59636F" }}>
           {description}
         </p>
       </div>
@@ -187,13 +187,24 @@ export const JournalLearningsV0: React.FC<JournalLearningsV0Props> = ({
               : cell.icon;
 
           return (
-            <div key={cell.label} className="flex items-center gap-4 px-6 sm:px-8 py-5 flex-1">
-              <span className="flex-none text-[#DD5128]">{iconElement}</span>
-              <div>
-                <p className="text-[9.5px] font-semibold tracking-[0.13em] uppercase mb-1" style={{ fontFamily: fu, color: "#8A94A1" }}>
+            <div key={cell.label} className="flex items-start gap-4 px-6 sm:px-8 py-5 flex-1 min-w-0">
+              {/* Icon aligned with the first line of the value text */}
+              <span className="flex-none text-[#DD5128] mt-[22px]">
+                {iconElement}
+              </span>
+
+              {/* Text block top-aligned so all labels share the top row */}
+              <div className="min-w-0 flex-1">
+                <p
+                  className="text-xs font-semibold tracking-[0.10em] uppercase mb-1.5"
+                  style={{ fontFamily: fu, color: "#8A94A1" }}
+                >
                   {cell.label}
                 </p>
-                <p className="text-[17px] font-[500] leading-tight" style={{ fontFamily: fd, color: "#111821" }}>
+                <p
+                  className="text-sm sm:text-base font-[500] leading-tight"
+                  style={{ fontFamily: fd, color: "#111821" }}
+                >
                   {cell.value}
                 </p>
               </div>
@@ -209,7 +220,7 @@ export const JournalLearningsV0: React.FC<JournalLearningsV0Props> = ({
             className="bg-white border px-6 sm:px-10 py-8"
             style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
           >
-            <p className="text-[9.5px] font-semibold tracking-[0.14em] uppercase mb-8" style={{ fontFamily: fu, color: "#8A94A1" }}>
+            <p className="text-sm sm:text-base font-semibold tracking-[0.14em] uppercase mb-8" style={{ fontFamily: fu, color: "#8A94A1" }}>
               {monthlyLearningsTitle}
             </p>
 
@@ -229,19 +240,19 @@ export const JournalLearningsV0: React.FC<JournalLearningsV0Props> = ({
                     </div>
                     <div className="flex-1 min-w-0" style={{ paddingTop: 1 }}>
                       <div className="flex items-center gap-3 mb-2">
-                        <p className="text-[9.5px] font-semibold tracking-[0.12em] uppercase" style={{ fontFamily: fu, color: item.turning ? "#DD5128" : "#8A94A1" }}>
+                        <p className="text-sm sm:text-base font-semibold tracking-[0.12em] uppercase" style={{ fontFamily: fu, color: item.turning ? "#DD5128" : "#8A94A1" }}>
                           {item.month || `LESSON 0${i + 1}`}
                         </p>
                         {item.turning && (
-                          <span className="text-[9px] font-semibold px-2 py-0.5 rounded-full tracking-wide" style={{ background: "#FEF0EC", color: "#DD5128", fontFamily: fu }}>
+                          <span className="text-xs sm:text-sm font-semibold px-2 py-0.5 rounded-full tracking-wide" style={{ background: "#FEF0EC", color: "#DD5128", fontFamily: fu }}>
                             Turning point
                           </span>
                         )}
                       </div>
-                      <h4 className="text-[18px] leading-[1.3] mb-1.5" style={{ fontFamily: fd, color: "#111821", fontWeight: 500 }}>
+                      <h4 className="text-base leading-[1.3] mb-1.5 font-semibold" style={{ fontFamily: fd, color: "#111821" }}>
                         {item.headline || item.title}
                       </h4>
-                      <p className="text-[13px] leading-[1.65]" style={{ fontFamily: fu, color: "#59636F" }}>
+                      <p className="text-base leading-[1.65]" style={{ fontFamily: fu, color: "#59636F" }}>
                         {item.body || item.description}
                       </p>
                     </div>
@@ -255,32 +266,58 @@ export const JournalLearningsV0: React.FC<JournalLearningsV0Props> = ({
         {/* How thinking changed */}
         <div
           className="bg-white border px-6 sm:px-8 py-8"
-          style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
+          style={{
+            borderRadius: 14,
+            borderColor: "#E4E9EF",
+            boxShadow:
+              "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)",
+          }}
         >
-          <p className="text-[9.5px] font-semibold tracking-[0.14em] uppercase mb-6" style={{ fontFamily: fu, color: "#8A94A1" }}>
+          <p
+            className="text-sm sm:text-base font-semibold tracking-[0.14em] uppercase mb-6"
+            style={{ fontFamily: fu, color: "#8A94A1" }}
+          >
             {thinkingChangedTitle}
           </p>
 
+          {/* Header Titles using Newsreader font (fd) */}
           <div className="grid grid-cols-[1fr_16px_1fr] gap-3 mb-4 pb-3 border-b border-slate-100">
-            <p className="text-[9.5px] font-semibold tracking-[0.12em] uppercase text-right" style={{ fontFamily: fu, color: "#8A94A1" }}>
+            <p
+              className="text-sm sm:text-base font-semibold tracking-[0.12em] uppercase text-right"
+              style={{ fontFamily: fd, color: "#111821" }}
+            >
               What they believed
             </p>
             <div />
-            <p className="text-[9.5px] font-semibold tracking-[0.12em] uppercase" style={{ fontFamily: fu, color: "#DD5128" }}>
+            <p
+              className="text-sm sm:text-base font-semibold tracking-[0.12em] uppercase"
+              style={{ fontFamily: fd, color: "#DD5128" }}
+            >
               What they know now
             </p>
           </div>
 
+          {/* List Items using Normal font (fu) */}
           <div className="flex flex-col divide-y divide-slate-100">
             {displayThinking.map(({ before, after }: any) => (
-              <div key={before} className="grid grid-cols-[1fr_16px_1fr] gap-3 items-center py-5">
-                <p className="text-[14px] leading-[1.4] text-right line-through decoration-slate-300" style={{ fontFamily: fd, color: "#94A3B8" }}>
+              <div
+                key={before}
+                className="grid grid-cols-[1fr_16px_1fr] gap-3 items-center py-5"
+              >
+                <p
+                  className="text-base leading-[1.4] text-right line-through decoration-slate-300"
+                  style={{ fontFamily: fu, color: "#94A3B8" }}
+                >
                   {before}
                 </p>
-                <p className="text-center text-[12px]" style={{ color: "#CBD5E1" }}>
+                <p className="text-center text-sm sm:text-base" style={{ fontFamily: fu, color: "#CBD5E1" }}
+                >
                   →
                 </p>
-                <p className="text-[14px] leading-[1.4]" style={{ fontFamily: fd, color: "#111821", fontWeight: 500 }}>
+                <p
+                  className="text-base leading-[1.4]"
+                  style={{ fontFamily: fu, color: "#111821", fontWeight: 500 }}
+                >
                   {after}
                 </p>
               </div>
@@ -300,14 +337,16 @@ export const JournalLearningsV0: React.FC<JournalLearningsV0Props> = ({
               className="bg-white border overflow-hidden flex flex-col"
               style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
             >
-              <div className="h-[180px] overflow-hidden bg-slate-50 flex items-center justify-center p-4 relative">
-                <Image src={cardImg} alt={cardTitle} fill className="object-contain rounded-lg p-4" />
-              </div>
+              <BlurTintImage
+                src={cardImg}
+                alt={cardTitle}
+                imageClassName=""
+              />
               <div className="px-6 py-5">
-                <h4 className="text-[19px] leading-tight mb-2" style={{ fontFamily: fd, color: "#111821", fontWeight: 500 }}>
+                <h4 className="text-base sm:text-lg leading-tight mb-2 font-semibold" style={{ fontFamily: fd, color: "#111821" }}>
                   {cardTitle}
                 </h4>
-                <p className="text-[13px] leading-[1.6]" style={{ fontFamily: fu, color: "#59636F" }}>
+                <p className="text-base leading-[1.6]" style={{ fontFamily: fu, color: "#59636F" }}>
                   {displayBody}
                 </p>
               </div>
