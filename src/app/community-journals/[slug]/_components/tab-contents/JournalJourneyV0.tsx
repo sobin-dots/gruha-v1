@@ -412,9 +412,9 @@ export const JournalJourneyV0: React.FC<JournalJourneyV0Props> = ({
             >
               {journeyFrameTitle}
             </p>
-            {/* <h4 className="text-base font-semibold leading-[1.25] mt-1" style={{ fontFamily: fd, color: "#111821" }}>
+            <h4 className="text-base font-semibold leading-[1.25] mt-1" style={{ fontFamily: fd, color: "#111821" }}>
               {roadmapTitle}
-            </h4> */}
+            </h4>
           </div>
 
           {/* Mobile Vertical Nodes */}
