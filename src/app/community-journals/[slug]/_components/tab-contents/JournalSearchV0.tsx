@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo, useRef, useEffect } from "react";
+import React, { useState, useMemo } from "react";
 import Image from "next/image";
 import * as Icons from "lucide-react";
 import imgSearchMap from "@/imports/Container.png";
@@ -121,38 +121,6 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
   const [selectedAreaId, setSelectedAreaId] = useState<string | number | null>(null);
   const [hoveredAreaId, setHoveredAreaId] = useState<string | number | null>(null);
 
-  // Interactive Mouse Drag Panning & Wheel Zooming State
-  const [panOffset, setPanOffset] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
-  const [zoomOffset, setZoomOffset] = useState<number>(0);
-  const [committedCenter, setCommittedCenter] = useState<{ lat: number; lng: number } | null>(null);
-  const [isDraggingMap, setIsDraggingMap] = useState<boolean>(false);
-  const dragStartRef = useRef<{ x: number; y: number } | null>(null);
-  const panStartRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
-
-  // Reset pan, zoom, and committed center when selected area changes
-  useEffect(() => {
-    setPanOffset({ x: 0, y: 0 });
-    setZoomOffset(0);
-    setCommittedCenter(null);
-  }, [selectedAreaId]);
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (e.button !== 0) return;
-    setIsDraggingMap(true);
-    dragStartRef.current = { x: e.clientX, y: e.clientY };
-    panStartRef.current = { ...panOffset };
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDraggingMap || !dragStartRef.current) return;
-    const dx = e.clientX - dragStartRef.current.x;
-    const dy = e.clientY - dragStartRef.current.y;
-    setPanOffset({
-      x: panStartRef.current.x + dx,
-      y: panStartRef.current.y + dy,
-    });
-  };
-
   // Filter exploredAreas to ONLY items that contain latlong key
   const exploredAreasList = useMemo(() => {
     const rawList = exploredAreas && exploredAreas.length > 0 ? exploredAreas : defaultExploredAreas;
@@ -232,65 +200,12 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
     };
   }, [exploredAreasList]);
 
-  // Determine current map view center based on selected area or first card's location
+  // Determine current map view center based on selected area or default bounding center
   const selectedArea = areasWithPoints.find((a) => a.areaId === selectedAreaId);
-  const firstArea = areasWithPoints[0];
-  const baseLat = selectedArea ? selectedArea.latlong.lat : (firstArea?.latlong?.lat ?? centerLat);
-  const baseLng = selectedArea ? selectedArea.latlong.lng : (firstArea?.latlong?.lng ?? centerLng);
-  const baseZoom = selectedArea ? 14 : 12;
-
-  const effectiveZoom = Math.min(Math.max(baseZoom + zoomOffset, 8), 18);
-  const mapCenterLat = committedCenter ? committedCenter.lat : baseLat;
-  const mapCenterLng = committedCenter ? committedCenter.lng : baseLng;
-
-  const handleMouseUp = () => {
-    if (isDraggingMap) {
-      setIsDraggingMap(false);
-      dragStartRef.current = null;
-      if (panOffset.x !== 0 || panOffset.y !== 0) {
-        setCommittedCenter(() => {
-          const currentLat = committedCenter ? committedCenter.lat : baseLat;
-          const currentLng = committedCenter ? committedCenter.lng : baseLng;
-          const degPerPixel = 0.00012 * Math.pow(2, 12 - effectiveZoom);
-          return {
-            lat: currentLat + panOffset.y * degPerPixel,
-            lng: currentLng - panOffset.x * degPerPixel,
-          };
-        });
-        setPanOffset({ x: 0, y: 0 });
-      }
-    }
-  };
-
-  const handleWheel = (e: React.WheelEvent) => {
-    if (e.deltaY < 0) {
-      setZoomOffset((prev) => Math.min(prev + 1, 4));
-    } else {
-      setZoomOffset((prev) => Math.max(prev - 1, -3));
-    }
-  };
-
-  const handleZoomIn = (e?: React.MouseEvent) => {
-    e?.stopPropagation();
-    setZoomOffset((prev) => Math.min(prev + 1, 4));
-  };
-
-  const handleZoomOut = (e?: React.MouseEvent) => {
-    e?.stopPropagation();
-    setZoomOffset((prev) => Math.max(prev - 1, -3));
-  };
-
-  const handleResetMap = (e?: React.MouseEvent) => {
-    e?.stopPropagation();
-    setSelectedAreaId(null);
-    setHoveredAreaId(null);
-    setPanOffset({ x: 0, y: 0 });
-    setZoomOffset(0);
-    setCommittedCenter(null);
-  };
-
-  const mapQuery = `${mapCenterLat.toFixed(6)},${mapCenterLng.toFixed(6)}`;
-  const mapZoom = effectiveZoom;
+  const mapQuery = selectedArea
+    ? `${selectedArea.latlong.lat},${selectedArea.latlong.lng}`
+    : googleMapQuery || `${centerLat},${centerLng}`;
+  const mapZoom = selectedArea ? 14 : 12;
 
   const sectionTitle = filtersTitle || costOfSearchTitle || "The Cost of Searching";
   const displayFilterStats = (filters && filters.length > 0)
@@ -298,15 +213,15 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
     : ((costOfSearchStats && costOfSearchStats.length > 0) ? costOfSearchStats : defaultCostOfSearchStats);
 
   return (
-    <section id="section-search" className="pt-0 sm:pt-10">
+    <section id="section-search">
       <div className="text-left mb-7">
-        <p className="text-[11px] font-semibold tracking-[0.15em] uppercase" style={{ fontFamily: fu, color: "#DD5128" }}>
+        <p className="text-md font-semibold tracking-[0.15em] uppercase" style={{ fontFamily: fu, color: "#DD5128" }}>
           {sectionTagline}
         </p>
         <h2 className="mt-2 text-[clamp(28px,3.6vw,40px)] font-semibold leading-[1.08] tracking-[-0.02em]" style={{ fontFamily: fd, color: "#111821" }}>
           {title}
         </h2>
-        <p className="mt-3 text-[17px] leading-[1.55]" style={{ fontFamily: fd, color: "#59636F" }}>
+        <p className="mt-3 text-base leading-[1.55]" style={{ fontFamily: fd, color: "#59636F" }}>
           {description}
         </p>
       </div>
@@ -323,13 +238,14 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
               : cell.icon;
 
           return (
-            <div key={cell.label} className="flex items-center gap-4 px-6 sm:px-8 py-5 flex-1">
+            <div key={cell.label} className="flex items-center gap-4 px-6 sm:px-8 py-5 flex-1 min-w-0">
               <span className="flex-none text-[#DD5128]">{iconElement}</span>
-              <div>
-                <p className="text-[9.5px] font-semibold tracking-[0.13em] uppercase mb-1" style={{ fontFamily: fu, color: "#8A94A1" }}>
+
+              <div className="min-w-0 flex-1">
+                <p className="text-xs font-semibold tracking-[0.10em] uppercase mb-1.5" style={{ fontFamily: fu, color: "#8A94A1" }}>
                   {cell.label}
                 </p>
-                <p className="text-[17px] font-[500] leading-tight" style={{ fontFamily: fd, color: "#111821" }}>
+                <p className="text-sm sm:text-base font-[500] leading-tight" style={{ fontFamily: fd, color: "#111821" }}>
                   {cell.value}
                 </p>
               </div>
@@ -370,13 +286,13 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
                   <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
                     <div className="flex items-center gap-2">
                       <div className="w-2.5 h-2.5 rounded-full bg-[#DD5128] animate-pulse" />
-                      <span className="text-[11px] font-semibold text-slate-800 uppercase tracking-wider font-inter">
+                      <span className="text-sm sm:text-base font-semibold text-slate-800 uppercase tracking-wider font-inter">
                         1 Corridor Explored
                       </span>
                     </div>
                     <div className="flex items-center gap-2">
                       {area.isTopChoice && (
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#FE5B39]/10 text-[#DD5128] text-[10px] font-bold tracking-wider uppercase font-inter">
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#FE5B39]/10 text-[#DD5128] text-sm sm:text-base font-bold tracking-wider uppercase font-inter">
                           <Icons.Sparkles className="w-3 h-3" />
                           Top Choice
                         </span>
@@ -400,13 +316,13 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
 
                   <div className="space-y-1.5">
                     <h3
-                      className="text-[17px] font-semibold leading-snug transition-colors group-hover:text-[#DD5128]"
+                      className="text-sm sm:text-base font-semibold leading-snug transition-colors group-hover:text-[#DD5128]"
                       style={{ fontFamily: fd, color: "#111821" }}
                     >
                       {areaName}
                     </h3>
                     <p
-                      className="text-[13px] leading-relaxed"
+                      className="text-base leading-relaxed"
                       style={{ fontFamily: fu, color: "#59636F" }}
                     >
                       {areaDesc}
@@ -419,7 +335,7 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
                     </div>
                   )}
 
-                  <div className="mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11.5px] font-medium font-inter text-slate-600">
+                  <div className="mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-between text-sm sm:text-base font-medium font-inter text-slate-600">
                     <div className="flex items-center gap-1.5">
                       <span className="w-2.5 h-2.5 rounded-full flex-none" style={{ backgroundColor: dotColor }} />
                       <span>{projectsCount} Projects</span>
@@ -435,14 +351,7 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
             })()}
 
             {/* Full Width Google Map Canvas with Polygonal Overlay */}
-            <div
-              onMouseDown={handleMouseDown}
-              onMouseMove={handleMouseMove}
-              onMouseUp={handleMouseUp}
-              onMouseLeave={handleMouseUp}
-              onWheel={handleWheel}
-              className={`relative w-full h-[600px] bg-[#E5E3DF] overflow-hidden select-none ${isDraggingMap ? "cursor-grabbing" : "cursor-grab"}`}
-            >
+            <div className="relative w-full h-full bg-[#E5E3DF] overflow-hidden">
               <iframe
                 key={mapQuery}
                 title="Explored Areas Polygonal Google Map"
@@ -454,42 +363,8 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
 
               <div className="absolute inset-0 bg-white/10 pointer-events-none z-1" />
 
-              {/* Floating Zoom & Map Navigation Controls */}
-              <div className="absolute top-4 right-4 z-40 flex flex-col gap-1.5 bg-white/95 backdrop-blur-md p-1.5 rounded-xl shadow-lg border border-slate-200/80 pointer-events-auto">
-                <button
-                  type="button"
-                  onClick={handleZoomIn}
-                  className="w-8 h-8 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-base transition-colors cursor-pointer"
-                  title="Zoom In (+)"
-                  aria-label="Zoom In"
-                >
-                  <Icons.Plus className="w-4 h-4" />
-                </button>
-                <button
-                  type="button"
-                  onClick={handleZoomOut}
-                  className="w-8 h-8 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-base transition-colors cursor-pointer"
-                  title="Zoom Out (-)"
-                  aria-label="Zoom Out"
-                >
-                  <Icons.Minus className="w-4 h-4" />
-                </button>
-                {(panOffset.x !== 0 || panOffset.y !== 0 || zoomOffset !== 0 || selectedAreaId !== null) && (
-                  <button
-                    type="button"
-                    onClick={handleResetMap}
-                    className="w-8 h-8 rounded-lg bg-slate-50 hover:bg-[#FEF0EC] text-[#DD5128] flex items-center justify-center transition-colors cursor-pointer"
-                    title="Reset Map View"
-                    aria-label="Reset Map View"
-                  >
-                    <Icons.RotateCcw className="w-3.5 h-3.5" />
-                  </button>
-                )}
-              </div>
-
               <svg
-                className="absolute inset-0 w-full h-full z-10 pointer-events-none transition-transform duration-75"
-                style={{ transform: `translate(${panOffset.x}px, ${panOffset.y}px)` }}
+                className="absolute inset-0 w-full h-full z-10 pointer-events-none"
                 viewBox="0 0 1000 600"
                 preserveAspectRatio="none"
               >
@@ -588,10 +463,10 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
                             : "max-w-[220px] opacity-100"
                             }`}
                         >
-                          <span className="text-[12px] font-semibold font-inter">
+                          <span className="text-sm sm:text-base font-semibold font-inter">
                             {areaName}
                           </span>
-                          <span className="text-[10px] font-medium opacity-80 font-inter">
+                          <span className="text-sm sm:text-base font-medium opacity-80 font-inter">
                             ({projectsCount})
                           </span>
                         </div>
@@ -612,7 +487,7 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
               <div className="p-4 border-b border-slate-200/80 bg-white flex items-center justify-between shrink-0">
                 <div className="flex items-center gap-2">
                   <div className="w-2.5 h-2.5 rounded-full bg-[#DD5128] animate-pulse" />
-                  <span className="text-[13px] font-semibold text-slate-800 uppercase tracking-wider font-inter">
+                  <span className="text-base font-semibold text-slate-800 uppercase tracking-wider font-inter">
                     {areasWithPoints.length} Corridors Explored
                   </span>
                 </div>
@@ -652,9 +527,16 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
                           : "bg-white/80 hover:bg-white border-slate-200/70 shadow-2xs"
                         }`}
                     >
+                      {/* Left color bar indicator */}
+                      {/* <div
+                        className="absolute left-0 top-3 bottom-3 w-1 rounded-r-full transition-all"
+                        style={{ backgroundColor: isSelected || isHovered ? "#DD5128" : dotColor }}
+                      /> */}
+
                       <div className="pl-2">
+                        {/* Top badge if present */}
                         {area.isTopChoice && (
-                          <div className="inline-flex items-center gap-1 mb-2 px-2 py-0.5 rounded-md bg-[#FE5B39]/10 text-[#DD5128] text-[10px] font-bold tracking-wider uppercase font-inter">
+                          <div className="inline-flex items-center gap-1 mb-2 px-2 py-0.5 rounded-md bg-[#FE5B39]/10 text-[#DD5128] text-sm sm:text-base font-bold tracking-wider uppercase font-inter">
                             <Icons.Sparkles className="w-3 h-3" />
                             Top Choice
                           </div>
@@ -663,13 +545,13 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
                         <div className="flex items-start justify-between gap-2">
                           <div>
                             <h3
-                              className="text-[15px] font-semibold leading-snug transition-colors group-hover:text-[#DD5128]"
+                              className="text-sm sm:text-base font-semibold leading-snug transition-colors group-hover:text-[#DD5128]"
                               style={{ fontFamily: fd, color: isSelected ? "#DD5128" : "#111821" }}
                             >
                               {areaName}
                             </h3>
                             <p
-                              className="text-[13px] leading-relaxed mt-1 line-clamp-2"
+                              className="text-[15px] leading-relaxed mt-1 line-clamp-2"
                               style={{ fontFamily: fu, color: "#59636F" }}
                             >
                               {areaDesc}
@@ -678,18 +560,18 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
                         </div>
 
                         {/* Footer Stats Row */}
-                        <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[11px] font-medium font-inter text-slate-500">
+                        <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-sm sm:text-base font-medium font-inter text-slate-500">
                           <div className="flex items-center gap-1.5">
                             <span
                               className="w-2 h-2 rounded-full flex-none"
                               style={{ backgroundColor: dotColor }}
                             />
-                            <span>{projectsCount} Projects</span>
+                            <span className="text-xs sm:text-sm">{projectsCount} Projects</span>
                           </div>
                           <span>•</span>
                           <div className="flex items-center gap-1">
                             <Icons.Eye className="w-3 h-3 text-slate-400" />
-                            <span>{visitsCount} Site visits</span>
+                            <span className="text-xs sm:text-sm">{visitsCount} Site visits</span>
                           </div>
                         </div>
                       </div>
@@ -700,204 +582,162 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
             </div>
 
             {/* Right Column: Google Map Canvas with Polygonal Overlay */}
-            <div
-              onMouseDown={handleMouseDown}
-              onMouseMove={handleMouseMove}
-              onMouseUp={handleMouseUp}
-              onMouseLeave={handleMouseUp}
-              onWheel={handleWheel}
-              className={`relative w-full h-[600px] bg-[#E5E3DF] overflow-hidden select-none ${isDraggingMap ? "cursor-grabbing" : "cursor-grab"}`}
-            >
-              {/* Inner Canvas Wrapper translating iframe, overlay, SVG, and pins together as one single pinned canvas */}
-              <div
-                className={`absolute inset-0 w-full h-full ${isDraggingMap ? "transition-none" : "transition-transform duration-200"}`}
-                style={{ transform: `translate(${panOffset.x}px, ${panOffset.y}px)` }}
+            <div className="relative w-full h-[600px] bg-[#E5E3DF] overflow-hidden">
+              {/* Google Map iframe background focusing on selected area or center */}
+              <iframe
+                key={mapQuery}
+                title="Explored Areas Polygonal Google Map"
+                src={`https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&t=m&z=${mapZoom}&output=embed&iwloc=near`}
+                className="absolute inset-0 w-full h-full border-none pointer-events-none transition-opacity duration-300"
+                style={{ filter: "grayscale(80%) contrast(95%) brightness(105%)", opacity: 0.9 }}
+                loading="lazy"
+              />
+
+              {/* Light Map Overlay */}
+              <div className="absolute inset-0 bg-white/10 pointer-events-none z-1" />
+
+              {/* Interactive SVG Layer for Polygonal Plots around latlong */}
+              <svg
+                className="absolute inset-0 w-full h-full z-10 pointer-events-none"
+                viewBox="0 0 1000 600"
+                preserveAspectRatio="none"
               >
-                <iframe
-                  key={mapQuery}
-                  title="Explored Areas Polygonal Google Map"
-                  src={`https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&t=m&z=${mapZoom}&output=embed&iwloc=near`}
-                  className="absolute inset-0 w-full h-full border-none pointer-events-none transition-opacity duration-300"
-                  style={{ filter: "grayscale(80%) contrast(95%) brightness(105%)", opacity: 0.9 }}
-                  loading="lazy"
-                />
+                <defs>
+                  <filter id="poly-glow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="6" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                  </filter>
+                </defs>
 
-                <div className="absolute inset-0 bg-white/10 pointer-events-none z-1" />
+                {areasWithPoints.filter((area: any) => !selectedAreaId || area.areaId === selectedAreaId).map((area: any, idx: number) => {
+                  const areaId = area.areaId;
+                  const isSelected = selectedAreaId === areaId;
+                  const isHovered = hoveredAreaId === areaId || isSelected;
+                  const points = area.computedPolygonPoints;
+                  const strokeColor = area.dotColor || (idx === 0 ? "#3B82F6" : idx === 1 ? "#10B981" : "#DD5128");
 
-                <svg
-                  className="absolute inset-0 w-full h-full z-10 pointer-events-none"
-                  viewBox="0 0 1000 600"
-                  preserveAspectRatio="none"
-                >
-                  <defs>
-                    <filter id="poly-glow" x="-20%" y="-20%" width="140%" height="140%">
-                      <feGaussianBlur stdDeviation="6" result="blur" />
-                      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                    </filter>
-                  </defs>
+                  return (
+                    <polygon
+                      key={`polygon-${areaId}`}
+                      points={points}
+                      onClick={() => {
+                        if (selectedAreaId === areaId) {
+                          setSelectedAreaId(null);
+                          setHoveredAreaId(null);
+                        } else {
+                          setSelectedAreaId(areaId);
+                          setHoveredAreaId(areaId);
+                        }
+                      }}
+                      onMouseEnter={() => setHoveredAreaId(areaId)}
+                      onMouseLeave={() => setHoveredAreaId(null)}
+                      className="pointer-events-auto transition-all duration-300 cursor-pointer"
+                      style={{
+                        fill: strokeColor,
+                        fillOpacity: isSelected ? 0.45 : isHovered ? 0.35 : 0.18,
+                        stroke: isSelected ? "#DD5128" : strokeColor,
+                        strokeWidth: isSelected ? 4 : isHovered ? 3.5 : 2,
+                        strokeDasharray: isSelected || isHovered ? "none" : "6 4",
+                        filter: isSelected || isHovered ? "url(#poly-glow)" : "none",
+                      }}
+                    />
+                  );
+                })}
+              </svg>
 
-                  {areasWithPoints.filter((area: any) => !selectedAreaId || area.areaId === selectedAreaId).map((area: any, idx: number) => {
-                    const areaId = area.areaId;
-                    const isSelected = selectedAreaId === areaId;
-                    const isHovered = hoveredAreaId === areaId || isSelected;
-                    const points = area.computedPolygonPoints;
-                    const strokeColor = area.dotColor || (idx === 0 ? "#3B82F6" : idx === 1 ? "#10B981" : "#DD5128");
+              {/* Area Pin Badges & Floating Hover Callouts on Map */}
+              <div className="absolute inset-0 z-20 pointer-events-none">
+                {areasWithPoints.filter((area: any) => !selectedAreaId || area.areaId === selectedAreaId).map((area: any, idx: number) => {
+                  const areaId = area.areaId;
+                  const isSelected = selectedAreaId === areaId;
+                  const isHovered = hoveredAreaId === areaId || isSelected;
+                  const centroid = area.computedCentroid;
+                  const areaName = area.name || area.title || "";
+                  const projectsCount = area.projectsCount || area.projects || 0;
+                  const dotColor = area.dotColor || (idx === 0 ? "#3B82F6" : idx === 1 ? "#10B981" : "#DD5128");
+                  const areaImage = getImgSrc(area.image || area.imageSrc || searchMapImage);
 
-                    return (
-                      <polygon
-                        key={`polygon-${areaId}`}
-                        points={points}
-                        onClick={() => {
-                          if (selectedAreaId === areaId) {
-                            setSelectedAreaId(null);
-                            setHoveredAreaId(null);
-                          } else {
-                            setSelectedAreaId(areaId);
-                            setHoveredAreaId(areaId);
-                          }
-                        }}
-                        onMouseEnter={() => setHoveredAreaId(areaId)}
-                        onMouseLeave={() => setHoveredAreaId(null)}
-                        className="pointer-events-auto transition-all duration-300 cursor-pointer"
-                        style={{
-                          fill: strokeColor,
-                          fillOpacity: isSelected ? 0.45 : isHovered ? 0.35 : 0.18,
-                          stroke: isSelected ? "#DD5128" : strokeColor,
-                          strokeWidth: isSelected ? 4 : isHovered ? 3.5 : 2,
-                          strokeDasharray: isSelected || isHovered ? "none" : "6 4",
-                          filter: isSelected || isHovered ? "url(#poly-glow)" : "none",
-                        }}
-                      />
-                    );
-                  })}
-                </svg>
+                  const leftPercent = `${(centroid.x / 1000) * 100}%`;
+                  const topPercent = `${(centroid.y / 600) * 100}%`;
 
-                <div className="absolute inset-0 z-20 pointer-events-none">
-                  {areasWithPoints.filter((area: any) => !selectedAreaId || area.areaId === selectedAreaId).map((area: any, idx: number) => {
-                    const areaId = area.areaId;
-                    const isSelected = selectedAreaId === areaId;
-                    const isHovered = hoveredAreaId === areaId || isSelected;
-                    const centroid = area.computedCentroid;
-                    const areaName = area.name || area.title || "";
-                    const projectsCount = area.projectsCount || area.projects || 0;
-                    const dotColor = area.dotColor || (idx === 0 ? "#3B82F6" : idx === 1 ? "#10B981" : "#DD5128");
-                    const areaImage = getImgSrc(area.image || area.imageSrc || searchMapImage);
-
-                    const leftPercent = `${(centroid.x / 1000) * 100}%`;
-                    const topPercent = `${(centroid.y / 600) * 100}%`;
-
-                    return (
+                  return (
+                    <div
+                      key={`pin-${areaId}`}
+                      className="absolute -translate-x-1/2 -translate-y-1/2 pointer-events-auto transition-all duration-300"
+                      style={{ left: leftPercent, top: topPercent }}
+                      onClick={() => {
+                        if (selectedAreaId === areaId) {
+                          setSelectedAreaId(null);
+                          setHoveredAreaId(null);
+                        } else {
+                          setSelectedAreaId(areaId);
+                          setHoveredAreaId(areaId);
+                        }
+                      }}
+                      onMouseEnter={() => setHoveredAreaId(areaId)}
+                      onMouseLeave={() => setHoveredAreaId(null)}
+                    >
+                      {/* Polygon Centroid Pin Pill */}
                       <div
-                        key={`pin-${areaId}`}
-                        className="absolute -translate-x-1/2 -translate-y-1/2 pointer-events-auto transition-all duration-300"
-                        style={{ left: leftPercent, top: topPercent }}
-                        onClick={() => {
-                          if (selectedAreaId === areaId) {
-                            setSelectedAreaId(null);
-                            setHoveredAreaId(null);
-                          } else {
-                            setSelectedAreaId(areaId);
-                            setHoveredAreaId(areaId);
-                          }
-                        }}
-                        onMouseEnter={() => setHoveredAreaId(areaId)}
-                        onMouseLeave={() => setHoveredAreaId(null)}
+                        className={`flex items-center justify-center rounded-full shadow-md backdrop-blur-md transition-all duration-300 ease-in-out cursor-pointer border overflow-hidden ${isSelected
+                          ? "bg-[#DD5128] text-white scale-110 shadow-2xl border-2 border-white w-8 h-8 p-0 aspect-square"
+                          : isHovered
+                            ? "bg-[#111827] text-white scale-110 shadow-xl border-2 w-8 h-8 p-0 aspect-square"
+                            : "bg-white/95 text-slate-800 hover:scale-105 border-slate-200 w-auto h-8 px-3 py-1.5 gap-2"
+                          }`}
+                        style={{ borderColor: !isSelected && isHovered ? dotColor : undefined }}
                       >
-                        {/* Polygon Centroid Pin Pill */}
+                        <span
+                          className="w-2.5 h-2.5 rounded-full flex-none animate-pulse"
+                          style={{ backgroundColor: isSelected ? "#FFFFFF" : dotColor }}
+                        />
+
                         <div
-                          className={`flex items-center justify-center rounded-full shadow-md backdrop-blur-md transition-all duration-300 ease-in-out cursor-pointer border overflow-hidden ${isSelected
-                            ? "bg-[#DD5128] text-white scale-110 shadow-2xl border-2 border-white w-8 h-8 p-0 aspect-square"
-                            : isHovered
-                              ? "bg-[#111827] text-white scale-110 shadow-xl border-2 w-8 h-8 p-0 aspect-square"
-                              : "bg-white/95 text-slate-800 hover:scale-105 border-slate-200 w-auto h-8 px-3 py-1.5 gap-2"
+                          className={`flex items-center gap-1 transition-all duration-300 ease-in-out overflow-hidden whitespace-nowrap ${isHovered || isSelected
+                            ? "max-w-0 opacity-0 pointer-events-none"
+                            : "max-w-[220px] opacity-100"
                             }`}
-                          style={{ borderColor: !isSelected && isHovered ? dotColor : undefined }}
                         >
-                          <span
-                            className="w-2.5 h-2.5 rounded-full flex-none animate-pulse"
-                            style={{ backgroundColor: isSelected ? "#FFFFFF" : dotColor }}
-                          />
-
-                          <div
-                            className={`flex items-center gap-1 transition-all duration-300 ease-in-out overflow-hidden whitespace-nowrap ${isHovered || isSelected
-                              ? "max-w-0 opacity-0 pointer-events-none"
-                              : "max-w-[220px] opacity-100"
-                              }`}
-                          >
-                            <span className="text-[12px] font-semibold font-inter">
-                              {areaName}
-                            </span>
-                            <span className="text-[10px] font-medium opacity-80 font-inter">
-                              ({projectsCount})
-                            </span>
-                          </div>
+                          <span className="text-sm sm:text-base font-semibold font-inter">
+                            {areaName}
+                          </span>
+                          <span className="text-sm sm:text-base font-medium opacity-80 font-inter">
+                            ({projectsCount})
+                          </span>
                         </div>
-
-                        {/* Floating Callout Card on Hover/Selection */}
-                        {isHovered && (
-                          <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-[220px] rounded-xl bg-white p-3 shadow-2xl border border-slate-100 z-40 animate-fadeIn pointer-events-auto">
-                            <button
-                              type="button"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setSelectedAreaId(null);
-                                setHoveredAreaId(null);
-                              }}
-                              className="absolute top-2 right-2 w-5.5 h-5.5 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white flex items-center justify-center cursor-pointer transition-colors z-50 shadow-xs"
-                              aria-label="Close location view"
-                            >
-                              <Icons.X className="w-3 h-3" />
-                            </button>
-                            {areaImage && (
-                              <div className="h-[75px] rounded-lg overflow-hidden mb-2 relative">
-                                <Image src={area.image || area.imageSrc || searchMapImage} alt={areaName} fill className="object-cover" />
-                              </div>
-                            )}
-                            <p className="text-[13px] font-semibold text-slate-900 leading-tight font-inter pr-5">
-                              {areaName}
-                            </p>
-                            <p className="text-[13px] text-slate-500 mt-0.5 line-clamp-2 font-inter">
-                              {area.desc || area.description}
-                            </p>
-                          </div>
-                        )}
                       </div>
-                    );
-                  })}
-                </div>
-              </div>
 
-              {/* Floating Zoom & Map Navigation Controls */}
-              <div className="absolute top-4 right-4 z-40 flex flex-col gap-1.5 bg-white/95 backdrop-blur-md p-1.5 rounded-xl shadow-lg border border-slate-200/80 pointer-events-auto">
-                <button
-                  type="button"
-                  onClick={handleZoomIn}
-                  className="w-8 h-8 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-base transition-colors cursor-pointer"
-                  title="Zoom In (+)"
-                  aria-label="Zoom In"
-                >
-                  <Icons.Plus className="w-4 h-4" />
-                </button>
-                <button
-                  type="button"
-                  onClick={handleZoomOut}
-                  className="w-8 h-8 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-base transition-colors cursor-pointer"
-                  title="Zoom Out (-)"
-                  aria-label="Zoom Out"
-                >
-                  <Icons.Minus className="w-4 h-4" />
-                </button>
-                {(panOffset.x !== 0 || panOffset.y !== 0 || zoomOffset !== 0 || selectedAreaId !== null || committedCenter !== null) && (
-                  <button
-                    type="button"
-                    onClick={handleResetMap}
-                    className="w-8 h-8 rounded-lg bg-slate-50 hover:bg-[#FEF0EC] text-[#DD5128] flex items-center justify-center transition-colors cursor-pointer"
-                    title="Reset Map View"
-                    aria-label="Reset Map View"
-                  >
-                    <Icons.RotateCcw className="w-3.5 h-3.5" />
-                  </button>
-                )}
+                      {/* Floating Callout Card on Hover/Selection */}
+                      {isHovered && (
+                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-[220px] rounded-xl bg-white p-3 shadow-2xl border border-slate-100 z-40 animate-fadeIn pointer-events-auto">
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelectedAreaId(null);
+                              setHoveredAreaId(null);
+                            }}
+                            className="absolute top-2 right-2 w-5.5 h-5.5 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white flex items-center justify-center cursor-pointer transition-colors z-50 shadow-xs"
+                            aria-label="Close location view"
+                          >
+                            <Icons.X className="w-3 h-3" />
+                          </button>
+                          {areaImage && (
+                            <div className="h-[75px] rounded-lg overflow-hidden mb-2 relative">
+                              <Image src={area.image || area.imageSrc || searchMapImage} alt={areaName} fill className="object-cover" />
+                            </div>
+                          )}
+                          <p className="text-base font-semibold text-slate-900 leading-tight font-inter pr-5">
+                            {areaName}
+                          </p>
+                          <p className="text-[15px] text-slate-500 mt-0.5 line-clamp-2 font-inter">
+                            {area.desc || area.description}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -910,7 +750,7 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
           className="bg-white border p-6 sm:p-8"
           style={{ borderRadius: 14, borderColor: "#E4E9EF", boxShadow: "0 1px 2px rgba(17,24,33,.04), 0 8px 24px rgba(17,24,33,.05)" }}
         >
-          <p className="text-[9.5px] font-semibold tracking-[0.14em] uppercase mb-6" style={{ fontFamily: fu, color: "#8A94A1" }}>
+          <p className="text-sm sm:text-base font-semibold tracking-[0.14em] uppercase mb-6" style={{ fontFamily: fu, color: "#8A94A1" }}>
             {sectionTitle}
           </p>
 
@@ -926,16 +766,32 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
               const itemDesc = item.description || item.subtext || "";
 
               return (
-                <div key={itemTitle + idx} className="rounded-xl border border-slate-100 p-5 flex flex-col gap-2 bg-[#f8fafc]">
-                  <span className="text-[#DD5128]">{iconElement}</span>
-                  <p className="text-[10px] font-semibold tracking-[0.12em] uppercase text-[#8A94A1]" style={{ fontFamily: fu }}>
-                    {itemTitle}
-                  </p>
-                  <p className="text-[16.5px] font-medium leading-snug text-[#111821]" style={{ fontFamily: fd }}>
+                <div key={itemTitle + idx} className="rounded-xl border border-slate-100 p-5 flex flex-col bg-[#f8fafc] h-full">
+                  <span className="text-[#DD5128] mb-2">{iconElement}</span>
+
+                  <div className="flex items-start mb-1">
+                    <p
+                      className="text-sm font-medium tracking-[0.05em] uppercase text-[#8A94A1]"
+                      style={{ fontFamily: fu }}
+                    >
+                      {itemTitle}
+                    </p>
+                  </div>
+
+
+                  <p
+                    className="text-base font-semibold leading-snug text-[#111821] mb-2"
+                    style={{ fontFamily: fd, color: "#111821" }}
+                  >
                     {itemValue}
                   </p>
+
+                  {/* Description */}
                   {itemDesc && (
-                    <p className="text-[13px] leading-relaxed text-[#59636F] mt-1" style={{ fontFamily: fu }}>
+                    <p
+                      className="text-base leading-relaxed text-[#59636F]"
+                      style={{ fontFamily: fu }}
+                    >
                       {itemDesc}
                     </p>
                   )}
@@ -946,7 +802,7 @@ export const JournalSearchV0: React.FC<JournalSearchV0Props> = ({
 
           {(filtersFooterLabel || costOfSearchQuote) && (
             <div className="mt-6 pt-5 border-t border-slate-100 text-center">
-              <p className="text-[14.5px] italic font-medium" style={{ fontFamily: fd, color: "#4B5563" }}>
+              <p className="text-base italic font-medium" style={{ fontFamily: fd, color: "#4B5563" }}>
                 "{filtersFooterLabel || costOfSearchQuote}"
               </p>
             </div>
