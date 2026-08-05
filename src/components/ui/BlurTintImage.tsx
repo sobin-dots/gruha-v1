@@ -34,7 +34,7 @@ export interface DynamicCardImageProps {
   imageClassName?: string;
   /** Optional extra classes for the outer wrapper container. */
   className?: string;
-  height?:0;
+  height?:number;
 }
 
 export const BlurTintImage: React.FC<DynamicCardImageProps> = ({
