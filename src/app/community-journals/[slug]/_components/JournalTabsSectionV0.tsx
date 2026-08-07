@@ -10,6 +10,7 @@ import JournalLearningsV0 from "./tab-contents/JournalLearningsV0";
 import JournalStartHereV0 from "./tab-contents/JournalStartHereV0";
 import imgHero from "@/imports/testy.jpg";
 import ProgressBar from "@/components/ui/ProgressBar";
+import JournalSearchV1 from "./tab-contents/JournalSearchV1";
 
 const fu = "'Inter Tight', system-ui, sans-serif";
 
@@ -313,7 +314,7 @@ export const JournalTabsSectionV0: React.FC<JournalTabsSectionV0Props> = ({
                 sectionRefs.current["Search"] = el;
               }}
             >
-              <JournalSearchV0 {...tabsMap["search"]} />
+              <JournalSearchV1 {...tabsMap["search"]} />
             </div>
 
             {/* Projects Section */}
