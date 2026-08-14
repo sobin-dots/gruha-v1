@@ -24,8 +24,15 @@
         "text": "The 540 hours need a first use — the 6:40 pm entry"
       }
     ],
-    "heroImage": "/journals/cover/26.png",
-    "heroTitle": "The Hours I Got Back Journal"
+    "heroImage": "/journals/cover/26.jpg",
+    "heroTitle": "The Hours I Got Back Journal",
+    "datePublished": "2026-03-14",
+    "dateModified": "2026-07-08",
+    "author": {
+      "@type": "Person",
+      "name": "Riya",
+      "description": "AI home-search advisor at Gruha.ai"
+    }
   },
   "tabs": [
     {
@@ -579,7 +586,7 @@
       "mapImageSrc": "/journals/the-hours-i-got-back/search-map.png",
       "mapImagePrompt": "A stylized geographic vector map of the Bellandur, Haralur and Kasavanahalli triangle with a 9 am drive-time ring to Ecospace in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with Warm Coral #FF8A65 location pin markers, Scandinavian minimalism, clean white background.",
       "projectsTitle": "Projects they explored",
-      "projectsCountBadge": "3 core options",
+      "projectsCountBadge": "5 core options",
       "projects": [
         {
           "title": "Shriram Chirping Woods (Chosen)",
@@ -588,7 +595,7 @@
           "possession": "Ready",
           "psf": "Corridor's upper band",
           "location": "Harlur",
-          "imageSrc": "/journals/the-hours-i-got-back/projects/1.jpg"
+          "imageSrc": "/journals/the-hours-i-got-back/projects/Shriram-Chirping-Woods.jpg"
         },
         {
           "title": "The Lost Chain Flat",
@@ -597,7 +604,7 @@
           "possession": "Exited to a firm buyer",
           "psf": "₹16–18K/sqft corridor",
           "location": "Harlur Rd",
-          "imageSrc": "/journals/the-hours-i-got-back/projects/2.jpg"
+          "imageSrc": "/journals/the-hours-i-got-back/projects/Prestige-Ferns-Residency.webp"
         },
         {
           "title": "The Stretch Detour",
@@ -606,7 +613,25 @@
           "possession": "Ready",
           "psf": "Buffer math + shadow study",
           "location": "Bellandur",
-          "imageSrc": "/journals/the-hours-i-got-back/projects/3.jpg"
+          "imageSrc": "/journals/the-hours-i-got-back/projects/Adarsh-Palm-Retreat.png"
+        },
+        {
+          "title": "The Hoarding Detour",
+          "name": "Sobha Neopolis",
+          "price": "~₹15,600/sqft",
+          "possession": "Post-thesis",
+          "psf": "₹15,600/sqft",
+          "location": "Panathur",
+          "imageSrc": "/journals/the-hours-i-got-back/projects/Sobha-Neopolis.png"
+        },
+        {
+          "title": "The Recon Shortlist",
+          "name": "Sobha Silicon Oasis",
+          "price": "Established value community",
+          "possession": "Ready",
+          "psf": "Value pick",
+          "location": "Hosa Road",
+          "imageSrc": "/journals/the-hours-i-got-back/projects/Sobha-Silicon-Oasis.jpg"
         }
       ],
       "rejectedTitle": "Why some options didn't make the cut",

@@ -25,7 +25,14 @@
       }
     ],
     "heroImage": "/journals/cover/34.png",
-    "heroTitle": "The Three Shares Journal"
+    "heroTitle": "The Three Shares Journal",
+    "datePublished": "2026-03-14",
+    "dateModified": "2026-07-08",
+    "author": {
+      "@type": "Person",
+      "name": "Riya",
+      "description": "AI home-search advisor at Gruha.ai"
+    }
   },
   "tabs": [
     {
@@ -581,7 +588,7 @@
           "possession": "Boutique redevelopment",
           "psf": "Malleshwaram new build, ₹22–26K/sqft",
           "location": "Near Sankey Rd",
-          "imageSrc": "/journals/the-three-shares/projects/1.jpg"
+          "imageSrc": "/journals/default.png"
         },
         {
           "title": "The Diligence Set",
@@ -590,7 +597,7 @@
           "possession": "Quality praised",
           "psf": "Owner-interviewed",
           "location": "Malleshwaram belt",
-          "imageSrc": "/journals/the-three-shares/projects/2.jpg"
+          "imageSrc": "/journals/default.png"
         },
         {
           "title": "The Retired Dream",
@@ -599,7 +606,7 @@
           "possession": "Dream retired, two lists",
           "psf": "'Buying' vs 'proving'",
           "location": "Vijayanagar (his flat)",
-          "imageSrc": "/journals/the-three-shares/projects/3.jpg"
+          "imageSrc": "/journals/default.png"
         }
       ],
       "rejectedTitle": "Why some options didn't make the cut",

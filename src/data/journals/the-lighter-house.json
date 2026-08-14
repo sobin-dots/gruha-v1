@@ -25,7 +25,14 @@
       }
     ],
     "heroImage": "/journals/cover/29.png",
-    "heroTitle": "The Lighter House Journal"
+    "heroTitle": "The Lighter House Journal",
+    "datePublished": "2026-03-14",
+    "dateModified": "2026-07-08",
+    "author": {
+      "@type": "Person",
+      "name": "Riya",
+      "description": "AI home-search advisor at Gruha.ai"
+    }
   },
   "tabs": [
     {
@@ -567,7 +574,7 @@
           "possession": "Ready",
           "psf": "₹16–18K/sqft orbit band",
           "location": "Jayanagar–Basavanagudi",
-          "imageSrc": "/journals/the-lighter-house/projects/1.jpg"
+          "imageSrc": "/journals/default.png"
         },
         {
           "title": "The Sell Side",
@@ -576,7 +583,7 @@
           "possession": "Sold — clean exit",
           "psf": "₹35–40K/sqft of site area",
           "location": "Basavanagudi",
-          "imageSrc": "/journals/the-lighter-house/projects/2.jpg"
+          "imageSrc": "/journals/default.png"
         },
         {
           "title": "The Parked Alternative",
@@ -585,7 +592,7 @@
           "possession": "Senior-living campus",
           "psf": "Packages from ~₹28K/mo",
           "location": "Devanahalli",
-          "imageSrc": "/journals/the-lighter-house/projects/3.jpg"
+          "imageSrc": "/journals/the-lighter-house/projects/Serene-Urbana.png"
         }
       ],
       "rejectedTitle": "Why some options didn't make the cut",

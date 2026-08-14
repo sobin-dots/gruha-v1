@@ -25,7 +25,14 @@
       }
     ],
     "heroImage": "/journals/cover/35.png",
-    "heroTitle": "The High Ground Journal"
+    "heroTitle": "The High Ground Journal",
+    "datePublished": "2026-03-14",
+    "dateModified": "2026-07-08",
+    "author": {
+      "@type": "Person",
+      "name": "Riya",
+      "description": "AI home-search advisor at Gruha.ai"
+    }
   },
   "tabs": [
     {
@@ -558,7 +565,7 @@
           "possession": "Under construction",
           "psf": "Township scale, hydrology-audited",
           "location": "Thanisandra",
-          "imageSrc": "/journals/the-high-ground/projects/1.jpg"
+          "imageSrc": "/journals/the-high-ground/projects/Bhartiya-City-Nikoo-Homes.webp"
         },
         {
           "title": "The Audited Shortlist",
@@ -567,7 +574,7 @@
           "possession": "Ready",
           "psf": "Verdicts personal, not claims",
           "location": "Hennur Rd",
-          "imageSrc": "/journals/the-high-ground/projects/2.jpg"
+          "imageSrc": "/journals/the-high-ground/projects/Purva-Palm-Beach.jpg"
         },
         {
           "title": "The Valley-Adjacent Detour",
@@ -576,7 +583,7 @@
           "possession": "Launch",
           "psf": "Maps vetoed the drone",
           "location": "North-east",
-          "imageSrc": "/journals/the-high-ground/projects/3.jpg"
+          "imageSrc": "/journals/default.png"
         }
       ],
       "rejectedTitle": "Why some options didn't make the cut",

@@ -25,7 +25,14 @@
       }
     ],
     "heroImage": "/journals/cover/17.png",
-    "heroTitle": "The Two Cities Ledger"
+    "heroTitle": "The Two Cities Ledger",
+    "datePublished": "2026-03-14",
+    "dateModified": "2026-07-08",
+    "author": {
+      "@type": "Person",
+      "name": "Riya",
+      "description": "AI home-search advisor at Gruha.ai"
+    }
   },
   "tabs": [
     {
@@ -206,7 +213,7 @@
           "loopText": "S4 → S3 Regression (Schedule Honesty)",
           "x": 420,
           "y": 420,
-          "width": 200
+          "width": 310
         },
         {
           "id": "l6-utopia-close",
@@ -553,7 +560,7 @@
           "possession": "Ready",
           "psf": "₹9–11.5K/sqft resale",
           "location": "Whitefield / Varthur Rd",
-          "imageSrc": "/journals/the-two-cities-ledger/projects/1.jpg"
+          "imageSrc": "/journals/the-two-cities-ledger/projects/Brigade-Cornerstone-Utopia.webp"
         },
         {
           "title": "Premium Benchmark",
@@ -562,7 +569,7 @@
           "possession": "Ready",
           "psf": "The Prestige calibration",
           "location": "Varthur",
-          "imageSrc": "/journals/the-two-cities-ledger/projects/2.jpg"
+          "imageSrc": "/journals/the-two-cities-ledger/projects/Prestige-Lakeside-Habitat.webp"
         },
         {
           "title": "Mid-Market Comparator",
@@ -571,7 +578,7 @@
           "possession": "Ready",
           "psf": "Mid-market band",
           "location": "Belathur",
-          "imageSrc": "/journals/the-two-cities-ledger/projects/3.jpg"
+          "imageSrc": "/journals/the-two-cities-ledger/projects/Godrej-Splendour.avif"
         }
       ],
       "rejectedTitle": "Why some projects didn't make the cut",

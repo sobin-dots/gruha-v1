@@ -6,7 +6,7 @@
       "BLUE LINE ORR"
     ],
     "title": "The Two Badges, One Address Journal",
-    "description": "Ananya (31, Google ORR) & Siddharth (33, Intel Marathahalli)'s commute-equation search — buying a 3BHK within a measured 800m walk of the Blue Line ORR stations, before the trains arrive and the repricing finishes.",
+    "description": "Ananya (31, Google ORR) & Siddharth (33, Intel Marathahalli)'s commute-equation search — buying a 2BHK within a measured 800m walk of the Blue Line ORR stations, before the trains arrive and the repricing finishes.",
     "quote": "\"Her standup is at 9:30. His is at 9:00. The flat must solve both.\"",
     "readTime": "15 min read",
     "updatedOn": "Updated on July 2026",
@@ -25,7 +25,14 @@
       }
     ],
     "heroImage": "/journals/cover/13.png",
-    "heroTitle": "The Two Badges, One Address Journal"
+    "heroTitle": "The Two Badges, One Address Journal",
+    "datePublished": "2026-03-14",
+    "dateModified": "2026-07-08",
+    "author": {
+      "@type": "Person",
+      "name": "Riya",
+      "description": "AI home-search advisor at Gruha.ai"
+    }
   },
   "tabs": [
     {
@@ -90,7 +97,7 @@
         {
           "icon": "Home",
           "label": "MAIN SEARCH",
-          "value": "3BHK Primary"
+          "value": "2BHK Primary"
         }
       ],
       "prioritiesTitle": "What matters most to them",
@@ -125,7 +132,7 @@
           "title": "Rental-Fallback Hedges",
           "scorePercentage": 8,
           "scoreLabel": "two-badge risk",
-          "description": "Third bedroom for parents/future, plus a rent-it-out model signed before the agreement — so one job moving across the city never makes the flat a trap."
+          "description": "The second bedroom doubling as the parent-visit guest room, plus a rent-it-out model signed before the agreement — so one job moving across the city never makes the flat a trap."
         }
       ]
     },
@@ -171,24 +178,24 @@
           "title": "L1: The Measured-Walk Epiphany",
           "desc": "Siddharth's 55 stationary minutes near Ibblur junction meets Ananya's concentric walking-rings map — the thesis is born: buy within 800 measured metres of a confirmed station.",
           "icon": "Route",
-          "x": 100,
+          "x": 120,
           "y": 120,
           "width": 180
         },
         {
           "id": "l2-ring-audits",
           "stage": "S2",
-          "type": "stage",
+          "type": "advance",
           "title": "L2: Ring-by-Ring Audits",
           "desc": "Every shortlisted tower visited at 9 am and 6:30 pm with a decibel app and a stopwatch — the map's concentric rings graded by measured walk and real noise.",
           "icon": "AudioLines",
-          "x": 320,
+          "x": 340,
           "y": 120,
           "width": 180
         },
         {
           "id": "l3-neopolis-detour",
-          "stage": "DETOUR",
+          "stage": "S2",
           "type": "detour",
           "title": "L3 DETOUR: The Neopolis Hoarding",
           "desc": "Sobha Neopolis' Greek renders and a possession date in 2027 fail the 'trains before keys' thesis — parked with respect from the car window.",
@@ -200,7 +207,7 @@
         {
           "id": "l4-dream-acres-leads",
           "stage": "S3",
-          "type": "stage",
+          "type": "advance",
           "title": "L4: Dream Acres Leads",
           "desc": "Ready-stock shortlist firms: Sobha Dream Acres (Balagere) leads — measured 800m-class walk, established community, tenant liquidity for the fallback model.",
           "icon": "Building2",
@@ -210,7 +217,7 @@
         },
         {
           "id": "l5-lost-to-speed",
-          "stage": "S5",
+          "stage": "S5→S3",
           "type": "bounce",
           "targetNodeId": "l4-dream-acres-leads",
           "title": "L5 BOUNCE: Lost to Speed",
@@ -223,10 +230,10 @@
         },
         {
           "id": "l6-parallel-protocol-close",
-          "stage": "S7",
-          "type": "stage",
+          "stage": "S5→S7",
+          "type": "advance",
           "title": "L6: The Parallel-Protocol Close",
-          "desc": "East-facing Dream Acres 3BHK closed at ₹12,750–13,150/sqft; documents and floor-plan orientation run the same afternoon as a single 6:30 pm visit, token that evening — and the rental-fallback model already signed.",
+          "desc": "East-facing Dream Acres 2BHK closed at ₹12,750–13,150/sqft; documents and floor-plan orientation run the same afternoon as a single 6:30 pm visit, token that evening — and the rental-fallback model already signed.",
           "icon": "KeyRound",
           "x": 220,
           "y": 420,
@@ -379,7 +386,7 @@
         {
           "icon": "Search",
           "label": "SEARCH INTENT",
-          "value": "Metro Walk-Ring 3BHK"
+          "value": "Metro Walk-Ring 2BHK"
         },
         {
           "icon": "Footprints",
@@ -394,7 +401,7 @@
         {
           "icon": "KeyRound",
           "label": "SELECTED HOME",
-          "value": "Dream Acres 3BHK"
+          "value": "Dream Acres 2BHK"
         }
       ],
       "exploredAreasTitle": "The metro walk-rings they explored",
@@ -485,7 +492,7 @@
         {
           "icon": "Search",
           "label": "SEARCH INTENT",
-          "value": "Metro Walk-Ring 3BHK"
+          "value": "Metro Walk-Ring 2BHK"
         },
         {
           "icon": "Building2",
@@ -500,7 +507,7 @@
         {
           "icon": "KeyRound",
           "label": "SELECTED HOME",
-          "value": "Dream Acres 3BHK"
+          "value": "Dream Acres 2BHK"
         }
       ],
       "prioritiesTitle": "What mattered most in their search",
@@ -557,11 +564,11 @@
         {
           "title": "The Chosen Home",
           "name": "Sobha Dream Acres",
-          "price": "₹12,750–13,150/sqft · 3BHK ₹2.23–2.56 Cr",
+          "price": "₹12,750–13,150/sqft · 2BHK ₹2.23–2.56 Cr",
           "possession": "Ready / ≤12 months",
           "psf": "₹12,750–13,150/sqft",
           "location": "Balagere–Panathur",
-          "imageSrc": "/journals/the-two-badges-one-address/projects/1.jpg",
+          "imageSrc": "/journals/the-two-badges-one-address/projects/Sobha-Dream-Acres.webp",
           "latlong": {
             "lat": 12.9391,
             "lng": 77.7376
@@ -574,7 +581,7 @@
           "possession": "2027 (post-thesis)",
           "psf": "~₹15,600/sqft",
           "location": "Panathur",
-          "imageSrc": "/journals/the-two-badges-one-address/projects/2.jpg",
+          "imageSrc": "/journals/the-two-badges-one-address/projects/Sobha-Neopolis.png",
           "latlong": {
             "lat": 12.9385408,
             "lng": 77.7081414
@@ -587,7 +594,7 @@
           "possession": "Ready community",
           "psf": "Established walk-ring",
           "location": "Kasavanahalli",
-          "imageSrc": "/journals/the-two-badges-one-address/projects/3.jpg",
+          "imageSrc": "/journals/the-two-badges-one-address/projects/Shriram-Chirping-Woods.jpg",
           "latlong": {
             "lat": 12.9082331,
             "lng": 77.6602108
@@ -952,7 +959,7 @@
       "stage": "S7",
       "type": "stage",
       "title": "L6: The Parallel-Protocol Close",
-      "desc": "East-facing Dream Acres 3BHK closed at ₹12,750–13,150/sqft; documents and floor-plan orientation run the same afternoon as a single 6:30 pm visit, token that evening — and the rental-fallback model already signed.",
+      "desc": "East-facing Dream Acres 2BHK closed at ₹12,750–13,150/sqft; documents and floor-plan orientation run the same afternoon as a single 6:30 pm visit, token that evening — and the rental-fallback model already signed.",
       "icon": "KeyRound",
       "x": 120,
       "y": 420,

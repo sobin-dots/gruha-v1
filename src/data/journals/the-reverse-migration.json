@@ -25,7 +25,14 @@
       }
     ],
     "heroImage": "/journals/cover/33.png",
-    "heroTitle": "The Reverse Migration Journal"
+    "heroTitle": "The Reverse Migration Journal",
+    "datePublished": "2026-03-14",
+    "dateModified": "2026-07-08",
+    "author": {
+      "@type": "Person",
+      "name": "Riya",
+      "description": "AI home-search advisor at Gruha.ai"
+    }
   },
   "tabs": [
     {
@@ -565,7 +572,7 @@
           "possession": "Ready",
           "psf": "Villas 3,117–4,033 sqft",
           "location": "Varthur",
-          "imageSrc": "/journals/the-reverse-migration/projects/1.jpg"
+          "imageSrc": "/journals/the-reverse-migration/projects/Prestige-Lakeside-Habitat.webp"
         },
         {
           "title": "The Premium-Apartment Comparator",
@@ -574,7 +581,7 @@
           "possession": "Ready",
           "psf": "Same community band",
           "location": "Varthur",
-          "imageSrc": "/journals/the-reverse-migration/projects/2.jpg"
+          "imageSrc": "/journals/default.png"
         },
         {
           "title": "The Observational Context",
@@ -583,7 +590,7 @@
           "possession": "10+ years, mature trees",
           "psf": "The observatory + comparators",
           "location": "Whitefield",
-          "imageSrc": "/journals/the-reverse-migration/projects/3.jpg"
+          "imageSrc": "/journals/default.png"
         }
       ],
       "rejectedTitle": "Why some options didn't make the cut",
