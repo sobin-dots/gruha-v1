@@ -25,7 +25,14 @@
       }
     ],
     "heroImage": "/journals/cover/9.png",
-    "heroTitle": "The Twenty Thousand Square Feet Journal"
+    "heroTitle": "The Twenty Thousand Square Feet Journal",
+    "datePublished": "2026-03-14",
+    "dateModified": "2026-07-08",
+    "author": {
+      "@type": "Person",
+      "name": "Riya",
+      "description": "AI home-search advisor at Gruha.ai"
+    }
   },
   "tabs": [
     {
@@ -175,31 +182,32 @@
         },
         {
           "id": "l3-market-calibration",
-          "stage": "S3",
-          "type": "stage",
-          "title": "L3: Market Calibration",
+          "stage": "S2",
+          "type": "loop",
+          "title": "L3: Market Calibration Loop",
           "desc": "Sarjapur-arc plotted launches toured; Prestige Great Acres' plot map used as a pricing ruler, corner pairs shaded.",
           "icon": "LandPlot",
+          "loopText": "Market Calibration Loop",
           "x": 560,
           "y": 120,
           "width": 180
         },
         {
           "id": "l4-repriced-bounce",
-          "stage": "S4",
+          "stage": "S5→S3",
           "type": "bounce",
           "targetNodeId": "l3-market-calibration",
           "title": "L4 BOUNCE: Re-Priced Pair",
           "desc": "A 'reserved corner pair' evaporates as the developer re-prices phase 2 mid-conversation; he walks loudly, as policy.",
           "icon": "ArrowLeftRight",
-          "loopText": "S4 → S3 Bounce (Walked Loudly)",
+          "loopText": "S5 → S3 Bounce (Walked Loudly)",
           "x": 800,
           "y": 300,
           "width": 250
         },
         {
           "id": "l5-devanahalli-pair",
-          "stage": "S5",
+          "stage": "S3→S5",
           "type": "stage",
           "title": "L5: The Devanahalli Pair",
           "desc": "Corner pair secured at a Devanahalli-corridor launch; amalgamation taken in writing from the planning authority.",
@@ -220,7 +228,141 @@
           "y": 440,
           "width": 190
         }
-      ]
+      ],
+      "timelineTitle": "Where he stands today",
+      "timelineSteps": [
+        {
+          "id": "family-constitution",
+          "label": "Family constitution",
+          "icon": "Network"
+        },
+        {
+          "id": "launch-network",
+          "label": "Launch network",
+          "icon": "CalendarRange"
+        },
+        {
+          "id": "supply-constrained",
+          "label": "Supply-constrained",
+          "icon": "SearchX"
+        },
+        {
+          "id": "negotiating",
+          "label": "Negotiating pairs",
+          "icon": "MessageSquare"
+        },
+        {
+          "id": "building",
+          "label": "Building",
+          "icon": "HardHat",
+          "active": true,
+          "tag": "30-month build"
+        },
+        {
+          "id": "bridge-house",
+          "label": "Bridge house",
+          "icon": "Home"
+        }
+      ],
+      "momentsTitle": "Moments that changed everything",
+      "moments": [
+        {
+          "id": "graph-paper-brief",
+          "title": "The compound brief on graph paper",
+          "desc": "Two adjacent plots, one gate, one long table — daughters-in-law formally in the room by month one.",
+          "imageSrc": "/journals/the-twenty-thousand-square-feet/moment-1.png",
+          "imagegenerationprompt": "A graph-paper sketch of a family compound with two adjacent plots, one gate and a long dinner table, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent on the long table, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+        },
+        {
+          "id": "reserved-pair-bounce",
+          "title": "The re-priced 'reserved' pair",
+          "desc": "A reserved-for-you WhatsApp message beside a re-priced phase-2 sheet; he walks loudly, as policy.",
+          "imageSrc": "/journals/the-twenty-thousand-square-feet/moment-2.png",
+          "imagegenerationprompt": "A WhatsApp 'reserved for you' message lying beside a re-priced phase-2 price sheet, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent on the marked-up price, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+        },
+        {
+          "id": "amalgamation-letter",
+          "title": "Amalgamation in writing",
+          "desc": "The planning authority's stamped amalgamation letter, in a transparent file — before one rupee moved.",
+          "imageSrc": "/journals/the-twenty-thousand-square-feet/moment-3.png",
+          "imagegenerationprompt": "A stamped amalgamation permission letter from a planning authority in a transparent file, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent on the official stamp, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+        },
+        {
+          "id": "bridge-house-key",
+          "title": "The bridge-house key",
+          "desc": "A rented villa's key labelled 'bridge house — Amma ground floor', so she gets her ground floor this Ugadi.",
+          "imageSrc": "/journals/the-twenty-thousand-square-feet/moment-4.png",
+          "imagegenerationprompt": "A house key on a brass key-tag labelled 'bridge house — Amma ground floor', rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent on the tag, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+        }
+      ],
+      "voicesTitle": "Voices around him",
+      "quotes": [
+        {
+          "text": "One compound. One gate. Everyone inside.",
+          "author": "— Bhaskar"
+        },
+        {
+          "text": "Emi dhairyam. Reserved for you, Reddy garu — and then phase-two pricing.",
+          "author": "— Bhaskar"
+        },
+        {
+          "text": "Which is why we change the plan, not the dream.",
+          "author": "— Riya"
+        },
+        {
+          "text": "The courtyard can take its time — she shouldn't have to.",
+          "author": "— Bhaskar"
+        }
+      ],
+      "chatMessages": [
+        {
+          "sender": "Bhaskar",
+          "avatar": "/journals/the-twenty-thousand-square-feet/bhaskar.png",
+          "text": "Riya, you were on that call. 'Reserved for you, Reddy garu,' he said. Two weeks later — phase-two pricing. Fifteen percent, just like that. Emi dhairyam."
+        },
+        {
+          "sender": "Riya",
+          "avatar": "/journals/avatar-riya.png",
+          "text": "I heard it, sir. And I watched you stand up slowly and thank him for his time — which, frankly, was the most expensive sentence he heard all quarter. Word of that walk-out is already moving.",
+          "isRiya": true
+        },
+        {
+          "sender": "Bhaskar",
+          "avatar": "/journals/the-twenty-thousand-square-feet/bhaskar.png",
+          "text": "Good. Let it move. But Riya… my mother is seventy-nine. Every 'phase two' is six months of her courtyard I don't get back."
+        },
+        {
+          "sender": "Riya",
+          "avatar": "/journals/avatar-riya.png",
+          "text": "I know, sir. Which is why we change the plan, not the dream. The compound proceeds at Devanahalli — the corner pair there is real, and the amalgamation letter comes from the planning authority itself, in writing, before one rupee moves. And meanwhile… we take the ready villa nearby on rent. Amma gets her ground floor this Ugadi, not in thirty months.",
+          "isRiya": true
+        }
+      ],
+      "realityChecksTitle": "Reality checks along the way",
+      "realityChecks": [
+        {
+          "icon": "LayoutGrid",
+          "title": "Adjacent-Pair Availability",
+          "description": "Contiguous 20,000 sqft pairs exist only at EOI stage — by phase 2, contiguity is gone."
+        },
+        {
+          "icon": "FileCheck",
+          "title": "Amalgamation in Writing",
+          "description": "Bye-laws, FAR and single-khata conversion must come in writing from the planning authority, not the sales head."
+        },
+        {
+          "icon": "Users",
+          "title": "Family Structuring",
+          "description": "Deed shares and a will must be drafted alongside the architecture, not after it."
+        },
+        {
+          "icon": "Clock",
+          "title": "Bridge-House Decision",
+          "description": "A ready rented villa keeps his mother's ground floor on schedule while the 30-month build runs."
+        }
+      ],
+      "audioLabel": "HEAR THE FULL CONVERSATION",
+      "audioSrc": "/audios/the-twenty-thousand-square-feet.mp3"
     },
     {
       "id": "search",
@@ -423,7 +565,7 @@
           "possession": "Plotted Phases",
           "psf": "Market Calibration Ruler",
           "location": "Sarjapur arc",
-          "imageSrc": "/journals/the-twenty-thousand-square-feet/projects/1.jpg"
+          "imageSrc": "/journals/the-twenty-thousand-square-feet/projects/Prestige-Great-Acres.webp"
         },
         {
           "title": "Devanahalli-Corridor Plotted Development",
@@ -432,7 +574,7 @@
           "possession": "Corner Pair Secured",
           "psf": "Premium Gated, Top of Band",
           "location": "Airport Side",
-          "imageSrc": "/journals/the-twenty-thousand-square-feet/projects/2.jpg"
+          "imageSrc": "/journals/default.png"
         },
         {
           "title": "The Re-Priced 'Reserved Pair'",
@@ -441,7 +583,7 @@
           "possession": "Walked Loudly",
           "psf": "Phase-2 Pricing +15%",
           "location": "Sarjapur–Attibele",
-          "imageSrc": "/journals/the-twenty-thousand-square-feet/projects/3.jpg"
+          "imageSrc": "/journals/default.png"
         }
       ],
       "rejectedTitle": "Why some options didn't make the cut",

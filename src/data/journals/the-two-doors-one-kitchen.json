@@ -25,7 +25,14 @@
       }
     ],
     "heroImage": "/journals/cover/25.png",
-    "heroTitle": "The Two Doors, One Kitchen Journal"
+    "heroTitle": "The Two Doors, One Kitchen Journal",
+    "datePublished": "2026-03-14",
+    "dateModified": "2026-07-08",
+    "author": {
+      "@type": "Person",
+      "name": "Riya",
+      "description": "AI home-search advisor at Gruha.ai"
+    }
   },
   "tabs": [
     {
@@ -581,7 +588,7 @@
           "possession": "Launch-window secured",
           "psf": "₹18–24K/sqft corridor",
           "location": "Frazer Town belt",
-          "imageSrc": "/journals/the-two-doors-one-kitchen/projects/1.jpg"
+          "imageSrc": "/journals/default.png"
         },
         {
           "title": "The Lost Benson Town Pair",
@@ -590,7 +597,7 @@
           "possession": "Gone to a faster family",
           "psf": "Same corridor band",
           "location": "Benson Town",
-          "imageSrc": "/journals/the-two-doors-one-kitchen/projects/2.jpg"
+          "imageSrc": "/journals/default.png"
         },
         {
           "title": "The Funding Side",
@@ -599,7 +606,7 @@
           "possession": "Closed",
           "psf": "Long-held, exited",
           "location": "Cox Town",
-          "imageSrc": "/journals/the-two-doors-one-kitchen/projects/3.jpg"
+          "imageSrc": "/journals/default.png"
         }
       ],
       "rejectedTitle": "Why some options didn't make the cut",

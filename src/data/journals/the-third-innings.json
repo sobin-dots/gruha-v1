@@ -25,7 +25,14 @@
       }
     ],
     "heroImage": "/journals/cover/30.png",
-    "heroTitle": "The Third Innings Journal"
+    "heroTitle": "The Third Innings Journal",
+    "datePublished": "2026-03-14",
+    "dateModified": "2026-07-08",
+    "author": {
+      "@type": "Person",
+      "name": "Riya",
+      "description": "AI home-search advisor at Gruha.ai"
+    }
   },
   "tabs": [
     {
@@ -565,7 +572,7 @@
           "possession": "Ready, integrated township",
           "psf": "Monthly from ~₹28K",
           "location": "Devanahalli",
-          "imageSrc": "/journals/the-third-innings/projects/1.jpg"
+          "imageSrc": "/journals/the-third-innings/projects/Serene-Urbana.png"
         },
         {
           "title": "The Shortlist Sibling",
@@ -574,7 +581,7 @@
           "possession": "Same operator",
           "psf": "Purchase vs deposit",
           "location": "Devanahalli",
-          "imageSrc": "/journals/the-third-innings/projects/2.jpg"
+          "imageSrc": "/journals/the-third-innings/projects/Serene-Amara.webp"
         },
         {
           "title": "The Tie-Up Detour",
@@ -583,7 +590,7 @@
           "possession": "Tie-up, not continuum",
           "psf": "Unnamed by policy",
           "location": "North arc",
-          "imageSrc": "/journals/the-third-innings/projects/3.jpg"
+          "imageSrc": "/journals/default.png"
         }
       ],
       "rejectedTitle": "Why some options didn't make the cut",
