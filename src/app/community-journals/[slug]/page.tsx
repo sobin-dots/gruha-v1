@@ -69,38 +69,6 @@ function getCategoryBadge(listing: any): string {
   return "Community";
 }
 
-/**
- * Derived from the community-journals manifest paths, plus every journal JSON
- * file present in src/data/journals (so journals not yet listed in the manifest
- * are still statically generated and crawlable). This gives Next the full,
- * pre-computed list of slugs instead of leaving the route dynamic.
- */
-export function generateStaticParams(): { slug: string }[] {
-  const manifestSlugs = (journals as Array<{ path?: string }>)
-    .map((j) => j?.path?.split("/").pop())
-    .filter(Boolean) as string[];
-
-  let fileSlugs: string[] = manifestSlugs;
-  try {
-    // Runs only at build time on the server; Node fs is never bundled client-side.
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const fs = require("node:fs");
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const path = require("node:path");
-    const dir = path.join(process.cwd(), "src/data/journals");
-    fileSlugs = fs
-      .readdirSync(dir)
-      .filter((f: string) => f.endsWith(".json") && f !== "default.json")
-      .map((f: string) => f.replace(/\.json$/, ""));
-  } catch {
-    // Fall back to the manifest list if the filesystem is unavailable.
-    fileSlugs = manifestSlugs;
-  }
-
-  const unique = Array.from(new Set([...fileSlugs, ...manifestSlugs]));
-  return unique.map((slug) => ({ slug }));
-}
-
 export async function generateMetadata({
   params,
 }: JournalSlugPageProps): Promise<Metadata> {
