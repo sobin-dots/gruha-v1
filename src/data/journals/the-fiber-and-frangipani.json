@@ -13,7 +13,7 @@
     "learnings": [
       {
         "icon": "Wifi",
-        "text": "'Dual fiber' survives 40% of verification calls"
+        "text": "'Dual fiber available' claims survive about 60% of verification calls."
       },
       {
         "icon": "Scale",
@@ -349,7 +349,7 @@
         {
           "icon": "Wifi",
           "title": "The Fiber-Panel Test",
-          "description": "'Dual fiber available' survives about 40% of verification calls — the building's actual ISP panel, photographed from the riser, is the only document that counts."
+          "description": "'Dual fiber available' survives about 60% of verification calls — the building's actual ISP panel, photographed from the riser, is the only document that counts."
         },
         {
           "icon": "Scale",
@@ -419,7 +419,8 @@
             "lat": 13.036226,
             "lng": 77.589725
           },
-          "imagegenerationprompt": "A modern architectural vector view of the Hebbal residential corridor with the Raintree park township, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+          "imageSrc": "/journals/the-fiber-and-frangipani/hebbal.png",
+          "imagegenerationprompt": "A premium residential township in Hebbal, Bengaluru, around L&T Raintree Boulevard — a modern landscaped park development with apartment towers set among lawns, mature trees, paved internal roads, walkways and community green spaces, the township architecture as the main subject, viewed from a pedestrian-height street perspective, square editorial composition, soft morning daylight, realistic Indian vegetation and materials, calm premium residential atmosphere, subtle natural shadows, photorealistic architectural/editorial photography, restrained warm-neutral palette. Square editorial real-estate photograph, photorealistic architectural photography, natural Indian daylight, realistic materials and vegetation, restrained warm-neutral palette, subtle cinematic depth, premium but believable residential atmosphere, clean composition, no visible text, no readable signage, no logos, no advertisements, no map graphics, no UI elements, no watermarks."
         },
         {
           "title": "Hennur (Base Camp)",
@@ -431,7 +432,7 @@
             "lng": 77.6335273
           },
           "imageSrc": "/journals/the-fiber-and-frangipani/hennur.png",
-          "imagegenerationprompt": "A modern architectural vector view of the Hennur residential corridor with morning school-run traffic, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+          "imagegenerationprompt": "An established residential neighborhood in Hennur, Bengaluru, with modern apartment communities along broad tree-lined residential roads, landscaped compounds, low-rise and mid-rise apartment blocks, and a lived-in family atmosphere with only subtle everyday street activity kept in the background, the neighborhood architecture as the main subject, viewed from a street perspective, square editorial composition, bright soft daylight, realistic Indian vegetation and materials, calm practical residential atmosphere, photorealistic architectural/editorial photography, restrained warm-neutral palette. Square editorial real-estate photograph, photorealistic architectural photography, natural Indian daylight, realistic materials and vegetation, restrained warm-neutral palette, subtle cinematic depth, premium but believable residential atmosphere, clean composition, no visible text, no readable signage, no logos, no advertisements, no map graphics, no UI elements, no watermarks."
         },
         {
           "title": "Thanisandra",
@@ -443,7 +444,7 @@
             "lng": 77.6144357
           },
           "imageSrc": "/journals/the-fiber-and-frangipani/thanisandra.png",
-          "imagegenerationprompt": "A modern architectural vector view of Thanisandra's large township developments, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+          "imagegenerationprompt": "A large-scale residential township zone in Thanisandra, Bengaluru, showing several modern apartment towers in clustered developments with extensive open landscaping, internal roads, parks and newer urban-scale infrastructure in an emerging corridor, the township scale and greenery read clearly from a slightly elevated vantage, the residential developments as the main subject, square editorial composition, bright daylight, realistic Indian architecture and vegetation, spacious developing residential atmosphere, photorealistic architectural/editorial photography, restrained warm-neutral palette. Square editorial real-estate photograph, photorealistic architectural photography, natural Indian daylight, realistic materials and vegetation, restrained warm-neutral palette, subtle cinematic depth, premium but believable residential atmosphere, clean composition, no visible text, no readable signage, no logos, no advertisements, no map graphics, no UI elements, no watermarks."
         },
         {
           "title": "Jakkur Arc",
@@ -455,7 +456,7 @@
             "lng": 77.6055
           },
           "imageSrc": "/journals/the-fiber-and-frangipani/jakkur.png",
-          "imagegenerationprompt": "A modern architectural vector view of the Jakkur arc with premium towers and lakeside greenery, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
+          "imagegenerationprompt": "A premium, quieter residential arc in Jakkur, Bengaluru, with elegant apartment towers surrounded by greenery and lakeside landscape, spacious landscaped grounds, tree-lined avenues and a calm upscale residential character, the towers as the main subject, viewed from a street and slightly elevated perspective, square editorial composition, soft afternoon daylight, realistic Indian vegetation and water, serene premium residential atmosphere, photorealistic architectural/editorial photography, restrained warm-neutral palette. Square editorial real-estate photograph, photorealistic architectural photography, natural Indian daylight, realistic materials and vegetation, restrained warm-neutral palette, subtle cinematic depth, premium but believable residential atmosphere, clean composition, no visible text, no readable signage, no logos, no advertisements, no map graphics, no UI elements, no watermarks."
         }
       ],
       "consideredAreasLabel": "Other areas considered: the gated-villa reel (detour, unnamed) • Mysuru (grandparent orbit, kept as calendared visits, not a move)",
@@ -590,16 +591,16 @@
           "name": "Bhartiya City Nikoo Homes",
           "price": "₹1.31–2.9 Cr",
           "possession": "Newer phases 2029",
-          "psf": "~₹12,100/sqft",
+          "psf": "~₹11,950/sqft",
           "location": "Thanisandra",
           "imageSrc": "/journals/the-fiber-and-frangipani/projects/Bhartiya-City-Nikoo-Homes.webp"
         },
         {
           "title": "Value Alternative",
           "name": "Purva Palm Beach",
-          "price": "₹1.15–1.65 Cr",
+          "price": "₹1.29–1.89 Cr",
           "possession": "Ready",
-          "psf": "~₹13.5–14K/sqft",
+          "psf": "~₹12,850/sqft",
           "location": "Hennur Road",
           "imageSrc": "/journals/the-fiber-and-frangipani/projects/Purva-Palm-Beach.jpg"
         }
@@ -668,7 +669,7 @@
       "lessons": [
         {
           "title": "The fiber panel, photographed, is the only document that counts.",
-          "description": "'Dual fiber available' survives about 40% of verification calls — six buildings' panels were photographed from the riser; four were crossed out before a single site visit.",
+          "description": "'Dual fiber available' survives about 60% of verification calls — six buildings' panels were photographed from the riser; four were crossed out before a single site visit.",
           "imageSrc": "/journals/the-fiber-and-frangipani/lesson-1.png",
           "imagegenerationprompt": "A 3D vector illustration of a fiber optic panel photographed inside a building riser with a verification checkmark, rendered in an 80% greyscale monochrome palette (#1E1E1E to #FFFFFF) with a Warm Coral #FF8A65 focal accent, Scandinavian minimalism, Apple-inspired product aesthetics, soft ambient lighting, clean white background, editorial quality."
         },
@@ -777,7 +778,7 @@
       "monthlyLearnings": [
         {
           "month": "MONTH 1",
-          "headline": "'Dual fiber available' survives about 40% of verification calls",
+          "headline": "'Dual fiber available' survives about 60% of verification calls",
           "body": "The building's actual ISP panel, photographed, is the only document that counts — six buildings' panels were captured from the riser; four were crossed out before a single site visit.",
           "turning": false
         },
